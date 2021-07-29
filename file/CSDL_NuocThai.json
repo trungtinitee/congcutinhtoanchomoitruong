@@ -1,0 +1,89 @@
+{
+  "NTSH": [
+    {
+      "Ten": "pH",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_pH",
+      "GiaTri": "8"
+    },
+    {
+      "Ten": "BOD<sub>5</sub>",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_BOD5",
+      "GiaTri": 5
+    },
+    {
+      "Ten": "TSS",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TSS",
+      "GiaTri": 60
+    },
+    {
+      "Ten": "TDS",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TDS",
+      "GiaTri": 10
+    },
+    {
+      "Ten": "H<sub>2</sub>S",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_H2S",
+      "GiaTri": 20
+    },
+    {
+      "Ten": "NH<sub>3</sub>",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NH3",
+      "GiaTri": 25
+    },
+    {
+      "Ten": "NO<sub>3</sub><sup>-</sup>",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NO3-",
+      "GiaTri": 50
+    },
+    {
+      "Ten": "Dầu mỡ động, thực vật",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV",
+      "GiaTri": 100
+    },
+    {
+      "Ten": "Tổng các chất hoạt động bề mặt",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM",
+      "GiaTri": 120
+    },
+    {
+      "Ten": "PO<sub>4</sub><sup>3-</sup>",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_PO43-",
+      "GiaTri": 140
+    },
+    {
+      "Ten": "Tổng Coliforms",
+      "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms",
+      "GiaTri": 150
+    }
+  ],
+  "QCVN": {
+    "QCVN142008": {
+      "CotA": {
+        "pH": "5 - 9",
+        "BOD5": 30,
+        "TSS": 50,
+        "TDS": 500,
+        "H2S": 1,
+        "NH3": 5,
+        "NO3-": 30,
+        "DMDTV": 10,
+        "TCCHDBM": 5,
+        "PO43-": 6,
+        "TColiforms": 3000
+      },
+      "CotB": {
+        "pH": "5 - 9",
+        "BOD5": 50,
+        "TSS": 100,
+        "TDS": 1000,
+        "H2S": 4,
+        "NH3": 10,
+        "NO3-": 50,
+        "DMDTV": 20,
+        "TCCHDBM": 10,
+        "PO43-": 10,
+        "TColiforms": 5000
+      }
+    }
+  }
+}

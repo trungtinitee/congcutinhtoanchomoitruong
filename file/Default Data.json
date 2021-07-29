@@ -1,0 +1,191 @@
+{
+  "Core": {
+    "LinhVucTinhToan": [
+      {
+        "Ten": "1.1 Lĩnh vực cần tính toán cho môi trường",
+        "ID": "comboBox_LinhVucTinhToan",
+        "GiaTri": 1
+      }
+    ],
+    "NuocThai": [
+      {
+        "Ten": "1.2 Loại nước thải cần xử lý",
+        "ID": "comboBox_XuLyNuocThai",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "3.1 Lưu lượng",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai",
+        "GiaTri": 500
+      },
+      {
+        "Ten": "3.2 Diện tích đất hữu dụng",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DienTichDat",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "pH",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_pH",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "BOD5",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_BOD5",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "TSS",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TSS",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "TDS",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TDS",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "H2S",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_H2S",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "NH3",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NH3",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "NO3-",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NO3-",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "Dầu mỡ động, thực vật",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "Tổng các chất hoạt động bề mặt",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "PO43-",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_PO43-",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "Tổng Coliforms",
+        "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.1 Nguồn tiếp nhận nước thải",
+        "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "4.1 Quy chuẩn áp dụng",
+        "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_QCVN",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "4.3 Hệ số chuyển đổi",
+        "TenCon": "K",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoK",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "4.3 Hệ số chuyển đổi",
+        "TenCon": "Kq",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoKq",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "4.3 Hệ số chuyển đổi",
+        "TenCon": "Kf",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoKf",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "pH",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_pH",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "BOD5",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_BOD5",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "TSS",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TSS",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "TDS",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TDS",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "H2S",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_H2S",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "NH3",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_NH3",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "NO3-",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_NO3-",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "Dầu mỡ động, thực vật",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_DMDTV",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "Tổng các chất hoạt động bề mặt",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TCCHDBM",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "PO43-",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_PO43-",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "Tổng Coliforms",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
+        "GiaTri": 0
+      }
+    ],
+    "NuocCap": [],
+    "KhiThai": [],
+    "ChatThaiRan": []
+  }
+}

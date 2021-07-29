@@ -1,0 +1,134 @@
+/* General format*/
+
+body {
+    color: #000000;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: normal;
+}
+
+h1,
+h2, 
+h3, 
+h4,
+h5, 
+h6 {
+    color: #ffffff;
+}
+
+.core{
+    margin: 50px 0px;
+}
+
+.title-header{
+    font-weight: bold;
+    text-align: center;
+    background: #04aa6d;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+}
+
+.title-1{
+    font-weight: bold;
+    background: #04aa6d;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+.title-2{
+    color: #04aa6d;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.group-unit{
+    border: 1px solid #04aa6d;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    background: #f8f9fa;
+    display: none;
+}
+
+.group-unit-alway-show{
+    border: 1px solid #04aa6d;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    background: #f8f9fa;
+}
+
+@media (max-width: 576px) {
+    .fix-full-screen{
+        width: 100%;
+    }
+}
+
+.fix-full-screen{
+    margin-bottom: 5px;
+}
+
+.title-table{
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-control{
+    text-align: center;
+}
+
+.btn-calculator{
+    position: fixed;
+    bottom: 15px;
+    right: 0px;
+    z-index: 20;
+}
+
+.btn-csdl{
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+/*Hiển thị thông tin trợ giúp*/
+.popover-header{
+    background: #0d6efd;
+    color: #ffffff;
+}
+
+.popover-body{
+    background: #dbe9ff;
+    color: #000000;
+}
+
+.popover{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-suggest{
+    display: inline-block;
+    position: absolute;
+    text-decoration: none;
+    color: #04aa6d;
+    right: -10px;
+}
+.btn-suggest i{
+    font-size: larger;
+}
+
+/*Modal hiển thị*/
+.modal-header{
+    background: #0d6efd;
+    color: #ffffff;
+}
+.modal-body, .modal-footer{
+    background: #dbe9ff;
+    color: #000000;
+}
+
+.modal-footer{
+    border-top: 1px solid #8e918e;
+}

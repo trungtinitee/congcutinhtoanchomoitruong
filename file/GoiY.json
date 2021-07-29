@@ -1,0 +1,24 @@
+{
+    "GoiY": {
+        "NuocThai": [
+            {
+                "Ten": "3.1 Lưu lượng",
+                "ID": "info_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai",
+                "GiaTri": "<p>Lưu lượng nước thải được t&iacute;nh dựa tr&ecirc;n lượng nước ph&aacute;t sinh trong một ng&agrave;y của dự &aacute;n:</p> <p>- Nếu l&agrave; nước thải sinh hoạt: <strong>định mức sử dụng nước * số người</strong></p> <p>Trong đ&oacute;:</p> <p>+ Định mức sử dụng nước: 50 - 100 l&iacute;t/người/ng&agrave;y</p> <p>+ Số người: tổng số lao động trung b&igrave;nh tại dự &aacute;n</p> <p>- Nếu l&agrave; nước thải c&ocirc;ng nghiệp: <strong>định mức sử dụng nước * khối lượng sản phẩm</strong></p> <p>Trong đ&oacute;:</p> <p>+ Định mức sử dụng nước: khối lượng nước thải ph&aacute;t sinh (nước cấp sử dụng) cho mỗi một lượng sản phẩm l&agrave;m ra</p> <p>+ Khối lượng sản phẩm: lượng sản phẩm sản xuất mỗi ng&agrave;y</p> <p>- Ngo&agrave;i ra, c&ograve;n c&oacute; thể ước t&iacute;nh dựa tr&ecirc;n lưu lượng xả thải của c&aacute;c dự &aacute;n kh&aacute;c c&oacute; loại h&igrave;nh sản xuất, kinh doanh tương tự.</p>"
+            },
+            {
+                "Ten": "3.2 Diện tích đất hữu dụng",
+                "ID": "info_xuLyNuocThai_ThongThongSoDauVao_DienTichDat",
+                "GiaTri": "<p>Diện t&iacute;ch đất để x&acirc;y dựng hệ thống xử l&yacute; nước thải</p>"
+            },
+            {
+                "Ten": "3.Nồng độ các chất ô nhiễm",
+                "ID": "info_xuLyNuocThai_ThongThongSoDauVao_NongDoCacChatONhiem",
+                "GiaTri": "<p>Nồng độ c&aacute;c chất &ocirc; nhiễm được tham khảo từ c&aacute;c dự &aacute;n c&oacute; loại h&igrave;nh tương tự hoặc từ kết quả ph&acirc;n t&iacute;ch nước thải của dự &aacute;n (đối với dự &aacute;n đ&atilde; hoạt động v&agrave; muốn tăng c&ocirc;ng suất).</p> <p>Ngo&agrave;i ra, nếu kh&ocirc;ng c&oacute; số liệu tham khảo (kh&ocirc;ng c&oacute; kết quả ph&acirc;n t&iacute;ch). Bạn c&oacute; thể nhấn n&uacute;t &quot;Số liệu từ cơ sở dữ liệu&quot; để lấy số liệu m&agrave; ch&uacute;ng t&ocirc;i thu thập được.</p>"
+            }
+        ],
+        "NuocCap": [],
+        "KhiThai": [],
+        "ChatThaiRan": []
+    }
+}
