@@ -70,6 +70,7 @@ h6 {
 
 .fix-full-screen{
     margin-bottom: 5px;
+    position: relative;
 }
 
 .title-table{
@@ -114,6 +115,7 @@ h6 {
     text-decoration: none;
     color: #04aa6d;
     right: -10px;
+    top: 0px;
 }
 .btn-suggest i{
     font-size: larger;
