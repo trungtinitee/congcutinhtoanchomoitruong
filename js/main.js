@@ -217,36 +217,6 @@ function XuLyHienThongTinGoiYTrongModal() {
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
-/*var QCVN = {
-    "QCVN142008": {
-        "CotA": {
-            "pH": "5 - 9",
-            "BOD5": 30,
-            "TSS": 50,
-            "TDS": 500,
-            "H2S": 1,
-            "NH3": 5,
-            "NO3-": 30,
-            "DMDTV": 10,
-            "TCCHDBM": 5,
-            "PO43-": 6,
-            "TColiforms": 3000
-        },
-        "CotB": {
-            "pH": "5 - 9",
-            "BOD5": 50,
-            "TSS": 100,
-            "TDS": 1000,
-            "H2S": 4,
-            "NH3": 10,
-            "NO3-": 50,
-            "DMDTV": 20,
-            "TCCHDBM": 10,
-            "PO43-": 10,
-            "TColiforms": 5000
-        }
-    }
-}*/
 const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
 var jsonCSDL_NuocThai;
 
@@ -485,7 +455,6 @@ document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", fun
         } else if (linhVucTinhToan === 4) {
             NhapDuLieuTuTepTaiLen("ChatThaiRan");
         }
-        console.log(linhVucTinhToan);
         HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
     } else {
         HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
@@ -578,7 +547,7 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
     });
 
 //5.1.2 Xử lý cho nước thải
-//Lấy data từ sources code khi load trang
+//Lấy CSDL nước thải từ sources code khi load trang
 LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
     jsonCSDL_NuocThai = duLieuTraVe;
 });
