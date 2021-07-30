@@ -162,14 +162,14 @@ function LayDuLieuJsonTuSourcesCode(duongDan, hamXuLy) {
 //Hiện thông tin trợ giúp cho trang web trong modal
 function XuLyHienThongTinGoiYTrongModal() {
     //Khai báo biến
-    
+
     //Code
     //Xử lý cho nước thải
     for (i = 0; i < jsonGoiY.GoiY.NuocThai.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.NuocThai[i].ID).addEventListener("click", function(){
-            for (j = 0; j < jsonGoiY.GoiY.NuocThai.length; j++){
-                if (jsonGoiY.GoiY.NuocThai[j].ID === this.id){
+        document.getElementById(jsonGoiY.GoiY.NuocThai[i].ID).addEventListener("click", function () {
+            for (j = 0; j < jsonGoiY.GoiY.NuocThai.length; j++) {
+                if (jsonGoiY.GoiY.NuocThai[j].ID === this.id) {
                     document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.NuocThai[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
@@ -178,10 +178,10 @@ function XuLyHienThongTinGoiYTrongModal() {
     }
     //Xử lý cho nước cấp
     for (i = 0; i < jsonGoiY.GoiY.NuocCap.length; i++) {
-         //Tạo sự kiện
-         document.getElementById(jsonGoiY.GoiY.NuocCap[i].ID).addEventListener("click", function(){
-            for (j = 0; j < jsonGoiY.GoiY.NuocCap.length; j++){
-                if (jsonGoiY.GoiY.NuocCap[j].ID === this.id){
+        //Tạo sự kiện
+        document.getElementById(jsonGoiY.GoiY.NuocCap[i].ID).addEventListener("click", function () {
+            for (j = 0; j < jsonGoiY.GoiY.NuocCap.length; j++) {
+                if (jsonGoiY.GoiY.NuocCap[j].ID === this.id) {
                     document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.NuocCap[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
@@ -191,9 +191,9 @@ function XuLyHienThongTinGoiYTrongModal() {
     //Xử lý cho khí thải
     for (i = 0; i < jsonGoiY.GoiY.KhiThai.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.KhiThai[i].ID).addEventListener("click", function(){
-            for (j = 0; j < jsonGoiY.GoiY.KhiThai.length; j++){
-                if (jsonGoiY.GoiY.KhiThai[j].ID === this.id){
+        document.getElementById(jsonGoiY.GoiY.KhiThai[i].ID).addEventListener("click", function () {
+            for (j = 0; j < jsonGoiY.GoiY.KhiThai.length; j++) {
+                if (jsonGoiY.GoiY.KhiThai[j].ID === this.id) {
                     document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.KhiThai[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
@@ -202,10 +202,10 @@ function XuLyHienThongTinGoiYTrongModal() {
     }
     //Xử lý cho chất thải rắn
     for (i = 0; i < jsonGoiY.GoiY.ChatThaiRan.length; i++) {
-         //Tạo sự kiện
-         document.getElementById(jsonGoiY.GoiY.ChatThaiRan[i].ID).addEventListener("click", function(){
-            for (j = 0; j < jsonGoiY.GoiY.ChatThaiRan.length; j++){
-                if (jsonGoiY.GoiY.ChatThaiRan[j].ID === this.id){
+        //Tạo sự kiện
+        document.getElementById(jsonGoiY.GoiY.ChatThaiRan[i].ID).addEventListener("click", function () {
+            for (j = 0; j < jsonGoiY.GoiY.ChatThaiRan.length; j++) {
+                if (jsonGoiY.GoiY.ChatThaiRan[j].ID === this.id) {
                     document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.ChatThaiRan[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
@@ -542,9 +542,9 @@ LayDuLieuJsonTuSourcesCode(duongDanGoiY, function (duLieuTraVe) {
 
 //Mặc định chạy hiển thị gợi ý trên toàn bộ web
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-        return new bootstrap.Popover(popoverTriggerEl)
-    });
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+});
 
 //5.1.2 Xử lý cho nước thải
 //Lấy CSDL nước thải từ sources code khi load trang
@@ -552,6 +552,84 @@ LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
     jsonCSDL_NuocThai = duLieuTraVe;
 });
 
+//Vẽ sơ đồ công nghệ dựa trên giá trị textarea đầu vào
+function VeSoDoCongNghe(idCuaTextAreaChuaDuLieu, idHienThiSoDoCongNghe) {
+    //Khai báo biến
+    var bienVe = document.getElementById(idCuaTextAreaChuaDuLieu).value;
+    var dinhDangChoSoDo = {
+        'x': 0,
+        'y': 0,
+        'line-width': 2, //độ dày nét
+        'line-length': 25, //độ dài đường nối
+        'text-margin': 10, //padding text
+        'font-size': 18, //size chữ
+        'font': 'normal',
+        'font-family': 'Arial',
+        'font-weight': 'normal',
+        'font-color': 'black',
+        'line-color': 'black',
+        'element-color': 'black',
+        'fill': 'white', //màu nền rectange
+        'yes-text': 'yes',
+        'no-text': 'no',
+        'arrow-end': 'block',
+        'scale': 1,
+        // Style cho khoá
+        'symbols': {
+            'start': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold'
+            },
+            'end': {
+                'class': 'end-element',
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold'
+            },
+            'operation': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'inputoutput': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold'
+            },
+            'subroutine': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'condition': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'parallel': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+        },
+        // even flowstate support ;-)
+        'flowstate': {
+            'past': { 'fill': '#CCCCCC', 'font-size': 18 },
+            'current': { 'fill': 'yellow', 'font-color': 'red', 'font-weight': 'bold' },
+            'future': { 'fill': 'white' },
+            'request': { 'fill': 'blue' },
+            'invalid': { 'fill': '#444444' },
+            'approved': { 'fill': '#58C4A3', 'font-size': 18, 'yes-text': 'APPROVED', 'no-text': 'n/a' },
+            'rejected': { 'fill': '#C45879', 'font-size': 18, 'yes-text': 'n/a', 'no-text': 'REJECTED' }
+        }
+    }
+    //Code
+    chart = flowchart.parse(bienVe);
+    chart.drawSVG(idHienThiSoDoCongNghe, dinhDangChoSoDo);
+}
 
-
-
+VeSoDoCongNghe("nuocThaiSinhHoat_CotB", "soDoCongNghe");

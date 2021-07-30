@@ -18,7 +18,7 @@ h6 {
 }
 
 .core{
-    margin: 50px 0px;
+    margin: 25px 0px;
 }
 
 .title-header{
@@ -138,4 +138,13 @@ h6 {
 
 .modal-footer{
     border-top: 1px solid #8e918e;
+}
+
+/*Sơ đồ công nghệ*/
+.fix-SoDoCongNghe{
+    text-align: center;
+}
+.fix-SoDoCongNghe svg{
+    max-width: 100%;
+    height: auto;
 }

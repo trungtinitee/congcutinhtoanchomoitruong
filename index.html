@@ -329,7 +329,7 @@
               <span class="input-group-text">-</span>
               <!--Nút trợ giúp-->
               <a id="info_xuLyNuocThai_YeuCauDauRa_HeSoKqKf" class="btn-suggest btn-suggest-comboBox"><i
-                class="fas fa-info-circle"></i></a>
+                  class="fas fa-info-circle"></i></a>
             </div>
           </div>
           <div class="col-8 fix-full-screen" id="heSoKQC402">
@@ -348,6 +348,9 @@
               <span class="input-group-text">pH</span>
               <input disabled type="text" class="form-control" aria-label="pH" id="input_xuLyNuocThai_YeuCauDauRa_pH">
               <span class="input-group-text">-</span>
+              <!--Nút trợ giúp-->
+              <a id="info_xuLyNuocThai_YeuCauDauRa_TinhToanNongDoChatONhiem" class="btn-suggest btn-suggest-comboBox"><i
+                  class="fas fa-info-circle"></i></a>
             </div>
           </div>
           <div class="col-8 fix-full-screen">
@@ -435,14 +438,15 @@
       <!-- Kết thúc yêu cầu đầu ra-->
 
       <!-- Bắt đầu lựa chọn công nghệ-->
-      <div class="row group-unit" id="section_XuLyNuocThai_LuaChonCongNghe">
+      <div class="row group-unit-alway-show" id="section_XuLyNuocThai_LuaChonCongNghe">
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LuaChonCongNghe"
           aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe">V. Lựa chọn công nghệ</h4>
-        <div class="collapse" id="xuLyNuocThai_LuaChonCongNghe">
+        <div class="collapse show" id="xuLyNuocThai_LuaChonCongNghe">
           <h5 class="title-2">5.1 Công nghệ được đề xuất</h5>
-          <!-- Đối với nước thải sinh hoạt-->
-          <p>Nước thải đầu vào -> Hố gom -> Bể điều hoà -> Bể sinh học thiếu khí -> Bể sinh học hiếu khí -> Bể lắng ->
-            Bể khử trùng -> Nước thải đầu ra</p>
+          <!--Tạo sơ đồ công nghệ được đề xuất-->
+          <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
+          <!--Sơ đồ công nghệ-->
+
           <h5 class="title-2">5.2 Công nghệ lựa chọn</h5>
 
         </div>
@@ -452,11 +456,41 @@
 
   </div>
 
+  <!--Bắt đầu cơ sở dữ liệu cho sơ đồ công nghệ-->
+  <div style="display: none;">
+    <textarea id="nuocThaiSinhHoat_CotB">
+      dauVao=>start: Nước thải đầu vào
+      hoThu=>operation: Hố thu
+      dieuHoa=>operation: Bể điều hoà
+      thieuKhi=>operation: Bể sinh học thiếu khí
+      hieuKhi=>parallel: Bể sinh học hiếu khí
+      lang=>parallel: Bể lắng
+      khuTrung=>operation: Khử trùng
+      dauRa=>end: Nước thải sau xử lý QCVN 14:2008/BTNMT, Cột B
+      hoanLuuBun=>parallel: Hoàn lưu bùn
+      hoanLuuNuoc=>operation: Hoàn lưu nước
+      thaiBoBun=>operation: Thải bỏ bùn
+      test=>operation: Tín
+      dauVao->hoThu->dieuHoa->thieuKhi->hieuKhi
+      hieuKhi(path1, right)->hoanLuuNuoc(top)->thieuKhi
+      hieuKhi(path2, bottom)->lang
+      lang(path1, right)->hoanLuuBun(path1, top)->hieuKhi
+      hoanLuuBun(path2, bottom)->thaiBoBun
+      lang(path2, bottom)->khuTrung->dauRa
+      lang(path3, left)->test      
+    </textarea>
+  </div>
+  <!--Kết thúc cơ sở dữ liệu cho sơ đồ công nghệ-->
+
   <!-- JavaScript Libraries -->
   <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
+  <!--Flowchart-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+  <script src="./lib/flowchart-latest.js"></script>
 
   <!-- Template Javascript -->
   <script src="./js/main.js"></script>
