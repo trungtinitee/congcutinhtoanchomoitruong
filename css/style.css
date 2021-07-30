@@ -131,6 +131,11 @@ h6 {
     color: #000000;
 }
 
+.modal-body img{
+    max-width: 100%;
+    height: auto;
+}
+
 .modal-footer{
     border-top: 1px solid #8e918e;
 }
