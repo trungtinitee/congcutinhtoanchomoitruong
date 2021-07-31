@@ -92,12 +92,12 @@
       {
         "Ten": "4.1 Nguồn tiếp nhận nước thải",
         "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "4.1 Quy chuẩn áp dụng",
         "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_QCVN",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "4.3 Hệ số chuyển đổi",
@@ -179,6 +179,12 @@
       },
       {
         "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "TenCon": "Tổng Coliforms",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "5.1 Công nghệ đề xuất",
         "TenCon": "Tổng Coliforms",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
         "GiaTri": 0

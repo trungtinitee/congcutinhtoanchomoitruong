@@ -1,6 +1,7 @@
 //----------------------------------------------------------------I. BIẾN CHUNG ----------------------------------------------------------------
 var jsonCore, jsonGoiY;
 const duongDanGoiY = "./file/GoiY.json";
+var kiemTraTruocKhiTinh = false;
 
 //---------------------------------------------------------------II. HÀM CHUNG ----------------------------------------------------------------------
 //2.1 Ẩn đối tượng
@@ -72,6 +73,9 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
     }
     if (bienThongBao !== "") {
         HienThiThongBao(bienThongBao);
+        kiemTraTruocKhiTinh = false;
+    } else {
+        kiemTraTruocKhiTinh = true;
     }
     return kiemTra;
 }
@@ -100,6 +104,7 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
     //Ẩn hiện thông tin phù hợp
     AnHienThongTinTheoLinhVucTinhToan();
     AnHienHeSoKKQKF();
+    XuLySoDoCongNghe();
 }
 
 //Ẩn hiện thông tin chung
@@ -214,6 +219,89 @@ function XuLyHienThongTinGoiYTrongModal() {
     }
 }
 
+//Vẽ sơ đồ công nghệ dựa trên Dữ liệu + id hiển thị
+function VeSoDoCongNghe(bienDuLieu, idHienThiSoDoCongNghe) {
+    //Khai báo biến
+    var dinhDangChoSoDo = {
+        'x': 0,
+        'y': 0,
+        'line-width': 1.5, //độ dày nét
+        'line-length': 25, //độ dài đường nối
+        'text-margin': 10, //padding text
+        'font-size': 18, //size chữ
+        'font': 'normal',
+        'font-family': 'Arial',
+        'font-weight': 'normal',
+        'font-color': 'black',
+        'line-color': 'black',
+        'element-color': 'black',
+        'fill': 'white', //màu nền rectange
+        'yes-text': 'yes',
+        'no-text': 'no',
+        'arrow-end': 'block',
+        'scale': 1,
+        // Style cho khoá
+        'symbols': {
+            'start': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold',
+                "line-width": 2.5
+            },
+            'end': {
+                'class': 'end-element',
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold',
+                "line-width": 2.5
+            },
+            'operation': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'inputoutput': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white',
+                'font-weight': 'bold'
+            },
+            'subroutine': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'condition': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+            'parallel': {
+                'font-color': 'black',
+                'element-color': 'black',
+                'fill': 'white'
+            },
+        },
+        // even flowstate support ;-)
+        'flowstate': {
+            'past': { 'fill': '#CCCCCC', 'font-size': 18 },
+            'current': { 'fill': 'yellow', 'font-color': 'red', 'font-weight': 'bold' },
+            'future': { 'fill': 'white' },
+            'request': { 'fill': 'blue' },
+            'invalid': { 'fill': '#444444' },
+            'approved': { 'fill': '#58C4A3', 'font-size': 18, 'yes-text': 'APPROVED', 'no-text': 'n/a' },
+            'rejected': { 'fill': '#C45879', 'font-size': 18, 'yes-text': 'n/a', 'no-text': 'REJECTED' }
+        }
+    }
+
+    //Code
+    document.getElementById(idHienThiSoDoCongNghe).innerHTML = "";
+    chart = flowchart.parse(bienDuLieu);
+    chart.drawSVG(idHienThiSoDoCongNghe, dinhDangChoSoDo);
+}
+
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
@@ -246,13 +334,13 @@ function XuLyHeSoQuyChuan(QCApDung) {
         {
             "Ten": "4.2 Quy chuẩn áp dụng",
             "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_QCVN",
-        },
+        }
     ];
     var jsonKiemTraQC14 = [
         {
             "Ten": "4.3 Hệ số chuyển đổi",
             "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoK",
-        },
+        }
     ];
     var jsonKiemTraQC4011 = [
         {
@@ -262,7 +350,7 @@ function XuLyHeSoQuyChuan(QCApDung) {
         {
             "Ten": "4.3 Hệ số chuyển đổi (Kf)",
             "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoKf",
-        },
+        }
     ];
 
     //Code
@@ -323,6 +411,24 @@ function AnHienHeSoKKQKF() {
         HienDoiTuong(mang_HeSoQC4011);
     }
 }
+
+//Xử lý đưa ra sơ đồ công nghệ phù hợp
+function XuLySoDoCongNghe() {
+    //Khai báo biến
+    var quyChuan, loaiNuocThai;
+
+    //Code
+    loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
+    quyChuan = document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex;
+    //Đối với nước sinh hoạt + cột A
+    if (loaiNuocThai === 1 && quyChuan === 1) {
+        //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
+        VeSoDoCongNghe(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri, jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].IDHienThi);
+    } else if (loaiNuocThai === 1 && quyChuan === 2) {
+        VeSoDoCongNghe(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri, jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].IDHienThi);
+    }
+}
+
 
 //3.1.3 Chương trình chính xử lý nước thải
 function TinhToanChoXuLyNuocThai() {
@@ -388,7 +494,12 @@ function TinhToanChoXuLyNuocThai() {
     if (KiemTraDuLieuVao(jsonKiemTra)) {
         if (loaiNuocThaiXuLy === 1) {
             //Đối với nước thải sinh hoạt
-            XuLyHeSoQuyChuan(1);
+            if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTSH)) {
+                XuLyHeSoQuyChuan(1);
+                if (kiemTraTruocKhiTinh === true) {
+
+                }
+            }
         } else if (loaiNuocThaiXuLy === 2) {
         } else if (loaiNuocThaiXuLy === 3) {
         }
@@ -495,6 +606,7 @@ document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").addEv
     } else {
         document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
     }
+    XuLySoDoCongNghe();
 });
 
 //4.2.3 Thông số đầu vào nhập từ cơ sở dữ liệu
@@ -551,85 +663,3 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
     jsonCSDL_NuocThai = duLieuTraVe;
 });
-
-//Vẽ sơ đồ công nghệ dựa trên giá trị textarea đầu vào
-function VeSoDoCongNghe(idCuaTextAreaChuaDuLieu, idHienThiSoDoCongNghe) {
-    //Khai báo biến
-    var bienVe = document.getElementById(idCuaTextAreaChuaDuLieu).value;
-    var dinhDangChoSoDo = {
-        'x': 0,
-        'y': 0,
-        'line-width': 2, //độ dày nét
-        'line-length': 25, //độ dài đường nối
-        'text-margin': 10, //padding text
-        'font-size': 18, //size chữ
-        'font': 'normal',
-        'font-family': 'Arial',
-        'font-weight': 'normal',
-        'font-color': 'black',
-        'line-color': 'black',
-        'element-color': 'black',
-        'fill': 'white', //màu nền rectange
-        'yes-text': 'yes',
-        'no-text': 'no',
-        'arrow-end': 'block',
-        'scale': 1,
-        // Style cho khoá
-        'symbols': {
-            'start': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white',
-                'font-weight': 'bold'
-            },
-            'end': {
-                'class': 'end-element',
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white',
-                'font-weight': 'bold'
-            },
-            'operation': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white'
-            },
-            'inputoutput': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white',
-                'font-weight': 'bold'
-            },
-            'subroutine': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white'
-            },
-            'condition': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white'
-            },
-            'parallel': {
-                'font-color': 'black',
-                'element-color': 'black',
-                'fill': 'white'
-            },
-        },
-        // even flowstate support ;-)
-        'flowstate': {
-            'past': { 'fill': '#CCCCCC', 'font-size': 18 },
-            'current': { 'fill': 'yellow', 'font-color': 'red', 'font-weight': 'bold' },
-            'future': { 'fill': 'white' },
-            'request': { 'fill': 'blue' },
-            'invalid': { 'fill': '#444444' },
-            'approved': { 'fill': '#58C4A3', 'font-size': 18, 'yes-text': 'APPROVED', 'no-text': 'n/a' },
-            'rejected': { 'fill': '#C45879', 'font-size': 18, 'yes-text': 'n/a', 'no-text': 'REJECTED' }
-        }
-    }
-    //Code
-    chart = flowchart.parse(bienVe);
-    chart.drawSVG(idHienThiSoDoCongNghe, dinhDangChoSoDo);
-}
-
-VeSoDoCongNghe("nuocThaiSinhHoat_CotB", "soDoCongNghe");

@@ -35,6 +35,11 @@
                 "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
                 "ID": "info_xuLyNuocThai_YeuCauDauRa_TinhToanNongDoChatONhiem",
                 "GiaTri": "<p>H&atilde;y nhấn n&uacute;t <strong>\"T&iacute;nh to&aacute;n\"</strong> để tự động t&iacute;nh to&aacute;n lại nồng độ c&aacute;c chất &ocirc; nhiễm dựa tr&ecirc;n quy chuẩn v&agrave; hệ số chuyển đổi.</p>"
+            },
+            {
+                "Ten": "5.2 Công nghệ lựa chọn",
+                "ID": "info_XuLyNuocThai_CongNghe_CongNgheLuaChon",
+                "GiaTri": "<p>Ch&uacute;ng t&ocirc;i sẽ đề xuất c&ocirc;ng nghệ dựa tr&ecirc;n loại nước thải v&agrave; th&ocirc;ng số đầu v&agrave;o đ&atilde; được nhập (theo sơ đồ c&ocirc;ng nghệ ph&iacute;a tr&ecirc;n).</p> <p>Bạn cũng c&oacute; thể chọn lại c&ocirc;ng nghệ ph&ugrave; hợp theo &yacute; bằng c&aacute;ch lựa chọn <strong>\"Chọn lại c&ocirc;ng nghệ\"</strong>.</p> <p>&nbsp;</p> <div id=\"gtx-trans\" style=\"position: absolute; left: -55px; top: -17px;\">&nbsp;</div>"
             }
         ],
         "NuocCap": [],

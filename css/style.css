@@ -8,20 +8,15 @@ body {
     line-height: normal;
 }
 
-h1,
-h2, 
-h3, 
-h4,
-h5, 
-h6 {
+h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
 }
 
-.core{
+.core {
     margin: 25px 0px;
 }
 
-.title-header{
+.title-header {
     font-weight: bold;
     text-align: center;
     background: #04aa6d;
@@ -29,7 +24,7 @@ h6 {
     margin-bottom: 30px;
 }
 
-.title-1{
+.title-1 {
     font-weight: bold;
     background: #04aa6d;
     padding: 10px 10px;
@@ -37,7 +32,7 @@ h6 {
     z-index: 10;
 }
 
-.title-2{
+.title-2 {
     color: #04aa6d;
     font-weight: bold;
     padding-top: 15px;
@@ -47,7 +42,7 @@ h6 {
     margin-right: 0px;
 }
 
-.group-unit{
+.group-unit {
     border: 1px solid #04aa6d;
     margin-bottom: 15px;
     padding-bottom: 7px;
@@ -55,7 +50,7 @@ h6 {
     display: none;
 }
 
-.group-unit-alway-show{
+.group-unit-alway-show {
     border: 1px solid #04aa6d;
     margin-bottom: 15px;
     padding-bottom: 7px;
@@ -63,53 +58,54 @@ h6 {
 }
 
 @media (max-width: 576px) {
-    .fix-full-screen{
+    .fix-full-screen {
         width: 100%;
     }
 }
 
-.fix-full-screen{
+.fix-full-screen {
     margin-bottom: 5px;
     position: relative;
 }
 
-.title-table{
+.title-table {
     font-weight: bold;
     text-align: center;
 }
 
-.form-control{
+.form-control {
     text-align: center;
 }
 
-.btn-calculator{
+.btn-calculator {
     position: fixed;
     bottom: 15px;
     right: 0px;
     z-index: 20;
 }
 
-.btn-csdl{
+.btn-csdl {
     margin-bottom: 5px;
     margin-top: 15px;
 }
 
 /*Hiển thị thông tin trợ giúp*/
-.popover-header{
+
+.popover-header {
     background: #0d6efd;
     color: #ffffff;
 }
 
-.popover-body{
+.popover-body {
     background: #dbe9ff;
     color: #000000;
 }
 
-.popover{
+.popover {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn-suggest{
+.btn-suggest {
     display: inline-block;
     position: absolute;
     text-decoration: none;
@@ -117,34 +113,45 @@ h6 {
     right: -10px;
     top: 0px;
 }
-.btn-suggest i{
+
+.btn-suggest i {
     font-size: larger;
 }
 
 /*Modal hiển thị*/
-.modal-header{
+
+.modal-header {
     background: #0d6efd;
     color: #ffffff;
 }
-.modal-body, .modal-footer{
+
+.modal-body, .modal-footer {
     background: #dbe9ff;
     color: #000000;
 }
 
-.modal-body img{
+.modal-body img {
     max-width: 100%;
     height: auto;
 }
 
-.modal-footer{
+.modal-footer {
     border-top: 1px solid #8e918e;
 }
 
 /*Sơ đồ công nghệ*/
-.fix-SoDoCongNghe{
+
+.fix-SoDoCongNghe {
     text-align: center;
 }
-.fix-SoDoCongNghe svg{
+
+.fix-SoDoCongNghe svg {
     max-width: 100%;
     height: auto;
+}
+
+/* Chọn nhiều trường trong comboBox */
+.format-multiselect button{
+    border: 1px solid #ced4da;
+    background-color: #fff;
 }

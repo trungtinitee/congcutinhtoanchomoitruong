@@ -10,7 +10,8 @@
   <!-- Css Libraries -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  <link rel="stylesheet"
+    href="./lib/bootstrap-select-lib/css/bootstrap-select.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
   <!-- Template Stylesheet -->
@@ -76,7 +77,7 @@
 
       <!-- Bắt đầu tạo nút đọc từ file -->
       <div class="row group-unit-alway-show">
-        <h4 class="title-1">Tải lên dữ liệu</h4>
+        <h4 class="title-1">TẢI LÊN DỮ LIỆU</h4>
         <div class="col fix-full-screen">
           <div class="input-group">
             <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
@@ -89,8 +90,8 @@
 
       <!-- Bắt đầu lĩnh vực tính toán-->
       <div class="row group-unit-alway-show">
-        <h4 class="title-1">I. Lĩnh vực tính toán</h4>
-        <h5 class="title-2">1.1 Chọn lĩnh vực cần tính toán cho môi trường</h5>
+        <h4 class="title-1">I. LĨNH VỰC TÍNH TOÁN</h4>
+        <h5 class="title-2">1.1 Lĩnh vực cần tính toán cho môi trường</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_LinhVucTinhToan">
             <option selected>Chọn một phương án...</option>
@@ -105,8 +106,8 @@
 
       <!-- Bắt đầu phương pháp xử lý-->
       <div class="row group-unit" id="section_XuLyNuocThai">
-        <h4 class="title-1">II. Xử lý nước thải</h4>
-        <h5 class="title-2">2.1 Chọn loại nước thải cần xử lý</h5>
+        <h4 class="title-1">II. XỬ LÝ NƯỚC THẢI</h4>
+        <h5 class="title-2">2.1 Loại nước thải cần xử lý</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai">
             <option selected>Chọn một phương án...</option>
@@ -119,8 +120,8 @@
         </div>
       </div>
       <div class="row group-unit" id="section_XuLyNuocCap">
-        <h4 class="title-1">II. Xử lý nước cấp</h4>
-        <h5 class="title-2">2.1 Chọn loại nước cấp cần xử lý</h5>
+        <h4 class="title-1">II. XỬ LÝ NƯỚC CẤP</h4>
+        <h5 class="title-2">2.1 Loại nước cấp cần xử lý</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocCap">
             <option selected>Chọn một phương án...</option>
@@ -130,8 +131,8 @@
         </div>
       </div>
       <div class="row group-unit" id="section_XuLyKhiThai">
-        <h4 class="title-1">II. Xử lý khí thải</h4>
-        <h5 class="title-2">2.1 Chọn loại khí thải cần xử lý</h5>
+        <h4 class="title-1">II. XỬ LÝ KHÍ THẢI</h4>
+        <h5 class="title-2">2.1 Loại khí thải cần xử lý</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_XuLyKhiThai">
             <option selected>Chọn một phương án...</option>
@@ -141,8 +142,8 @@
         </div>
       </div>
       <div class="row group-unit" id="section_XuLyChatThaiRan">
-        <h4 class="title-1">II. Xử lý chất thải rắn</h4>
-        <h5 class="title-2">2.1 Chọn phương pháp cần xử lý</h5>
+        <h4 class="title-1">II. XỬ LÝ CHẤT THẢI RẮN</h4>
+        <h5 class="title-2">2.1 Phương pháp cần xử lý</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_XuLyChatThaiRan">
             <option selected>Chọn một phương án...</option>
@@ -158,7 +159,7 @@
       <!-- Bắt đầu thông số đầu vào-->
       <div class="row group-unit" id="section_XuLyNuocThai_ThongSoDauVao">
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThongSoDauVao" aria-expanded="false"
-          aria-controls="xuLyNuocThai_ThongSoDauVao">III. Thông số đầu vào</h4>
+          aria-controls="xuLyNuocThai_ThongSoDauVao">III. THÔNG SỐ ĐẦU VÀO</h4>
         <div class="collapse" id="xuLyNuocThai_ThongSoDauVao">
           <h5 class="title-2">3.1 Lưu lượng</h5>
           <div class="col-8 fix-full-screen">
@@ -279,7 +280,7 @@
       <!-- Bắt đầu yêu cầu đầu ra-->
       <div class="row group-unit" id="section_XuLyNuocThai_YeuCauDauRa">
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_YeuCauDauRa" aria-expanded="false"
-          aria-controls="xuLyNuocThai_YeuCauDauRa">IV. Yêu cầu đầu ra</h4>
+          aria-controls="xuLyNuocThai_YeuCauDauRa">IV. YÊU CẦU ĐẦU RA</h4>
         <div class="collapse" id="xuLyNuocThai_YeuCauDauRa">
           <!-- Nguồn tiếp nhận nước thải-->
           <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
@@ -440,57 +441,49 @@
       <!-- Bắt đầu lựa chọn công nghệ-->
       <div class="row group-unit-alway-show" id="section_XuLyNuocThai_LuaChonCongNghe">
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LuaChonCongNghe"
-          aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe">V. Lựa chọn công nghệ</h4>
+          aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe">V. CÔNG NGHỆ</h4>
         <div class="collapse show" id="xuLyNuocThai_LuaChonCongNghe">
-          <h5 class="title-2">5.1 Công nghệ được đề xuất</h5>
+          <h5 class="title-2">5.1 Sơ đồ công nghệ xử lý</h5>
           <!--Tạo sơ đồ công nghệ được đề xuất-->
           <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
-          <!--Sơ đồ công nghệ-->
-
+          <!-- Tạo sơ đồ công nghệ lựa chọn-->
           <h5 class="title-2">5.2 Công nghệ lựa chọn</h5>
-
+          <div class="col-8 fix-full-screen">
+            <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon">
+              <option selected>Chọn một phương án...</option>
+              <option value="1">Sử dụng sơ đồ công nghệ được đề xuất (ở trên)</option>
+              <option value="2">Chọn lại công nghệ</option>
+            </select>
+            <!--Nút trợ giúp-->
+            <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
+                class="fas fa-info-circle"></i></a>
+          </div>
+          <div class="col-8 fix-full-screen">
+            <select class="selectpicker format-multiselect" multiple aria-label="" >
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+            </select>
+          </div>
         </div>
       </div>
       <!-- Kết thúc lựa chọn công nghệ-->
     </div>
-
   </div>
-
-  <!--Bắt đầu cơ sở dữ liệu cho sơ đồ công nghệ-->
-  <div style="display: none;">
-    <textarea id="nuocThaiSinhHoat_CotB">
-      dauVao=>start: Nước thải đầu vào
-      hoThu=>operation: Hố thu
-      dieuHoa=>operation: Bể điều hoà
-      thieuKhi=>operation: Bể sinh học thiếu khí
-      hieuKhi=>parallel: Bể sinh học hiếu khí
-      lang=>parallel: Bể lắng
-      khuTrung=>operation: Khử trùng
-      dauRa=>end: Nước thải sau xử lý QCVN 14:2008/BTNMT, Cột B
-      hoanLuuBun=>parallel: Hoàn lưu bùn
-      hoanLuuNuoc=>operation: Hoàn lưu nước
-      thaiBoBun=>operation: Thải bỏ bùn
-      test=>operation: Tín
-      dauVao->hoThu->dieuHoa->thieuKhi->hieuKhi
-      hieuKhi(path1, right)->hoanLuuNuoc(top)->thieuKhi
-      hieuKhi(path2, bottom)->lang
-      lang(path1, right)->hoanLuuBun(path1, top)->hieuKhi
-      hoanLuuBun(path2, bottom)->thaiBoBun
-      lang(path2, bottom)->khuTrung->dauRa
-      lang(path3, left)->test      
-    </textarea>
-  </div>
-  <!--Kết thúc cơ sở dữ liệu cho sơ đồ công nghệ-->
 
   <!-- JavaScript Libraries -->
   <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./lib/bootstrap-select-lib/js/bootstrap-select.min.js"></script>
 
   <!--Flowchart-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
-  <script src="./lib/flowchart-latest.js"></script>
+  <script src="./lib/flowchart/raphael.min.js"></script>
+  <script src="./lib/flowchart/flowchart-latest.js"></script>
 
   <!-- Template Javascript -->
   <script src="./js/main.js"></script>
