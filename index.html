@@ -12,6 +12,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet"
     href="./lib/bootstrap-select-lib/css/bootstrap-select.min.css"/>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
   <!-- Template Stylesheet -->
@@ -458,12 +459,16 @@
             <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
                 class="fas fa-info-circle"></i></a>
           </div>
+          <h5 class="title-2">5.3 Lựa chọn công nghệ xử lý</h5>
           <div class="col-8 fix-full-screen">
-            <select class="selectpicker format-multiselect" multiple aria-label="" >
-              <option value="1">One</option>
+            <select data-multiple-separator=" > " data-actions-box="true" data-size="5" class="selectpicker format-multiselect" data-live-search="true" multiple id="multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" title="Chọn các công trình đơn vị...">
+              <option value="1" data-subtext="Heinz">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-              <option value="4">Four</option>
+              <option value="4" data-divider="true">Four</option>
+              <option value="5">Four</option>
+              <option value="6">Four</option>
+              <option value="7">Four</option>
             </select>
           </div>
         </div>

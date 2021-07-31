@@ -644,6 +644,7 @@ document.getElementById("btn_calculator").addEventListener("click", function () 
             TinhToanChoXuLyChatThaiRan();
         }
     }
+    console.log(getSelectValues(a));
 });
 
 //Thông tin trợ giúp trong modal
@@ -663,3 +664,21 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
     jsonCSDL_NuocThai = duLieuTraVe;
 });
+
+function getSelectValues(select) {
+    var result = [];
+    var options = select && select.options;
+    var opt;
+  
+    for (var i=0, iLen=options.length; i<iLen; i++) {
+      opt = options[i];
+  
+      if (opt.selected) {
+        result.push(opt.value || opt.text);
+      }
+    }
+    return result;
+  }
+
+
+var a = document.getElementById("multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai");
