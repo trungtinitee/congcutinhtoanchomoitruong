@@ -104,7 +104,7 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
     //Ẩn hiện thông tin phù hợp
     AnHienThongTinTheoLinhVucTinhToan();
     AnHienHeSoKKQKF();
-    XuLySoDoCongNghe();
+    AnHienChoCongNgheXuLy();
 }
 
 //Ẩn hiện thông tin chung
@@ -302,6 +302,22 @@ function VeSoDoCongNghe(bienDuLieu, idHienThiSoDoCongNghe) {
     chart.drawSVG(idHienThiSoDoCongNghe, dinhDangChoSoDo);
 }
 
+//Lấy dữ liệu từ một multi select dropdown với id = select
+function LayMangDuLieuTuMultiSelectDropdown(select) {
+    var result = [];
+    var options = select && select.options;
+    var opt;
+  
+    for (var i=0, iLen=options.length; i<iLen; i++) {
+      opt = options[i];
+  
+      if (opt.selected) {
+        result.push(opt.value);
+      }
+    }
+    return result;
+  }
+
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
@@ -429,6 +445,38 @@ function XuLySoDoCongNghe() {
     }
 }
 
+//Ẩn hiện sơ đồ công nghệ chọn lại
+function AnHienChoCongNgheXuLy(){
+    //Khai báo biến
+    var index_PhuongAn = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex;
+    var jsonKiemTra = [
+        {
+            "Ten": "2.1 Chọn loại nước thải",
+            "ID": "comboBox_XuLyNuocThai"
+        },
+        {
+            "Ten": "4.1 Nguồn tiếp nhận nước thải",
+            "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan"
+        },
+    ];
+
+    //Code
+    //Đối với trường hợp chọn lại sơ đồ công nghệ
+    if (index_PhuongAn===2){
+        document.getElementById("subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").style.display = "block";
+    } else {
+        AnDoiTuong(["subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai"]);
+    }
+
+    //Đối với trường hợp lấy sơ đồ công nghệ đề xuất
+    if (index_PhuongAn === 1){
+        if (KiemTraDuLieuVao(jsonKiemTra)) {
+            XuLySoDoCongNghe();
+        } else {
+            document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
+        }
+    }
+}
 
 //3.1.3 Chương trình chính xử lý nước thải
 function TinhToanChoXuLyNuocThai() {
@@ -606,7 +654,6 @@ document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").addEv
     } else {
         document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
     }
-    XuLySoDoCongNghe();
 });
 
 //4.2.3 Thông số đầu vào nhập từ cơ sở dữ liệu
@@ -617,7 +664,11 @@ document.getElementById("btn_xuLyNuocThai_ThongSoDauVao_CSDL").addEventListener(
     }
 });
 
-//4.2.4 
+//4.2.4 Ẩn hiện mục chọn lại sơ đồ công nghệ + section phù hợp
+document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").addEventListener("change", function () {
+    //Code
+    AnHienChoCongNgheXuLy();
+});
 
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 //5.1 Chương trình chính
@@ -644,7 +695,8 @@ document.getElementById("btn_calculator").addEventListener("click", function () 
             TinhToanChoXuLyChatThaiRan();
         }
     }
-    console.log(getSelectValues(a));
+
+    console.log(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri);
 });
 
 //Thông tin trợ giúp trong modal
@@ -665,20 +717,8 @@ LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
     jsonCSDL_NuocThai = duLieuTraVe;
 });
 
-function getSelectValues(select) {
-    var result = [];
-    var options = select && select.options;
-    var opt;
-  
-    for (var i=0, iLen=options.length; i<iLen; i++) {
-      opt = options[i];
-  
-      if (opt.selected) {
-        result.push(opt.value || opt.text);
-      }
-    }
-    return result;
-  }
+//Mặt định ẩn chọn lại sơ đồ công nghệ
+AnDoiTuong(["subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai"]);
 
 
-var a = document.getElementById("multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai");
+//-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------

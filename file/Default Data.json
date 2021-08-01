@@ -178,16 +178,15 @@
         "GiaTri": 0
       },
       {
-        "Ten": "3.3 Nồng độ các chất ô nhiễm",
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "Tổng Coliforms",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
         "GiaTri": 0
       },
       {
-        "Ten": "5.1 Công nghệ đề xuất",
-        "TenCon": "Tổng Coliforms",
-        "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
-        "GiaTri": 0
+        "Ten": "5.2 Công nghệ lựa chọn",
+        "ID": "comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon",
+        "GiaTri": 2
       }
     ],
     "NuocCap": [],

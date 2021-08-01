@@ -92,34 +92,40 @@
         {
           "Ten": "Sơ đồ công nghệ 1",
           "GiaTri":"dauVao=>start: Nước thải đầu vào\nhoThu=>operation: Hố thu\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể sinh học thiếu khí\nhieuKhi=>operation: Bể sinh học hiếu khí\nlang=>parallel: Bể lắng\ntrungGian=>operation: Bể trung gian\ncotLoc=>operation: Cột lọc\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý - QCVN 14:2008/BTNMT, Cột B\nchuaBun=>operation: Bể chứa bùn\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->lang\nlang(path1, right)->chuaBun\nlang(path2, bottom)->trungGian->cotLoc->khuTrung->dauRa",
-          "IDHienThi": "soDoCongNghe"
+          "IDHienThi": "soDoCongNghe",
+          "CongTrinhDonVi":""
         },
         {
           "Ten": "Sơ đồ công nghệ 2",
           "GiaTri":"",
-          "IDHienThi": ""
+          "IDHienThi": "",
+          "CongTrinhDonVi":""
         },
         {
           "Ten": "Sơ đồ công nghệ 3",
           "GiaTri":"",
-          "IDHienThi": ""
+          "IDHienThi": "",
+          "CongTrinhDonVi":""
         }
       ],
       "CotB":[
         {
           "Ten": "Sơ đồ công nghệ 1",
           "GiaTri":"dauVao=>start: Nước thải đầu vào\nhoThu=>operation: Hố thu\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể sinh học thiếu khí\nhieuKhi=>operation: Bể sinh học hiếu khí\nlang=>parallel: Bể lắng\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý - QCVN 14:2008/BTNMT, Cột B\nchuaBun=>operation: Bể chứa bùn\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->lang\nlang(path1, right)->chuaBun\nlang(path2, bottom)->khuTrung->dauRa",
-          "IDHienThi": "soDoCongNghe"
+          "IDHienThi": "soDoCongNghe",
+          "CongTrinhDonVi":""
         },
         {
           "Ten": "Sơ đồ công nghệ 2",
           "GiaTri":"",
-          "IDHienThi": ""
+          "IDHienThi": "",
+          "CongTrinhDonVi":""
         },
         {
           "Ten": "Sơ đồ công nghệ 2",
           "GiaTri":"",
-          "IDHienThi": ""
+          "IDHienThi": "",
+          "CongTrinhDonVi":""
         }
       ]
     }

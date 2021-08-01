@@ -149,9 +149,3 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     height: auto;
 }
-
-/* Chọn nhiều trường trong comboBox */
-.format-multiselect button{
-    border: 1px solid #ced4da;
-    background-color: #fff;
-}

@@ -70,6 +70,27 @@
               -->
     <!--Kết thúc tạo gợi ý popup-->
 
+    <!-- Bắt đầu chọn nhiều giá trị cho comboBox
+            <div class="col-8 fix-full-screen">
+              <select data-multiple-separator=" > " data-actions-box="true" data-size="5" class="selectpicker" multiple
+                id="multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" title="Chọn các công trình đơn vị..."
+                data-deselect-all-text="Bỏ chọn tất cả" data-select-all-text="Chọn tất cả"
+                data-header="Công trình đơn vị" data-style="" data-style-base="form-control format-multiselect"
+                data-width="100%">
+                <option value="hoThu" data-subtext="Heinz">Hố thu gom</option>
+                <option value="tachMo">Bể tách mỡ</option>
+                <option value="dieuHoa">Bể điều hoà</option>
+                <option value="thieuKhi">Bể UASB</option>
+                <option value="thieuKhi">Bể thiếu khí</option>
+                <option value="hieuKhi">Bể hiếu khí</option>
+                <option value="lang">Bể lắng</option>
+                <option value="trungGian">Bể trung gian</option>
+                <option value="cotLoc">Cột Lọc</option>
+                <option value="khuTrung">Bể khử trùng</option>
+              </select>
+            </div> 
+      Kết thúc chọn nhiều giá trị cho comboBox-->
+
     <div class="container">
       <div class="row">
         <h2 class="title-header">CÔNG CỤ TÍNH TOÁN CHO MÔI TRƯỜNG</h2>
@@ -443,36 +464,56 @@
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LuaChonCongNghe"
           aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe">V. CÔNG NGHỆ</h4>
         <div class="collapse show" id="xuLyNuocThai_LuaChonCongNghe">
-          <h5 class="title-2">5.1 Sơ đồ công nghệ xử lý</h5>
-          <!--Tạo sơ đồ công nghệ được đề xuất-->
-          <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
+
           <!-- Tạo sơ đồ công nghệ lựa chọn-->
-          <h5 class="title-2">5.2 Công nghệ lựa chọn</h5>
+          <h5 class="title-2">5.1 Công nghệ lựa chọn</h5>
           <div class="col-8 fix-full-screen">
             <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon">
               <option selected>Chọn một phương án...</option>
-              <option value="1">Sử dụng sơ đồ công nghệ được đề xuất (ở trên)</option>
+              <option value="1">Sử dụng sơ đồ công nghệ được đề xuất</option>
               <option value="2">Chọn lại công nghệ</option>
             </select>
             <!--Nút trợ giúp-->
             <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
                 class="fas fa-info-circle"></i></a>
           </div>
-          <h5 class="title-2">5.3 Lựa chọn công nghệ xử lý</h5>
-          <div class="col-8 fix-full-screen">
-            <select data-multiple-separator=" > " data-actions-box="true" data-size="5"
-              class="selectpicker format-multiselect" multiple id="multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai"
-              title="Chọn các công trình đơn vị..." data-deselect-all-text="Bỏ chọn tất cả" data-select-all-text="Chọn tất cả" data-header="Công trình đơn vị"
-              data-mobile="true">
-              <option value="1" data-subtext="Heinz">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-              <option value="4" data-divider="true">Four</option>
-              <option value="5">Four</option>
-              <option value="6">Four</option>
-              <option value="7">Four</option>
-            </select>
+          <div class="col" id="subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
+            <h5 class="title-2">Chọn các công trình đơn vị có trong công nghệ</h5>
+            <div class="col-8 fix-full-screen">
+              <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
+                <option selected>Chọn một phương án...</option>
+                <!-- Xử lý lý học -->
+                <option disabled style="color: #fff; background: #04aa6d;">Xử lý lý học</option>
+                <option value="hoThu">Hố thu gom</option>
+                <option value="tachMo">Bể tách mỡ</option>
+                <option value="dieuHoa">Bể điều hoà</option>
+
+                <!-- Xử lý hoá học -->
+                <option disabled style="color: #fff; background: #04aa6d;">Xử lý hoá học</option>
+
+
+                <!-- Xử lý sinh học -->
+                <option disabled style="color: #fff; background: #04aa6d;">Xử lý sinh học</option>
+                <option value="thieuKhi">Bể UASB</option>
+                <option value="thieuKhi">Bể thiếu khí</option>
+                <option value="hieuKhi">Bể hiếu khí</option>
+                <option value="lang">Bể lắng</option>
+                <option value="trungGian">Bể trung gian</option>
+                <option value="cotLoc">Cột Lọc</option>
+                <option value="khuTrung">Bể khử trùng</option>
+
+                <!-- Xử lý nâng cao -->
+                <option disabled style="color: #fff; background: #04aa6d;">Xử lý nâng cao</option>
+              </select>
+              <!--Nút trợ giúp-->
+              <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
+                  class="fas fa-info-circle"></i></a>
+            </div>
           </div>
+
+          <!--Tạo sơ đồ công nghệ được đề xuất-->
+          <h5 class="title-2">5.2 Sơ đồ công nghệ xử lý</h5>
+          <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
         </div>
       </div>
       <!-- Kết thúc lựa chọn công nghệ-->
@@ -483,8 +524,8 @@
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  
-    <!--Bootstrap-->
+
+  <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
