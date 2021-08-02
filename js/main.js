@@ -103,9 +103,7 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
         //Đối với sơ đồ công nghệ được hiển thị
         else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2) {
             duLieuSoDoCongNghe_NuocThai = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
-            for (var j = 0; j < jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi.length; j++) {
-                congTrinhDaChon.push(jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi[j]);
-            }
+            congTrinhDaChon = jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi;
             taoCongTrinh = duLieuSoDoCongNghe_NuocThai.slice(0, duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0) - 32);
             taoDuongVe = duLieuSoDoCongNghe_NuocThai.slice(duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0), duLieuSoDoCongNghe_NuocThai.length - 7);
         }
@@ -460,14 +458,10 @@ function XuLySoDoCongNghe_NuocThai() {
     if (loaiNuocThai === 1 && quyChuan === 1) {
         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
         duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi.length; i++) {
-            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi[i]);
-        }
-    } else if (loaiNuocThai === 1 && quyChuan === 2) {
+        congTrinhDaChon = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi;
+    } else if (loaiNuocThai === 1 && quyChuan === 2) { //Đối với nước thải sinh hoạt cột B
         duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi.length; i++) {
-            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi[i]);
-        }
+        congTrinhDaChon = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi;
     }
     taoCongTrinh = duLieuSoDoCongNghe_NuocThai.slice(0, duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0) - 32);
     taoDuongVe = duLieuSoDoCongNghe_NuocThai.slice(duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0), duLieuSoDoCongNghe_NuocThai.length - 7);
@@ -788,7 +782,7 @@ function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
     var congTrinh = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").value;
     var bienLuuTam, kiemTraDaChon = false;
     var bienDuLieuVeSoDo;
-    
+
     //Code
     //Kiểm tra có công trình chưa?
     for (var j = 0; j < congTrinhDaChon.length; j++) {

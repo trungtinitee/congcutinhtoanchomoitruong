@@ -92,12 +92,12 @@
       {
         "Ten": "4.1 Nguồn tiếp nhận nước thải",
         "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "4.1 Quy chuẩn áp dụng",
         "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_QCVN",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "4.3 Hệ số chuyển đổi",
@@ -186,7 +186,7 @@
       {
         "Ten": "5.1 Công nghệ lựa chọn",
         "ID": "comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon",
-        "GiaTri": 2
+        "GiaTri": 1
       },
       {
         "Ten": "5.2 Sơ đồ công nghệ xử lý",
