@@ -186,13 +186,13 @@
       {
         "Ten": "5.1 Công nghệ lựa chọn",
         "ID": "comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "5.2 Sơ đồ công nghệ xử lý",
         "ID": "soDoCongNghe",
         "GiaTri": "dauVao=>start: Nước thải đầu vào\nhoThu=>operation: Hố thu gom\ntachMo=>operation: Bể tách mỡ\nlangCat=>operation: Bể lắng cát\ndieuHoa=>operation: Bể điều hoà\ntuyenNoi=>operation: Bể tuyển nổi\nlangHoaLy=>operation: Bể lắng hoá lý\nlangSinhHoc=>operation: Bể lắng sinh học\nkhuTrung=>operation: Bể khử trùng\ntrungGian=>operation: Bể trung gian\ncotLocApLuc=>operation: Cột lọc áp lực\nkeoTu=>operation: Bể keo tụ\ntaoBong=>operation: Bể tạo bông\nyemKhi=>operation: Bể UASB\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlocSinhHoc=>operation: Bể lọc sinh học nhỏ giọt\nlongQuaySinhHoc=>operation: Lồng quay sinh học\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->tachMo->langCat->dieuHoa->tuyenNoi->langHoaLy->langSinhHoc->khuTrung->trungGian->cotLocApLuc->keoTu->taoBong->yemKhi->thieuKhi->hieuKhi->locSinhHoc->longQuaySinhHoc->dauRa",
-        "CongTrinhDonVi": [
+        "CongTrinhDonVi_Tep": [
           "hoThu",
           "tachMo",
           "langCat",

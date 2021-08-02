@@ -103,7 +103,10 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
         //Đối với sơ đồ công nghệ được hiển thị
         else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2) {
             duLieuSoDoCongNghe_NuocThai = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
-            congTrinhDaChon = jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi;
+            //Tạo mảng từ tệp dữ liệu
+            for (var j = 0; j<jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep.length;j++){
+                congTrinhDaChon.push(jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep[j]);
+            }
             taoCongTrinh = duLieuSoDoCongNghe_NuocThai.slice(0, duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0) - 32);
             taoDuongVe = duLieuSoDoCongNghe_NuocThai.slice(duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0), duLieuSoDoCongNghe_NuocThai.length - 7);
         }
@@ -341,6 +344,7 @@ function LayMangDuLieuTuMultiSelectDropdown(select) {
 const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
 var jsonCSDL_NuocThai;
 var duLieuSoDoCongNghe_NuocThai = "";
+var congTrinhDaChon = [];
 
 //3.1.2 Hàm cho xử lý nước thải
 // Xử lý nồng độ chất ô nhiễm theo hệ số K
@@ -458,10 +462,16 @@ function XuLySoDoCongNghe_NuocThai() {
     if (loaiNuocThai === 1 && quyChuan === 1) {
         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
         duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
-        congTrinhDaChon = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi;
+        //Tạo mảng từ tệp dữ liệu
+        for (var j = 0; j<jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan.length;j++){
+            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+        }
     } else if (loaiNuocThai === 1 && quyChuan === 2) { //Đối với nước thải sinh hoạt cột B
         duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
-        congTrinhDaChon = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi;
+        //Tạo mảng từ tệp dữ liệu
+        for (var j = 0; j<jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan.length;j++){
+            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+        }
     }
     taoCongTrinh = duLieuSoDoCongNghe_NuocThai.slice(0, duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0) - 32);
     taoDuongVe = duLieuSoDoCongNghe_NuocThai.slice(duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0), duLieuSoDoCongNghe_NuocThai.length - 7);
@@ -500,6 +510,17 @@ function AnHienChoCongNgheXuLy_NuocThai() {
             AnHienCongTrinhDonVi(congTrinhDaChon);
         } else {
             document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
+        }
+    }
+
+    //Đối với trường hợp reset về selectIndex 0
+    if (index_PhuongAn === 0){
+        //Xoá sơ đồ
+        document.getElementById("soDoCongNghe").innerHTML = "";
+
+        //Ẩn toàn bộ công trình đơn vị
+        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            AnDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
         }
     }
 }
@@ -751,7 +772,7 @@ LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
 AnDoiTuong(["subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai"]);
 
 //Reload vẽ sơ đồ công nghệ khi click lên section
-document.getElementById("section_XuLyNuocThai_LuaChonCongNghe").addEventListener("click", function () {
+document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("click", function () {
     if (duLieuSoDoCongNghe_NuocThai !== "") {
         VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
     }
@@ -759,7 +780,6 @@ document.getElementById("section_XuLyNuocThai_LuaChonCongNghe").addEventListener
 
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
 var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
-var congTrinhDaChon = [];
 
 function AnHienCongTrinhDonVi(mangCongTrinh) {
     for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
@@ -800,6 +820,7 @@ function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
             if (bienLuuTam === congTrinh) {
                 //Khi tìm được: tạo mảng, tạo ds công trình, tạo đường vẽ, trả về giá trị mặt định cho nút
                 congTrinhDaChon.push(bienLuuTam);
+                console.log(jsonCore.Core.NuocThai);
                 taoCongTrinh = taoCongTrinh + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
                 taoDuongVe = taoDuongVe + "->" + congTrinh;
                 //Reset comboBox lựa chọn
