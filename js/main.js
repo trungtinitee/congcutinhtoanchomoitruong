@@ -494,6 +494,9 @@ function AnHienChoCongNgheXuLy_NuocThai() {
     if (index_PhuongAn === 1) {
         if (KiemTraDuLieuVao(jsonKiemTra)) {
             XuLySoDoCongNghe_NuocThai();
+            if (duLieuSoDoCongNghe_NuocThai !== "") {
+                VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+            }
             AnHienCongTrinhDonVi(congTrinhDaChon);
         } else {
             document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
