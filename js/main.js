@@ -104,6 +104,7 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
         else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2) {
             duLieuSoDoCongNghe_NuocThai = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
             //Tạo mảng từ tệp dữ liệu
+            congTrinhDaChon = [];
             for (var j = 0; j<jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep.length;j++){
                 congTrinhDaChon.push(jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep[j]);
             }
@@ -338,6 +339,11 @@ function LayMangDuLieuTuMultiSelectDropdown(select) {
     return result;
 }
 
+//Di chuyển một node con đến một node cha biết trước
+function DiChuyenCacNode(idPhanTuCha, idPhanTuCon) {
+    document.getElementById(idPhanTuCha).appendChild(document.getElementById(idPhanTuCon));
+}
+
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
@@ -345,6 +351,7 @@ const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
 var jsonCSDL_NuocThai;
 var duLieuSoDoCongNghe_NuocThai = "";
 var congTrinhDaChon = [];
+var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
 
 //3.1.2 Hàm cho xử lý nước thải
 // Xử lý nồng độ chất ô nhiễm theo hệ số K
@@ -458,6 +465,7 @@ function XuLySoDoCongNghe_NuocThai() {
     //Code
     loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
     quyChuan = document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex;
+    congTrinhDaChon = [];
     //Đối với nước sinh hoạt + cột A
     if (loaiNuocThai === 1 && quyChuan === 1) {
         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
@@ -525,6 +533,103 @@ function AnHienChoCongNgheXuLy_NuocThai() {
     }
 }
 
+//Ẩn hiện công trình đơn vị cho nước thải
+function AnHienCongTrinhDonVi(mangCongTrinh) {
+    for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+        AnDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
+    }
+    for (var i = 0; i < mangCongTrinh.length; i++) {
+        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
+            if (mangCongTrinh[i] === jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
+                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+                HienDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+            }
+        }
+
+    }
+}
+
+//Chọn công trình và vẽ sơ đồ công nghệ
+function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
+    //Khai báo biến
+    var congTrinh = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").value;
+    var bienLuuTam, kiemTraDaChon = false;
+    var bienDuLieuVeSoDo;
+
+    //Code
+    //Kiểm tra có công trình chưa?
+    for (var j = 0; j < congTrinhDaChon.length; j++) {
+        if (congTrinhDaChon[j] === congTrinh) {
+            kiemTraDaChon = true;
+        }
+    }
+    //Nếu chưa thực hiện vẽ
+    if (kiemTraDaChon === false) {
+        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+            if (bienLuuTam === congTrinh) {
+                //Khi tìm được: tạo mảng, tạo ds công trình, tạo đường vẽ, trả về giá trị mặt định cho nút
+                congTrinhDaChon.push(bienLuuTam);
+                console.log(jsonCore.Core.NuocThai);
+                taoCongTrinh = taoCongTrinh + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
+                taoDuongVe = taoDuongVe + "->" + congTrinh;
+                //Reset comboBox lựa chọn
+                document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
+            }
+        }
+        //Tạo dữ liệu vẽ sơ đồ và thực hiệN vẽ
+        bienDuLieuVeSoDo = taoCongTrinh + "dauRa=>end: Nước thải sau xử lý\n" + taoDuongVe + "->dauRa";
+        duLieuSoDoCongNghe_NuocThai = bienDuLieuVeSoDo;
+        VeSoDoCongNghe(bienDuLieuVeSoDo, "soDoCongNghe");
+
+        //Ẩn hiện công trình cho phù hợp công nghệ
+        AnHienCongTrinhDonVi(congTrinhDaChon);
+    }
+}
+
+//Chọn công trình để xoá và vẽ lại sơ đồ công nghệ
+function XoaCongTrinhDonViVeLaiSoDo_NuocThai() {
+    //Khai báo biến
+    var congTrinh = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").value;
+    var bienLuuTam, str1, str2;
+    var bienDuLieuVeSoDo, kiemTraCoCongTrinhKhong = false;
+
+    //Code
+    //Kiểm tra có công trình để xoá không
+    for (var j = 0; j < congTrinhDaChon.length; j++) {
+        if (congTrinhDaChon[j] === congTrinh) {
+            kiemTraCoCongTrinhKhong = true;
+        }
+    }
+    //Thực hiện xoá và làm lại code vẽ sơ đồ công nghệ
+    if (kiemTraCoCongTrinhKhong) {
+        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+            if (bienLuuTam === congTrinh) {
+                //Xoá string công trình
+                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
+                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
+                taoCongTrinh = str1 + str2;
+                //Xoá string tạo đường vẽ
+                str1 = taoDuongVe.slice(0, taoDuongVe.indexOf("->" + congTrinh));
+                str2 = taoDuongVe.slice(taoDuongVe.indexOf("->" + congTrinh) + congTrinh.length + 2, taoDuongVe.length);
+                taoDuongVe = str1 + str2;
+                //Xoá công trình khỏi danh sách đã chọn
+                congTrinhDaChon.splice(congTrinhDaChon.indexOf(bienLuuTam), 1);
+                //Reset comboBox lựa chọn
+                document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
+            }
+        }
+        //Tạo dữ liệu vẽ sơ đồ và thực hiệN vẽ
+        bienDuLieuVeSoDo = taoCongTrinh + "dauRa=>end: Nước thải sau xử lý\n" + taoDuongVe + "->dauRa";
+        duLieuSoDoCongNghe_NuocThai = bienDuLieuVeSoDo;
+        VeSoDoCongNghe(bienDuLieuVeSoDo, "soDoCongNghe");
+
+        //Ẩn hiện công trình cho phù hợp công nghệ
+        AnHienCongTrinhDonVi(congTrinhDaChon);
+    }
+}
+
 //3.1.3 Chương trình chính xử lý nước thải
 function TinhToanChoXuLyNuocThai() {
     //Khai báo biến
@@ -539,6 +644,12 @@ function TinhToanChoXuLyNuocThai() {
             "ID": "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai"
         },
     ];
+    var jsonKiemTraCongNgheLuaChon = [
+        {
+            "Ten": "2.1 Chọn loại nước thải",
+            "ID": "comboBox_XuLyNuocThai"
+        }
+    ]
     var jsonNuocThaiSinhHoat = [
         {
             "Ten": "pH",
@@ -592,7 +703,9 @@ function TinhToanChoXuLyNuocThai() {
             if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTSH)) {
                 XuLyHeSoQuyChuan_NuocThai(1);
                 if (kiemTraTruocKhiTinh === true) {
+                    if (KiemTraDuLieuVao(jsonKiemTraCongNgheLuaChon)){
 
+                    }
                 }
             }
         } else if (loaiNuocThaiXuLy === 2) {
@@ -723,6 +836,22 @@ document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").addEve
     AnHienChoCongNgheXuLy_NuocThai();
 });
 
+//4.2.5 Thêm công trình đơn vị vào sơ đồ công nghệ
+document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").addEventListener("change", function () {
+    //Khai báo biến
+
+    //Code
+    ChonCongTrinhDonViVaVeSoDo_NuocThai();
+});
+
+//Xoá công trình đơn vị khỏi sơ đồ công nghệ
+document.getElementById("btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV").addEventListener("click", function () {
+    //Khai báo biến
+
+    //Code
+    XoaCongTrinhDonViVeLaiSoDo_NuocThai();
+});
+
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 //5.1 Chương trình chính
 //5.1.1 Xử lý chung
@@ -779,115 +908,4 @@ document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("
 });
 
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
 
-function AnHienCongTrinhDonVi(mangCongTrinh) {
-    for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-        AnDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
-    }
-    for (var i = 0; i < mangCongTrinh.length; i++) {
-        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
-            if (mangCongTrinh[i] === jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
-                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
-                HienDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
-            }
-        }
-
-    }
-}
-
-function DiChuyenCacNode(idPhanTuCha, idPhanTuCon) {
-    document.getElementById(idPhanTuCha).appendChild(document.getElementById(idPhanTuCon));
-}
-
-function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
-    //Khai báo biến
-    var congTrinh = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").value;
-    var bienLuuTam, kiemTraDaChon = false;
-    var bienDuLieuVeSoDo;
-
-    //Code
-    //Kiểm tra có công trình chưa?
-    for (var j = 0; j < congTrinhDaChon.length; j++) {
-        if (congTrinhDaChon[j] === congTrinh) {
-            kiemTraDaChon = true;
-        }
-    }
-    //Nếu chưa thực hiện vẽ
-    if (kiemTraDaChon === false) {
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
-            if (bienLuuTam === congTrinh) {
-                //Khi tìm được: tạo mảng, tạo ds công trình, tạo đường vẽ, trả về giá trị mặt định cho nút
-                congTrinhDaChon.push(bienLuuTam);
-                console.log(jsonCore.Core.NuocThai);
-                taoCongTrinh = taoCongTrinh + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
-                taoDuongVe = taoDuongVe + "->" + congTrinh;
-                //Reset comboBox lựa chọn
-                document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
-            }
-        }
-        //Tạo dữ liệu vẽ sơ đồ và thực hiệN vẽ
-        bienDuLieuVeSoDo = taoCongTrinh + "dauRa=>end: Nước thải sau xử lý\n" + taoDuongVe + "->dauRa";
-        duLieuSoDoCongNghe_NuocThai = bienDuLieuVeSoDo;
-        VeSoDoCongNghe(bienDuLieuVeSoDo, "soDoCongNghe");
-
-        //Ẩn hiện công trình cho phù hợp công nghệ
-        AnHienCongTrinhDonVi(congTrinhDaChon);
-    }
-}
-
-function XoaCongTrinhDonViVeLaiSoDo_NuocThai() {
-    //Khai báo biến
-    var congTrinh = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").value;
-    var bienLuuTam, str1, str2;
-    var bienDuLieuVeSoDo, kiemTraCoCongTrinhKhong = false;
-
-    //Code
-    //Kiểm tra có công trình để xoá không
-    for (var j = 0; j < congTrinhDaChon.length; j++) {
-        if (congTrinhDaChon[j] === congTrinh) {
-            kiemTraCoCongTrinhKhong = true;
-        }
-    }
-    //Thực hiện xoá và làm lại code vẽ sơ đồ công nghệ
-    if (kiemTraCoCongTrinhKhong) {
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
-            if (bienLuuTam === congTrinh) {
-                //Xoá string công trình
-                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
-                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
-                taoCongTrinh = str1 + str2;
-                //Xoá string tạo đường vẽ
-                str1 = taoDuongVe.slice(0, taoDuongVe.indexOf("->" + congTrinh));
-                str2 = taoDuongVe.slice(taoDuongVe.indexOf("->" + congTrinh) + congTrinh.length + 2, taoDuongVe.length);
-                taoDuongVe = str1 + str2;
-                //Xoá công trình khỏi danh sách đã chọn
-                congTrinhDaChon.splice(congTrinhDaChon.indexOf(bienLuuTam), 1);
-                //Reset comboBox lựa chọn
-                document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
-            }
-        }
-        //Tạo dữ liệu vẽ sơ đồ và thực hiệN vẽ
-        bienDuLieuVeSoDo = taoCongTrinh + "dauRa=>end: Nước thải sau xử lý\n" + taoDuongVe + "->dauRa";
-        duLieuSoDoCongNghe_NuocThai = bienDuLieuVeSoDo;
-        VeSoDoCongNghe(bienDuLieuVeSoDo, "soDoCongNghe");
-
-        //Ẩn hiện công trình cho phù hợp công nghệ
-        AnHienCongTrinhDonVi(congTrinhDaChon);
-    }
-}
-
-document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").addEventListener("change", function () {
-    //Khai báo biến
-
-    //Code
-    ChonCongTrinhDonViVaVeSoDo_NuocThai();
-});
-document.getElementById("btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV").addEventListener("click", function () {
-    //Khai báo biến
-
-    //Code
-    XoaCongTrinhDonViVeLaiSoDo_NuocThai();
-});
