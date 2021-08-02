@@ -91,7 +91,7 @@
             </div> 
       Kết thúc chọn nhiều giá trị cho comboBox-->
 
-    <div class="container">
+    <div class="container" id="container_CongCuTinhToanChoMoiTruong">
       <div class="row">
         <h2 class="title-header">CÔNG CỤ TÍNH TOÁN CHO MÔI TRƯỜNG</h2>
       </div>
@@ -292,7 +292,7 @@
             </div>
           </div>
           <!--Nút lấy số liệu từ CSDL-->
-          <button type="button" class="btn btn-secondary btn-sm btn-csdl" id="btn_xuLyNuocThai_ThongSoDauVao_CSDL">Số
+          <button type="button" class="btn btn-success btn-sm btn-csdl" id="btn_xuLyNuocThai_ThongSoDauVao_CSDL">Số
             liệu từ cơ sở dữ liệu</button>
         </div>
       </div>
@@ -460,10 +460,10 @@
       <!-- Kết thúc yêu cầu đầu ra-->
 
       <!-- Bắt đầu lựa chọn công nghệ-->
-      <div class="row group-unit-alway-show" id="section_XuLyNuocThai_LuaChonCongNghe">
+      <div class="row group-unit" id="section_XuLyNuocThai_LuaChonCongNghe">
         <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LuaChonCongNghe"
           aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe">V. CÔNG NGHỆ</h4>
-        <div class="collapse show" id="xuLyNuocThai_LuaChonCongNghe">
+        <div class="collapse" id="xuLyNuocThai_LuaChonCongNghe">
 
           <!-- Tạo sơ đồ công nghệ lựa chọn-->
           <h5 class="title-2">5.1 Công nghệ lựa chọn</h5>
@@ -480,43 +480,244 @@
           <div class="col" id="subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
             <h5 class="title-2">Chọn các công trình đơn vị có trong công nghệ</h5>
             <div class="col-8 fix-full-screen">
-              <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
+              <select class="form-select" aria-label="default-select"
+                id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
                 <option selected>Chọn một phương án...</option>
                 <!-- Xử lý lý học -->
                 <option disabled style="color: #fff; background: #04aa6d;">Xử lý lý học</option>
                 <option value="hoThu">Hố thu gom</option>
                 <option value="tachMo">Bể tách mỡ</option>
+                <option value="langCat">Bể lắng cát</option>
                 <option value="dieuHoa">Bể điều hoà</option>
+                <option value="tuyenNoi">Bể tuyển nổi</option>
+                <option value="langHoaLy">Bể lắng hoá lý</option>
+                <option value="langSinhHoc">Bể lắng sinh học</option>
+                <option value="khuTrung">Bể khử trùng</option>
+                <option value="trungGian">Bể trung gian</option>
+                <option value="cotLocApLuc">Cột lọc áp lực</option>
 
                 <!-- Xử lý hoá học -->
                 <option disabled style="color: #fff; background: #04aa6d;">Xử lý hoá học</option>
-
+                <option value="keoTu">Bể keo tụ</option>
+                <option value="taoBong">Bể tạo bông</option>
 
                 <!-- Xử lý sinh học -->
                 <option disabled style="color: #fff; background: #04aa6d;">Xử lý sinh học</option>
-                <option value="thieuKhi">Bể UASB</option>
+                <option value="yemKhi">Bể UASB</option>
                 <option value="thieuKhi">Bể thiếu khí</option>
                 <option value="hieuKhi">Bể hiếu khí</option>
-                <option value="lang">Bể lắng</option>
-                <option value="trungGian">Bể trung gian</option>
-                <option value="cotLoc">Cột Lọc</option>
-                <option value="khuTrung">Bể khử trùng</option>
+                <option value="locSinhHoc">Bể lọc sinh học nhỏ giọt</option>
+                <option value="longQuaySinhHoc">Lồng quay sinh học</option>
 
                 <!-- Xử lý nâng cao -->
                 <option disabled style="color: #fff; background: #04aa6d;">Xử lý nâng cao</option>
               </select>
               <!--Nút trợ giúp-->
-              <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
+              <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" class="btn-suggest btn-suggest-comboBox"><i
                   class="fas fa-info-circle"></i></a>
+              <!--Nút lấy số liệu từ CSDL-->
+              <button type="button" class="btn btn-success btn-sm btn-csdl"
+                id="btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV">Xoá công trình</button>
             </div>
           </div>
-
           <!--Tạo sơ đồ công nghệ được đề xuất-->
           <h5 class="title-2">5.2 Sơ đồ công nghệ xử lý</h5>
           <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
         </div>
       </div>
       <!-- Kết thúc lựa chọn công nghệ-->
+
+      <!-- Bắt đầu công trình đơn vị cho nước thải -->
+      <div id="box_XuLyNuocThai_CongTrinhDonVi">
+        <!-- Bắt đầu tính toán hố thu gom -->
+        <div class="row group-unit" id="section_XuLyNuocThai_HoThu">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HoThu" aria-expanded="false"
+            aria-controls="xuLyNuocThai_HoThu">HỐ THU GOM</h4>
+          <div class="collapse" id="xuLyNuocThai_HoThu">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán hố thu gom -->
+
+        <!-- Bắt đầu tính toán bể tách mỡ -->
+        <div class="row group-unit" id="section_XuLyNuocThai_TachMo">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TachMo" aria-expanded="false"
+            aria-controls="xuLyNuocThai_TachMo">BỂ TÁCH MỠ</h4>
+          <div class="collapse" id="xuLyNuocThai_TachMo">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể tách mỡ -->
+
+        <!-- Bắt đầu tính toán bể lắng cát -->
+        <div class="row group-unit" id="section_XuLyNuocThai_LangCat">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangCat" aria-expanded="false"
+            aria-controls="xuLyNuocThai_LangCat">BỂ LẮNG CÁT</h4>
+          <div class="collapse" id="xuLyNuocThai_LangCat">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể lắng cát -->
+
+        <!-- Bắt đầu tính toán bể điều hoà -->
+        <div class="row group-unit" id="section_XuLyNuocThai_DieuHoa">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_DieuHoa" aria-expanded="false"
+            aria-controls="xuLyNuocThai_DieuHoa">BỂ ĐIỀU HOÀ</h4>
+          <div class="collapse" id="xuLyNuocThai_DieuHoa">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể điều hoà -->
+
+        <!-- Bắt đầu tính toán bể tuyển nổi -->
+        <div class="row group-unit" id="section_XuLyNuocThai_TuyenNoi">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TuyenNoi" aria-expanded="false"
+            aria-controls="xuLyNuocThai_TuyenNoi">BỂ TUYỂN NỔI</h4>
+          <div class="collapse" id="xuLyNuocThai_TuyenNoi">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể tuyển nổi -->
+
+        <!-- Bắt đầu tính toán bể lắng hoá lý -->
+        <div class="row group-unit" id="section_XuLyNuocThai_LangHoaLy">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangHoaLy" aria-expanded="false"
+            aria-controls="xuLyNuocThai_LangHoaLy">BỂ LẮNG HOÁ LÝ</h4>
+          <div class="collapse" id="xuLyNuocThai_LangHoaLy">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể lắng hoá lý -->
+
+        <!-- Bắt đầu tính toán bể lắng sinh học -->
+        <div class="row group-unit" id="section_XuLyNuocThai_LangSinhHoc">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangSinhHoc" aria-expanded="false"
+            aria-controls="xuLyNuocThai_LangSinhHoc">BỂ LẮNG SINH HỌC</h4>
+          <div class="collapse" id="xuLyNuocThai_LangSinhHoc">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể lắng sinh học -->
+
+        <!-- Bắt đầu tính toán bể khử trùng -->
+        <div class="row group-unit" id="section_XuLyNuocThai_KhuTrung">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KhuTrung" aria-expanded="false"
+            aria-controls="xuLyNuocThai_KhuTrung">BỂ KHỬ TRÙNG</h4>
+          <div class="collapse" id="xuLyNuocThai_KhuTrung">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể khử trùng -->
+
+        <!-- Bắt đầu tính toán bể trung gian -->
+        <div class="row group-unit" id="section_XuLyNuocThai_TrungGian">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TrungGian" aria-expanded="false"
+            aria-controls="xuLyNuocThai_TrungGian">BỂ TRUNG GIAN</h4>
+          <div class="collapse" id="xuLyNuocThai_TrungGian">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể trung gian -->
+
+        <!-- Bắt đầu tính toán cột lọc áp lực -->
+        <div class="row group-unit" id="section_XuLyNuocThai_CotLocApLuc">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_CotLocApLuc" aria-expanded="false"
+            aria-controls="xuLyNuocThai_CotLocApLuc">CỘT LỌC ÁP LỰC</h4>
+          <div class="collapse" id="xuLyNuocThai_CotLocApLuc">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán cột lọc áp lực -->
+
+        <!-- Bắt đầu tính toán bể keo tụ -->
+        <div class="row group-unit" id="section_XuLyNuocThai_KeoTu">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KeoTu" aria-expanded="false"
+            aria-controls="xuLyNuocThai_KeoTu">BỂ KEO TỤ</h4>
+          <div class="collapse" id="xuLyNuocThai_KeoTu">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể keo tụ -->
+
+        <!-- Bắt đầu tính toán bể tạo bông -->
+        <div class="row group-unit" id="section_XuLyNuocThai_TaoBong">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TaoBong" aria-expanded="false"
+            aria-controls="xuLyNuocThai_TaoBong">BỂ TẠO BÔNG</h4>
+          <div class="collapse" id="xuLyNuocThai_TaoBong">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể tạo bông -->
+
+        <!-- Bắt đầu tính toán bể UASB -->
+        <div class="row group-unit" id="section_XuLyNuocThai_YemKhi">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_YemKhi" aria-expanded="false"
+            aria-controls="xuLyNuocThai_YemKhi">BỂ UASB</h4>
+          <div class="collapse" id="xuLyNuocThai_YemKhi">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể UASB -->
+
+        <!-- Bắt đầu tính toán bể thiếu khí -->
+        <div class="row group-unit" id="section_XuLyNuocThai_ThieuKhi">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThieuKhi" aria-expanded="false"
+            aria-controls="xuLyNuocThai_ThieuKhi">BỂ THIẾU KHÍ</h4>
+          <div class="collapse" id="xuLyNuocThai_ThieuKhi">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể thiếu khí -->
+
+        <!-- Bắt đầu tính toán bể hiếu khí -->
+        <div class="row group-unit" id="section_XuLyNuocThai_HieuKhi">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HieuKhi" aria-expanded="false"
+            aria-controls="xuLyNuocThai_HieuKhi">BỂ HIẾU KHÍ</h4>
+          <div class="collapse" id="xuLyNuocThai_HieuKhi">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán bể hiếu khí -->
+
+        <!-- Bắt đầu tính toán Bể lọc sinh học nhỏ giọt -->
+        <div class="row group-unit" id="section_XuLyNuocThai_LocSinhHoc">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LocSinhHoc" aria-expanded="false"
+            aria-controls="xuLyNuocThai_LocSinhHoc">BỂ LỌC SINH HỌC NHỎ GIỌT</h4>
+          <div class="collapse" id="xuLyNuocThai_LocSinhHoc">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán Bể lọc sinh học nhỏ giọt -->
+
+        <!-- Bắt đầu tính toán Lồng quay sinh học -->
+        <div class="row group-unit" id="section_XuLyNuocThai_LongQuaySinhHoc">
+          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LongQuaySinhHoc"
+            aria-expanded="false" aria-controls="xuLyNuocThai_LongQuaySinhHoc">LỔNG QUAY SINH HỌC</h4>
+          <div class="collapse" id="xuLyNuocThai_LongQuaySinhHoc">
+            <!-- Nguồn tiếp nhận nước thải-->
+            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+          </div>
+        </div>
+        <!-- Kết thúc tính toán Lồng quay sinh học -->
+      </div>
+      <!-- Kết thúcs công trình đơn vị cho nước thải -->
+
     </div>
   </div>
 

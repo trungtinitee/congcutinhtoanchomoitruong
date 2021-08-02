@@ -37,9 +37,14 @@
                 "GiaTri": "<p>H&atilde;y nhấn n&uacute;t <strong>\"T&iacute;nh to&aacute;n\"</strong> để tự động t&iacute;nh to&aacute;n lại nồng độ c&aacute;c chất &ocirc; nhiễm dựa tr&ecirc;n quy chuẩn v&agrave; hệ số chuyển đổi.</p>"
             },
             {
-                "Ten": "5.2 Công nghệ lựa chọn",
+                "Ten": "5.1 Công nghệ lựa chọn",
                 "ID": "info_XuLyNuocThai_CongNghe_CongNgheLuaChon",
-                "GiaTri": "<p>Ch&uacute;ng t&ocirc;i sẽ đề xuất c&ocirc;ng nghệ dựa tr&ecirc;n loại nước thải v&agrave; th&ocirc;ng số đầu v&agrave;o đ&atilde; được nhập (theo sơ đồ c&ocirc;ng nghệ ph&iacute;a tr&ecirc;n).</p> <p>Bạn cũng c&oacute; thể chọn lại c&ocirc;ng nghệ ph&ugrave; hợp theo &yacute; bằng c&aacute;ch lựa chọn <strong>\"Chọn lại c&ocirc;ng nghệ\"</strong>.</p> <p>&nbsp;</p> <div id=\"gtx-trans\" style=\"position: absolute; left: -55px; top: -17px;\">&nbsp;</div>"
+                "GiaTri": "<p>C&oacute; 02 phương ph&aacute;p lựa chọn c&ocirc;ng nghệ:</p> <p>- Thứ 1: ch&uacute;ng t&ocirc;i sẽ đề xuất c&ocirc;ng nghệ dựa tr&ecirc;n loại nước thải v&agrave; th&ocirc;ng số đầu v&agrave;o đ&atilde; được nhập.</p> <p>- Thứ 2: Bạn cũng c&oacute; thể chọn lại c&ocirc;ng nghệ ph&ugrave; hợp theo &yacute; bằng c&aacute;ch lựa chọn&nbsp;<strong>\"Chọn lại c&ocirc;ng nghệ\"</strong>.</p> <div id=\"gtx-trans\" style=\"position: absolute; left: -100px; top: -17px;\">&nbsp;</div>"
+            },
+            {
+                "Ten": "Chọn các công trình đơn vị có trong công nghệ",
+                "ID": "info_XuLyNuocThai_CongNghe_CongNgheLuaChonLai",
+                "GiaTri":"<p><strong>Hướng dẫn thực hiện lựa chọn c&ocirc;ng tr&igrave;nh đơn vị cho c&ocirc;ng nghệ xử l&yacute;:</strong></p> <p>- Khi bạn chọn một c&ocirc;ng tr&igrave;nh đơn vị trong danh s&aacute;ch, c&ocirc;ng tr&igrave;nh sẽ được tự động th&ecirc;m v&agrave;o c&ocirc;ng nghệ (nh&igrave;n v&agrave;o sơ đồ c&ocirc;ng nghệ được tự động vẽ)</p> <p>- C&ocirc;ng tr&igrave;nh đơn vị được th&ecirc;m v&agrave;o&nbsp;tại vị tr&iacute; nối tiếp c&ocirc;ng tr&igrave;nh ph&iacute;a trước n&oacute; (từ tr&ecirc;n xuống dưới)</p> <p>- Để xo&aacute; một c&ocirc;ng tr&igrave;nh đơn vị, chọn v&agrave;o c&ocirc;ng tr&igrave;nh đơn vị đ&oacute; sau đ&oacute; nhấn v&agrave;o n&uacute;t <strong>\"Xo&aacute; c&ocirc;ng tr&igrave;nh\"</strong></p> <p>Ch&uacute; &yacute;: sơ đồ c&ocirc;ng nghệ vẫn sẽ được giữ nguy&ecirc;n khi bạn chuyển từ <strong>\"Sử dụng sơ đồ c&ocirc;ng nghệ đề xuất\"</strong> sang <strong>\"Chọn lại c&ocirc;ng nghệ\"&nbsp;</strong>(điều n&agrave;y gi&uacute;p cho việc điều chỉnh sơ đồ c&ocirc;ng nghệ được nhanh hơn)</p> <p>&nbsp;</p>"
             }
         ],
         "NuocCap": [],
