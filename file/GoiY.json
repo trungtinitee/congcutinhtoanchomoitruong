@@ -17,6 +17,11 @@
                 "GiaTri": "<p>Nồng độ c&aacute;c chất &ocirc; nhiễm được tham khảo từ c&aacute;c dự &aacute;n c&oacute; loại h&igrave;nh tương tự hoặc từ kết quả ph&acirc;n t&iacute;ch nước thải của dự &aacute;n (đối với dự &aacute;n đ&atilde; hoạt động v&agrave; muốn tăng c&ocirc;ng suất).</p> <p>Ngo&agrave;i ra, nếu kh&ocirc;ng c&oacute; số liệu tham khảo (kh&ocirc;ng c&oacute; kết quả ph&acirc;n t&iacute;ch). Bạn c&oacute; thể nhấn n&uacute;t &quot;Số liệu từ cơ sở dữ liệu&quot; để lấy số liệu m&agrave; ch&uacute;ng t&ocirc;i thu thập được.</p>"
             },
             {
+                "Ten": "3.4 Nồng độ các chất ô nhiễm hỗn hợp",
+                "ID": "info_xuLyNuocThai_ThongThongSoDauVao_NongDoHH",
+                "GiaTri": "<p>Nồng độ chất &ocirc; nhiễm hỗn hợp nước thải được t&iacute;nh to&aacute;n dựa v&agrave;o c&ocirc;ng thức sau:</p> <p><img src=\"https://docs.google.com/drawings/d/e/2PACX-1vQX9pfabX6Hcltdo01qMTeAqN5_g684bs8kZgoOiRknO8ad02n9-Cx1hyuMNYWnCVlYKs9yHZ7Tg2J9/pub?w=1393&amp;amp;h=674\" alt=\"Nồng độ &ocirc; nhiễm hỗn hợp\" width=\"1393\" height=\"674\" /></p> <p><strong>Ch&uacute; &yacute;:&nbsp;</strong></p> <p>- Khi t&iacute;nh to&aacute;n hệ thống xử l&yacute; m&agrave; c&oacute; nhiều hơn một loại nước thải th&igrave; phải t&iacute;nh to&aacute;n nồng độ c&aacute;c chỉ ti&ecirc;u &ocirc; nhiễm hỗn hợp của 02 loại. Đ&acirc;y cũng l&agrave; cơ sở để t&iacute;nh to&aacute;n c&aacute;c c&ocirc;ng tr&igrave;nh đơn vị sau n&agrave;y.</p> <p>- Gi&aacute; trị pH kh&ocirc;ng t&iacute;nh to&aacute;n theo c&ocirc;ng thức tr&ecirc;n m&agrave; lấy khoảng của 02 loại nước thải.</p>"
+            },
+            {
                 "Ten": "4.1 Nguồn tiếp nhận nước thải",
                 "ID": "info_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
                 "GiaTri": "<p>Nguồn tiếp nhận nước thải l&agrave; t&iacute;nh chất của nguồn nước tại vị tr&iacute; xả thải của dự &aacute;n.</p> <p><strong>Ch&uacute; &yacute;:</strong> quy chuẩn sẽ được tự động chọn dựa tr&ecirc;n loại nước thải v&agrave; nguồn tiếp nhận của nước thải</p>"

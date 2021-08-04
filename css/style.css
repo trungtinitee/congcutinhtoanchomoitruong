@@ -42,6 +42,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0px;
 }
 
+.title-3{
+    color: #000000;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
 .group-unit {
     border: 1px solid #04aa6d;
     margin-bottom: 15px;
