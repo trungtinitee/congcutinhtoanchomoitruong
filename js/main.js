@@ -1151,6 +1151,13 @@ document.getElementById("comboBox_XuLyNuocThai").addEventListener("change", func
     //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
     document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
     document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
+
+    //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
+    if (loaiNuocThai.selectedIndex === 1){
+        document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = true;
+    } else {
+        document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = false;
+    }
 });
 
 //4.2.2 - Tự động áp dụng quy chuẩn phù hợp
