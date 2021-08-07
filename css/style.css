@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 .group-unit {
     border: 1px solid #04aa6d;
     margin-bottom: 15px;
-    padding-bottom: 7px;
+    /* padding-bottom: 7px; */
     background: #f8f9fa;
     display: none;
 }
@@ -93,6 +93,20 @@ h1, h2, h3, h4, h5, h6 {
 .btn-csdl {
     margin-bottom: 5px;
     margin-top: 15px;
+}
+
+.collapse-section{
+    text-align: center;
+    margin-top: 7px;
+}
+
+.collapse-section i{
+    background: #04aa6d;
+    padding: 2px 45px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #ffffff;
+    border: 1px solid #04aa6d;
 }
 
 /*Hiển thị thông tin trợ giúp*/

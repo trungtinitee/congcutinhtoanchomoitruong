@@ -551,5 +551,27 @@
         ]
       }
     ]
-  }
+  },
+  "ThongSoTinhToan":[
+    {
+      "Ten": "6.2 Thời gian hoạt động của dự án",
+      "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong",
+      "GiaTri": 8
+    },
+    {
+      "Ten": "6.5 Hệ số không điều hoà Kmax",
+      "ID": "input_xuLyNuocThai_ThongSoTinhToan_Kmax",
+      "GiaTri": 2
+    },
+    {
+      "Ten": "6.7 Hệ số không điều hoà Kmin",
+      "ID": "input_xuLyNuocThai_ThongSoTinhToan_Kmin",
+      "GiaTri": 0.5
+    },
+    {
+      "Ten": "6.9 Thời gian hoạt động của hệ thống xử lý",
+      "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong",
+      "GiaTri": 24
+    }
+  ]
 }

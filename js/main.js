@@ -439,6 +439,7 @@ function TuDongLamTronSo(soLamTron) {
 
 
 }
+
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
@@ -957,6 +958,46 @@ function AnHienChiTieuONhiem_NuocThai() {
 
 }
 
+//Xử lý thông số tính toán
+function XuLyThongSoTinhToan_NuocThai(indexXuLyGop) {
+    //Khai báo biến
+    var qTongNgayDem, tHoatDong, kMax, kMin, tHeThong;
+
+    //Code
+    //6.1 Lưu lượng tính toán ngày đêm
+    if (indexXuLyGop === 0) {
+        qTongNgayDem = document.getElementById("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai").value;
+        TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong", qTongNgayDem);
+    } else {
+        var nuocThaiChinh = document.getElementById("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai").value;
+        var nuocSinhHoat = document.getElementById("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH").value;
+        qTongNgayDem = So(nuocThaiChinh) + So(nuocSinhHoat);
+        TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong", qTongNgayDem);
+    }
+
+    //6.3 Lưu lượng trung bình giờ
+    tHoatDong = document.getElementById("input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong").value;
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGio", TuDongLamTronSo(qTongNgayDem / tHoatDong));
+
+    //6.4 Lưu lượng trung bình giây
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGiay", TuDongLamTronSo(qTongNgayDem / (tHoatDong * 3600)));
+
+    //6.6 Lưu lượng lớn nhất giây
+    kMax = document.getElementById("input_xuLyNuocThai_ThongSoTinhToan_Kmax").value;
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay", TuDongLamTronSo((qTongNgayDem * kMax) / (tHoatDong * 3600)));
+
+    //6.6 Lưu lượng lớn nhất giây
+    kMin = document.getElementById("input_xuLyNuocThai_ThongSoTinhToan_Kmin").value;
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMinGiay", TuDongLamTronSo((qTongNgayDem * kMin) / (tHoatDong * 3600)));
+
+    //6.10 Lưu lượng xử lý giờ của hệ thống
+    tHeThong = document.getElementById("input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong").value;
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio", TuDongLamTronSo(qTongNgayDem / tHeThong));
+
+    //6.11 Lưu lượng xử lý giây của hệ thống
+    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGiay", TuDongLamTronSo(qTongNgayDem / (tHeThong * 3600)));
+}
+
 //3.1.3 Chương trình chính xử lý nước thải
 function TinhToanChoXuLyNuocThai() {
     //Khai báo biến
@@ -1032,6 +1073,7 @@ function TinhToanChoXuLyNuocThai() {
     ];
 
     //Code
+    //Xử lý tính toán II -> IV
     if (KiemTraDuLieuVao(jsonKiemTra)) {
         //Xử lý riêng lẻ
         if (xuLyGopSinhHoat === 0) {
@@ -1039,11 +1081,6 @@ function TinhToanChoXuLyNuocThai() {
             if (loaiNuocThaiXuLy === 1) {
                 if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTSH)) {
                     XuLyHeSoQuyChuan_NuocThai(1);
-                    if (kiemTraTruocKhiTinh === true) {
-                        if (KiemTraDuLieuVao(jsonKiemTraCongNgheLuaChon)) {
-
-                        }
-                    }
                 }
             }
 
@@ -1063,6 +1100,19 @@ function TinhToanChoXuLyNuocThai() {
                     XuLyHeSoQuyChuan_NuocThai(2);
                 }
             }
+        }
+    }
+
+    //Xử lý V
+    if (kiemTraTruocKhiTinh === true) {
+        if (KiemTraDuLieuVao(jsonKiemTraCongNgheLuaChon)) {
+        }
+    }
+
+    //Xử lý tính toán VI
+    if (kiemTraTruocKhiTinh === true) {
+        if (KiemTraDuLieuVao(jsonCSDL_NuocThai.ThongSoTinhToan)) {
+            XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
         }
     }
 }
@@ -1153,7 +1203,7 @@ document.getElementById("comboBox_XuLyNuocThai").addEventListener("change", func
     document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
 
     //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
-    if (loaiNuocThai.selectedIndex === 1){
+    if (loaiNuocThai.selectedIndex === 1) {
         document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = true;
     } else {
         document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = false;
@@ -1281,7 +1331,7 @@ document.getElementById("btn_xuLyNuocThai_GopSinhHoat").addEventListener("click"
     //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
     document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
     document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
-    
+
     //Trường hợp không hiển thị
     if (kiemTraTrangThai === "none") {
         // Ẩn hiện dấu - +
@@ -1403,5 +1453,46 @@ document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("
 AnDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
 
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
+//Tự động nhập dữ liệu phù hợp với ID
+function TuDongNhapDuLieu(idCanNhap, giaTri) {
+    //Khai báo biến
+    var kieuKiemTra = idCanNhap.slice(0, idCanNhap.indexOf("_", 0));
 
+    //Code
+    //Nếu là comboBox
+    if (kieuKiemTra === "comboBox") {
+        document.getElementById(idCanNhap).selectedIndex = giaTri;
+    }
 
+    //Nếu là input
+    else if (kieuKiemTra === "input") {
+        document.getElementById(idCanNhap).value = giaTri;
+    }
+
+    //Còn lại
+    else {
+        HienThiThongBao("Không tìm thấy kiểu cần nhập");
+    }
+}
+
+//Số liệu mẫu cho thông số tính toán
+document.getElementById("btn_xuLyNuocThai_ThongSoTinhToan_SoLieuMau").addEventListener("click", function () {
+    //Khai báo biến
+    var bienID, bienGiaTri;
+
+    //Code
+    //Kiểm tra đầu vào
+    for (var i = 0; i < jsonCSDL_NuocThai.ThongSoTinhToan.length; i++) {
+        bienID = jsonCSDL_NuocThai.ThongSoTinhToan[i].ID;
+        bienGiaTri = jsonCSDL_NuocThai.ThongSoTinhToan[i].GiaTri;
+        TuDongNhapDuLieu(bienID, bienGiaTri);
+    }
+});
+
+//Ẩn section khi click nút ẩn ở cuối
+function ClickToCollapse(id){
+    var doiTuong = document.getElementById(id);
+    var bienTam = new bootstrap.Collapse(doiTuong, {
+        toggle: true
+      })
+}
