@@ -625,7 +625,7 @@
           <div class="col-8 fix-full-screen" id="heSoKQC14">
             <div class="input-group">
               <span class="input-group-text">Hệ số K</span>
-              <input type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoK">
+              <input placeholder="1 - 1.2" type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoK">
               <span class="input-group-text">-</span>
               <!--Nút trợ giúp-->
               <a id="info_xuLyNuocThai_YeuCauDauRa_HeSoK" class="btn-suggest btn-suggest-comboBox"><i
@@ -636,7 +636,7 @@
           <div class="col-8 fix-full-screen" id="heSoKQC401">
             <div class="input-group">
               <span class="input-group-text">Hệ số K<sub>q</sub></span>
-              <input type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoKq">
+              <input placeholder="0.6 - 1.3" type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoKq">
               <span class="input-group-text">-</span>
               <!--Nút trợ giúp-->
               <a id="info_xuLyNuocThai_YeuCauDauRa_HeSoKqKf" class="btn-suggest btn-suggest-comboBox"><i
@@ -646,7 +646,7 @@
           <div class="col-8 fix-full-screen" id="heSoKQC402">
             <div class="input-group">
               <span class="input-group-text">Hệ số K<sub>f</sub></span>
-              <input type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoKf">
+              <input placeholder="0.9 - 1.2" type="number" class="form-control" aria-label="Hệ số K" id="input_xuLyNuocThai_YeuCauDauRa_HeSoKf">
               <span class="input-group-text">-</span>
             </div>
           </div>
@@ -987,13 +987,173 @@
           <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HoThu" aria-expanded="false"
             aria-controls="xuLyNuocThai_HoThu">HỐ THU GOM</h4>
           <div class="collapse" id="xuLyNuocThai_HoThu">
-            <!-- Nguồn tiếp nhận nước thải-->
-            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+
+            <h5 class="title-2">A. Thông số, kích thước</h5>
+            <h5 class="title-2 title-3">Phương án tính toán</h5>
+            <div class="col-8 fix-full-screen">
+              <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_HoThu_PhuongAn">
+                <option selected>Chọn một phương án...</option>
+                <option value="1">Nhập kích thước tham khảo</option>
+                <option value="2">Tính toán dựa trên thời gian lưu</option>
+              </select>
+            </div>
+
+            <div id="box_XuLyNuocThai_HoThu_PhuongAn" style="display: none;">
+              <div>
+                <h5 class="title-2 title-3">Thời gian lưu nước</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">T<sub>luuNuocHoThu</sub></span>
+                    <input placeholder="10 - 30" type="number" class="form-control" aria-label="tThoiGianLuuNuoc"
+                      id="input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc">
+                    <span class="input-group-text">phút</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Thể tích hữu ích</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">V<sub>huuIchHoThu</sub></span>
+                    <input disabled type="number" class="form-control" aria-label="VhuuIchHoThu"
+                      id="input_xuLyNuocThai_HoThu_TheTichHuuIch">
+                      <input type="number" class="form-control" aria-label="VhuuIchHoThu"
+                      id="input_xuLyNuocThai_HoThu_TheTichHuuIch_SuaLai">
+                    <span class="input-group-text">m<sup>3</sup></span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Độ cao ống thoát - mực nước</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">H<sub>ongThoat</sub></span>
+                    <input type="number" class="form-control" aria-label="HsauOngThoat"
+                      id="input_xuLyNuocThai_HoThu_DoCaoOngThoat">
+                    <span class="input-group-text">m</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Độ cao bảo vệ</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">H<sub>baoVe</sub></span>
+                    <input placeholder="0.2 - 0.4" type="number" class="form-control" aria-label="HcaoBaoVe"
+                      id="input_xuLyNuocThai_HoThu_DoCaoBaoVe">
+                    <span class="input-group-text">m</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Độ cao hữu ích</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">H<sub>huuIchHoThu</sub></span>
+                    <input type="number" class="form-control" aria-label="HhuuDungHoThu"
+                      id="input_xuLyNuocThai_HoThu_DoCaoHuuIch">
+                    <span class="input-group-text">m</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Tổng độ cao thực tế</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">H<sub>thucTeHoThu</sub></span>
+                    <input disabled type="number" class="form-control" aria-label="HthucTeHoThu"
+                      id="input_xuLyNuocThai_HoThu_DoCaoThucTe">
+                    <span class="input-group-text">m</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="title-2 title-3">Dạng hình học</h5>
+                <div class="col-8 fix-full-screen">
+                  <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_HoThu_DangHinhHoc">
+                    <option selected>Chọn một phương án...</option>
+                    <option value="1">Hình vuông</option>
+                    <option value="2">Hình chữ nhật</option>
+                    <option value="2">Hình tròn</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: none;" id="box_XuLyNuocThai_HoThu_DangHinhHoc">
+                <!-- Cho hình vuông + hình chữ nhật -->
+                <div>
+                  <h5 class="title-2 title-3">Chiều dài</h5>
+                  <div class="col-8 fix-full-screen">
+                    <div class="input-group">
+                      <span class="input-group-text">L<sub>hoThu</sub></span>
+                      <input disabled type="number" class="form-control" aria-label="LhoThu"
+                        id="input_xuLyNuocThai_HoThu_ChieuDai">
+                        <input type="number" class="form-control" aria-label="LhoThu"
+                        id="input_xuLyNuocThai_HoThu_ChieuDai_SuaLai">
+                      <span class="input-group-text">m</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 class="title-2 title-3">Chiều rộng</h5>
+                  <div class="col-8 fix-full-screen">
+                    <div class="input-group">
+                      <span class="input-group-text">W<sub>hoThu</sub></span>
+                      <input disabled type="number" class="form-control" aria-label="WhoThu"
+                        id="input_xuLyNuocThai_HoThu_ChieuRong">
+                        <input type="number" class="form-control" aria-label="WhoThu"
+                        id="input_xuLyNuocThai_HoThu_ChieuRong_SuaLai">
+                      <span class="input-group-text">m</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cho hình tròn -->
+                <div>
+                  <h5 class="title-2 title-3">Đường kính</h5>
+                  <div class="col-8 fix-full-screen">
+                    <div class="input-group">
+                      <span class="input-group-text">D<sub>hoThu</sub></span>
+                      <input disabled type="number" class="form-control" aria-label="DhoThu"
+                        id="input_xuLyNuocThai_HoThu_DuongKinh">
+                        <input type="number" class="form-control" aria-label="DhoThu"
+                        id="input_xuLyNuocThai_HoThu_DuongKinh_SuaLai">
+                      <span class="input-group-text">m</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thể tích tính toán lại -->
+                <div>
+                  <h5 class="title-2 title-3">Thể tích thực tế</h5>
+                  <div class="col-8 fix-full-screen">
+                    <div class="input-group">
+                      <span class="input-group-text">V<sub>thucTeHoThu</sub></span>
+                      <input disabled type="number" class="form-control" aria-label="VthucTeHoThu"
+                        id="input_xuLyNuocThai_HoThu_TheTichThucTe">
+                      <span class="input-group-text">m<sup>3</sup></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Nút lấy số liệu từ CSDL-->
+          <button type="button" class="btn btn-success btn-sm btn-csdl"
+          id="btn_xuLyNuocThai_HoThu_SoLieuMau">Số
+          liệu mẫu</button>
 
             <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HoThu')"></i>
-          </div>
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HoThu')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán hố thu gom -->
@@ -1006,10 +1166,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-             <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TachMo')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TachMo')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể tách mỡ -->
@@ -1022,10 +1182,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangCat')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangCat')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể lắng cát -->
@@ -1038,10 +1198,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_DieuHoa')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_DieuHoa')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể điều hoà -->
@@ -1054,10 +1214,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TuyenNoi')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TuyenNoi')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể tuyển nổi -->
@@ -1070,10 +1230,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangHoaLy')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangHoaLy')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể lắng hoá lý -->
@@ -1086,10 +1246,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangSinhHoc')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangSinhHoc')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể lắng sinh học -->
@@ -1102,10 +1262,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KhuTrung')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KhuTrung')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể khử trùng -->
@@ -1118,10 +1278,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TrungGian')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TrungGian')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể trung gian -->
@@ -1134,10 +1294,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_CotLocApLuc')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_CotLocApLuc')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán cột lọc áp lực -->
@@ -1150,10 +1310,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KeoTu')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KeoTu')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể keo tụ -->
@@ -1166,10 +1326,11 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocxuLyNuocThai_TaoBongThai_TachMo')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up"
+                onclick="javascript:ClickToCollapse('xuLyNuocxuLyNuocThai_TaoBongThai_TachMo')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể tạo bông -->
@@ -1182,10 +1343,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_YemKhi')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_YemKhi')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể UASB -->
@@ -1198,10 +1359,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_ThieuKhi')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_ThieuKhi')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể thiếu khí -->
@@ -1214,10 +1375,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HieuKhi')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HieuKhi')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán bể hiếu khí -->
@@ -1230,10 +1391,10 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LocSinhHoc')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LocSinhHoc')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán Bể lọc sinh học nhỏ giọt -->
@@ -1246,10 +1407,11 @@
             <!-- Nguồn tiếp nhận nước thải-->
             <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-          <div class="collapse-section">
-            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LongQuaySinhHoc')"></i>
-          </div>
+            <!-- Thu gọn mục -->
+            <div class="collapse-section">
+              <i class="fas fa-angle-double-up"
+                onclick="javascript:ClickToCollapse('xuLyNuocThai_LongQuaySinhHoc')"></i>
+            </div>
           </div>
         </div>
         <!-- Kết thúc tính toán Lồng quay sinh học -->

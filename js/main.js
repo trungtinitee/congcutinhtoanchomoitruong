@@ -343,6 +343,12 @@ function AnHienThongTin(linhVucXuLy) {
     var loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai");
 
     if (linhVucXuLy === "NuocThai") {//Nước thải
+        //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
+        if (loaiNuocThai.selectedIndex === 1) {
+            document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = true;
+        } else {
+            document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = false;
+        }
         AnHienHeSoKKQKF_NuocThai();
         AnHienChoCongNgheXuLy_NuocThai();
         AnHienCongTrinhDonVi(congTrinhDaChon);
@@ -438,6 +444,59 @@ function TuDongLamTronSo(soLamTron) {
     }
 
 
+}
+
+//Tự động nhập dữ liệu phù hợp với ID
+function TuDongNhapDuLieu(idCanNhap, giaTri) {
+    //Khai báo biến
+    var kieuKiemTra = idCanNhap.slice(0, idCanNhap.indexOf("_", 0));
+
+    //Code
+    //Nếu là comboBox
+    if (kieuKiemTra === "comboBox") {
+        document.getElementById(idCanNhap).selectedIndex = giaTri;
+    }
+
+    //Nếu là input
+    else if (kieuKiemTra === "input") {
+        document.getElementById(idCanNhap).value = giaTri;
+    }
+
+    //Còn lại
+    else {
+        HienThiThongBao("Không tìm thấy kiểu cần nhập");
+    }
+}
+
+//Tự động lấy dữ liệu
+function TuDongLayDuLieu(idCanLay) {
+    //Khai báo biến
+    var kieuKiemTra = idCanLay.slice(0, idCanLay.indexOf("_", 0));
+
+    //Code
+    //Nếu là comboBox
+    if (kieuKiemTra === "comboBox") {
+        return document.getElementById(idCanLay).selectedIndex;
+    }
+
+    //Nếu là input
+    else if (kieuKiemTra === "input") {
+        try {
+            var check = document.getElementById(idCanLay + "_SuaLai").value;
+            if (check !== "") {
+                return check;
+            } else {
+                return document.getElementById(idCanLay).value;
+            }
+        } catch (error) {
+            return document.getElementById(idCanLay).value;
+        }
+    }
+
+    //Còn lại
+    else {
+        HienThiThongBao("Không tìm thấy kiểu cần lấy");
+    }
 }
 
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
@@ -1115,6 +1174,11 @@ function TinhToanChoXuLyNuocThai() {
             XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
         }
     }
+
+    //Hố thu
+    if (kiemTraTruocKhiTinh === true) {
+        XuLyTinhToanHoThu_NuocThai();
+    }
 }
 
 //3.2 Tính toán cho xử lý nước cấp
@@ -1166,6 +1230,7 @@ document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", fun
     var kiemTraCoFile = document.getElementById("btn_UploadFile").value;
     var linhVucTinhToan;
 
+    //Code
     if (kiemTraCoFile !== "") {
         linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
         if (linhVucTinhToan === 1) {
@@ -1394,6 +1459,17 @@ document.getElementById("btn_xuLyNuocThai_GopSinhHoat").addEventListener("click"
     }
 });
 
+//Ẩn hiện phương án tính toán hố thu
+document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").addEventListener("change", function () {
+    AnHienPhuongAnHoThu_NuocThai();
+});
+
+//Ẩn hiện dạng hình học cho hố thu
+document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").addEventListener("change", function () {
+    AnHienDangHinhHocHoThu_NuocThai();
+});
+
+
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 //5.1 Chương trình chính
 //5.1.1 Xử lý chung
@@ -1453,27 +1529,6 @@ document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("
 AnDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
 
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-//Tự động nhập dữ liệu phù hợp với ID
-function TuDongNhapDuLieu(idCanNhap, giaTri) {
-    //Khai báo biến
-    var kieuKiemTra = idCanNhap.slice(0, idCanNhap.indexOf("_", 0));
-
-    //Code
-    //Nếu là comboBox
-    if (kieuKiemTra === "comboBox") {
-        document.getElementById(idCanNhap).selectedIndex = giaTri;
-    }
-
-    //Nếu là input
-    else if (kieuKiemTra === "input") {
-        document.getElementById(idCanNhap).value = giaTri;
-    }
-
-    //Còn lại
-    else {
-        HienThiThongBao("Không tìm thấy kiểu cần nhập");
-    }
-}
 
 //Số liệu mẫu cho thông số tính toán
 document.getElementById("btn_xuLyNuocThai_ThongSoTinhToan_SoLieuMau").addEventListener("click", function () {
@@ -1489,10 +1544,357 @@ document.getElementById("btn_xuLyNuocThai_ThongSoTinhToan_SoLieuMau").addEventLi
     }
 });
 
+//Số liệu mẫu cho hố thu
+document.getElementById("btn_xuLyNuocThai_HoThu_SoLieuMau").addEventListener("click", function () {
+    //Khai báo biến
+    var bienID, bienGiaTri;
+    var phuongAn = document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").selectedIndex;
+
+    //Code
+    if (phuongAn === 1) {
+        for (var i = 0; i < jsonCSDL_NuocThai.HoThuGom.PhuongAn1.length; i++) {
+            bienID = jsonCSDL_NuocThai.HoThuGom.PhuongAn1[i].ID;
+            bienGiaTri = jsonCSDL_NuocThai.HoThuGom.PhuongAn1[i].GiaTri;
+            TuDongNhapDuLieu(bienID, bienGiaTri);
+        }
+    } else{
+        for (var i = 0; i < jsonCSDL_NuocThai.HoThuGom.PhuongAn2.length; i++) {
+            bienID = jsonCSDL_NuocThai.HoThuGom.PhuongAn2[i].ID;
+            bienGiaTri = jsonCSDL_NuocThai.HoThuGom.PhuongAn2[i].GiaTri;
+            TuDongNhapDuLieu(bienID, bienGiaTri);
+        }
+
+        AnHienDangHinhHocHoThu_NuocThai();
+    }
+    
+});
+
 //Ẩn section khi click nút ẩn ở cuối
-function ClickToCollapse(id){
+function ClickToCollapse(id) {
     var doiTuong = document.getElementById(id);
     var bienTam = new bootstrap.Collapse(doiTuong, {
         toggle: true
-      })
+    })
 }
+
+//Ẩn hiện thông tin phương án cho hố thu
+function AnHienPhuongAnHoThu_NuocThai() {
+    //Khai báo biến
+    var phuongAn = document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").selectedIndex;
+    var mangPA1 = [
+        "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "input_xuLyNuocThai_HoThu_DoCaoThucTe",
+        "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
+        "input_xuLyNuocThai_HoThu_TheTichThucTe"
+    ];
+    var mangPA2 = [
+        "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "input_xuLyNuocThai_HoThu_DoCaoThucTe",
+        "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
+        "input_xuLyNuocThai_HoThu_TheTichThucTe",
+        "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
+        "input_xuLyNuocThai_HoThu_TheTichHuuIch"
+    ];
+
+    var mangPA3 = [
+        "input_xuLyNuocThai_HoThu_ChieuDai",
+        "input_xuLyNuocThai_HoThu_ChieuRong"
+    ];
+    var mangPA4 = [
+        "input_xuLyNuocThai_HoThu_DuongKinh"
+    ];
+    //Code
+    //Ẩn mặc định
+    if (phuongAn === 0) {
+        document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display = "none";
+    }
+
+    //Hiện với phương án 1
+    else if (phuongAn === 1) {
+        for (var i = 0; i < mangPA2.length; i++) {
+            document.getElementById(mangPA2[i]).parentNode.parentNode.parentNode.style.display = "none";
+        }
+        for (var i = 0; i < mangPA1.length; i++) {
+            document.getElementById(mangPA1[i]).parentNode.parentNode.parentNode.style.display = "block";
+        }
+
+        //Xử lý dạng hình học
+        document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").selectedIndex = 2;
+        document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").disabled = true;
+        for (var i = 0; i < mangPA4.length; i++) {
+            document.getElementById(mangPA4[i]).parentNode.parentNode.parentNode.style.display = "none";
+        }
+        for (var i = 0; i < mangPA3.length; i++) {
+            document.getElementById(mangPA3[i]).parentNode.parentNode.parentNode.style.display = "block";
+        }
+
+        //Xử lý người dùng tự nhập
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai_SuaLai").style.display = "none";
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai").disabled = false;
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuRong_SuaLai").style.display = "none";
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuRong").disabled = false;
+
+        //Hiển thị lại nội dung
+        document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display = "block";
+        document.getElementById("box_XuLyNuocThai_HoThu_DangHinhHoc").style.display = "block";
+    }
+
+    //Ẩn hiện với phương án 2
+    else if (phuongAn === 2) {
+        for (var i = 0; i < mangPA1.length; i++) {
+            document.getElementById(mangPA1[i]).parentNode.parentNode.parentNode.style.display = "none";
+        }
+        for (var i = 0; i < mangPA2.length; i++) {
+            document.getElementById(mangPA2[i]).parentNode.parentNode.parentNode.style.display = "block";
+        }
+
+        //Xử lý dạng hình học
+        document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").selectedIndex = 0;
+        document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").disabled = false;
+        for (var i = 0; i < mangPA4.length; i++) {
+            document.getElementById(mangPA4[i]).parentNode.parentNode.parentNode.style.display = "block";
+        }
+
+        //Xử lý người dùng tự nhập
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai_SuaLai").style.display = "block";
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai").disabled = true;
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuRong_SuaLai").style.display = "block";
+        document.getElementById("input_xuLyNuocThai_HoThu_ChieuRong").disabled = true;
+
+        //Xử lý hiển thị chung
+        document.getElementById("box_XuLyNuocThai_HoThu_DangHinhHoc").style.display = "none";
+        document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display = "block";
+    }
+}
+
+//Ẩn hiện loại hình học cho hố thu
+function AnHienDangHinhHocHoThu_NuocThai() {
+    //Khai báo biến
+    var phuongAn = TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc");
+    var mangPA1 = [
+        "input_xuLyNuocThai_HoThu_ChieuDai",
+        "input_xuLyNuocThai_HoThu_ChieuRong"
+    ];
+    var mangPA2 = [
+        "input_xuLyNuocThai_HoThu_DuongKinh"
+    ];
+
+    //Code
+    //Ẩn hết mặc định
+    if (phuongAn === 0) {
+        document.getElementById("box_XuLyNuocThai_HoThu_DangHinhHoc").style.display = "none";
+    }
+
+    //Với phương án 1 và 2
+    else {
+        if (phuongAn === 1 || phuongAn === 2) {
+            for (var i = 0; i < mangPA2.length; i++) {
+                document.getElementById(mangPA2[i]).parentNode.parentNode.parentNode.style.display = "none";
+            }
+            for (var i = 0; i < mangPA1.length; i++) {
+                document.getElementById(mangPA1[i]).parentNode.parentNode.parentNode.style.display = "block";
+            }
+
+            //Hình chữ nhật
+            if (phuongAn === 2) {
+                document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai_SuaLai").style.display = "none";
+                document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai").disabled = false;
+            }
+
+            //Hình vuông
+            else if (phuongAn === 1) {
+                document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai_SuaLai").style.display = "block";
+                document.getElementById("input_xuLyNuocThai_HoThu_ChieuDai").disabled = true;
+            }
+        }
+
+        //Với phương án 3
+        else if (phuongAn === 3) {
+            for (var i = 0; i < mangPA1.length; i++) {
+                document.getElementById(mangPA1[i]).parentNode.parentNode.parentNode.style.display = "none";
+            }
+            for (var i = 0; i < mangPA2.length; i++) {
+                document.getElementById(mangPA2[i]).parentNode.parentNode.parentNode.style.display = "block";
+            }
+        }
+        document.getElementById("box_XuLyNuocThai_HoThu_DangHinhHoc").style.display = "block";
+    }
+}
+
+//Tính toán cho hố thu
+function XuLyTinhToanHoThu_NuocThai() {
+    //Khai báo biến
+    var phuongAn = document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").selectedIndex;
+    var jsonKiemTra0 = [
+        {
+            "Ten": "Hố thu gom | Phương án tính toán",
+            "ID": "comboBox_XuLyNuocThai_HoThu_PhuongAn"
+        }
+    ];
+    var jsonKiemTra1 = [
+        {
+            "Ten": "Hố thu gom | Thời gian lưu nước",
+            "ID": "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc"
+        }
+    ];
+
+    var jsonKiemTra2 = [
+        {
+            "Ten": "Hố thu gom | Độ cao ống thoát - mực nước",
+            "ID": "input_xuLyNuocThai_HoThu_DoCaoOngThoat"
+        },
+        {
+            "Ten": "Hố thu gom | Độ cao bảo vệ",
+            "ID": "input_xuLyNuocThai_HoThu_DoCaoBaoVe"
+        },
+        {
+            "Ten": "Hố thu gom | Độ cao hữu ích",
+            "ID": "input_xuLyNuocThai_HoThu_DoCaoHuuIch"
+        }
+    ];
+
+    var jsonKiemTra3 = [
+        {
+            "Ten": "Hố thu gom | Dạng hình học",
+            "ID": "comboBox_XuLyNuocThai_HoThu_DangHinhHoc"
+        }
+    ];
+
+    var jsonKiemTra4 = [
+        {
+            "Ten": "Hố thu gom | Chiều dài",
+            "ID": "input_xuLyNuocThai_HoThu_ChieuDai"
+        }
+    ];
+
+    var jsonKiemTra5 = [
+        {
+            "Ten": "Hố thu gom | Chiều dài",
+            "ID": "input_xuLyNuocThai_HoThu_ChieuDai"
+        },
+        {
+            "Ten": "Hố thu gom | Chiều rộng",
+            "ID": "input_xuLyNuocThai_HoThu_ChieuRong"
+        }
+    ];
+
+    //Chương trình con
+    //Tổng độ cao thực tế
+    function TongDoCaoThucTe() {
+        var hOngThoat = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoOngThoat");
+        var hBaoVe = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoBaoVe");
+        var hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
+
+        var hThucTeHoThu = TuDongLamTronSo(So(hOngThoat) + So(hBaoVe) + So(hHuuIch));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_DoCaoThucTe", hThucTeHoThu);
+    }
+
+    //Thể tích thực tế
+    function TheTichThucTe() {
+        var lHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuDai");
+        var wHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuRong");
+        var hThucTeHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoThucTe");
+
+        var vThucTeHoThu = TuDongLamTronSo(So(lHoThu) * So(wHoThu) * So(hThucTeHoThu));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichThucTe", vThucTeHoThu);
+    }
+
+    //Thể tích hữu ích
+    function TheTichHuuIch() {
+        var qLonNhatGiay = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay");
+        var tLuuNuocHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc");
+
+        var vHuuIchHoThu = TuDongLamTronSo(So(qLonNhatGiay) * 60 * So(tLuuNuocHoThu));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichHuuIch", vHuuIchHoThu);
+    }
+
+    //Suy ra chiều rộng
+    function SuyRaChieuRong() {
+        var lHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuDai");
+        var vHuuIchHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_TheTichHuuIch");
+        var hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
+
+        var wHoThu = TuDongLamTronSo((So(vHuuIchHoThu) / So(hHuuIch)) / So(lHoThu));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuRong", wHoThu);
+    }
+
+    //Suy ra chiều dài và rộng - hình vuông
+    function SuyRaChieuDaiVaRong() {
+        var vHuuIchHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_TheTichHuuIch");
+        var hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
+
+        var lHoThu = TuDongLamTronSo(Math.sqrt(So(vHuuIchHoThu / So(hHuuIch))));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuDai", lHoThu);
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuRong", lHoThu);
+    }
+
+    //Suy ra đường kính - hình tròn
+    function SuyRaDuongKinh() {
+        var vHuuIchHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_TheTichHuuIch");
+        var hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
+        var hThucTeHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoThucTe");
+
+        var dHoThu = TuDongLamTronSo(Math.sqrt((4 / Math.PI) * (So(vHuuIchHoThu) / So(hHuuIch))));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_DuongKinh", dHoThu);
+
+        var vThucTeHoThu = TuDongLamTronSo(Math.PI * Math.pow((dHoThu / 2), 2) * So(hThucTeHoThu));
+
+        TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichThucTe", vThucTeHoThu);
+    }
+
+    //Code
+    if (KiemTraDuLieuVao(jsonKiemTra0)) {
+        //Tự nhập
+        if (phuongAn === 1) {
+            if (KiemTraDuLieuVao(jsonKiemTra2)) {
+                TongDoCaoThucTe();
+                if (KiemTraDuLieuVao(jsonKiemTra5)) {
+                    TheTichThucTe();
+                }
+            }
+        }
+
+        //Tính từ thời gian lưu
+        else if (phuongAn === 2) {
+            if (KiemTraDuLieuVao(jsonKiemTra1)) {
+                TheTichHuuIch();
+
+                if (KiemTraDuLieuVao(jsonKiemTra2)) {
+                    TongDoCaoThucTe();
+
+                    if (KiemTraDuLieuVao(jsonKiemTra3)) {
+                        //Hình chữ nhật
+                        if (TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc") === 2) {
+                            if (KiemTraDuLieuVao(jsonKiemTra4)) {
+                                SuyRaChieuRong();
+                                TheTichThucTe();
+                            }
+                        }
+
+                        //Hình vuông
+                        else if (TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc") === 1) {
+                            SuyRaChieuDaiVaRong();
+                            TheTichThucTe();
+                        }
+
+                        //Hình trụ tròn
+                        else {
+                            SuyRaDuongKinh();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -285,7 +285,7 @@
         }
       ]
     },
-    "QCVN11MT2015" : {
+    "QCVN11MT2015": {
       "CotA": [
         {
           "Ten": "Sơ đồ công nghệ 1",
@@ -343,7 +343,7 @@
         }
       ]
     },
-    "QCVN11MT2015_GopSH" : {
+    "QCVN11MT2015_GopSH": {
       "CotA": [
         {
           "Ten": "Sơ đồ công nghệ 1",
@@ -552,7 +552,7 @@
       }
     ]
   },
-  "ThongSoTinhToan":[
+  "ThongSoTinhToan": [
     {
       "Ten": "6.2 Thời gian hoạt động của dự án",
       "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong",
@@ -573,5 +573,66 @@
       "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong",
       "GiaTri": 24
     }
-  ]
+  ],
+  "HoThuGom": {
+    "PhuongAn1": [
+      {
+        "Ten": "Độ cao ống thoát - mực nước",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "GiaTri": 0.7
+      },
+      {
+        "Ten": "Độ cao bảo vệ",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "GiaTri": 0.2
+      },
+      {
+        "Ten": "Độ cao hữu ích",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "Chiều dài",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai",
+        "GiaTri": 1.5
+      },
+      {
+        "Ten": "Chiều rộng",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong",
+        "GiaTri": 1
+      }
+    ],
+    "PhuongAn2": [
+      {
+        "Ten": "Thời gian lưu nước",
+        "ID": "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
+        "GiaTri": 15
+      },
+      {
+        "Ten": "Độ cao ống thoát - mực nước",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "GiaTri": 0.7
+      },
+      {
+        "Ten": "Độ cao bảo vệ",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "GiaTri": 0.2
+      },
+      {
+        "Ten": "Độ cao hữu ích",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "Dạng hình học",
+        "ID": "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
+        "GiaTri": 2
+      },
+      {
+        "Ten": "Chiều dài",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai",
+        "GiaTri": 1.5
+      }
+    ]
+  }
 }
