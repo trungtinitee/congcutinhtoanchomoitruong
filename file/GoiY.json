@@ -50,6 +50,21 @@
                 "Ten": "Chọn các công trình đơn vị có trong công nghệ",
                 "ID": "info_XuLyNuocThai_CongNghe_CongNgheLuaChonLai",
                 "GiaTri":"<p><strong>Hướng dẫn thực hiện lựa chọn c&ocirc;ng tr&igrave;nh đơn vị cho c&ocirc;ng nghệ xử l&yacute;:</strong></p> <p>- Khi bạn chọn một c&ocirc;ng tr&igrave;nh đơn vị trong danh s&aacute;ch, c&ocirc;ng tr&igrave;nh sẽ được tự động th&ecirc;m v&agrave;o c&ocirc;ng nghệ (nh&igrave;n v&agrave;o sơ đồ c&ocirc;ng nghệ được tự động vẽ)</p> <p>- C&ocirc;ng tr&igrave;nh đơn vị được th&ecirc;m v&agrave;o&nbsp;tại vị tr&iacute; nối tiếp c&ocirc;ng tr&igrave;nh ph&iacute;a trước n&oacute; (từ tr&ecirc;n xuống dưới)</p> <p>- Để xo&aacute; một c&ocirc;ng tr&igrave;nh đơn vị, chọn v&agrave;o c&ocirc;ng tr&igrave;nh đơn vị đ&oacute; sau đ&oacute; nhấn v&agrave;o n&uacute;t <strong>\"Xo&aacute; c&ocirc;ng tr&igrave;nh\"</strong></p> <p>Ch&uacute; &yacute;: sơ đồ c&ocirc;ng nghệ vẫn sẽ được giữ nguy&ecirc;n khi bạn chuyển từ <strong>\"Sử dụng sơ đồ c&ocirc;ng nghệ đề xuất\"</strong> sang <strong>\"Chọn lại c&ocirc;ng nghệ\"&nbsp;</strong>(điều n&agrave;y gi&uacute;p cho việc điều chỉnh sơ đồ c&ocirc;ng nghệ được nhanh hơn)</p> <p>&nbsp;</p>"
+            },
+            {
+                "Ten": "6.1 Lưu lượng tính toán ngày đêm",
+                "ID": "info_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong",
+                "GiaTri":"<p>Lưu lượng t&iacute;nh to&aacute;n ng&agrave;y đ&ecirc;m l&agrave; tổng lưu lượng nước thải (nếu xử l&yacute; chung 02 loại nước thải) hoặc lưu lượng nước thải xử l&yacute;.</p>"
+            },
+            {
+                "Ten": "6.2 Thời gian hoạt động của dự án",
+                "ID": "info_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong",
+                "GiaTri":"<p>Thời gian hoạt động sản xuất của dự &aacute;n (ph&aacute;t sinh nước thải)</p>"
+            },
+            {
+                "Ten": "6.5 Hệ số không điều hoà Kmax",
+                "ID": "info_xuLyNuocThai_ThongSoTinhToan_Kmax",
+                "GiaTri":"<p>Hệ số kh&ocirc;ng điều ho&agrave; Kmax l&agrave;&nbsp;tỉ lệ giữa lưu lượng nước thải lớn nhất v&agrave; lưu lượng nước thải trung b&igrave;nh.</p>"
             }
         ],
         "NuocCap": [],

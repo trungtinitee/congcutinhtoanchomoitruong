@@ -21,7 +21,7 @@
       {
         "Ten": "3.1 Lưu lượng",
         "ID": "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai",
-        "GiaTri": 500
+        "GiaTri": 750
       },
       {
         "Ten": "Lưu lượng nước thải sinh hoạt - xử lý chung",
@@ -305,13 +305,13 @@
         "Ten": "4.3 Hệ số chuyển đổi",
         "TenCon": "Kf",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_HeSoKf",
-        "GiaTri": 10
+        "GiaTri": 0
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "pH",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_pH",
-        "GiaTri": 20
+        "GiaTri": "5 - 9"
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
@@ -323,55 +323,79 @@
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "TSS",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TSS",
-        "GiaTri": 40
+        "GiaTri": 50
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "TDS",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TDS",
-        "GiaTri": 50
+        "GiaTri": 500
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "H2S",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_H2S",
-        "GiaTri": 60
+        "GiaTri": 1
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "NH3",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_NH3",
-        "GiaTri": 70
+        "GiaTri": 5
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "NO3-",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_NO3-",
-        "GiaTri": 80
+        "GiaTri": 30
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "Dầu mỡ động, thực vật",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_DMDTV",
-        "GiaTri": 90
+        "GiaTri": 10
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "Tổng các chất hoạt động bề mặt",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TCCHDBM",
-        "GiaTri": 100
+        "GiaTri": 5
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "PO43-",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_PO43-",
-        "GiaTri": 11
+        "GiaTri": 6
       },
       {
         "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
         "TenCon": "Tổng Coliforms",
         "ID": "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
-        "GiaTri": 12
+        "GiaTri": 3000
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "COD",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_COD",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "Tổng Nitơ (tính theo N)",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TN",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "Tổng phốt pho (tính theo P)",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_TP",
+        "GiaTri": 0
+      },
+      {
+        "Ten": "4.4 Nồng độ các chất ô nhiễm được tính toán lại",
+        "TenCon": "Clo dư",
+        "ID": "input_xuLyNuocThai_YeuCauDauRa_CloDu",
+        "GiaTri": 0
       },
       {
         "Ten": "5.1 Công nghệ lựa chọn",
@@ -410,7 +434,7 @@
       {
         "Ten": "6.2 Thời gian hoạt động của dự án",
         "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong",
-        "GiaTri": 8
+        "GiaTri": 12
       },
       {
         "Ten": "6.3 Lưu lượng trung bình giờ",
@@ -456,6 +480,101 @@
         "Ten": "6.11 Lưu lượng xử lý giây của hệ thống",
         "ID": "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGiay",
         "GiaTri": 0.006
+      },
+      {
+        "Ten": "Hố thu gom | Phương án tính toán",
+        "ID": "comboBox_XuLyNuocThai_HoThu_PhuongAn",
+        "GiaTri": 2
+      },
+      {
+        "Ten": "Hố thu gom | Thời gian lưu nước",
+        "ID": "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
+        "GiaTri": 15
+      },
+      {
+        "Ten": "Hố thu gom | Thể tích hữu ích",
+        "ID": "input_xuLyNuocThai_HoThu_TheTichHuuIch",
+        "GiaTri": 31.5
+      },
+      {
+        "Ten": "Hố thu gom | Thể tích hữu ích",
+        "ID": "input_xuLyNuocThai_HoThu_TheTichHuuIch_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Hố thu gom | Độ cao ống thoát - mực nước",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "GiaTri": 0.7
+      },
+      {
+        "Ten": "Hố thu gom | Độ cao bảo vệ",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "GiaTri": 0.2
+      },
+      {
+        "Ten": "Hố thu gom | Độ cao hữu ích",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "GiaTri": 1
+      },
+      {
+        "Ten": "Hố thu gom | Tổng độ cao thực tế",
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoThucTe",
+        "GiaTri": 1.90
+      },
+      {
+        "Ten": "Hố thu gom | Dạng hình học",
+        "ID": "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
+        "GiaTri": 2
+      },
+      {
+        "Ten": "Hố thu gom | Chiều dài",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai",
+        "GiaTri": 1.5
+      },
+      {
+        "Ten": "Hố thu gom | Chiều dài",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Hố thu gom | Chiều rộng",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong",
+        "GiaTri": 21.0
+      },
+      {
+        "Ten": "Hố thu gom | Chiều rộng",
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Hố thu gom | Đường kính",
+        "ID": "input_xuLyNuocThai_HoThu_DuongKinh",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Hố thu gom | Đường kính",
+        "ID": "input_xuLyNuocThai_HoThu_DuongKinh_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Hố thu gom | Thể tích thực tế",
+        "ID": "input_xuLyNuocThai_HoThu_TheTichThucTe",
+        "GiaTri": 59.8
+      },
+      {
+        "Ten": "Hố thu gom | Bơm chìm - Lưu lượng",
+        "ID": "input_xuLyNuocThai_HoThu_LuuLuongBom_LitPhut",
+        "GiaTri": 2100
+      },
+      {
+        "Ten": "Hố thu gom | Bơm chìm - Lưu lượng",
+        "ID": "input_xuLyNuocThai_HoThu_LuuLuongBom_m3gio",
+        "GiaTri": 126
+      },
+      {
+        "Ten": "Hố thu gom | Bơm chìm - Cột áp",
+        "ID": "input_xuLyNuocThai_HoThu_CotApBom",
+        "GiaTri": "8 - 10"
       }
     ],
     "NuocCap": [],
