@@ -1046,7 +1046,7 @@ var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "
 
 //Biến nồng độ chất ô nhiễm cho nước thải
 var nuocThai_SS_QuyChuan,
-    nuocThai_BOD5_QuyChuan; 
+    nuocThai_BOD5_QuyChuan;
 
 //3.1.2 Hàm cho xử lý nước thải
 
@@ -1892,8 +1892,8 @@ function TinhToanChoXuLyNuocThai() {
     }
 
     //Tính toán bể bùn hoạt tính
-    function NuocThai_BeBunHoatTinh(){
-        console.log(nuocThai_BOD5_QuyChuan + ", " + nuocThai_SS_QuyChuan);
+    function NuocThai_BeBunHoatTinh() {
+
     }
 
     //Code
@@ -1969,347 +1969,358 @@ function TinhToanChoXuLyChatThaiRan() {
 
 //-----------------------------------------------------------IV. XỬ LÝ BẮT SỰ KIỆN-----------------------------------------------------------------------
 //4.1 Xử lý chung
+//Xử lý chính
+function XuLySuKienChinh() {
+    //0 Nhấn nút tính toán
+    document.getElementById("btn_calculator").addEventListener("click", function () {
+        //Khai báo biến
+        var index = document.getElementById("comboBox_LinhVucTinhToan").selectedIndex;
+        var jsonKiemTraDauVao = [{
+            "Ten": "1.1 Lĩnh vực cần tính toán cho môi trường",
+            "ID": "comboBox_LinhVucTinhToan",
+        }]
 
-//4.1.1 Xử lý file tải lên
-document.getElementById("btn_UploadFile").addEventListener("change", function () {
-    //Khai báo biến
-    var reader = new FileReader();
-
-    //Code
-    reader.addEventListener("load", function () {
-        var result = JSON.parse(reader.result);
-        jsonCore = result;
-        HienThiThongBao("Tải lên tệp tin thành công!");
+        //Code
+        //Kiểm tra đầu vào
+        if (KiemTraDuLieuVao(jsonKiemTraDauVao)) {
+            if (index === 1) {
+                TinhToanChoXuLyNuocThai();
+            } else if (index === 2) {
+                TinhToanChoXuLyNuocCap();
+            } else if (index === 3) {
+                TinhToanChoXuLyKhiThai();
+            } else if (index === 4) {
+                TinhToanChoXuLyChatThaiRan();
+            }
+        }
     });
-    reader.readAsText(document.getElementById("btn_UploadFile").files[0]);
-});
-//Xử lý trùng tên file - xoá file cũ trước khi tải lên file mới
-document.getElementById("btn_UploadFile").addEventListener("click", function () {
-    document.getElementById("btn_UploadFile").value = "";
-});
+    //1 Xử lý file tải lên
+    document.getElementById("btn_UploadFile").addEventListener("change", function () {
+        //Khai báo biến
+        var reader = new FileReader();
 
-//4.1.2 Lĩnh vực tính toán
-document.getElementById("comboBox_LinhVucTinhToan").addEventListener("change", function () {
-    AnHienThongTinTheoLinhVucTinhToan();
-});
+        //Code
+        reader.addEventListener("load", function () {
+            var result = JSON.parse(reader.result);
+            jsonCore = result;
+            HienThiThongBao("Tải lên tệp tin thành công!");
+        });
+        reader.readAsText(document.getElementById("btn_UploadFile").files[0]);
+    });
+    //2 Xử lý trùng tên file - xoá file cũ trước khi tải lên file mới
+    document.getElementById("btn_UploadFile").addEventListener("click", function () {
+        document.getElementById("btn_UploadFile").value = "";
+    });
 
-//4.1.3 Xử lý nút cập nhật dữ liệu vào chương trình
-document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", function () {
-    //Khai báo biến
-    var kiemTraCoFile = document.getElementById("btn_UploadFile").value;
-    var linhVucTinhToan;
+    //3 Lĩnh vực tính toán
+    document.getElementById("comboBox_LinhVucTinhToan").addEventListener("change", function () {
+        AnHienThongTinTheoLinhVucTinhToan();
+    });
 
-    //Code
-    if (kiemTraCoFile !== "") {
-        linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
-        if (linhVucTinhToan === 1) {
-            NhapDuLieuTuTepTaiLen("NuocThai");
-        } else if (linhVucTinhToan === 2) {
-            NhapDuLieuTuTepTaiLen("NuocCap");
-        } else if (linhVucTinhToan === 3) {
-            NhapDuLieuTuTepTaiLen("KhiThai");
-        } else if (linhVucTinhToan === 4) {
-            NhapDuLieuTuTepTaiLen("ChatThaiRan");
+    //4 Xử lý nút cập nhật dữ liệu vào chương trình
+    document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", function () {
+        //Khai báo biến
+        var kiemTraCoFile = document.getElementById("btn_UploadFile").value;
+        var linhVucTinhToan;
+
+        //Code
+        if (kiemTraCoFile !== "") {
+            linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
+            if (linhVucTinhToan === 1) {
+                NhapDuLieuTuTepTaiLen("NuocThai");
+            } else if (linhVucTinhToan === 2) {
+                NhapDuLieuTuTepTaiLen("NuocCap");
+            } else if (linhVucTinhToan === 3) {
+                NhapDuLieuTuTepTaiLen("KhiThai");
+            } else if (linhVucTinhToan === 4) {
+                NhapDuLieuTuTepTaiLen("ChatThaiRan");
+            }
+            HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
+        } else {
+            HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
         }
-        HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
-    } else {
-        HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
-    }
-    if (duLieuSoDoCongNghe_NuocThai !== "") {
-        VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
-    }
-});
-
-//4.2 Xử lý cho nước thải
-//4.2.1 - Ẩn hiện thông tin loại nước thải
-document.getElementById("comboBox_XuLyNuocThai").addEventListener("change", function () {
-    //Khai báo biến
-    var loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai");
-
-    //Ẩn hiện thông tin
-    document.getElementById("title_xuLyNuocThai_ThongThongSoDauVao_LoaiNuoc1").innerText = loaiNuocThai.options[loaiNuocThai.selectedIndex].text;
-    document.getElementById("title_xuLyNuocThai_ThongThongSoDauVao_LuuLuongChinh").innerText = loaiNuocThai.options[loaiNuocThai.selectedIndex].text;
-    AnHienThongTin("NuocThai");
-
-    //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
-    document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
-    document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
-
-    //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
-    if (loaiNuocThai.selectedIndex === 1) {
-        document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = true;
-    } else {
-        document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = false;
-    }
-});
-
-//4.2.2 - Tự động áp dụng quy chuẩn phù hợp
-document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").addEventListener("change", function () {
-    //Khai báo biến
-    var index_NguonTiepNhan = document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex;
-    var index_LoaiNuocThai = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
-    var jsonLoaiNuoc = [
-        {
-            "Ten": "2.1 Chọn loại nước thải cần xử lý",
-            "ID": "comboBox_XuLyNuocThai",
-        },
-    ]
-
-    //Code
-    if (KiemTraDuLieuVao(jsonLoaiNuoc)) {
-        if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 1) {
-            //Nước thải sinh hoạt, cột a
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "1";
-        } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 1) {
-            //Nước thải sinh hoạt,cột b
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "2";
-        } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 2) {
-            //Nước thải thuỷ sản, cột a
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "3";
-        } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 2) {
-            //Nước thải thuỷ sản, cột b
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "4";
-        } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 3) {
-            //Nước thải công nghiệp, cột a
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "5";
-        } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 3) {
-            //Nước thải công nghiệp, cột b
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "6";
-        } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 4) {
-            //Nước thải y tế, cột a
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "7";
-        } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 4) {
-            //Nước thải y tế, cột b
-            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "8";
+        if (duLieuSoDoCongNghe_NuocThai !== "") {
+            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
         }
-    } else {
+    });
+}
+
+//Xử lý cho nước thải
+function XuLySuKien_NuocThai() {
+    //1 - Ẩn hiện thông tin loại nước thải
+    document.getElementById("comboBox_XuLyNuocThai").addEventListener("change", function () {
+        //Khai báo biến
+        var loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai");
+
+        //Ẩn hiện thông tin
+        document.getElementById("title_xuLyNuocThai_ThongThongSoDauVao_LoaiNuoc1").innerText = loaiNuocThai.options[loaiNuocThai.selectedIndex].text;
+        document.getElementById("title_xuLyNuocThai_ThongThongSoDauVao_LuuLuongChinh").innerText = loaiNuocThai.options[loaiNuocThai.selectedIndex].text;
+        AnHienThongTin("NuocThai");
+
+        //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
         document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
-    }
-    //Reset công nghệ lựa chọn
-    document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
-});
+        document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
 
-//4.2.3 Thông số đầu vào nhập từ cơ sở dữ liệu
-document.getElementById("btn_xuLyNuocThai_ThongSoDauVao_CSDL").addEventListener("click", function () {
-    //Khai báo biến
-    var loaiNuocThaiXuLy = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
-    var xuLyGopSinhHoat = document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex;
-    var jsonKiemTra = [
-        {
-            "Ten": "2.1 Chọn loại nước thải",
-            "ID": "comboBox_XuLyNuocThai"
+        //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
+        if (loaiNuocThai.selectedIndex === 1) {
+            document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = true;
+        } else {
+            document.getElementById("btn_xuLyNuocThai_GopSinhHoat").disabled = false;
         }
-    ];
-    function NhapDuLieuPhuHopQuyChuan() {
-        //Đối với nước thải sinh hoạt
-        if (loaiNuocThaiXuLy === 1) {
-            for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
-                NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID, jsonCSDL_NuocThai.NTSH[i].GiaTri);
+    });
+
+    //2- Tự động áp dụng quy chuẩn phù hợp
+    document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").addEventListener("change", function () {
+        //Khai báo biến
+        var index_NguonTiepNhan = document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex;
+        var index_LoaiNuocThai = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
+        var jsonLoaiNuoc = [
+            {
+                "Ten": "2.1 Chọn loại nước thải cần xử lý",
+                "ID": "comboBox_XuLyNuocThai",
+            },
+        ]
+
+        //Code
+        if (KiemTraDuLieuVao(jsonLoaiNuoc)) {
+            if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 1) {
+                //Nước thải sinh hoạt, cột a
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "1";
+            } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 1) {
+                //Nước thải sinh hoạt,cột b
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "2";
+            } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 2) {
+                //Nước thải thuỷ sản, cột a
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "3";
+            } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 2) {
+                //Nước thải thuỷ sản, cột b
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "4";
+            } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 3) {
+                //Nước thải công nghiệp, cột a
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "5";
+            } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 3) {
+                //Nước thải công nghiệp, cột b
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "6";
+            } else if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 4) {
+                //Nước thải y tế, cột a
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "7";
+            } else if (index_NguonTiepNhan === 2 && index_LoaiNuocThai === 4) {
+                //Nước thải y tế, cột b
+                document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "8";
+            }
+        } else {
+            document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
+        }
+        //Reset công nghệ lựa chọn
+        document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
+    });
+
+    //3 Thông số đầu vào nhập từ cơ sở dữ liệu
+    document.getElementById("btn_xuLyNuocThai_ThongSoDauVao_CSDL").addEventListener("click", function () {
+        //Khai báo biến
+        var loaiNuocThaiXuLy = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
+        var xuLyGopSinhHoat = document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex;
+        var jsonKiemTra = [
+            {
+                "Ten": "2.1 Chọn loại nước thải",
+                "ID": "comboBox_XuLyNuocThai"
+            }
+        ];
+        function NhapDuLieuPhuHopQuyChuan() {
+            //Đối với nước thải sinh hoạt
+            if (loaiNuocThaiXuLy === 1) {
+                for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID, jsonCSDL_NuocThai.NTSH[i].GiaTri);
+                }
+            }
+
+            //Đối với nước thải thuỷ sản
+            else if (loaiNuocThaiXuLy === 2) {
+                for (var i = 0; i < jsonCSDL_NuocThai.NTTS.length; i++) {
+                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTTS[i].ID, jsonCSDL_NuocThai.NTTS[i].GiaTri);
+                }
             }
         }
 
-        //Đối với nước thải thuỷ sản
-        else if (loaiNuocThaiXuLy === 2) {
-            for (var i = 0; i < jsonCSDL_NuocThai.NTTS.length; i++) {
-                NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTTS[i].ID, jsonCSDL_NuocThai.NTTS[i].GiaTri);
+        //Code
+        if (KiemTraDuLieuVao(jsonKiemTra)) {
+            //Đối với không gộp nước thải sinh hoạt
+            if (xuLyGopSinhHoat === 0) {
+                NhapDuLieuPhuHopQuyChuan();
+            }
+
+            //Đối với nước thải gộp sinh hoạt
+            else if (xuLyGopSinhHoat === 1) {
+                for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID + "_SH", jsonCSDL_NuocThai.NTSH[i].GiaTri);
+                }
+                NhapDuLieuPhuHopQuyChuan();
             }
         }
-    }
+    });
 
-    //Code
-    if (KiemTraDuLieuVao(jsonKiemTra)) {
-        //Đối với không gộp nước thải sinh hoạt
-        if (xuLyGopSinhHoat === 0) {
-            NhapDuLieuPhuHopQuyChuan();
-        }
-
-        //Đối với nước thải gộp sinh hoạt
-        else if (xuLyGopSinhHoat === 1) {
-            for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
-                NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID + "_SH", jsonCSDL_NuocThai.NTSH[i].GiaTri);
-            }
-            NhapDuLieuPhuHopQuyChuan();
-        }
-    }
-});
-
-//4.2.4 Ẩn hiện mục chọn lại sơ đồ công nghệ + section phù hợp
-document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").addEventListener("change", function () {
-    //Code
-    /* AnHienChoCongNgheXuLy_NuocThai(); */
-    AnHienThongTin("NuocThai");
-});
-
-//4.2.5 Thêm công trình đơn vị vào sơ đồ công nghệ
-document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").addEventListener("change", function () {
-    //Khai báo biến
-
-    //Code
-    ChonCongTrinhDonViVaVeSoDo_NuocThai();
-});
-
-//Xoá công trình đơn vị khỏi sơ đồ công nghệ
-document.getElementById("btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV").addEventListener("click", function () {
-    //Khai báo biến
-
-    //Code
-    XoaCongTrinhDonViVeLaiSoDo_NuocThai();
-});
-
-//Khi click nút thêm nước thải sinh hoạt
-document.getElementById("btn_xuLyNuocThai_GopSinhHoat").addEventListener("click", function () {
-    //Khai báo biến
-    var kiemTraTrangThai = document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").style.display;
-
-    //Code
-    //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
-    document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
-    document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
-
-    //Trường hợp không hiển thị
-    if (kiemTraTrangThai === "none") {
-        // Ẩn hiện dấu - +
-        document.getElementById("plus_XuLyNuocThai_GopSinhHoat").style.display = "none";
-        document.getElementById("minus_XuLyNuocThai_GopSinhHoat").style.display = "inline-block";
-
-        //Hiện nước thải sinh hoạt gộp
-        HienDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
-
-        //Reset loại nước thải đầu tiền về chọn lại nếu đang chọn nước thải sinh hoạt
-        if (document.getElementById("comboBox_XuLyNuocThai").selectedIndex === 1) {
-            document.getElementById("comboBox_XuLyNuocThai").selectedIndex = 0;
-        }
-
-        //Disable nước thải sinh hoạt
-        document.getElementById("comboBox_XuLyNuocThai").options[1].disabled = true;
-
-        //Chọn mặc định nước thải sinh hoạt
-        document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex = 1;
-
-        //Hiện lưu lượng nước thải sinh hoạt - trường hợp gộp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH").style.display = "block";
-
-        //Chạy thủ tục hiện chỉ tiêu ô nhiễm
-        /* AnHienChiTieuONhiem_NuocThai(); */
+    //4 Ẩn hiện mục chọn lại sơ đồ công nghệ + section phù hợp
+    document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").addEventListener("change", function () {
+        //Code
+        /* AnHienChoCongNgheXuLy_NuocThai(); */
         AnHienThongTin("NuocThai");
+    });
 
-        //Hiện nước thải sinh hoạt trường hợp gộp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem_SH").style.display = "block";
+    //5 Thêm công trình đơn vị vào sơ đồ công nghệ
+    document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").addEventListener("change", function () {
+        //Khai báo biến
 
-        //Hiện nồng độ ô nhiễm hỗn hợp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").style.display = "block";
-    }
+        //Code
+        ChonCongTrinhDonViVaVeSoDo_NuocThai();
+    });
 
-    //Trường hợp hiển thị
-    else {
-        // Ẩn hiện dấu - +
-        document.getElementById("plus_XuLyNuocThai_GopSinhHoat").style.display = "inline-block";
-        document.getElementById("minus_XuLyNuocThai_GopSinhHoat").style.display = "none";
+    //6 Xoá công trình đơn vị khỏi sơ đồ công nghệ
+    document.getElementById("btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV").addEventListener("click", function () {
+        //Khai báo biến
 
-        //Ẩn nước thải sinh hoạt gộp
-        AnDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
+        //Code
+        XoaCongTrinhDonViVeLaiSoDo_NuocThai();
+    });
 
-        //Disable nước thải sinh hoạt
-        document.getElementById("comboBox_XuLyNuocThai").options[1].disabled = false;
+    //7 Khi click nút thêm nước thải sinh hoạt
+    document.getElementById("btn_xuLyNuocThai_GopSinhHoat").addEventListener("click", function () {
+        //Khai báo biến
+        var kiemTraTrangThai = document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").style.display;
 
-        //Reset loại nước thải thứ 2
-        document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex = 0;
+        //Code
+        //Reset nguồn tiếp nhận nước thải + công nghệ lựa chọn
+        document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
+        document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
 
-        //Ẩn lưu lượng nước thải sinh hoạt trường hợp gộp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH").style.display = "none";
+        //Trường hợp không hiển thị
+        if (kiemTraTrangThai === "none") {
+            // Ẩn hiện dấu - +
+            document.getElementById("plus_XuLyNuocThai_GopSinhHoat").style.display = "none";
+            document.getElementById("minus_XuLyNuocThai_GopSinhHoat").style.display = "inline-block";
 
-        //Chạy thủ tục hiện chỉ tiêu ô nhiễm
-        /* AnHienChiTieuONhiem_NuocThai(); */
+            //Hiện nước thải sinh hoạt gộp
+            HienDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
+
+            //Reset loại nước thải đầu tiền về chọn lại nếu đang chọn nước thải sinh hoạt
+            if (document.getElementById("comboBox_XuLyNuocThai").selectedIndex === 1) {
+                document.getElementById("comboBox_XuLyNuocThai").selectedIndex = 0;
+            }
+
+            //Disable nước thải sinh hoạt
+            document.getElementById("comboBox_XuLyNuocThai").options[1].disabled = true;
+
+            //Chọn mặc định nước thải sinh hoạt
+            document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex = 1;
+
+            //Hiện lưu lượng nước thải sinh hoạt - trường hợp gộp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH").style.display = "block";
+
+            //Chạy thủ tục hiện chỉ tiêu ô nhiễm
+            /* AnHienChiTieuONhiem_NuocThai(); */
+            AnHienThongTin("NuocThai");
+
+            //Hiện nước thải sinh hoạt trường hợp gộp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem_SH").style.display = "block";
+
+            //Hiện nồng độ ô nhiễm hỗn hợp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").style.display = "block";
+        }
+
+        //Trường hợp hiển thị
+        else {
+            // Ẩn hiện dấu - +
+            document.getElementById("plus_XuLyNuocThai_GopSinhHoat").style.display = "inline-block";
+            document.getElementById("minus_XuLyNuocThai_GopSinhHoat").style.display = "none";
+
+            //Ẩn nước thải sinh hoạt gộp
+            AnDoiTuong(["comboBox_XuLyNuocThai_GopSinhHoat"]);
+
+            //Disable nước thải sinh hoạt
+            document.getElementById("comboBox_XuLyNuocThai").options[1].disabled = false;
+
+            //Reset loại nước thải thứ 2
+            document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").selectedIndex = 0;
+
+            //Ẩn lưu lượng nước thải sinh hoạt trường hợp gộp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH").style.display = "none";
+
+            //Chạy thủ tục hiện chỉ tiêu ô nhiễm
+            /* AnHienChiTieuONhiem_NuocThai(); */
+            AnHienThongTin("NuocThai");
+
+            //Ẩn nước thải sinh hoạt trường hợp gộp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem_SH").style.display = "none";
+
+            //Ẩn nồng độ ô nhiễm hỗn hợp
+            document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").style.display = "none";
+        }
+    });
+
+    //8 Ẩn hiện phương án tính toán hố thu
+    document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").addEventListener("change", function () {
+        /* AnHienPhuongAnHoThu_NuocThai(); */
         AnHienThongTin("NuocThai");
+    });
 
-        //Ẩn nước thải sinh hoạt trường hợp gộp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem_SH").style.display = "none";
+    //9 Ẩn hiện dạng hình học cho hố thu
+    document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").addEventListener("change", function () {
+        /*  AnHienDangHinhHocHoThu_NuocThai(); */
+        AnHienThongTin("NuocThai");
+    });
 
-        //Ẩn nồng độ ô nhiễm hỗn hợp
-        document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").style.display = "none";
-    }
-});
+    //10 Ẩn hiện hình học bể điều hoà
+    document.getElementById("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe").addEventListener("change", function () {
+        AnHienThongTin("NuocThai");
+    });
 
-//Ẩn hiện phương án tính toán hố thu
-document.getElementById("comboBox_XuLyNuocThai_HoThu_PhuongAn").addEventListener("change", function () {
-    /* AnHienPhuongAnHoThu_NuocThai(); */
-    AnHienThongTin("NuocThai");
-});
+    //11 Ẩn hiện dạng khuấy trộn - bể điều hoà
+    document.getElementById("comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron").addEventListener("change", function () {
+        AnHienThongTin("NuocThai");
+    });
 
-//Ẩn hiện dạng hình học cho hố thu
-document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").addEventListener("change", function () {
-    /*  AnHienDangHinhHocHoThu_NuocThai(); */
-    AnHienThongTin("NuocThai");
-});
+    //12 Ẩn hiện loại khếch tán - bể điều hoà
+    document.getElementById("comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan").addEventListener("change", function () {
+        AnHienThongTin("NuocThai");
+    });
 
-//Ẩn hiện hình học bể điều hoà
-document.getElementById("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe").addEventListener("change", function () {
-    AnHienThongTin("NuocThai");
-});
-
-//Ẩn hiện dạng khuấy trộn - bể điều hoà
-document.getElementById("comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron").addEventListener("change", function () {
-    AnHienThongTin("NuocThai");
-});
-
-//Ẩn hiện loại khếch tán - bể điều hoà
-document.getElementById("comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan").addEventListener("change", function () {
-    AnHienThongTin("NuocThai");
-});
-
+    //13 Reload vẽ sơ đồ công nghệ khi click lên section
+    document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("click", function () {
+        if (duLieuSoDoCongNghe_NuocThai !== "") {
+            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+        }
+    });
+}
 
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
-//5.1 Chương trình chính
-//5.1.1 Xử lý chung
-//Nhấn nút tính toán
-document.getElementById("btn_calculator").addEventListener("click", function () {
-    //Khai báo biến
-    var index = document.getElementById("comboBox_LinhVucTinhToan").selectedIndex;
-    var jsonKiemTraDauVao = [{
-        "Ten": "1.1 Lĩnh vực cần tính toán cho môi trường",
-        "ID": "comboBox_LinhVucTinhToan",
-    }]
+window.addEventListener("load", function () {
+    //Mở thao tác
+    setTimeout(function(){
+        document.getElementById("lock_page").remove();
+    }, 500);
 
-    //Code
-    //Kiểm tra đầu vào
-    if (KiemTraDuLieuVao(jsonKiemTraDauVao)) {
-        if (index === 1) {
-            TinhToanChoXuLyNuocThai();
-        } else if (index === 2) {
-            TinhToanChoXuLyNuocCap();
-        } else if (index === 3) {
-            TinhToanChoXuLyKhiThai();
-        } else if (index === 4) {
-            TinhToanChoXuLyChatThaiRan();
-        }
+    //Thông tin trợ giúp trong modal
+    LayDuLieuJsonTuSourcesCode(duongDanGoiY, function (duLieuTraVe) {
+        jsonGoiY = duLieuTraVe;
+        XuLyHienThongTinGoiYTrongModal();
+    });
+
+    //Mặc định chạy hiển thị gợi ý trên toàn bộ web
+    {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        });
     }
-});
 
-//Thông tin trợ giúp trong modal
-LayDuLieuJsonTuSourcesCode(duongDanGoiY, function (duLieuTraVe) {
-    jsonGoiY = duLieuTraVe;
-    XuLyHienThongTinGoiYTrongModal();
-});
+    //1 Xử lý cho nước thải
+    //Lấy CSDL nước thải từ sources code khi load trang
+    LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
+        jsonCSDL_NuocThai = duLieuTraVe;
+    });
 
-//Mặc định chạy hiển thị gợi ý trên toàn bộ web
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-});
-
-//5.1.2 Xử lý cho nước thải
-//Lấy CSDL nước thải từ sources code khi load trang
-LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
-    jsonCSDL_NuocThai = duLieuTraVe;
-});
-
-//Reload vẽ sơ đồ công nghệ khi click lên section
-document.getElementById("title_XuLyNuocThai_LuaChonCongNghe").addEventListener("click", function () {
-    if (duLieuSoDoCongNghe_NuocThai !== "") {
-        VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
-    }
-});
-
+    XuLySuKienChinh();
+    XuLySuKien_NuocThai();
+})
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
 
 

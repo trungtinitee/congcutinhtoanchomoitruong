@@ -7,7 +7,7 @@ body {
     line-height: normal;
 }
 
-.main-background{
+.main-background {
     background-image: url(../img/back-1.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -190,3 +190,71 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     height: auto;
 }
+
+/* Khoá thao tác */
+#lock_page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    background: #04aa6d;
+    opacity: .5;
+}
+
+.loader {
+    top: 20vh;
+    left: 50vw;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: #FFF #FFF transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #FF3D00 #FF3D00;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  .loader::before {
+    width: 52px;
+    height: 52px;
+    border-color: #FFF #FFF transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+      
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
