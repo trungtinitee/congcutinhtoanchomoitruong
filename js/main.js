@@ -2,6 +2,7 @@
 var jsonCore, jsonGoiY;
 const duongDanGoiY = "./file/GoiY.json";
 var kiemTraTruocKhiTinh = false;
+var kiemTraThongBaoBiTrung = "";
 
 //---------------------------------------------------------------II. HÀM CHUNG ----------------------------------------------------------------------
 //2.1 Ẩn đối tượng
@@ -55,14 +56,17 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
     //Khai báo biến
     var kiemTra = true;
     var kieuKiemTra = "";
-    var bienLuuTam, bienThongBao = "";
+    var bienLuuTam, bienThongBao = "", chuoiIDCuaJsonKiemTra = "";
 
     //Code
     for (var i = 0; i < jsonCanKiemTra.length; i++) {
         kieuKiemTra = jsonCanKiemTra[i].ID.slice(0, jsonCanKiemTra[i].ID.indexOf("_", 0));
+
+        //Kiểm tra từng ID
         if (kieuKiemTra === "comboBox") {
             bienLuuTam = document.getElementById(jsonCanKiemTra[i].ID).selectedIndex;
             if (bienLuuTam === 0) {
+                chuoiIDCuaJsonKiemTra = chuoiIDCuaJsonKiemTra + jsonCanKiemTra[i].ID + ", ";
                 bienThongBao = bienThongBao + jsonCanKiemTra[i].Ten + "</br>";
                 document.getElementById(jsonCanKiemTra[i].ID).style.borderColor = "red";
                 kiemTra = false;
@@ -73,6 +77,7 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
         } else if (kieuKiemTra === "input") {
             bienLuuTam = document.getElementById(jsonCanKiemTra[i].ID).value;
             if (bienLuuTam === "") {
+                chuoiIDCuaJsonKiemTra = chuoiIDCuaJsonKiemTra + jsonCanKiemTra[i].ID + ", ";
                 bienThongBao = bienThongBao + jsonCanKiemTra[i].Ten + "</br>";
                 document.getElementById(jsonCanKiemTra[i].ID).style.borderColor = "red";
                 kiemTra = false;
@@ -82,7 +87,10 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
         }
     }
     if (bienThongBao !== "") {
-        HienThiThongBao(bienThongBao);
+        if (kiemTraThongBaoBiTrung.indexOf(chuoiIDCuaJsonKiemTra, 0) === -1) {
+            HienThiThongBao(bienThongBao);
+            kiemTraThongBaoBiTrung = chuoiIDCuaJsonKiemTra;
+        }
         kiemTraTruocKhiTinh = false;
     } else {
         kiemTraTruocKhiTinh = true;
@@ -852,6 +860,77 @@ function AnHienThongTin(linhVucXuLy) {
 
     }
 
+    //Ẩn hiện bể sinh học hiếu khí
+    function AnHienHieuKhi_NuocThai() {
+        //Khai báo biến
+
+        //Chương trình con
+        //Phương án tính thể tích bể
+        function PhuongAnTinhTheTich() {
+            //Biến
+            var phuongAn = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich");
+
+            //Code
+            //Thời gian lưu vi khuẩn
+            if (phuongAn === 1) {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK", false);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu", true);
+            }
+
+            //ThờI gian lưu nước
+            else if (phuongAn === 2) {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu", false);
+            }
+
+            //Còn lại
+            else {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu", true);
+            }
+        }
+
+        //Hình dạng bể
+        function HinhDangBe() {
+            //Biến
+            var dangHinhHoc = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_HinhDangBe");
+
+            //Code
+            //Hình chữ nhật
+            if (dangHinhHoc === 1) {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat", false);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron", true);
+            }
+
+            //Hình vuông
+            else if (dangHinhHoc === 2) {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong", false);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron", true);
+            }
+
+            //Hình tròn
+            else if (dangHinhHoc === 3) {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron", false);
+            }
+
+            //Còn lại
+            else {
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong", true);
+                AnHienDoiTuongDangBlock("box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron", true);
+            }
+        }
+
+        //Code
+        PhuongAnTinhTheTich();
+        HinhDangBe();
+
+    }
+
     //Nước thải
     if (linhVucXuLy === "NuocThai") {
         //Ẩn nút chọn nước thải sinh hoạt (xử lý chung)
@@ -882,6 +961,12 @@ function AnHienThongTin(linhVucXuLy) {
         AnHienDangHinhHocDieuHoa_NuocThai();
         AnHienDangKhuayTronDieuHoa_NuocThai();
         AnHienLoaiKhechTanKhi_DieuHoa_NuocThai();
+
+        //Bể sinh học hiếu khí
+        AnHienHieuKhi_NuocThai();
+
+
+
     } else if (linhVucXuLy === "NuocCap") {//Nước cấp
 
     } else if (linhVucXuLy === "KhiThai") {//Khí thải
@@ -1045,8 +1130,7 @@ var congTrinhDaChon = [];
 var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
 
 //Biến nồng độ chất ô nhiễm cho nước thải
-var nuocThai_SS_QuyChuan,
-    nuocThai_BOD5_QuyChuan;
+var nuocThai_BOD5_DauVao;
 
 //3.1.2 Hàm cho xử lý nước thải
 
@@ -1222,8 +1306,20 @@ function TinhToanChoXuLyNuocThai() {
     ];
 
     //Gán giá trị nồng độ các chất ô nhiễm
-    nuocThai_SS_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_YeuCauDauRa_TSS");
-    nuocThai_BOD5_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_YeuCauDauRa_BOD5");
+    function NongDoCONDauVao() {
+        //Biến
+        var kiemTra = document.getElementById("comboBox_XuLyNuocThai_GopSinhHoat").style.display;
+
+        //Code
+        if (kiemTraTruocKhiTinh === true) {
+            if (kiemTra === "none") {
+                nuocThai_BOD5_DauVao = TuDongLayDuLieu("input_xuLyNuocThai_ThongThongSoDauVao_BOD5");
+            }
+            else {
+                nuocThai_BOD5_DauVao = TuDongLayDuLieu("input_xuLyNuocThai_ThongThongSoDauVao_BOD5" + "_NongDoHH");
+            }
+        }
+    }
 
     //Chương trình con
     // Xử lý nồng độ chất ô nhiễm theo hệ số K
@@ -1893,7 +1989,339 @@ function TinhToanChoXuLyNuocThai() {
 
     //Tính toán bể bùn hoạt tính
     function NuocThai_BeBunHoatTinh() {
+        //Biến
+        var phuongAnTheTich, hinhDangBe;
+        var jsonKiemTra0 = [
+            {
+                "Ten": "Bể hiếu khí | Phương án xác định thể tích",
+                "ID": "comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich"
+            }
+        ];
+        var jsonKiemTra1 = [
+            {
+                "Ten": "Bể hiếu khí | Tỉ lệ các chất phân huỷ sinh học trong SS sau xử lý",
+                "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS"
+            }
+        ];
+        var jsonKiemTra2 = [
+            {
+                "Ten": "Bể hiếu khí | Nhiệt độ trung bình khu vực tính toán",
+                "ID": "input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc"
+            },
+            {
+                "Ten": "Bể hiếu khí | Thời gian lưu vi khuẩn (bùn)",
+                "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan"
+            },
+            {
+                "Ten": "Bể hiếu khí | Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn hoạt tính",
+                "ID": "input_xuLyNuocThai_HieuKhi_MLVSS"
+            },
+            {
+                "Ten": "Bể hiếu khí | Hệ số sản lượng bùn",
+                "ID": "input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun"
+            },
+            {
+                "Ten": "Bể hiếu khí | Hệ số phân huỷ nội bào (ở 20 độ C)",
+                "ID": "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do"
+            },
+            {
+                "Ten": "Bể hiếu khí | Hệ số điều chỉnh kd theo nhiệt độ",
+                "ID": "input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd"
+            }
+        ];
+        var jsonKiemTra3 = [
+            {
+                "Ten": "Bể hiếu khí | Thời gian lưu nước trong bể",
+                "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu"
+            }
+        ];
+        var jsonKiemTra4 = [
+            {
+                "Ten": "Bể hiếu khí | Độ tro của bùn",
+                "ID": "input_xuLyNuocThai_HieuKhi_DoTroCuaBun"
+            }
+        ];
+        //Chương trình con
+        //SS và BOD5 quy chuẩn
+        function SSBOD5CanDat_QCVN() {
+            var nuocThai_SS_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_YeuCauDauRa_TSS");
+            var nuocThai_BOD5_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_YeuCauDauRa_BOD5");
 
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan", nuocThai_SS_QuyChuan);
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan", nuocThai_BOD5_QuyChuan);
+        }
+
+        //Nồng độ SS và BOD5 sau xử lý ước tính
+        function SSBOD5_SauXuLy() {
+            var nuocThai_SS_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan");
+            var nuocThai_BOD5_QuyChuan = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan");
+
+            var ss_SauXuLy = TuDongLamTronSo(0.68 * So(nuocThai_SS_QuyChuan));
+            var bod5_SauXuLy = TuDongLamTronSo(0.92 * So(nuocThai_BOD5_QuyChuan));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy", ss_SauXuLy);
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy", bod5_SauXuLy);
+        }
+
+        //BOD hoà tan tối đa
+        function LuongBODHoaTanToiDa() {
+            var ssSauXuLy = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy");
+            var bod5SauXuLy = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy");
+            var rPhanHuySinhHocSS = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS");
+
+            var bodHoaTanSauXL = TuDongLamTronSo(So(bod5SauXuLy) - (So(ssSauXuLy) * (So(rPhanHuySinhHocSS) / 100) * 1.42 * 0.68));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy", bodHoaTanSauXL);
+
+        }
+
+        //hệ số phân huỷ nội bào theo nhiệt độ khu vực
+        function HeSoPhanHuyNoiBaoONhietDoKhuVuc() {
+            var tKhuVuc = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc");
+            var kd20 = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do");
+            var cDieuChinhKd = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd");
+
+            var kd = TuDongLamTronSo(So(kd20) * Math.pow(So(cDieuChinhKd), So(tKhuVuc) - 20));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc", kd);
+        }
+
+        //Thể tích bể hiếu khí
+        function TheTichBeHieuKhi(phuongAn) {
+            //Code
+            //ThờI gian lưu vi khuẩn
+            if (phuongAn === "viKhuan") {
+                //Thể tích
+                var qTongNgayDem = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong");
+                var thetaC = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan");
+                var y = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun");
+                var bod5DauVao = nuocThai_BOD5_DauVao;
+                var bodHoaTanSauXL = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy");
+                var x = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_MLVSS");
+                var kd = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc");
+
+                var vHuuIchHieuKhi = TuDongLamTronSo((So(qTongNgayDem) * So(thetaC) * So(y) * (So(bod5DauVao) - So(bodHoaTanSauXL))) / (So(x) * (1 + (So(kd) * So(thetaC)))));
+                TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch", vHuuIchHieuKhi);
+            }
+
+            //Thời gian lưu nước
+            else if (phuongAn === "nuoc") {
+                var qXuLyGio = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio");
+                var tLuuHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu");
+
+                var vHuuIchHieuKhi = TuDongLamTronSo(So(qXuLyGio) * So(tLuuHieuKhi));
+                TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch", vHuuIchHieuKhi);
+            }
+        }
+
+        //Thời gian lưu tồn nước tính toán - phương án thời gian lưu vi khuẩn
+        function ThoiGianLuuNuoc_TinhLai() {
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+            var qXuLyGio = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio");
+
+            var tLuuHieuKhi = TuDongLamTronSo(So(vHuuIchHieuKhi) / So(qXuLyGio));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuu", tLuuHieuKhi);
+        }
+
+        //Tỉ lệ F/M
+        function TiLeFM() {
+            var qTongNgayDem = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong");
+            var bod5DauVao = nuocThai_BOD5_DauVao;
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+            var x = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_MLVSS");
+
+            var fmHieuKhi = TuDongLamTronSo((So(qTongNgayDem) * So(bod5DauVao)) / (So(vHuuIchHieuKhi) * So(x)));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TiLeFM", fmHieuKhi);
+        }
+
+        //Tải nạp chất hữu cơ theo thể tích bể
+        function TaiNapChatHuuCo() {
+            var qTongNgayDem = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong");
+            var bod5DauVao = nuocThai_BOD5_DauVao;
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+
+            var lBOD = TuDongLamTronSo((So(qTongNgayDem) * So(bod5DauVao)) / (So(vHuuIchHieuKhi) * 1000));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TaiNapChatHuuCo", lBOD);
+        }
+
+        //Lượng bùn dư thải bỏ mỗi ngày
+        function LuongBunDuMoiNgay() {
+            var bodHoaTanSauXL = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy");
+            var thetaC = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan");
+            var y = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun");
+            var kd = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc");
+            var qTongNgayDem = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong");
+            var bod5DauVao = nuocThai_BOD5_DauVao;
+            var rTroBun = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoTroCuaBun");
+            var ssSauXuLy = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy");
+
+            var yOBS = (So(y))/(1+ (So(kd)*So(thetaC)));
+            var pX = So(qTongNgayDem)*yOBS*(So(bod5DauVao) - So(bodHoaTanSauXL))*0.001;
+            var pBun = pX / ((100 - So(rTroBun))/100);
+            var wBunThaiMoiNgay = TuDongLamTronSo(pBun - (So(qTongNgayDem)*So(ssSauXuLy)*0.001));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay", wBunThaiMoiNgay);
+        }
+
+
+
+
+
+        //Hình chữ nhật
+        function HinhChuNhat() {
+            var lHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat");
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+            var hHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoHuuIch");
+
+            var wHieuKhi = TuDongLamTronSo((So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi)) / lHieuKhi);
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat", wHieuKhi);
+        }
+
+        //Hình vuông
+        function HinhVuong() {
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+            var hHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoHuuIch");
+
+            var lHieuKhi = TuDongLamTronSo(Math.sqrt(So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi)));
+            var wHieuKhi = lHieuKhi;
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong", lHieuKhi);
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong", wHieuKhi);
+        }
+
+        //Hình tròn
+        function HinhTron() {
+            var vHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_TheTichHuuIch");
+            var hHuuIchHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoHuuIch");
+
+            var dHieuKhi = TuDongLamTronSo(Math.sqrt((4 / Math.PI) * (So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi))));
+            TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron", dHieuKhi);
+        }
+
+        //Thể tích thực tế
+        function TheTichThucTe(loaiHinhHoc) {
+            //Hình tròn bằng true
+            if (loaiHinhHoc === "Tron") {
+                var dHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron");
+                var hThucTeHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoThucTe");
+
+                var vThucTeHieuKhi = TuDongLamTronSo(Math.PI * Math.pow(So(dHieuKhi / 2), 2) * So(hThucTeHieuKhi));
+                TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TheTichThucTe", vThucTeHieuKhi);
+            }
+
+            //Hình chữ nhật
+            else if (loaiHinhHoc === "ChuNhat") {
+                var hThucTeHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoThucTe");
+                var wHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat");
+                var lHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat");
+
+                var vThucTeHieuKhi = TuDongLamTronSo(So(hThucTeHieuKhi) * So(wHieuKhi) * So(lHieuKhi));
+                TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TheTichThucTe", vThucTeHieuKhi);
+            }
+
+            //Hình vuông
+            else if (loaiHinhHoc === "Vuong") {
+                var hThucTeHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoCaoThucTe");
+                var wHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong");
+                var lHieuKhi = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong");
+
+                var vThucTeHieuKhi = TuDongLamTronSo(So(hThucTeHieuKhi) * So(wHieuKhi) * So(lHieuKhi));
+                TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TheTichThucTe", vThucTeHieuKhi);
+            }
+        }
+
+        //Code
+        //Thông số, kích thước
+        if (kiemTraTruocKhiTinh === true) {
+            if (KiemTraDuLieuVao(jsonKiemTra0)) {
+                //SS và BOD5 quy chuẩn
+                SSBOD5CanDat_QCVN();
+
+                //Nồng độ SS và BOD5 sau xử lý ước tính
+                SSBOD5_SauXuLy();
+
+                if (KiemTraDuLieuVao(jsonKiemTra1)) {
+                    //BOD hoà tan tối đa
+                    LuongBODHoaTanToiDa();
+
+                    if (KiemTraDuLieuVao(jsonKiemTra2)) {
+                        phuongAnTheTich = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich");
+                        HeSoPhanHuyNoiBaoONhietDoKhuVuc();
+
+                        //Theo thời gian lưu vi khuẩn
+                        if (phuongAnTheTich === 1) {
+                            TheTichBeHieuKhi("viKhuan");
+
+                            ThoiGianLuuNuoc_TinhLai();
+                        }
+
+                        //Theo thời gian lưu nước
+                        else if (phuongAnTheTich === 2) {
+                            if (KiemTraDuLieuVao(jsonKiemTra3)) {
+                                TheTichBeHieuKhi("nuoc");
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        //Tiếp tục tính toán
+        if (kiemTraTruocKhiTinh === true) {
+            //Tỉ lệ F/M
+            TiLeFM();
+
+            //Tải nạp chất hữu cơ theo thể tích bể
+            TaiNapChatHuuCo();
+
+            if (KiemTraDuLieuVao(jsonKiemTra4)) {
+                //Lượng bùn dư mỗi ngày
+                LuongBunDuMoiNgay();
+
+                if (KiemTraDuLieuVao(jsonKiemTra5)) {
+                    //Lượng bùn thải bỏ hằNg ngày
+                    LuongBunThaiBoHangNgay();
+
+                    //Thời gian vận hành không thải bỏ bùn
+                    ThoiGianVanHanhKhongThaiBun();
+
+                    //Lưu luọng bùn hoàn lưu
+                    LuuLuongBunHoanLuu();
+
+                    if (KiemTraDuLieuVao(jsonKiemTra6)) {
+                        TongDoCaoThucTe();
+
+                        if (KiemTraDuLieuVao(jsonKiemTra7)) {
+                            hinhDangBe = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_HinhDangBe");
+
+                            //hình chữ nhật
+                            if (hinhDangBe === 1) {
+                                if (KiemTraDuLieuVao(jsonKiemTra8)) {
+                                    HinhChuNhat();
+                                    TheTichThucTe("ChuNhat");
+                                }
+                            }
+
+                            //Hình vuông
+                            else if (hinhDangBe === 2) {
+                                HinhVuong();
+                                TheTichThucTe("Vuong");
+                            }
+
+                            //Hình tròn
+                            else if (hinhDangBe === 3) {
+                                HinhTron();
+                                TheTichThucTe("Tron");
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        //Máy móc, thiết bị
+        if (kiemTraTruocKhiTinh === true) {
+
+        }
     }
 
     //Code
@@ -1939,6 +2367,10 @@ function TinhToanChoXuLyNuocThai() {
             XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
         }
     }
+
+    //Gán nồng độ chất ô nhiễm đầu vào cho biến
+    NongDoCONDauVao();
+
 
     //Hố thu
     /* XuLyTinhToanHoThu_NuocThai(); */
@@ -2289,12 +2721,22 @@ function XuLySuKien_NuocThai() {
             VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
         }
     });
+
+    //14 Phương án xác định thể tích - hiếu khí
+    document.getElementById("comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich").addEventListener("change", function () {
+        AnHienThongTin("NuocThai");
+    });
+
+    //Hình dạng bể - hiếu khí
+    document.getElementById("comboBox_XuLyNuocThai_HieuKhi_HinhDangBe").addEventListener("change", function () {
+        AnHienThongTin("NuocThai");
+    });
 }
 
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 window.addEventListener("load", function () {
     //Mở thao tác
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementById("lock_page").remove();
     }, 500);
 
@@ -2322,10 +2764,21 @@ window.addEventListener("load", function () {
     XuLySuKien_NuocThai();
 })
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
+var a = document.getElementsByTagName("input");
+for (var i = 0; i < a.length; i++) {
+    if (a[i].id !== "btn_UploadFile") {
+        a[i].addEventListener("blur", function () {
+            document.getElementById("btn_calculator").click();
+        });
+    }
+}
 
-
-
-
+var b = document.getElementsByTagName("select");
+for (var i = 0; i < b.length; i++) {
+    b[i].addEventListener("blur", function () {
+        document.getElementById("btn_calculator").click();
+    });
+}
 
 
 

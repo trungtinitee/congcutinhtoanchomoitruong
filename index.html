@@ -32,7 +32,7 @@
   <div class="core">
 
     <!-- Bắt đầu tạo nút tính toán -->
-    <button type="button" class="btn btn-primary btn-calculator" id="btn_calculator">Tính toán</button>
+    <button type="button" class="btn btn-primary btn-calculator" id="btn_calculator"><i class="fas fa-calculator"></i> <i class="fas fa-backward"></i></button>
     <!-- Kết thúc tạo nút tính toán -->
 
     <!--Bắt đầu tạo thông báo-->
@@ -102,19 +102,24 @@
 
     <div class="container" id="container_CongCuTinhToanChoMoiTruong">
       <div class="row">
-        <h2 class="title-header">CÔNG CỤ TÍNH TOÁN CHO MÔI TRƯỜNG</h2>
+        <h2 class="title-header">ỨNG DỤNG MÔI TRƯỜNG</h2>
       </div>
 
       <!-- Bắt đầu tạo nút đọc từ file -->
-      <div class="row group-unit-alway-show">
-        <h4 class="title-1 title-special">TẢI LÊN DỮ LIỆU</h4>
-        <div class="col fix-full-screen">
-          <div class="input-group">
-            <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
-            <input type="file" accept=".json" class="form-control" id="btn_UploadFile"
-              aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+      <div class="row group-unit-alway-show func-group">
+        <h4 class="title-1 title-special" data-bs-toggle="collapse" data-bs-target="#chucNang" aria-expanded="false"
+          aria-controls="chucNang"><i class="fas fa-tools"></i> CHỨC NĂNG</h4>
+        <div class="collapse show" id="chucNang">
+          <div class="col fix-full-screen">
+            <h5 class="title-2"><i class="fas fa-database"></i> Tải lên tệp dữ liệu</h5>
+            <div class="input-group">
+              <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
+              <input type="file" accept=".json" class="form-control" id="btn_UploadFile"
+                aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            </div>
           </div>
         </div>
+        
       </div>
       <!-- Kết thúc tạo nút đọc từ file -->
 
@@ -1759,20 +1764,6 @@
                   </select>
                 </div>
               </div>
-              <!-- Xác định theo thời gian lưu nước -->
-              <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu" style="display: none;">
-                <div>
-                  <h5 class="title-2 title-3">- Thời gian lưu nước trong bể</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
-                      <input placeholder="4 - 8" type="number" class="form-control" aria-label="TluuHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu">
-                      <span class="input-group-text">giờ</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <!-- Nồng độ SS và BOD5 cần đạt theo quy chuẩn -->
               <div>
                 <h5 class="title-2 title-3">- Nồng độ SS và BOD<sub>5</sub> cần đạt - QCVN</h5>
@@ -1901,6 +1892,18 @@
                   </div>
                 </div>
               </div>
+              <!-- Hệ số điều chỉnh theo nhiệt độ-->
+              <div>
+                <h5 class="title-2 title-3">- Hệ số điều chỉnh k<sub>d</sub> theo nhiệt độ</h5>
+                <div class="col-8 fix-full-screen">
+                  <div class="input-group">
+                    <span class="input-group-text">C<sub>dieuChinhkd</sub></span>
+                    <input placeholder="1.03 - 1.08" type="number" class="form-control" aria-label="CdieuChinhkd"
+                      id="input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd">
+                    <span class="input-group-text">-</span>
+                  </div>
+                </div>
+              </div>
               <!-- Hệ số phân huỷ nội bào ở nhiệt độ khu vực -->
               <div>
                 <h5 class="title-2 title-3">- Hệ số phân huỷ nội bào (ở nhiệt độ khu vực)</h5>
@@ -1910,6 +1913,20 @@
                     <input disabled type="number" class="form-control" aria-label="kd"
                       id="input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc">
                     <span class="input-group-text">ngày<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+              <!-- Xác định theo thời gian lưu nước -->
+              <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu" style="display: none;">
+                <div>
+                  <h5 class="title-2 title-3">- Thời gian lưu nước trong bể</h5>
+                  <div class="col-8 fix-full-screen">
+                    <div class="input-group">
+                      <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
+                      <input placeholder="4 - 8" type="number" class="form-control" aria-label="TluuHieuKhi"
+                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu">
+                      <span class="input-group-text">giờ</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1928,7 +1945,7 @@
                 </div>
               </div>
               <!-- Thời gian lưu nước -->
-              <div>
+              <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK" style="display: none;">
                 <h5 class="title-2 title-3">- Thời gian tồn lưu nước</h5>
                 <div class="col-8 fix-full-screen">
                   <div class="input-group">
@@ -2041,7 +2058,7 @@
                 <div class="col-8 fix-full-screen">
                   <div class="input-group">
                     <span class="input-group-text">H<sub>huuIchHieuKhi</sub></span>
-                    <input type="number" class="form-control" aria-label="HhuuIchHieuKhi"
+                    <input placeholder="3 - 4.6" type="number" class="form-control" aria-label="HhuuIchHieuKhi"
                       id="input_xuLyNuocThai_HieuKhi_DoCaoHuuIch">
                     <span class="input-group-text">m</span>
                   </div>
@@ -2079,6 +2096,7 @@
                     <option selected>Chọn một phương án...</option>
                     <option value="1">Hình chữ nhật</option>
                     <option value="2">Hình vuông</option>
+                    <option value="3">Hình tròn</option>
                   </select>
                 </div>
               </div>
