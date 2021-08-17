@@ -1,6 +1,7 @@
 //----------------------------------------------------------------I. BIẾN CHUNG ----------------------------------------------------------------
 var jsonCore, jsonGoiY;
 const duongDanGoiY = "./file/GoiY.json";
+const duongDanJsonCore = "./file/Data.json"
 var kiemTraTruocKhiTinh = false;
 var kiemTraThongBaoBiTrung = "";
 
@@ -122,7 +123,7 @@ function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
             document.getElementById(jsonCore.Core[loaiNuocThaiXuLy][i].ID).value = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
         }
         //Đối với sơ đồ công nghệ được hiển thị
-        else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2) {
+        else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2 /* Trường hợp bằng 1 thì sao */) {
             duLieuSoDoCongNghe_NuocThai = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
             //Tạo mảng từ tệp dữ liệu
             congTrinhDaChon = [];
@@ -2152,10 +2153,10 @@ function TinhToanChoXuLyNuocThai() {
             var rTroBun = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoTroCuaBun");
             var ssSauXuLy = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy");
 
-            var yOBS = (So(y))/(1+ (So(kd)*So(thetaC)));
-            var pX = So(qTongNgayDem)*yOBS*(So(bod5DauVao) - So(bodHoaTanSauXL))*0.001;
-            var pBun = pX / ((100 - So(rTroBun))/100);
-            var wBunThaiMoiNgay = TuDongLamTronSo(pBun - (So(qTongNgayDem)*So(ssSauXuLy)*0.001));
+            var yOBS = (So(y)) / (1 + (So(kd) * So(thetaC)));
+            var pX = So(qTongNgayDem) * yOBS * (So(bod5DauVao) - So(bodHoaTanSauXL)) * 0.001;
+            var pBun = pX / ((100 - So(rTroBun)) / 100);
+            var wBunThaiMoiNgay = TuDongLamTronSo(pBun - (So(qTongNgayDem) * So(ssSauXuLy) * 0.001));
             TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay", wBunThaiMoiNgay);
         }
 
@@ -2397,8 +2398,6 @@ function TinhToanChoXuLyChatThaiRan() {
 
 }
 
-
-
 //-----------------------------------------------------------IV. XỬ LÝ BẮT SỰ KIỆN-----------------------------------------------------------------------
 //4.1 Xử lý chung
 //Xử lý chính
@@ -2427,7 +2426,7 @@ function XuLySuKienChinh() {
         }
     });
     //1 Xử lý file tải lên
-    document.getElementById("btn_UploadFile").addEventListener("change", function () {
+    document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
         //Khai báo biến
         var reader = new FileReader();
 
@@ -2437,11 +2436,17 @@ function XuLySuKienChinh() {
             jsonCore = result;
             HienThiThongBao("Tải lên tệp tin thành công!");
         });
-        reader.readAsText(document.getElementById("btn_UploadFile").files[0]);
+        reader.readAsText(document.getElementById("upload_TaiLenTepDuLieu").files[0]);
+
+        //Hiển thị tên file tải lên
+        var tenTep = document.getElementById("upload_TaiLenTepDuLieu").value;
+        tenTep = tenTep.split("\\").pop();
+        document.getElementById("tenTepTaiLen").innerText = tenTep;
     });
     //2 Xử lý trùng tên file - xoá file cũ trước khi tải lên file mới
-    document.getElementById("btn_UploadFile").addEventListener("click", function () {
-        document.getElementById("btn_UploadFile").value = "";
+    document.getElementById("upload_TaiLenTepDuLieu").addEventListener("click", function () {
+        document.getElementById("upload_TaiLenTepDuLieu").value = "";
+        document.getElementById("tenTepTaiLen").innerText = "...";
     });
 
     //3 Lĩnh vực tính toán
@@ -2452,28 +2457,73 @@ function XuLySuKienChinh() {
     //4 Xử lý nút cập nhật dữ liệu vào chương trình
     document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", function () {
         //Khai báo biến
-        var kiemTraCoFile = document.getElementById("btn_UploadFile").value;
-        var linhVucTinhToan;
+
+        //Chương trình con
+        function KiemTraUpload() {
+            var kiemTra = document.getElementById("upload_TaiLenTepDuLieu").value;
+            if (kiemTra === "") {
+                document.getElementById("nhapTepDuLieu").style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById("nhapTepDuLieu").style.borderColor = "#ced4da";
+                return true;
+            }
+        }
 
         //Code
-        if (kiemTraCoFile !== "") {
-            linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
-            if (linhVucTinhToan === 1) {
-                NhapDuLieuTuTepTaiLen("NuocThai");
-            } else if (linhVucTinhToan === 2) {
-                NhapDuLieuTuTepTaiLen("NuocCap");
-            } else if (linhVucTinhToan === 3) {
-                NhapDuLieuTuTepTaiLen("KhiThai");
-            } else if (linhVucTinhToan === 4) {
-                NhapDuLieuTuTepTaiLen("ChatThaiRan");
-            }
+        if (KiemTraUpload()) {
+            NapDuLieuChoWebTuLocalStorageVaFile();
             HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
         } else {
             HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
         }
-        if (duLieuSoDoCongNghe_NuocThai !== "") {
-            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+    });
+
+    //5 Xử lý nút tải xuống file dữ liệu
+    document.getElementById("btn_TaiXuongTepDuLieu").addEventListener("click", function () {
+        //Biến
+        var tenFile = document.getElementById("input_TenFileTaiXuong").value;
+        var jsonKiemTra0 = [
+            {
+                "Ten": "Xuất tệp dữ liệu | Tên tệp",
+                "ID": "input_TenFileTaiXuong"
+            }
+        ];
+        //Chương trình con
+        function download(filename, text) {
+            //Tạo link
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            //Ẩn hiển thị
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            //Click
+            element.click();
+
+            //Loại bỏ
+            document.body.removeChild(element);
         }
+
+        //Code
+        //Cập nhật lần cuối trước khi tải
+        TuDongCapNhatThayDoiVaoJsonCore();
+        LuuDuLieuVaoLocalStorage();
+
+        //Tiến hành tải xuống
+        if (KiemTraDuLieuVao(jsonKiemTra0)) {
+            download(tenFile + ".json", JSON.stringify(jsonCore));
+            HienThiThongBao("Tải xuống thành công");
+        } else {
+            HienThiThongBao("Vui lòng nhập tên tệp!");
+        }
+    });
+
+    //6 Xoá dữ liệu lưu trữ
+    document.getElementById("btn_XoaLocalStorage").addEventListener("click", function () {
+        XoaDuLieuTuLocalStorage();
     });
 }
 
@@ -2735,11 +2785,6 @@ function XuLySuKien_NuocThai() {
 
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 window.addEventListener("load", function () {
-    //Mở thao tác
-    setTimeout(function () {
-        document.getElementById("lock_page").remove();
-    }, 500);
-
     //Thông tin trợ giúp trong modal
     LayDuLieuJsonTuSourcesCode(duongDanGoiY, function (duLieuTraVe) {
         jsonGoiY = duLieuTraVe;
@@ -2755,6 +2800,11 @@ window.addEventListener("load", function () {
     }
 
     //1 Xử lý cho nước thải
+    //Lấy jsonCore mẫu từ sources code khi load trang
+    LayDuLieuJsonTuSourcesCode(duongDanJsonCore, function (duLieuTraVe) {
+        jsonCore = duLieuTraVe;
+    });
+
     //Lấy CSDL nước thải từ sources code khi load trang
     LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
         jsonCSDL_NuocThai = duLieuTraVe;
@@ -2762,13 +2812,25 @@ window.addEventListener("load", function () {
 
     XuLySuKienChinh();
     XuLySuKien_NuocThai();
+
+    //Nạp dữ liệu từ local storage (nếu có)
+    NapDuLieuTuLocalStorage();
+
+    //Mở thao tác
+    setTimeout(function () {
+        document.getElementById("lock_page").remove();
+    }, 500);
 })
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
+//Tự động tính toán + lưu dữ liệu
 var a = document.getElementsByTagName("input");
 for (var i = 0; i < a.length; i++) {
-    if (a[i].id !== "btn_UploadFile") {
+    //Khi tính toán
+    if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
         a[i].addEventListener("blur", function () {
             document.getElementById("btn_calculator").click();
+            TuDongCapNhatThayDoiVaoJsonCore();
+            LuuDuLieuVaoLocalStorage();
         });
     }
 }
@@ -2777,7 +2839,104 @@ var b = document.getElementsByTagName("select");
 for (var i = 0; i < b.length; i++) {
     b[i].addEventListener("blur", function () {
         document.getElementById("btn_calculator").click();
+        TuDongCapNhatThayDoiVaoJsonCore();
+        LuuDuLieuVaoLocalStorage();
     });
+}
+
+//Đưa dữ liệu vào web (từ local và file)
+function NapDuLieuChoWebTuLocalStorageVaFile() {
+    var linhVucTinhToan;
+
+    //Code
+    linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
+    if (linhVucTinhToan === 1) {
+        NhapDuLieuTuTepTaiLen("NuocThai");
+    } else if (linhVucTinhToan === 2) {
+        NhapDuLieuTuTepTaiLen("NuocCap");
+    } else if (linhVucTinhToan === 3) {
+        NhapDuLieuTuTepTaiLen("KhiThai");
+    } else if (linhVucTinhToan === 4) {
+        NhapDuLieuTuTepTaiLen("ChatThaiRan");
+    }
+
+    //Lưu dữ liệu mới vào local storage
+    LuuDuLieuVaoLocalStorage();
+
+    //Vẽ lại sơ đồ công nghệ
+    if (duLieuSoDoCongNghe_NuocThai !== "") {
+        VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+    }
+}
+
+//Lưu dữ liệu vào local storage
+function LuuDuLieuVaoLocalStorage() {
+    //Biến
+    var duLieuCore = JSON.stringify(jsonCore);
+    var duLieuNuocThai = JSON.stringify(jsonCSDL_NuocThai);
+
+    //Lưu vào local
+    localStorage.setItem("duLieuCore", duLieuCore);
+    localStorage.setItem("duLieuNuocThai", duLieuNuocThai);
+}
+
+//Nạp dữ liệu đƯợc lưu trong Local Storage
+function NapDuLieuTuLocalStorage() {
+    //Biến
+    var duLieuCore = localStorage.getItem("duLieuCore");
+    var duLieuNuocThai = localStorage.getItem("duLieuNuocThai");
+
+    //chuyển dữ liệu sang Json
+    if (duLieuCore !== null && duLieuNuocThai !== null) {
+        jsonCore = JSON.parse(duLieuCore);
+        jsonCSDL_NuocThai = JSON.parse(duLieuNuocThai);
+        NapDuLieuChoWebTuLocalStorageVaFile();
+    }
+}
+
+//Cập nhật thay đổi + kết quả tính vào jsonCore
+function TuDongCapNhatThayDoiVaoJsonCore() {
+    //Biến
+    var linhVucTinhToan = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
+
+    //Code
+    //Lĩnh vực tính toán
+    jsonCore.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
+    //Nước thải
+    if (linhVucTinhToan === 1) {
+        for (var i = 0; i < jsonCore.Core.NuocThai.length; i++) {
+            if (jsonCore.Core.NuocThai[i].ID === "soDoCongNghe") {
+                jsonCore.Core.NuocThai[i].GiaTri = duLieuSoDoCongNghe_NuocThai;
+                jsonCore.Core.NuocThai[i].CongTrinhDonVi_Tep = congTrinhDaChon;
+            }
+            else {
+                jsonCore.Core.NuocThai[i].GiaTri = TuDongLayDuLieu(jsonCore.Core.NuocThai[i].ID);
+            }
+        }
+    }
+}
+
+//Lưu trữ dữ liệu trước khi đóng browser
+window.addEventListener("beforeunload", function () {
+    TuDongCapNhatThayDoiVaoJsonCore();
+    LuuDuLieuVaoLocalStorage();
+});
+
+//Xoá dữ liệu trong Local Storage
+function XoaDuLieuTuLocalStorage() {
+    //Biến
+    var xacNhan = confirm("Bạn chắc chắn xoá mọi dữ liệu được lưu trên trang web này?");
+
+    //Code
+    if (xacNhan) {
+        jsonCore = "";
+        localStorage.removeItem("duLieuCore");
+        
+        HienThiThongBao("Dữ liệu đã được xoá thành công!");
+        setTimeout(function(){location.reload()}, 300);
+    } else {
+        HienThiThongBao("Dữ liệu vẫn được giữ an toàn!");
+    }
 }
 
 

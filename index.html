@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Công cụ tính toán cho môi trường</title>
+  <title>ỨNG DỤNG MÔI TRƯỜNG</title>
 
   <!-- Css Libraries -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="./lib/bootstrap-select-lib/css/bootstrap-select.min.css" />
 
+  <!-- Font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
   <!-- Template Stylesheet -->
@@ -32,7 +33,8 @@
   <div class="core">
 
     <!-- Bắt đầu tạo nút tính toán -->
-    <button type="button" class="btn btn-primary btn-calculator" id="btn_calculator"><i class="fas fa-calculator"></i> <i class="fas fa-backward"></i></button>
+    <button type="button" class="btn btn-primary btn-calculator" id="btn_calculator"><i class="fas fa-calculator"></i>
+      <i class="fas fa-backward"></i></button>
     <!-- Kết thúc tạo nút tính toán -->
 
     <!--Bắt đầu tạo thông báo-->
@@ -105,23 +107,43 @@
         <h2 class="title-header">ỨNG DỤNG MÔI TRƯỜNG</h2>
       </div>
 
-      <!-- Bắt đầu tạo nút đọc từ file -->
+      <!-- Bắt đầu Vùng chức năng -->
       <div class="row group-unit-alway-show func-group">
         <h4 class="title-1 title-special" data-bs-toggle="collapse" data-bs-target="#chucNang" aria-expanded="false"
           aria-controls="chucNang"><i class="fas fa-tools"></i> CHỨC NĂNG</h4>
         <div class="collapse show" id="chucNang">
-          <div class="col fix-full-screen">
-            <h5 class="title-2"><i class="fas fa-database"></i> Tải lên tệp dữ liệu</h5>
-            <div class="input-group">
-              <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
-              <input type="file" accept=".json" class="form-control" id="btn_UploadFile"
+          <div class="row">
+            <div class="col-md fix-full-screen">
+              <h5 class="title-2"><i class="fas fa-file-import"></i> Nhập tệp dữ liệu</h5>
+              <div class="input-group">
+                <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
+                <span class="input-group-text">Chọn tệp</span>
+                <label for="upload_TaiLenTepDuLieu" class="form-control" id="nhapTepDuLieu">
+                  <div id="tenTepTaiLen">...</div>
+                </label>
+              </div>
+              <input style="display: none;" type="file" accept=".json" class="form-control" id="upload_TaiLenTepDuLieu"
                 aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            </div>
+            <div class="col-md fix-full-screen">
+              <h5 class="title-2"><i class="fas fa-file-export"></i> Xuất tệp dữ liệu</h5>
+              <div class="input-group">
+                <button class="btn btn-primary" type="button" id="btn_TaiXuongTepDuLieu">Tải xuống</button>
+                <span class="input-group-text">Tên tệp</span>
+                <input placeholder="Hãy nhập tên!" type="text" class="form-control" aria-label="fileTaiXuong"
+                  id="input_TenFileTaiXuong">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 fix-full-screen">
+              <h5 class="title-2"><i class="fas fa-broom"></i> Xoá mọi dữ liệu đã nhập</h5>
+              <button class="btn btn-danger" type="button" id="btn_XoaLocalStorage">Xoá</button>
             </div>
           </div>
         </div>
-        
       </div>
-      <!-- Kết thúc tạo nút đọc từ file -->
+      <!-- Bắt đầu Vùng chức năng -->
 
       <!-- Bắt đầu lĩnh vực tính toán-->
       <div class="row group-unit-alway-show">
@@ -1743,10 +1765,10 @@
         <!-- Kết thúc tính toán bể thiếu khí -->
 
         <!-- Bắt đầu tính toán bể hiếu khí -->
-        <div class="row group-unit-alway-show" id="section_XuLyNuocThai_HieuKhi">
+        <div class="row group-unit" id="section_XuLyNuocThai_HieuKhi">
           <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HieuKhi" aria-expanded="false"
             aria-controls="xuLyNuocThai_HieuKhi">BỂ HIẾU KHÍ</h4>
-          <div class="collapse show" id="xuLyNuocThai_HieuKhi">
+          <div class="collapse" id="xuLyNuocThai_HieuKhi">
             <h5 class="title-2">A. Thông số, kích thước</h5>
             <!-- Thông số, kích thước -->
             <div>

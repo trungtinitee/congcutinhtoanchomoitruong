@@ -11,7 +11,7 @@
       {
         "Ten": "1.2 Loại nước thải cần xử lý",
         "ID": "comboBox_XuLyNuocThai",
-        "GiaTri": 1
+        "GiaTri": 2
       },
       {
         "Ten": "Nước thải sinh hoạt - xử lý chung",
@@ -21,7 +21,7 @@
       {
         "Ten": "3.1 Lưu lượng",
         "ID": "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai",
-        "GiaTri": 750
+        "GiaTri": "300"
       },
       {
         "Ten": "Lưu lượng nước thải sinh hoạt - xử lý chung",
