@@ -2432,7 +2432,7 @@ function XuLySuKienChinh() {
 
         //Code
         //Không hiển thị thông báo lỗi
-        anHienThongBaoSoatLoi = false;
+        anHienThongBaoSoatLoi = true;
         //Kiểm tra đầu vào
         if (KiemTraDuLieuVao(jsonKiemTraDauVao)) {
             if (index === 1) {
