@@ -1,9 +1,10 @@
 //----------------------------------------------------------------I. BIẾN CHUNG ----------------------------------------------------------------
-var jsonCore, jsonGoiY;
+var jsonCore = "", jsonGoiY = "";
 const duongDanGoiY = "./file/GoiY.json";
 const duongDanJsonCore = "./file/Data.json"
 var kiemTraTruocKhiTinh = false;
 var kiemTraThongBaoBiTrung = "";
+var anHienThongBaoSoatLoi = false;
 
 //---------------------------------------------------------------II. HÀM CHUNG ----------------------------------------------------------------------
 //2.1 Ẩn đối tượng
@@ -87,13 +88,26 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
             }
         }
     }
+    
     if (bienThongBao !== "") {
         if (kiemTraThongBaoBiTrung.indexOf(chuoiIDCuaJsonKiemTra, 0) === -1) {
-            HienThiThongBao(bienThongBao);
-            kiemTraThongBaoBiTrung = chuoiIDCuaJsonKiemTra;
+            //Chỉ thông báo khi không phải click nút tính toán
+            if (anHienThongBaoSoatLoi === false){
+                HienThiThongBao(bienThongBao);
+            }
+            kiemTraThongBaoBiTrung = chuoiIDCuaJsonKiemTra + "@" + bienThongBao;
+        } else {
+            //Xử lý thông báo lỗi để hiển thị khi click nút soát lỗi
+            kiemTraThongBaoBiTrung = kiemTraThongBaoBiTrung.slice(0, kiemTraThongBaoBiTrung.indexOf("@",0));
+            kiemTraThongBaoBiTrung = kiemTraThongBaoBiTrung + "@" + bienThongBao;
         }
+        //Hiển thị lại thông báo bình thường
+        anHienThongBaoSoatLoi = false;
+
+        //Dừng tính toán
         kiemTraTruocKhiTinh = false;
     } else {
+        //Trả kết quả vào các biến bên dưới
         kiemTraTruocKhiTinh = true;
     }
     return kiemTra;
@@ -1125,7 +1139,7 @@ function ClickToCollapse(id) {
 //3.1 Tính toán cho xử lý nước thải
 //3.1.1 Biến cho xử lý nước thải
 const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
-var jsonCSDL_NuocThai;
+var jsonCSDL_NuocThai = "";
 var duLieuSoDoCongNghe_NuocThai = "";
 var congTrinhDaChon = [];
 var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
@@ -2380,7 +2394,7 @@ function TinhToanChoXuLyNuocThai() {
     /* TinhToanBeDieuHoa_NuocThai(); */
 
     //Bể bùn hoạt tính
-    NuocThai_BeBunHoatTinh();
+    /* NuocThai_BeBunHoatTinh(); */
 }
 
 //3.2 Tính toán cho xử lý nước cấp
@@ -2412,6 +2426,8 @@ function XuLySuKienChinh() {
         }]
 
         //Code
+        //Không hiển thị thông báo lỗi
+        anHienThongBaoSoatLoi = false;
         //Kiểm tra đầu vào
         if (KiemTraDuLieuVao(jsonKiemTraDauVao)) {
             if (index === 1) {
@@ -2473,6 +2489,8 @@ function XuLySuKienChinh() {
         //Code
         if (KiemTraUpload()) {
             NapDuLieuChoWebTuLocalStorageVaFile();
+            document.getElementById("btn_calculator").click();
+           /*  LuuDuLieuVaoLocalStorage(); */
             HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
         } else {
             HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
@@ -2524,6 +2542,16 @@ function XuLySuKienChinh() {
     //6 Xoá dữ liệu lưu trữ
     document.getElementById("btn_XoaLocalStorage").addEventListener("click", function () {
         XoaDuLieuTuLocalStorage();
+    });
+
+    //7 Soát lỗi nhập dữ liệu
+    document.getElementById("btn_KiemTraLoi").addEventListener("click", function(){
+        var thongBaoLoi = kiemTraThongBaoBiTrung.slice(kiemTraThongBaoBiTrung.indexOf("@") + 1, kiemTraThongBaoBiTrung.length);
+        if (thongBaoLoi !== "" && kiemTraTruocKhiTinh === false){
+            HienThiThongBao(thongBaoLoi);
+        } else {
+            HienThiThongBao("Không phát hiện lỗi!");
+        }
     });
 }
 
@@ -2823,13 +2851,19 @@ window.addEventListener("load", function () {
 })
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
 //Tự động tính toán + lưu dữ liệu
+
 var a = document.getElementsByTagName("input");
 for (var i = 0; i < a.length; i++) {
     //Khi tính toán
     if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
         a[i].addEventListener("blur", function () {
+            //Tính toán
             document.getElementById("btn_calculator").click();
+
+            //Cập nhật dữ liệu
             TuDongCapNhatThayDoiVaoJsonCore();
+
+            //Lưu dữ liệu
             LuuDuLieuVaoLocalStorage();
         });
     }
@@ -2837,11 +2871,18 @@ for (var i = 0; i < a.length; i++) {
 
 var b = document.getElementsByTagName("select");
 for (var i = 0; i < b.length; i++) {
-    b[i].addEventListener("blur", function () {
-        document.getElementById("btn_calculator").click();
-        TuDongCapNhatThayDoiVaoJsonCore();
-        LuuDuLieuVaoLocalStorage();
-    });
+    if (a[i].id !== "comboBox_DichSangNgonNguKhac"){
+        b[i].addEventListener("blur", function () {
+            //Tính toán
+            document.getElementById("btn_calculator").click();
+    
+            //Cập nhật dữ liệu
+            TuDongCapNhatThayDoiVaoJsonCore();
+    
+            //Lưu dữ liệu
+            LuuDuLieuVaoLocalStorage();
+        });
+    }
 }
 
 //Đưa dữ liệu vào web (từ local và file)
@@ -2852,6 +2893,11 @@ function NapDuLieuChoWebTuLocalStorageVaFile() {
     linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
     if (linhVucTinhToan === 1) {
         NhapDuLieuTuTepTaiLen("NuocThai");
+
+        //Vẽ lại sơ đồ công nghệ
+        if (duLieuSoDoCongNghe_NuocThai !== "") {
+            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+        }
     } else if (linhVucTinhToan === 2) {
         NhapDuLieuTuTepTaiLen("NuocCap");
     } else if (linhVucTinhToan === 3) {
@@ -2862,11 +2908,6 @@ function NapDuLieuChoWebTuLocalStorageVaFile() {
 
     //Lưu dữ liệu mới vào local storage
     LuuDuLieuVaoLocalStorage();
-
-    //Vẽ lại sơ đồ công nghệ
-    if (duLieuSoDoCongNghe_NuocThai !== "") {
-        VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
-    }
 }
 
 //Lưu dữ liệu vào local storage
@@ -2874,10 +2915,12 @@ function LuuDuLieuVaoLocalStorage() {
     //Biến
     var duLieuCore = JSON.stringify(jsonCore);
     var duLieuNuocThai = JSON.stringify(jsonCSDL_NuocThai);
+    var duLieuSoatLoi = kiemTraThongBaoBiTrung;
 
     //Lưu vào local
     localStorage.setItem("duLieuCore", duLieuCore);
     localStorage.setItem("duLieuNuocThai", duLieuNuocThai);
+    localStorage.setItem("duLieuSoatLoi", duLieuSoatLoi);
 }
 
 //Nạp dữ liệu đƯợc lưu trong Local Storage
@@ -2885,13 +2928,18 @@ function NapDuLieuTuLocalStorage() {
     //Biến
     var duLieuCore = localStorage.getItem("duLieuCore");
     var duLieuNuocThai = localStorage.getItem("duLieuNuocThai");
+    var duLieuSoatLoi = localStorage.getItem("duLieuSoatLoi");
 
     //chuyển dữ liệu sang Json
-    if (duLieuCore !== null && duLieuNuocThai !== null) {
+    if (duLieuCore !== null && duLieuNuocThai !== null && duLieuSoatLoi !== null) {
         jsonCore = JSON.parse(duLieuCore);
         jsonCSDL_NuocThai = JSON.parse(duLieuNuocThai);
+        kiemTraThongBaoBiTrung = duLieuSoatLoi;
+
         NapDuLieuChoWebTuLocalStorageVaFile();
+        document.getElementById("btn_calculator").click();
     }
+
 }
 
 //Cập nhật thay đổi + kết quả tính vào jsonCore
@@ -2902,6 +2950,7 @@ function TuDongCapNhatThayDoiVaoJsonCore() {
     //Code
     //Lĩnh vực tính toán
     jsonCore.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
+
     //Nước thải
     if (linhVucTinhToan === 1) {
         for (var i = 0; i < jsonCore.Core.NuocThai.length; i++) {
@@ -2918,8 +2967,13 @@ function TuDongCapNhatThayDoiVaoJsonCore() {
 
 //Lưu trữ dữ liệu trước khi đóng browser
 window.addEventListener("beforeunload", function () {
-    TuDongCapNhatThayDoiVaoJsonCore();
-    LuuDuLieuVaoLocalStorage();
+    if (jsonCore !== "" && jsonCSDL_NuocThai !== "") {
+        TuDongCapNhatThayDoiVaoJsonCore();
+        LuuDuLieuVaoLocalStorage();
+    }
+
+    //Xoá ngôn ngữ dịch
+    document.cookie = "googtrans = ";
 });
 
 //Xoá dữ liệu trong Local Storage
@@ -2930,14 +2984,15 @@ function XoaDuLieuTuLocalStorage() {
     //Code
     if (xacNhan) {
         jsonCore = "";
+        jsonCSDL_NuocThai = "";
+        kiemTraThongBaoBiTrung = "";
         localStorage.removeItem("duLieuCore");
-        
+        localStorage.removeItem("duLieuNuocThai");
+        localStorage.removeItem("duLieuSoatLoi");
+
         HienThiThongBao("Dữ liệu đã được xoá thành công!");
-        setTimeout(function(){location.reload()}, 300);
+        setTimeout(function () { location.reload() }, 250);
     } else {
         HienThiThongBao("Dữ liệu vẫn được giữ an toàn!");
     }
 }
-
-
-

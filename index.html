@@ -21,6 +21,9 @@
 </head>
 
 <body>
+  <!-- Dịch ngôn ngữ -->
+  <div id="google_translate_element"></div>
+
   <!-- Nền cho website -->
   <div class="main-background"></div>
 
@@ -33,9 +36,12 @@
   <div class="core">
 
     <!-- Bắt đầu tạo nút tính toán -->
-    <button type="button" class="btn btn-primary btn-calculator" id="btn_calculator"><i class="fas fa-calculator"></i>
-      <i class="fas fa-backward"></i></button>
+    <button type="button" class="btn btn-primary" id="btn_calculator" style="display: none;">cal</button>
     <!-- Kết thúc tạo nút tính toán -->
+
+    <!-- Bắt đầu tạo nút soát lỗi -->
+    <button type="button" class="btn btn-danger btn-bug" id="btn_KiemTraLoi"><i class="fas fa-exclamation"></i></button>
+    <!-- Kết thúc tạo nút soát lỗi -->
 
     <!--Bắt đầu tạo thông báo-->
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 20">
@@ -116,7 +122,7 @@
             <div class="col-md fix-full-screen">
               <h5 class="title-2"><i class="fas fa-file-import"></i> Nhập tệp dữ liệu</h5>
               <div class="input-group">
-                <button class="btn btn-primary" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
+                <button class="btn btn-primary func-btn" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
                 <span class="input-group-text">Chọn tệp</span>
                 <label for="upload_TaiLenTepDuLieu" class="form-control" id="nhapTepDuLieu">
                   <div id="tenTepTaiLen">...</div>
@@ -128,7 +134,7 @@
             <div class="col-md fix-full-screen">
               <h5 class="title-2"><i class="fas fa-file-export"></i> Xuất tệp dữ liệu</h5>
               <div class="input-group">
-                <button class="btn btn-primary" type="button" id="btn_TaiXuongTepDuLieu">Tải xuống</button>
+                <button class="btn btn-primary func-btn" type="button" id="btn_TaiXuongTepDuLieu">Tải xuống</button>
                 <span class="input-group-text">Tên tệp</span>
                 <input placeholder="Hãy nhập tên!" type="text" class="form-control" aria-label="fileTaiXuong"
                   id="input_TenFileTaiXuong">
@@ -138,7 +144,16 @@
           <div class="row">
             <div class="col-md-6 fix-full-screen">
               <h5 class="title-2"><i class="fas fa-broom"></i> Xoá mọi dữ liệu đã nhập</h5>
-              <button class="btn btn-danger" type="button" id="btn_XoaLocalStorage">Xoá</button>
+              <button class="btn btn-danger func-btn" type="button" id="btn_XoaLocalStorage">Xoá</button>
+            </div>
+            <div class="col-md-6 fix-full-screen">
+              <h5 class="title-2"><i class="fas fa-language"></i> Dịch sang ngôn ngữ khác</h5>
+              <select class="form-select" aria-label="default-select" id="comboBox_DichSangNgonNguKhac">
+                <option value="English">Tiếng Anh</option>
+                <option value="Chinese (Traditional)">Tiếng Hoa</option>
+                <option value="Japanese">Tiếng Nhật</option>
+                <option selected value="Vietnamese">Tiếng Việt</option>
+              </select>
             </div>
           </div>
         </div>
@@ -2275,6 +2290,35 @@
   <!--Flowchart-->
   <script src="./lib/flowchart/raphael.min.js"></script>
   <script src="./lib/flowchart/flowchart-latest.js"></script>
+
+  <!-- Google translate -->
+  <script type="text/javascript">
+
+    //Code by google
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+    }
+
+    //Translate to others language (except main language)
+    function translateLanguage(lang) {
+      googleTranslateElementInit();
+      var $frame = $('.goog-te-menu-frame:first');
+      $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+      return false;
+    }
+
+    //Chuyển sang ngôn ngữ khác
+    document.getElementById("comboBox_DichSangNgonNguKhac").addEventListener("change", function () {
+      var lang = document.getElementById("comboBox_DichSangNgonNguKhac").value;
+      if (lang !== "Vietnamese"){
+        translateLanguage(lang);
+      } else {
+        location.reload();
+      }
+    });
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    type="text/javascript"></script>
 
   <!-- Template Javascript -->
   <script src="./js/main.js"></script>

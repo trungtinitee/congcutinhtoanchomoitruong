@@ -95,14 +95,18 @@ h1, h2, h3, h4, h5, h6 {
     border-end-end-radius: 8px;
 }
 
-.func-group{
+.func-group {
     border: 1px solid #04aa6d;
     border-radius: 20px;
     margin-bottom: 50px;
     background: #dcebe5;
 }
 
-#tenTepTaiLen{
+.func-btn {
+    min-width: 120px;
+}
+
+#tenTepTaiLen {
     white-space: nowrap;
     overflow: hidden;
 }
@@ -127,11 +131,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.btn-calculator {
+.btn-bug {
     position: fixed;
     bottom: 15px;
     right: 0px;
     z-index: 20;
+    min-width: 50px;
 }
 
 .btn-csdl {
@@ -283,4 +288,14 @@ h1, h2, h3, h4, h5, h6 {
     100% {
         transform: rotate(-360deg);
     }
+}
+
+/* Google translate */
+
+body {
+    top: 0 !important;
+}
+
+#google_translate_element, .skiptranslate {
+    display: none;
 }
