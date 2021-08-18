@@ -88,17 +88,17 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
             }
         }
     }
-    
+
     if (bienThongBao !== "") {
         if (kiemTraThongBaoBiTrung.indexOf(chuoiIDCuaJsonKiemTra, 0) === -1) {
             //Chỉ thông báo khi không phải click nút tính toán
-            if (anHienThongBaoSoatLoi === false){
+            if (anHienThongBaoSoatLoi === false) {
                 HienThiThongBao(bienThongBao);
             }
             kiemTraThongBaoBiTrung = chuoiIDCuaJsonKiemTra + "@" + bienThongBao;
         } else {
             //Xử lý thông báo lỗi để hiển thị khi click nút soát lỗi
-            kiemTraThongBaoBiTrung = kiemTraThongBaoBiTrung.slice(0, kiemTraThongBaoBiTrung.indexOf("@",0));
+            kiemTraThongBaoBiTrung = kiemTraThongBaoBiTrung.slice(0, kiemTraThongBaoBiTrung.indexOf("@", 0));
             kiemTraThongBaoBiTrung = kiemTraThongBaoBiTrung + "@" + bienThongBao;
         }
         //Hiển thị lại thông báo bình thường
@@ -507,6 +507,8 @@ function AnHienThongTin(linhVucXuLy) {
     function AnHienChoCongNgheXuLy_NuocThai() {
         //Khai báo biến
         var index_PhuongAn = document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex;
+        var loaiNuocThai = TuDongLayDuLieu("comboBox_XuLyNuocThai");
+        var nguonTiepNhan = TuDongLayDuLieu("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan");
         var jsonKiemTra = [
             {
                 "Ten": "2.1 Chọn loại nước thải",
@@ -621,13 +623,20 @@ function AnHienThongTin(linhVucXuLy) {
 
         //Đối với trường hợp lấy sơ đồ công nghệ đề xuất
         if (index_PhuongAn === 1) {
-            if (KiemTraDuLieuVao(jsonKiemTra)) {
+            if (loaiNuocThai !== 0 && nguonTiepNhan !== 0) {
                 XuLySoDoCongNghe_NuocThai();
                 if (duLieuSoDoCongNghe_NuocThai !== "") {
                     VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
                 }
                 AnHienCongTrinhDonVi(congTrinhDaChon);
             } else {
+                if (loaiNuocThai === 0 && nguonTiepNhan !== 0){
+                    HienThiThongBao("2.1 Chọn loại nước thải");
+                } else if (loaiNuocThai !== 0 && nguonTiepNhan === 0){
+                    HienThiThongBao("4.1 Nguồn tiếp nhận nước thải");
+                } else if (loaiNuocThai === 0 && nguonTiepNhan === 0){
+                    HienThiThongBao("2.1 Chọn loại nước thải </br> 4.1 Nguồn tiếp nhận nước thải");
+                }
                 document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
             }
         }
@@ -1358,10 +1367,6 @@ function TinhToanChoXuLyNuocThai() {
             {
                 "Ten": "4.1 Nguồn tiếp nhận nước thải",
                 "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
-            },
-            {
-                "Ten": "4.2 Quy chuẩn áp dụng",
-                "ID": "comboBox_XuLyNuocThai_YeuCauDauRa_QCVN",
             }
         ];
         var jsonKiemTraQC14 = [
@@ -2490,7 +2495,7 @@ function XuLySuKienChinh() {
         if (KiemTraUpload()) {
             NapDuLieuChoWebTuLocalStorageVaFile();
             document.getElementById("btn_calculator").click();
-           /*  LuuDuLieuVaoLocalStorage(); */
+            /*  LuuDuLieuVaoLocalStorage(); */
             HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
         } else {
             HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
@@ -2545,9 +2550,9 @@ function XuLySuKienChinh() {
     });
 
     //7 Soát lỗi nhập dữ liệu
-    document.getElementById("btn_KiemTraLoi").addEventListener("click", function(){
+    document.getElementById("btn_KiemTraLoi").addEventListener("click", function () {
         var thongBaoLoi = kiemTraThongBaoBiTrung.slice(kiemTraThongBaoBiTrung.indexOf("@") + 1, kiemTraThongBaoBiTrung.length);
-        if (thongBaoLoi !== "" && kiemTraTruocKhiTinh === false){
+        if (thongBaoLoi !== "" && kiemTraTruocKhiTinh === false) {
             HienThiThongBao(thongBaoLoi);
         } else {
             HienThiThongBao("Không phát hiện lỗi!");
@@ -2592,7 +2597,7 @@ function XuLySuKien_NuocThai() {
         ]
 
         //Code
-        if (KiemTraDuLieuVao(jsonLoaiNuoc)) {
+        if (index_LoaiNuocThai !== 0) {
             if (index_NguonTiepNhan === 1 && index_LoaiNuocThai === 1) {
                 //Nước thải sinh hoạt, cột a
                 document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "1";
@@ -2619,8 +2624,10 @@ function XuLySuKien_NuocThai() {
                 document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex = "8";
             }
         } else {
+            HienThiThongBao("2.1 Chọn loại nước thải cần xử lý");
             document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan").selectedIndex = 0;
         }
+
         //Reset công nghệ lựa chọn
         document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
     });
@@ -2653,7 +2660,7 @@ function XuLySuKien_NuocThai() {
         }
 
         //Code
-        if (KiemTraDuLieuVao(jsonKiemTra)) {
+        if (loaiNuocThaiXuLy !== 0) {
             //Đối với không gộp nước thải sinh hoạt
             if (xuLyGopSinhHoat === 0) {
                 NhapDuLieuPhuHopQuyChuan();
@@ -2666,6 +2673,8 @@ function XuLySuKien_NuocThai() {
                 }
                 NhapDuLieuPhuHopQuyChuan();
             }
+        } else {
+            HienThiThongBao("2.1 Chọn loại nước thải");
         }
     });
 
@@ -2841,8 +2850,53 @@ window.addEventListener("load", function () {
     XuLySuKienChinh();
     XuLySuKien_NuocThai();
 
+    //Tự động tính toán + lưu dữ liệu
+    var a = document.getElementsByTagName("input");
+    for (var i = 0; i < a.length; i++) {
+        //Khi tính toán
+        if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
+            a[i].addEventListener("input", function () {
+                //Tính toán
+                document.getElementById("btn_calculator").click();
+
+                //Cập nhật dữ liệu
+                TuDongCapNhatThayDoiVaoJsonCore();
+
+                //Lưu dữ liệu
+                LuuDuLieuVaoLocalStorage();
+            });
+        }
+    }
+    var b = document.getElementsByTagName("select");
+    for (var i = 0; i < b.length; i++) {
+        if (b[i].id !== "comboBox_DichSangNgonNguKhac") {
+            b[i].addEventListener("change", function () {
+                //Tính toán
+                document.getElementById("btn_calculator").click();
+
+                //Cập nhật dữ liệu
+                TuDongCapNhatThayDoiVaoJsonCore();
+
+                //Lưu dữ liệu
+                LuuDuLieuVaoLocalStorage();
+            });
+
+        }
+    }
+
     //Nạp dữ liệu từ local storage (nếu có)
     NapDuLieuTuLocalStorage();
+
+    //Lưu trữ dữ liệu trước khi đóng browser
+    window.addEventListener("beforeunload", function () {
+        if (jsonCore !== "" && jsonCSDL_NuocThai !== "") {
+            TuDongCapNhatThayDoiVaoJsonCore();
+            LuuDuLieuVaoLocalStorage();
+        }
+
+        //Xoá ngôn ngữ dịch
+        document.cookie = "googtrans = ";
+    });
 
     //Mở thao tác
     setTimeout(function () {
@@ -2850,40 +2904,6 @@ window.addEventListener("load", function () {
     }, 500);
 })
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-//Tự động tính toán + lưu dữ liệu
-
-var a = document.getElementsByTagName("input");
-for (var i = 0; i < a.length; i++) {
-    //Khi tính toán
-    if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
-        a[i].addEventListener("blur", function () {
-            //Tính toán
-            document.getElementById("btn_calculator").click();
-
-            //Cập nhật dữ liệu
-            TuDongCapNhatThayDoiVaoJsonCore();
-
-            //Lưu dữ liệu
-            LuuDuLieuVaoLocalStorage();
-        });
-    }
-}
-
-var b = document.getElementsByTagName("select");
-for (var i = 0; i < b.length; i++) {
-    if (a[i].id !== "comboBox_DichSangNgonNguKhac"){
-        b[i].addEventListener("blur", function () {
-            //Tính toán
-            document.getElementById("btn_calculator").click();
-    
-            //Cập nhật dữ liệu
-            TuDongCapNhatThayDoiVaoJsonCore();
-    
-            //Lưu dữ liệu
-            LuuDuLieuVaoLocalStorage();
-        });
-    }
-}
 
 //Đưa dữ liệu vào web (từ local và file)
 function NapDuLieuChoWebTuLocalStorageVaFile() {
@@ -2964,17 +2984,6 @@ function TuDongCapNhatThayDoiVaoJsonCore() {
         }
     }
 }
-
-//Lưu trữ dữ liệu trước khi đóng browser
-window.addEventListener("beforeunload", function () {
-    if (jsonCore !== "" && jsonCSDL_NuocThai !== "") {
-        TuDongCapNhatThayDoiVaoJsonCore();
-        LuuDuLieuVaoLocalStorage();
-    }
-
-    //Xoá ngôn ngữ dịch
-    document.cookie = "googtrans = ";
-});
 
 //Xoá dữ liệu trong Local Storage
 function XoaDuLieuTuLocalStorage() {
