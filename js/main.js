@@ -6,7 +6,43 @@ var kiemTraTruocKhiTinh = false;
 var kiemTraThongBaoBiTrung = "";
 var anHienThongBaoSoatLoi = false;
 
-//---------------------------------------------------------------II. HÀM CHUNG ----------------------------------------------------------------------
+//---------------------------------------------------------------II. HÀM CHUNG CHO WEB ----------------------------------------------------------------------
+//Tự động tính toán + lưu dữ liệu
+function TuDongTinhToan() {
+    var a = document.getElementsByTagName("input");
+    for (var i = 0; i < a.length; i++) {
+        //Khi tính toán
+        if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
+            a[i].addEventListener("input", function () {
+                //Tính toán
+                document.getElementById("btn_calculator").click();
+
+                //Cập nhật dữ liệu
+                TuDongCapNhatThayDoiVaoJsonCore();
+
+                //Lưu dữ liệu
+                LuuDuLieuVaoLocalStorage();
+            });
+        }
+    }
+    var b = document.getElementsByTagName("select");
+    for (var i = 0; i < b.length; i++) {
+        if (b[i].id !== "comboBox_DichSangNgonNguKhac") {
+            b[i].addEventListener("change", function () {
+                //Tính toán
+                document.getElementById("btn_calculator").click();
+
+                //Cập nhật dữ liệu
+                TuDongCapNhatThayDoiVaoJsonCore();
+
+                //Lưu dữ liệu
+                LuuDuLieuVaoLocalStorage();
+            });
+
+        }
+    }
+}
+
 //2.1 Ẩn đối tượng
 function AnDoiTuong(mangTen) {
     for (var i = 0; i < mangTen.length; i++) {
@@ -630,11 +666,11 @@ function AnHienThongTin(linhVucXuLy) {
                 }
                 AnHienCongTrinhDonVi(congTrinhDaChon);
             } else {
-                if (loaiNuocThai === 0 && nguonTiepNhan !== 0){
+                if (loaiNuocThai === 0 && nguonTiepNhan !== 0) {
                     HienThiThongBao("2.1 Chọn loại nước thải");
-                } else if (loaiNuocThai !== 0 && nguonTiepNhan === 0){
+                } else if (loaiNuocThai !== 0 && nguonTiepNhan === 0) {
                     HienThiThongBao("4.1 Nguồn tiếp nhận nước thải");
-                } else if (loaiNuocThai === 0 && nguonTiepNhan === 0){
+                } else if (loaiNuocThai === 0 && nguonTiepNhan === 0) {
                     HienThiThongBao("2.1 Chọn loại nước thải </br> 4.1 Nguồn tiếp nhận nước thải");
                 }
                 document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon").selectedIndex = 0;
@@ -802,86 +838,83 @@ function AnHienThongTin(linhVucXuLy) {
     }
 
     //Ẩn hiện bể điều hoà
-    {
-        //Ẩn hiên dạng khuấy trộn
-        function AnHienDangKhuayTronDieuHoa_NuocThai() {
-            //Khai báo biến
-            var dangKhuayTron = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron");
+    //Ẩn hiên dạng khuấy trộn
+    function AnHienDangKhuayTronDieuHoa_NuocThai() {
+        //Khai báo biến
+        var dangKhuayTron = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron");
 
-            //Code
-            if (dangKhuayTron === 1) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", false);
-            }
-
-            else if (dangKhuayTron === 2) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", false);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
-            }
-
-            else {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
-            }
+        //Code
+        if (dangKhuayTron === 1) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", false);
         }
 
-        //Ẩn hiện loại khếch tán khí
-        function AnHienLoaiKhechTanKhi_DieuHoa_NuocThai() {
-            //khai báo biến
-            var dangKhuechTan = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan");
-
-            //Code
-            if (dangKhuechTan === 1) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", false);
-            }
-
-            else if (dangKhuechTan === 2) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", false);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", true);
-            }
-
-            else {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", true);
-            }
-
+        else if (dangKhuayTron === 2) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", false);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
         }
 
-        //Ẩn hiện dạng hình học
-        function AnHienDangHinhHocDieuHoa_NuocThai() {
-            //Khai báo biến
-            var index = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe");
+        else {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
+        }
+    }
 
-            //Hình chữ nhật
-            if (index === 1) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", false);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-            }
+    //Ẩn hiện loại khếch tán khí
+    function AnHienLoaiKhechTanKhi_DieuHoa_NuocThai() {
+        //khai báo biến
+        var dangKhuechTan = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan");
 
-            //Hình vuông
-            else if (index === 2) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", false);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-            }
-
-            //Hình tròn
-            else if (index === 3) {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", false);
-            }
-
-            //Không hiện gì
-            else {
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
-                AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-            }
+        //Code
+        if (dangKhuechTan === 1) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", false);
         }
 
+        else if (dangKhuechTan === 2) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", false);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", true);
+        }
+
+        else {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi", true);
+        }
+
+    }
+
+    //Ẩn hiện dạng hình học
+    function AnHienDangHinhHocDieuHoa_NuocThai() {
+        //Khai báo biến
+        var index = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe");
+
+        //Hình chữ nhật
+        if (index === 1) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", false);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
+        }
+
+        //Hình vuông
+        else if (index === 2) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", false);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
+        }
+
+        //Hình tròn
+        else if (index === 3) {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", false);
+        }
+
+        //Không hiện gì
+        else {
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong", true);
+            AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
+        }
     }
 
     //Ẩn hiện bể sinh học hiếu khí
@@ -1144,9 +1177,110 @@ function ClickToCollapse(id) {
     })
 }
 
+//Đưa dữ liệu vào web (từ local và file)
+function NapDuLieuChoWebTuLocalStorageVaFile() {
+    var linhVucTinhToan;
+
+    //Code
+    linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
+    if (linhVucTinhToan === 1) {
+        NhapDuLieuTuTepTaiLen("NuocThai");
+
+        //Vẽ lại sơ đồ công nghệ
+        if (duLieuSoDoCongNghe_NuocThai !== "") {
+            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
+        }
+    } else if (linhVucTinhToan === 2) {
+        NhapDuLieuTuTepTaiLen("NuocCap");
+    } else if (linhVucTinhToan === 3) {
+        NhapDuLieuTuTepTaiLen("KhiThai");
+    } else if (linhVucTinhToan === 4) {
+        NhapDuLieuTuTepTaiLen("ChatThaiRan");
+    }
+
+    //Lưu dữ liệu mới vào local storage
+    LuuDuLieuVaoLocalStorage();
+}
+
+//Lưu dữ liệu vào local storage
+function LuuDuLieuVaoLocalStorage() {
+    //Biến
+    var duLieuCore = JSON.stringify(jsonCore);
+    var duLieuNuocThai = JSON.stringify(jsonCSDL_NuocThai);
+    var duLieuSoatLoi = kiemTraThongBaoBiTrung;
+
+    //Lưu vào local
+    localStorage.setItem("duLieuCore", duLieuCore);
+    localStorage.setItem("duLieuNuocThai", duLieuNuocThai);
+    localStorage.setItem("duLieuSoatLoi", duLieuSoatLoi);
+}
+
+//Nạp dữ liệu đƯợc lưu trong Local Storage
+function NapDuLieuTuLocalStorage() {
+    //Biến
+    var duLieuCore = localStorage.getItem("duLieuCore");
+    var duLieuNuocThai = localStorage.getItem("duLieuNuocThai");
+    var duLieuSoatLoi = localStorage.getItem("duLieuSoatLoi");
+
+    //chuyển dữ liệu sang Json
+    if (duLieuCore !== null && duLieuNuocThai !== null && duLieuSoatLoi !== null) {
+        jsonCore = JSON.parse(duLieuCore);
+        jsonCSDL_NuocThai = JSON.parse(duLieuNuocThai);
+        kiemTraThongBaoBiTrung = duLieuSoatLoi;
+
+        NapDuLieuChoWebTuLocalStorageVaFile();
+        
+    }
+    document.getElementById("btn_calculator").click();
+
+}
+
+//Cập nhật thay đổi + kết quả tính vào jsonCore
+function TuDongCapNhatThayDoiVaoJsonCore() {
+    //Biến
+    var linhVucTinhToan = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
+
+    //Code
+    //Lĩnh vực tính toán
+    jsonCore.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
+
+    //Nước thải
+    if (linhVucTinhToan === 1) {
+        for (var i = 0; i < jsonCore.Core.NuocThai.length; i++) {
+            if (jsonCore.Core.NuocThai[i].ID === "soDoCongNghe") {
+                jsonCore.Core.NuocThai[i].GiaTri = duLieuSoDoCongNghe_NuocThai;
+                jsonCore.Core.NuocThai[i].CongTrinhDonVi_Tep = congTrinhDaChon;
+            }
+            else {
+                jsonCore.Core.NuocThai[i].GiaTri = TuDongLayDuLieu(jsonCore.Core.NuocThai[i].ID);
+            }
+        }
+    }
+}
+
+//Xoá dữ liệu trong Local Storage
+function XoaDuLieuTuLocalStorage() {
+    //Biến
+    var xacNhan = confirm("Bạn chắc chắn xoá mọi dữ liệu được lưu trên trang web này?");
+
+    //Code
+    if (xacNhan) {
+        jsonCore = "";
+        jsonCSDL_NuocThai = "";
+        kiemTraThongBaoBiTrung = "";
+        localStorage.removeItem("duLieuCore");
+        localStorage.removeItem("duLieuNuocThai");
+        localStorage.removeItem("duLieuSoatLoi");
+
+        HienThiThongBao("Dữ liệu đã được xoá thành công!");
+        setTimeout(function () { location.reload() }, 250);
+    } else {
+        HienThiThongBao("Dữ liệu vẫn được giữ an toàn!");
+    }
+}
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
-//3.1 Tính toán cho xử lý nước thải
-//3.1.1 Biến cho xử lý nước thải
+///=================================================NƯỚC THẢI
+//Biến chung
 const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
 var jsonCSDL_NuocThai = "";
 var duLieuSoDoCongNghe_NuocThai = "";
@@ -1156,8 +1290,7 @@ var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "
 //Biến nồng độ chất ô nhiễm cho nước thải
 var nuocThai_BOD5_DauVao;
 
-//3.1.2 Hàm cho xử lý nước thải
-
+//Chương trình con
 //Ẩn hiện công trình đơn vị cho nước thải
 function AnHienCongTrinhDonVi(mangCongTrinh) {
     for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
@@ -1254,7 +1387,7 @@ function XoaCongTrinhDonViVeLaiSoDo_NuocThai() {
     }
 }
 
-//3.1.3 Chương trình chính xử lý nước thải
+//Tính toán chính
 function TinhToanChoXuLyNuocThai() {
     //Khai báo biến
     var loaiNuocThaiXuLy = document.getElementById("comboBox_XuLyNuocThai").selectedIndex;
@@ -1308,7 +1441,7 @@ function TinhToanChoXuLyNuocThai() {
     ];
     var jsonLuuLuongSHGop = [
         {
-            "Ten": "3.1 Lưu lượng",
+            "Ten": "Lưu lượng nước thải sinh hoạt - xử lý chung",
             "ID": "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH"
         }
     ]
@@ -2402,16 +2535,19 @@ function TinhToanChoXuLyNuocThai() {
     /* NuocThai_BeBunHoatTinh(); */
 }
 
+//=================================================NƯỚC CẤP
 //3.2 Tính toán cho xử lý nước cấp
 function TinhToanChoXuLyNuocCap() {
 
 }
 
+//=================================================KHÍ THẢI
 //3.3 Tính toán cho xử lý khí thải
 function TinhToanChoXuLyKhiThai() {
 
 }
 
+//=================================================CHẤT THẢI RẮN
 //3.4 Tính toán cho xử lý chất thải rắn
 function TinhToanChoXuLyChatThaiRan() {
 
@@ -2445,6 +2581,9 @@ function XuLySuKienChinh() {
                 TinhToanChoXuLyChatThaiRan();
             }
         }
+
+        //Hiển thị dữ liệu trên console
+        console.log(jsonCore);
     });
     //1 Xử lý file tải lên
     document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
@@ -2673,6 +2812,9 @@ function XuLySuKien_NuocThai() {
                 }
                 NhapDuLieuPhuHopQuyChuan();
             }
+
+            //Tính toán tiếp tục
+            document.getElementById("btn_calculator").click();
         } else {
             HienThiThongBao("2.1 Chọn loại nước thải");
         }
@@ -2828,15 +2970,6 @@ window.addEventListener("load", function () {
         XuLyHienThongTinGoiYTrongModal();
     });
 
-    //Mặc định chạy hiển thị gợi ý trên toàn bộ web
-    {
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        });
-    }
-
-    //1 Xử lý cho nước thải
     //Lấy jsonCore mẫu từ sources code khi load trang
     LayDuLieuJsonTuSourcesCode(duongDanJsonCore, function (duLieuTraVe) {
         jsonCore = duLieuTraVe;
@@ -2847,45 +2980,19 @@ window.addEventListener("load", function () {
         jsonCSDL_NuocThai = duLieuTraVe;
     });
 
+    //Mặc định chạy hiển thị gợi ý trên toàn bộ web
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    });
+
+    //Sự kiện
+    //Sự kiện chung
     XuLySuKienChinh();
     XuLySuKien_NuocThai();
 
-    //Tự động tính toán + lưu dữ liệu
-    var a = document.getElementsByTagName("input");
-    for (var i = 0; i < a.length; i++) {
-        //Khi tính toán
-        if (a[i].id !== "upload_TaiLenTepDuLieu" && a[i].id !== "input_TenFileTaiXuong") {
-            a[i].addEventListener("input", function () {
-                //Tính toán
-                document.getElementById("btn_calculator").click();
-
-                //Cập nhật dữ liệu
-                TuDongCapNhatThayDoiVaoJsonCore();
-
-                //Lưu dữ liệu
-                LuuDuLieuVaoLocalStorage();
-            });
-        }
-    }
-    var b = document.getElementsByTagName("select");
-    for (var i = 0; i < b.length; i++) {
-        if (b[i].id !== "comboBox_DichSangNgonNguKhac") {
-            b[i].addEventListener("change", function () {
-                //Tính toán
-                document.getElementById("btn_calculator").click();
-
-                //Cập nhật dữ liệu
-                TuDongCapNhatThayDoiVaoJsonCore();
-
-                //Lưu dữ liệu
-                LuuDuLieuVaoLocalStorage();
-            });
-
-        }
-    }
-
-    //Nạp dữ liệu từ local storage (nếu có)
-    NapDuLieuTuLocalStorage();
+    //Tự động tính toán số liệu
+    TuDongTinhToan();
 
     //Lưu trữ dữ liệu trước khi đóng browser
     window.addEventListener("beforeunload", function () {
@@ -2898,110 +3005,39 @@ window.addEventListener("load", function () {
         document.cookie = "googtrans = ";
     });
 
+    //Nạp dữ liệu từ local storage (nếu có)
+    NapDuLieuTuLocalStorage();    
+
     //Mở thao tác
     setTimeout(function () {
         document.getElementById("lock_page").remove();
     }, 500);
 })
 //-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-
-//Đưa dữ liệu vào web (từ local và file)
-function NapDuLieuChoWebTuLocalStorageVaFile() {
-    var linhVucTinhToan;
-
-    //Code
-    linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
-    if (linhVucTinhToan === 1) {
-        NhapDuLieuTuTepTaiLen("NuocThai");
-
-        //Vẽ lại sơ đồ công nghệ
-        if (duLieuSoDoCongNghe_NuocThai !== "") {
-            VeSoDoCongNghe(duLieuSoDoCongNghe_NuocThai, "soDoCongNghe");
-        }
-    } else if (linhVucTinhToan === 2) {
-        NhapDuLieuTuTepTaiLen("NuocCap");
-    } else if (linhVucTinhToan === 3) {
-        NhapDuLieuTuTepTaiLen("KhiThai");
-    } else if (linhVucTinhToan === 4) {
-        NhapDuLieuTuTepTaiLen("ChatThaiRan");
-    }
-
-    //Lưu dữ liệu mới vào local storage
-    LuuDuLieuVaoLocalStorage();
+/*
+//Lấy ID cho file Data
+var ip = document.getElementsByTagName("input");
+var str = "";
+for (var i = 0; i < ip.length; i++) {
+if (ip[i].id.indexOf("_HieuKhi_", 0) !== -1) {
+var a = {
+    "Ten": "Bể hiếu khí | ",
+    "ID": ip[i].id,
+    "GiaTri": ""
+};
+if (str !== "") {
+    str = str + ",\n" + JSON.stringify(a);
+} else {
+    str = str + JSON.stringify(a);
 }
-
-//Lưu dữ liệu vào local storage
-function LuuDuLieuVaoLocalStorage() {
-    //Biến
-    var duLieuCore = JSON.stringify(jsonCore);
-    var duLieuNuocThai = JSON.stringify(jsonCSDL_NuocThai);
-    var duLieuSoatLoi = kiemTraThongBaoBiTrung;
-
-    //Lưu vào local
-    localStorage.setItem("duLieuCore", duLieuCore);
-    localStorage.setItem("duLieuNuocThai", duLieuNuocThai);
-    localStorage.setItem("duLieuSoatLoi", duLieuSoatLoi);
 }
-
-//Nạp dữ liệu đƯợc lưu trong Local Storage
-function NapDuLieuTuLocalStorage() {
-    //Biến
-    var duLieuCore = localStorage.getItem("duLieuCore");
-    var duLieuNuocThai = localStorage.getItem("duLieuNuocThai");
-    var duLieuSoatLoi = localStorage.getItem("duLieuSoatLoi");
-
-    //chuyển dữ liệu sang Json
-    if (duLieuCore !== null && duLieuNuocThai !== null && duLieuSoatLoi !== null) {
-        jsonCore = JSON.parse(duLieuCore);
-        jsonCSDL_NuocThai = JSON.parse(duLieuNuocThai);
-        kiemTraThongBaoBiTrung = duLieuSoatLoi;
-
-        NapDuLieuChoWebTuLocalStorageVaFile();
-        document.getElementById("btn_calculator").click();
-    }
-
 }
-
-//Cập nhật thay đổi + kết quả tính vào jsonCore
-function TuDongCapNhatThayDoiVaoJsonCore() {
-    //Biến
-    var linhVucTinhToan = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
-
-    //Code
-    //Lĩnh vực tính toán
-    jsonCore.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
-
-    //Nước thải
-    if (linhVucTinhToan === 1) {
-        for (var i = 0; i < jsonCore.Core.NuocThai.length; i++) {
-            if (jsonCore.Core.NuocThai[i].ID === "soDoCongNghe") {
-                jsonCore.Core.NuocThai[i].GiaTri = duLieuSoDoCongNghe_NuocThai;
-                jsonCore.Core.NuocThai[i].CongTrinhDonVi_Tep = congTrinhDaChon;
-            }
-            else {
-                jsonCore.Core.NuocThai[i].GiaTri = TuDongLayDuLieu(jsonCore.Core.NuocThai[i].ID);
-            }
-        }
-    }
+console.log(str);
+var ip = document.getElementsByTagName("select");
+for (var i = 0; i < ip.length; i++) {
+if (ip[i].id.indexOf("HieuKhi", 0) !== -1) {
+console.log(ip[i].id);
 }
-
-//Xoá dữ liệu trong Local Storage
-function XoaDuLieuTuLocalStorage() {
-    //Biến
-    var xacNhan = confirm("Bạn chắc chắn xoá mọi dữ liệu được lưu trên trang web này?");
-
-    //Code
-    if (xacNhan) {
-        jsonCore = "";
-        jsonCSDL_NuocThai = "";
-        kiemTraThongBaoBiTrung = "";
-        localStorage.removeItem("duLieuCore");
-        localStorage.removeItem("duLieuNuocThai");
-        localStorage.removeItem("duLieuSoatLoi");
-
-        HienThiThongBao("Dữ liệu đã được xoá thành công!");
-        setTimeout(function () { location.reload() }, 250);
-    } else {
-        HienThiThongBao("Dữ liệu vẫn được giữ an toàn!");
-    }
 }
+*/
+

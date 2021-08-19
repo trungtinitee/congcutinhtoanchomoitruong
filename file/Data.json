@@ -575,6 +575,166 @@
         "Ten": "Hố thu gom | Bơm chìm - Cột áp",
         "ID": "input_xuLyNuocThai_HoThu_CotApBom",
         "GiaTri": "8 - 10"
+      },
+      {
+        "Ten": "Bể điều hoà | Thời gian lưu",
+        "ID": "input_xuLyNuocThai_DieuHoa_ThoiGianLuu",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thời gian lưu",
+        "ID": "input_xuLyNuocThai_DieuHoa_ThoiGianLuu_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thể tích hữu ích (lý thuyết)",
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thể tích hữu ích (lý thuyết)",
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Hệ số vượt tải",
+        "ID": "input_xuLyNuocThai_DieuHoa_HeSoVuotTai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thể tích hữu ích (thực tế)",
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thể tích hữu ích (thực tế)",
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIch_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Độ cao hữu ích",
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Độ cao bảo vệ",
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoBaove",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Tổng độ cao thực tế",
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoThucTe",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Hình dạng bể",
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_HinhDangBe",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều dài",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều rộng",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều rộng",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều dài",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều dài",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều rộng",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Chiều rộng",
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Đường kính",
+        "ID": "input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Đường kính",
+        "ID": "input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron_SuaLai",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Thể tích thực tế",
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichThucTe",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Dạng khuấy trộn",
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Tốc độ khí nén cung cấp",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_TocDoKhiNenCungCap",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Lượng khí nén cần thiết cho khuấy trộn",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Loại khuếch tán khí",
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Lưu lượng khí trên mỗi ống (cái)",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_LuongKhiTrenMoiOng",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Số ống (cái) phân phối cần thiết",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_SoLuongOng",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Lưu lượng khí trên mỗi đĩa",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_LuongKhiTrenMoiDia",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Số đĩa phân phối cần thiết",
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_SoLuongDia",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Công suất cung cấp mỗi cho mỗi m3 nước thải",
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiM3Nuoc",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Công suất thiết bị khuấy trộn",
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_KW",
+        "GiaTri": ""
+      },
+      {
+        "Ten": "Bể điều hoà | Công suất thiết bị khuấy trộn",
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_HP",
+        "GiaTri": ""
       }
     ],
     "NuocCap": [],
