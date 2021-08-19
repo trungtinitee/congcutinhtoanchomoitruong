@@ -1,7 +1,7 @@
 //----------------------------------------------------------------I. BIẾN CHUNG ----------------------------------------------------------------
-var jsonCore = "", jsonGoiY = "";
-const duongDanGoiY = "./file/GoiY.json";
-const duongDanJsonCore = "./file/Data.json"
+var jsonDataUser = "", jsonDataSouces = "";
+const pathDataSources = "./file/Data_Sources.json";
+const pathDataUser = "./file/Data_User.json"
 var kiemTraTruocKhiTinh = false;
 var kiemTraThongBaoBiTrung = "";
 var anHienThongBaoSoatLoi = false;
@@ -43,14 +43,14 @@ function TuDongTinhToan() {
     }
 }
 
-//2.1 Ẩn đối tượng
+//2.1 Ẩn đối tượng = none
 function AnDoiTuong(mangTen) {
     for (var i = 0; i < mangTen.length; i++) {
         document.getElementById(mangTen[i]).style.display = "none";
     }
 }
 
-//Ẩn hiện đối tượng dạng block
+//Ẩn hiện đối tượng dạng block - true = ẩn, false = hiện
 function AnHienDoiTuongDangBlock(idDoiTuong, AnT_HienF) {
     //Code
     if (AnT_HienF === true) {
@@ -60,19 +60,19 @@ function AnHienDoiTuongDangBlock(idDoiTuong, AnT_HienF) {
     }
 }
 
-//2.2 Hiện đối tượng
+//2.2 Hiện đối tượng - flex
 function HienDoiTuong(mangTen) {
     for (var i = 0; i < mangTen.length; i++) {
         document.getElementById(mangTen[i]).style.display = "flex";
     }
 }
 
-//2.3 Nhập giá trị cho text box
+//2.3 Nhập giá trị cho text box - không hữu dụng
 function NhapGiaTriChoTextBox(ID, giaTri) {
     document.getElementById(ID).value = giaTri;
 }
 
-//2.4 Hiển thị thông báo
+//2.4 Hiển thị thông báo - từ string
 function HienThiThongBao(thongTinHienThi) {
     //Hiện thông báo
     document.getElementById("thongBao").setAttribute("class", "toast show");
@@ -89,7 +89,7 @@ function HienThiThongBao(thongTinHienThi) {
     });
 }
 
-//2.5 Chưa đủ dữ liệu tính toán
+//2.5 Kiểm tra điều kiện trước khi tính toán (không thông báo)
 function KiemTraDuLieuVao(jsonCanKiemTra) {
     //Khai báo biến
     var kiemTra = true;
@@ -149,36 +149,36 @@ function KiemTraDuLieuVao(jsonCanKiemTra) {
     return kiemTra;
 }
 
-//2.6 Nhập dữ liệu từ tệp tải lên
+//2.6 Nhập dữ liệu từ tệp tải lên + dữ liệu có sẵn
 function NhapDuLieuTuTepTaiLen(loaiNuocThaiXuLy) {
     //Khai báo biến
     var kieuKiemTra = "";
 
     //Code
     //Nhập dữ liệu cho lĩnh vực tính toán
-    document.getElementById(jsonCore.Core.LinhVucTinhToan[0].ID).selectedIndex = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
+    document.getElementById(jsonDataUser.Core.LinhVucTinhToan[0].ID).selectedIndex = jsonDataUser.Core.LinhVucTinhToan[0].GiaTri;
 
     //Nhập tuần tự dữ liệu lên chương trình
-    for (var i = 0; i < jsonCore.Core[loaiNuocThaiXuLy].length; i++) {
-        kieuKiemTra = jsonCore.Core[loaiNuocThaiXuLy][i].ID.slice(0, jsonCore.Core[loaiNuocThaiXuLy][i].ID.indexOf("_", 0));
+    for (var i = 0; i < jsonDataUser.Core[loaiNuocThaiXuLy].length; i++) {
+        kieuKiemTra = jsonDataUser.Core[loaiNuocThaiXuLy][i].ID.slice(0, jsonDataUser.Core[loaiNuocThaiXuLy][i].ID.indexOf("_", 0));
         //Đối với comboBox
         if (kieuKiemTra === "comboBox") {
-            document.getElementById(jsonCore.Core[loaiNuocThaiXuLy][i].ID).selectedIndex = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
-            if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "comboBox_XuLyNuocThai_GopSinhHoat" && jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri === 1) {
+            document.getElementById(jsonDataUser.Core[loaiNuocThaiXuLy][i].ID).selectedIndex = jsonDataUser.Core[loaiNuocThaiXuLy][i].GiaTri;
+            if (jsonDataUser.Core[loaiNuocThaiXuLy][i].ID === "comboBox_XuLyNuocThai_GopSinhHoat" && jsonDataUser.Core[loaiNuocThaiXuLy][i].GiaTri === 1) {
                 document.getElementById("btn_xuLyNuocThai_GopSinhHoat").click();
             }
         }
         //Đối với input text, number
         else if (kieuKiemTra === "input") {
-            document.getElementById(jsonCore.Core[loaiNuocThaiXuLy][i].ID).value = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
+            document.getElementById(jsonDataUser.Core[loaiNuocThaiXuLy][i].ID).value = jsonDataUser.Core[loaiNuocThaiXuLy][i].GiaTri;
         }
         //Đối với sơ đồ công nghệ được hiển thị
-        else if (jsonCore.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonCore.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2 /* Trường hợp bằng 1 thì sao */) {
-            duLieuSoDoCongNghe_NuocThai = jsonCore.Core[loaiNuocThaiXuLy][i].GiaTri;
+        else if (jsonDataUser.Core[loaiNuocThaiXuLy][i].ID === "soDoCongNghe" && jsonDataUser.Core[loaiNuocThaiXuLy][i - 1].GiaTri === 2 /* Trường hợp bằng 1 thì sao */) {
+            duLieuSoDoCongNghe_NuocThai = jsonDataUser.Core[loaiNuocThaiXuLy][i].GiaTri;
             //Tạo mảng từ tệp dữ liệu
             congTrinhDaChon = [];
-            for (var j = 0; j < jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep.length; j++) {
-                congTrinhDaChon.push(jsonCore.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep[j]);
+            for (var j = 0; j < jsonDataUser.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep.length; j++) {
+                congTrinhDaChon.push(jsonDataUser.Core[loaiNuocThaiXuLy][i].CongTrinhDonVi_Tep[j]);
             }
             taoCongTrinh = duLieuSoDoCongNghe_NuocThai.slice(0, duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0) - 32);
             taoDuongVe = duLieuSoDoCongNghe_NuocThai.slice(duLieuSoDoCongNghe_NuocThai.indexOf("dauVao->", 0), duLieuSoDoCongNghe_NuocThai.length - 7);
@@ -238,7 +238,7 @@ function AnHienThongTinTheoLinhVucTinhToan() {
     }
 }
 
-//Lấy dữ liệu từ file sources code
+//Lấy dữ liệu từ file sources code (sau khi load web mới sử dụng được)
 function LayDuLieuJsonTuSourcesCode(duongDan, hamXuLy) {
     fetch(duongDan).then(function (response) {
         response.json().then(function (ketQua) {
@@ -253,48 +253,48 @@ function XuLyHienThongTinGoiYTrongModal() {
 
     //Code
     //Xử lý cho nước thải
-    for (var i = 0; i < jsonGoiY.GoiY.NuocThai.length; i++) {
+    for (var i = 0; i < jsonDataSouces.GoiY.NuocThai.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.NuocThai[i].ID).addEventListener("click", function () {
-            for (var j = 0; j < jsonGoiY.GoiY.NuocThai.length; j++) {
-                if (jsonGoiY.GoiY.NuocThai[j].ID === this.id) {
-                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.NuocThai[j].GiaTri;
+        document.getElementById(jsonDataSouces.GoiY.NuocThai[i].ID).addEventListener("click", function () {
+            for (var j = 0; j < jsonDataSouces.GoiY.NuocThai.length; j++) {
+                if (jsonDataSouces.GoiY.NuocThai[j].ID === this.id) {
+                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonDataSouces.GoiY.NuocThai[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
             }
         });
     }
     //Xử lý cho nước cấp
-    for (var i = 0; i < jsonGoiY.GoiY.NuocCap.length; i++) {
+    for (var i = 0; i < jsonDataSouces.GoiY.NuocCap.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.NuocCap[i].ID).addEventListener("click", function () {
-            for (var j = 0; j < jsonGoiY.GoiY.NuocCap.length; j++) {
-                if (jsonGoiY.GoiY.NuocCap[j].ID === this.id) {
-                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.NuocCap[j].GiaTri;
+        document.getElementById(jsonDataSouces.GoiY.NuocCap[i].ID).addEventListener("click", function () {
+            for (var j = 0; j < jsonDataSouces.GoiY.NuocCap.length; j++) {
+                if (jsonDataSouces.GoiY.NuocCap[j].ID === this.id) {
+                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonDataSouces.GoiY.NuocCap[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
             }
         });
     }
     //Xử lý cho khí thải
-    for (var i = 0; i < jsonGoiY.GoiY.KhiThai.length; i++) {
+    for (var i = 0; i < jsonDataSouces.GoiY.KhiThai.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.KhiThai[i].ID).addEventListener("click", function () {
-            for (var j = 0; j < jsonGoiY.GoiY.KhiThai.length; j++) {
-                if (jsonGoiY.GoiY.KhiThai[j].ID === this.id) {
-                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.KhiThai[j].GiaTri;
+        document.getElementById(jsonDataSouces.GoiY.KhiThai[i].ID).addEventListener("click", function () {
+            for (var j = 0; j < jsonDataSouces.GoiY.KhiThai.length; j++) {
+                if (jsonDataSouces.GoiY.KhiThai[j].ID === this.id) {
+                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonDataSouces.GoiY.KhiThai[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
             }
         });
     }
     //Xử lý cho chất thải rắn
-    for (var i = 0; i < jsonGoiY.GoiY.ChatThaiRan.length; i++) {
+    for (var i = 0; i < jsonDataSouces.GoiY.ChatThaiRan.length; i++) {
         //Tạo sự kiện
-        document.getElementById(jsonGoiY.GoiY.ChatThaiRan[i].ID).addEventListener("click", function () {
-            for (var j = 0; j < jsonGoiY.GoiY.ChatThaiRan.length; j++) {
-                if (jsonGoiY.GoiY.ChatThaiRan[j].ID === this.id) {
-                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonGoiY.GoiY.ChatThaiRan[j].GiaTri;
+        document.getElementById(jsonDataSouces.GoiY.ChatThaiRan[i].ID).addEventListener("click", function () {
+            for (var j = 0; j < jsonDataSouces.GoiY.ChatThaiRan.length; j++) {
+                if (jsonDataSouces.GoiY.ChatThaiRan[j].ID === this.id) {
+                    document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonDataSouces.GoiY.ChatThaiRan[j].GiaTri;
                     document.getElementById("btn_HienThiModal").click();
                 }
             }
@@ -443,28 +443,28 @@ function AnHienThongTin(linhVucXuLy) {
             //Code
             if (gopSinhHoat === false) {
                 //Ẩn hết chỉ tiêu - thông số đầu vào
-                for (var i = 0; i < jsonCSDL_NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonCSDL_NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - yêu cầu đầu ra
-                for (var i = 0; i < jsonCSDL_NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonCSDL_NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - thông số đầu vào
-                for (var i = 0; i < jsonCSDL_NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonCSDL_NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - yêu cầu đầu ra
-                for (var i = 0; i < jsonCSDL_NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonCSDL_NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById("box_xuLyNuocThai_YeuCauDauRa_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
@@ -473,43 +473,43 @@ function AnHienThongTin(linhVucXuLy) {
 
             if (gopSinhHoat === true) {
                 //Ẩn hết chỉ tiêu - thông số đầu vào
-                for (var i = 0; i < jsonCSDL_NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonCSDL_NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - nồng độ ô nhiễm hỗn hợp
-                for (var i = 0; i < jsonCSDL_NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonCSDL_NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam + "_NongDoHH";
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - yêu cầu đầu ra
-                for (var i = 0; i < jsonCSDL_NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonCSDL_NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - thông số đầu vào
-                for (var i = 0; i < jsonCSDL_NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonCSDL_NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - nồng độ ô nhiễm hỗn hợp
-                for (var i = 0; i < jsonCSDL_NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonCSDL_NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam + "_NongDoHH";
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - yêu cầu đầu ra
-                for (var i = 0; i < jsonCSDL_NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonCSDL_NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById("box_xuLyNuocThai_YeuCauDauRa_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
@@ -576,19 +576,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 1) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 2) {
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -598,19 +598,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 3) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 4) {
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -625,19 +625,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 3) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 4) {
-                        duLieuSoDoCongNghe_NuocThai = jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonCSDL_NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -683,8 +683,8 @@ function AnHienThongTin(linhVucXuLy) {
             document.getElementById("soDoCongNghe").innerHTML = "";
 
             //Ẩn toàn bộ công trình đơn vị
-            for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-                AnDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
+            for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+                AnDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
             }
         }
     }
@@ -1182,7 +1182,7 @@ function NapDuLieuChoWebTuLocalStorageVaFile() {
     var linhVucTinhToan;
 
     //Code
-    linhVucTinhToan = jsonCore.Core.LinhVucTinhToan[0].GiaTri;
+    linhVucTinhToan = jsonDataUser.Core.LinhVucTinhToan[0].GiaTri;
     if (linhVucTinhToan === 1) {
         NhapDuLieuTuTepTaiLen("NuocThai");
 
@@ -1205,8 +1205,8 @@ function NapDuLieuChoWebTuLocalStorageVaFile() {
 //Lưu dữ liệu vào local storage
 function LuuDuLieuVaoLocalStorage() {
     //Biến
-    var duLieuCore = JSON.stringify(jsonCore);
-    var duLieuNuocThai = JSON.stringify(jsonCSDL_NuocThai);
+    var duLieuCore = JSON.stringify(jsonDataUser);
+    var duLieuNuocThai = JSON.stringify(jsonDBNuocThai);
     var duLieuSoatLoi = kiemTraThongBaoBiTrung;
 
     //Lưu vào local
@@ -1224,35 +1224,35 @@ function NapDuLieuTuLocalStorage() {
 
     //chuyển dữ liệu sang Json
     if (duLieuCore !== null && duLieuNuocThai !== null && duLieuSoatLoi !== null) {
-        jsonCore = JSON.parse(duLieuCore);
-        jsonCSDL_NuocThai = JSON.parse(duLieuNuocThai);
+        jsonDataUser = JSON.parse(duLieuCore);
+        jsonDBNuocThai = JSON.parse(duLieuNuocThai);
         kiemTraThongBaoBiTrung = duLieuSoatLoi;
 
         NapDuLieuChoWebTuLocalStorageVaFile();
-        
+
     }
     document.getElementById("btn_calculator").click();
 
 }
 
-//Cập nhật thay đổi + kết quả tính vào jsonCore
+//Cập nhật thay đổi + kết quả tính vào jsonDataUser
 function TuDongCapNhatThayDoiVaoJsonCore() {
     //Biến
     var linhVucTinhToan = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
 
     //Code
     //Lĩnh vực tính toán
-    jsonCore.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
+    jsonDataUser.Core.LinhVucTinhToan[0].GiaTri = linhVucTinhToan;
 
     //Nước thải
     if (linhVucTinhToan === 1) {
-        for (var i = 0; i < jsonCore.Core.NuocThai.length; i++) {
-            if (jsonCore.Core.NuocThai[i].ID === "soDoCongNghe") {
-                jsonCore.Core.NuocThai[i].GiaTri = duLieuSoDoCongNghe_NuocThai;
-                jsonCore.Core.NuocThai[i].CongTrinhDonVi_Tep = congTrinhDaChon;
+        for (var i = 0; i < jsonDataUser.Core.NuocThai.length; i++) {
+            if (jsonDataUser.Core.NuocThai[i].ID === "soDoCongNghe") {
+                jsonDataUser.Core.NuocThai[i].GiaTri = duLieuSoDoCongNghe_NuocThai;
+                jsonDataUser.Core.NuocThai[i].CongTrinhDonVi_Tep = congTrinhDaChon;
             }
             else {
-                jsonCore.Core.NuocThai[i].GiaTri = TuDongLayDuLieu(jsonCore.Core.NuocThai[i].ID);
+                jsonDataUser.Core.NuocThai[i].GiaTri = TuDongLayDuLieu(jsonDataUser.Core.NuocThai[i].ID);
             }
         }
     }
@@ -1265,8 +1265,8 @@ function XoaDuLieuTuLocalStorage() {
 
     //Code
     if (xacNhan) {
-        jsonCore = "";
-        jsonCSDL_NuocThai = "";
+        jsonDataUser = "";
+        jsonDBNuocThai = "";
         kiemTraThongBaoBiTrung = "";
         localStorage.removeItem("duLieuCore");
         localStorage.removeItem("duLieuNuocThai");
@@ -1281,8 +1281,8 @@ function XoaDuLieuTuLocalStorage() {
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 ///=================================================NƯỚC THẢI
 //Biến chung
-const duongDanCSDL_NuocThai = "./file/CSDL_NuocThai.json";
-var jsonCSDL_NuocThai = "";
+const duongDanDBNuocThai = "./file/DB_NuocThai.json";
+var jsonDBNuocThai = "";
 var duLieuSoDoCongNghe_NuocThai = "";
 var congTrinhDaChon = [];
 var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
@@ -1293,14 +1293,14 @@ var nuocThai_BOD5_DauVao;
 //Chương trình con
 //Ẩn hiện công trình đơn vị cho nước thải
 function AnHienCongTrinhDonVi(mangCongTrinh) {
-    for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-        AnDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
+    for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+        AnDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
     }
     for (var i = 0; i < mangCongTrinh.length; i++) {
-        for (var j = 0; j < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
-            if (mangCongTrinh[i] === jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
-                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
-                HienDoiTuong(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
+            if (mangCongTrinh[i] === jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
+                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+                HienDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
             }
         }
 
@@ -1323,12 +1323,12 @@ function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
     }
     //Nếu chưa thực hiện vẽ
     if (kiemTraDaChon === false) {
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+        for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
             if (bienLuuTam === congTrinh) {
                 //Khi tìm được: tạo mảng, tạo ds công trình, tạo đường vẽ, trả về giá trị mặt định cho nút
                 congTrinhDaChon.push(bienLuuTam);
-                taoCongTrinh = taoCongTrinh + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
+                taoCongTrinh = taoCongTrinh + jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
                 taoDuongVe = taoDuongVe + "->" + congTrinh;
                 //Reset comboBox lựa chọn
                 document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
@@ -1360,12 +1360,12 @@ function XoaCongTrinhDonViVeLaiSoDo_NuocThai() {
     }
     //Thực hiện xoá và làm lại code vẽ sơ đồ công nghệ
     if (kiemTraCoCongTrinhKhong) {
-        for (var i = 0; i < jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+        for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
             if (bienLuuTam === congTrinh) {
                 //Xoá string công trình
-                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
-                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonCSDL_NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
+                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
+                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
                 taoCongTrinh = str1 + str2;
                 //Xoá string tạo đường vẽ
                 str1 = taoDuongVe.slice(0, taoDuongVe.indexOf("->" + congTrinh));
@@ -1531,19 +1531,19 @@ function TinhToanChoXuLyNuocThai() {
                         if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 1) {
                             //Đối với cột A
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonCSDL_NuocThai.QCVN.QCVN142008.CotA[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN142008.CotA[bienChiTieu];
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonCSDL_NuocThai.QCVN.QCVN142008.CotA[bienChiTieu] * k);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN142008.CotA[bienChiTieu] * k);
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             }
                         } else if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 2) {
                             //Đối với cột B
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonCSDL_NuocThai.QCVN.QCVN142008.CotB[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN142008.CotB[bienChiTieu];
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonCSDL_NuocThai.QCVN.QCVN142008.CotB[bienChiTieu] * k);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN142008.CotB[bienChiTieu] * k);
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             }
                         }
@@ -1558,25 +1558,25 @@ function TinhToanChoXuLyNuocThai() {
                     kf = document.getElementById("input_xuLyNuocThai_YeuCauDauRa_HeSoKf").value;
 
                     //Áp dụng cho QCVN 11-MT:2015/BTNMT
-                    for (var i = 0; i < jsonCSDL_NuocThai.NTTS.length; i++) {
-                        bienChiTieu = jsonCSDL_NuocThai.NTTS[i].ID.slice(jsonCSDL_NuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonCSDL_NuocThai.NTTS[i].ID.length);
-                        idNhap = jsonCSDL_NuocThai.NTTS[i].ID.replace("ThongThongSoDauVao", "YeuCauDauRa");
+                    for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                        bienChiTieu = jsonDBNuocThai.NTTS[i].ID.slice(jsonDBNuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDBNuocThai.NTTS[i].ID.length);
+                        idNhap = jsonDBNuocThai.NTTS[i].ID.replace("ThongThongSoDauVao", "YeuCauDauRa");
                         if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 3) {
                             //Đối với cột A
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonCSDL_NuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu];
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonCSDL_NuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu] * kq * kf);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu] * kq * kf);
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             }
                         } else if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 4) {
                             //Đối với cột B
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonCSDL_NuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu];
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonCSDL_NuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu] * kq * kf);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu] * kq * kf);
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             }
                         }
@@ -1596,25 +1596,25 @@ function TinhToanChoXuLyNuocThai() {
 
         //Code
         if (loaiNuocThai === 2) {
-            for (var i = 0; i < jsonCSDL_NuocThai.NTTS.length; i++) {
-                giaTriNuocThaiChinh = document.getElementById(jsonCSDL_NuocThai.NTTS[i].ID).value;
+            for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                giaTriNuocThaiChinh = document.getElementById(jsonDBNuocThai.NTTS[i].ID).value;
                 try {
-                    giaTriNuocThaiSH = document.getElementById(jsonCSDL_NuocThai.NTTS[i].ID + "_SH").value;
+                    giaTriNuocThaiSH = document.getElementById(jsonDBNuocThai.NTTS[i].ID + "_SH").value;
                 } catch (error) {
                     giaTriNuocThaiSH = 0;
                 }
-                bienTam = jsonCSDL_NuocThai.NTTS[i].ID.slice(jsonCSDL_NuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonCSDL_NuocThai.NTTS[i].ID.length);
+                bienTam = jsonDBNuocThai.NTTS[i].ID.slice(jsonDBNuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDBNuocThai.NTTS[i].ID.length);
                 if (bienTam === "pH") {
                     if (So(giaTriNuocThaiSH) < So(giaTriNuocThaiChinh)) {
                         ketQua = giaTriNuocThaiSH + " - " + giaTriNuocThaiChinh;
                     } else {
                         ketQua = giaTriNuocThaiChinh + " - " + giaTriNuocThaiSH;
                     }
-                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTTS[i].ID + "_NongDoHH", ketQua);
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID + "_NongDoHH", ketQua);
                 } else {
                     tongLuuLuong = So(luuLuongNuocThaiChinh) + So(luuLuongNuocThaiSH);
                     ketQua = ((giaTriNuocThaiSH * luuLuongNuocThaiSH) + (giaTriNuocThaiChinh * luuLuongNuocThaiChinh)) / tongLuuLuong;
-                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTTS[i].ID + "_NongDoHH", TuDongLamTronSo(ketQua));
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID + "_NongDoHH", TuDongLamTronSo(ketQua));
                 }
             }
         }
@@ -2484,14 +2484,14 @@ function TinhToanChoXuLyNuocThai() {
         if (xuLyGopSinhHoat === 0) {
             //Đối với nước thải sinh hoạt
             if (loaiNuocThaiXuLy === 1) {
-                if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTSH)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTSH)) {
                     XuLyHeSoQuyChuan_NuocThai(1);
                 }
             }
 
             //Đối với nước thải thuỷ sản
             if (loaiNuocThaiXuLy === 2) {
-                if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTTS)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTTS)) {
                     XuLyHeSoQuyChuan_NuocThai(2);
                 }
             }
@@ -2500,7 +2500,7 @@ function TinhToanChoXuLyNuocThai() {
         //Xử lý gộp với sinh hoạt
         else if (xuLyGopSinhHoat === 1 && KiemTraDuLieuVao(jsonLuuLuongSHGop) && KiemTraDuLieuVao(jsonSinhHoatKhiGop)) {
             if (loaiNuocThaiXuLy === 2) {
-                if (KiemTraDuLieuVao(jsonCSDL_NuocThai.NTTS)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTTS)) {
                     XuLyNongDoONhiemGop(2);
                     XuLyHeSoQuyChuan_NuocThai(2);
                 }
@@ -2516,7 +2516,7 @@ function TinhToanChoXuLyNuocThai() {
 
     //Xử lý tính toán VI
     if (kiemTraTruocKhiTinh === true) {
-        if (KiemTraDuLieuVao(jsonCSDL_NuocThai.ThongSoTinhToan)) {
+        if (KiemTraDuLieuVao(jsonDBNuocThai.ThongSoTinhToan)) {
             XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
         }
     }
@@ -2583,7 +2583,7 @@ function XuLySuKienChinh() {
         }
 
         //Hiển thị dữ liệu trên console
-        console.log(jsonCore);
+        console.log(jsonDataUser);
     });
     //1 Xử lý file tải lên
     document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
@@ -2593,7 +2593,7 @@ function XuLySuKienChinh() {
         //Code
         reader.addEventListener("load", function () {
             var result = JSON.parse(reader.result);
-            jsonCore = result;
+            jsonDataUser = result;
             HienThiThongBao("Tải lên tệp tin thành công!");
         });
         reader.readAsText(document.getElementById("upload_TaiLenTepDuLieu").files[0]);
@@ -2676,7 +2676,7 @@ function XuLySuKienChinh() {
 
         //Tiến hành tải xuống
         if (KiemTraDuLieuVao(jsonKiemTra0)) {
-            download(tenFile + ".json", JSON.stringify(jsonCore));
+            download(tenFile + ".json", JSON.stringify(jsonDataUser));
             HienThiThongBao("Tải xuống thành công");
         } else {
             HienThiThongBao("Vui lòng nhập tên tệp!");
@@ -2785,15 +2785,15 @@ function XuLySuKien_NuocThai() {
         function NhapDuLieuPhuHopQuyChuan() {
             //Đối với nước thải sinh hoạt
             if (loaiNuocThaiXuLy === 1) {
-                for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
-                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID, jsonCSDL_NuocThai.NTSH[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTSH[i].ID, jsonDBNuocThai.NTSH[i].GiaTri);
                 }
             }
 
             //Đối với nước thải thuỷ sản
             else if (loaiNuocThaiXuLy === 2) {
-                for (var i = 0; i < jsonCSDL_NuocThai.NTTS.length; i++) {
-                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTTS[i].ID, jsonCSDL_NuocThai.NTTS[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID, jsonDBNuocThai.NTTS[i].GiaTri);
                 }
             }
         }
@@ -2807,8 +2807,8 @@ function XuLySuKien_NuocThai() {
 
             //Đối với nước thải gộp sinh hoạt
             else if (xuLyGopSinhHoat === 1) {
-                for (var i = 0; i < jsonCSDL_NuocThai.NTSH.length; i++) {
-                    NhapGiaTriChoTextBox(jsonCSDL_NuocThai.NTSH[i].ID + "_SH", jsonCSDL_NuocThai.NTSH[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTSH[i].ID + "_SH", jsonDBNuocThai.NTSH[i].GiaTri);
                 }
                 NhapDuLieuPhuHopQuyChuan();
             }
@@ -2965,19 +2965,19 @@ function XuLySuKien_NuocThai() {
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 window.addEventListener("load", function () {
     //Thông tin trợ giúp trong modal
-    LayDuLieuJsonTuSourcesCode(duongDanGoiY, function (duLieuTraVe) {
-        jsonGoiY = duLieuTraVe;
+    LayDuLieuJsonTuSourcesCode(pathDataSources, function (duLieuTraVe) {
+        jsonDataSouces = duLieuTraVe;
         XuLyHienThongTinGoiYTrongModal();
     });
 
-    //Lấy jsonCore mẫu từ sources code khi load trang
-    LayDuLieuJsonTuSourcesCode(duongDanJsonCore, function (duLieuTraVe) {
-        jsonCore = duLieuTraVe;
+    //Lấy jsonDataUser mẫu từ sources code khi load trang
+    LayDuLieuJsonTuSourcesCode(pathDataUser, function (duLieuTraVe) {
+        jsonDataUser = duLieuTraVe;
     });
 
     //Lấy CSDL nước thải từ sources code khi load trang
-    LayDuLieuJsonTuSourcesCode(duongDanCSDL_NuocThai, function (duLieuTraVe) {
-        jsonCSDL_NuocThai = duLieuTraVe;
+    LayDuLieuJsonTuSourcesCode(duongDanDBNuocThai, function (duLieuTraVe) {
+        jsonDBNuocThai = duLieuTraVe;
     });
 
     //Mặc định chạy hiển thị gợi ý trên toàn bộ web
@@ -2996,7 +2996,7 @@ window.addEventListener("load", function () {
 
     //Lưu trữ dữ liệu trước khi đóng browser
     window.addEventListener("beforeunload", function () {
-        if (jsonCore !== "" && jsonCSDL_NuocThai !== "") {
+        if (jsonDataUser !== "" && jsonDBNuocThai !== "") {
             TuDongCapNhatThayDoiVaoJsonCore();
             LuuDuLieuVaoLocalStorage();
         }
@@ -3006,7 +3006,7 @@ window.addEventListener("load", function () {
     });
 
     //Nạp dữ liệu từ local storage (nếu có)
-    NapDuLieuTuLocalStorage();    
+    NapDuLieuTuLocalStorage();
 
     //Mở thao tác
     setTimeout(function () {
@@ -3040,4 +3040,3 @@ console.log(ip[i].id);
 }
 }
 */
-
