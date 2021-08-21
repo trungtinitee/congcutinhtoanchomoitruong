@@ -8,10 +8,11 @@ body {
 }
 
 .main-background {
-    background-image: url(../img/back-1.jpg);
+   /*  background-image: url(../img/back-1.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background: #73c5e1;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -139,6 +140,14 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 50px;
 }
 
+.btn-statistical{
+    position: fixed;
+    bottom: 65px;
+    right: 0px;
+    z-index: 20;
+    min-width: 50px;
+}
+
 .btn-csdl {
     margin-bottom: 5px;
     margin-top: 15px;
@@ -185,6 +194,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-suggest i {
     font-size: larger;
+}
+
+.btn-outside-collapse{
+    right: 0px;
 }
 
 /*Modal hiển thị*/

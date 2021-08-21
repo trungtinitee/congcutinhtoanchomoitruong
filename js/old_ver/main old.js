@@ -90,7 +90,7 @@ function HienThiThongBao(thongTinHienThi) {
 }
 
 //2.5 Kiểm tra điều kiện trước khi tính toán (không thông báo)
-function KiemTraDieuKienTinhToan(jsonCanKiemTra) {
+function KiemTraDuLieuVao(jsonCanKiemTra) {
     //Khai báo biến
     var kiemTra = true;
     var kieuKiemTra = "";
@@ -147,50 +147,6 @@ function KiemTraDieuKienTinhToan(jsonCanKiemTra) {
         kiemTraTruocKhiTinh = true;
     }
     return kiemTra;
-}
-
-//Kiểm tra + hightlight điều kiện riêng lẻ
-function KiemTraDieuKienThucHienLenh(jsonCanKiemTra) {
-    //Biến
-    var thongBaoLoi = "";
-    var traVe = true;
-
-    //Code
-    for (var i = 0; i < jsonCanKiemTra.length; i++) {
-        var tenDoiTuong = jsonCanKiemTra[i].Ten;
-        var idDoiTuong = jsonCanKiemTra[i].ID;
-        var loaiKiemTra = document.getElementById(idDoiTuong).tagName;
-
-        //Nhập liệu
-        if (loaiKiemTra === "INPUT") {
-            kiemTra = document.getElementById(idDoiTuong).value;
-            if (kiemTra === "") {
-                document.getElementById(idDoiTuong).style.borderColor = "red";
-                thongBaoLoi = thongBaoLoi + tenDoiTuong + "</br>";
-                traVe = false;
-            } else {
-                document.getElementById(idDoiTuong).style.borderColor = "#ced4da";
-            }
-        }
-
-        //Chọn
-        else if (loaiKiemTra === "SELECT") {
-            kiemTra = document.getElementById(idDoiTuong).selectedIndex;
-            if (kiemTra === 0) {
-                document.getElementById(idDoiTuong).style.borderColor = "red";
-                thongBaoLoi = thongBaoLoi + tenDoiTuong + "</br>";
-                traVe = false;
-            } else {
-                document.getElementById(idDoiTuong).style.borderColor = "#ced4da";
-            }
-        }
-    }
-
-    //Kiểm tra biến để trả về
-    if (traVe === false){
-        HienThiThongBao(thongBaoLoi);
-    }
-    return traVe;
 }
 
 //2.6 Nhập dữ liệu từ tệp tải lên + dữ liệu có sẵn
@@ -255,43 +211,30 @@ function AnHienThongTinTheoLinhVucTinhToan() {
         AnDoiTuong(mangTen_XuLyNuocCap);
         AnDoiTuong(mangTen_XuLyKhiThai);
         AnDoiTuong(mangTen_XuLyChatThaiRan);
-        AnHienDoiTuongDangBlock("box_XuLyNuocThai_CongTrinhDonVi", true);
     } else if (index === 1) {
         //Hiện xử lý nước thải
         HienDoiTuong(mangTen_XuLyNuocThai);
         AnDoiTuong(mangTen_XuLyNuocCap);
         AnDoiTuong(mangTen_XuLyKhiThai);
         AnDoiTuong(mangTen_XuLyChatThaiRan);
-
-        //Công trình đơn vị nước thải
-        AnHienDoiTuongDangBlock("box_XuLyNuocThai_CongTrinhDonVi", false);
     } else if (index === 2) {
         //Hiện xử lý nước cấp
         AnDoiTuong(mangTen_XuLyNuocThai);
         HienDoiTuong(mangTen_XuLyNuocCap);
         AnDoiTuong(mangTen_XuLyKhiThai);
         AnDoiTuong(mangTen_XuLyChatThaiRan);
-
-        //Công trình đơn vị nước thải
-        AnHienDoiTuongDangBlock("box_XuLyNuocThai_CongTrinhDonVi", true);
     } else if (index === 3) {
         //Hiện xử lý khí thải
         AnDoiTuong(mangTen_XuLyNuocThai);
         AnDoiTuong(mangTen_XuLyNuocCap);
         HienDoiTuong(mangTen_XuLyKhiThai);
         AnDoiTuong(mangTen_XuLyChatThaiRan);
-
-        //Công trình đơn vị nước thải
-        AnHienDoiTuongDangBlock("box_XuLyNuocThai_CongTrinhDonVi", true);
     } else if (index === 4) {
         //Hiện xử lý chất thải rắn
         AnDoiTuong(mangTen_XuLyNuocThai);
         AnDoiTuong(mangTen_XuLyNuocCap);
         AnDoiTuong(mangTen_XuLyKhiThai);
         HienDoiTuong(mangTen_XuLyChatThaiRan);
-
-        //Công trình đơn vị nước thải
-        AnHienDoiTuongDangBlock("box_XuLyNuocThai_CongTrinhDonVi", true);
     }
 }
 
@@ -309,12 +252,6 @@ function XuLyHienThongTinGoiYTrongModal() {
     //Khai báo biến
 
     //Code
-    //Lĩnh vực tính toán
-    document.getElementById(jsonDataSouces.GoiY.LinhVuc[0].ID).addEventListener("click", function () {
-        document.getElementById("modal_HienThiThongTinTroGiup").innerHTML = jsonDataSouces.GoiY.LinhVuc[0].GiaTri;
-        document.getElementById("btn_HienThiModal").click();
-    });
-
     //Xử lý cho nước thải
     for (var i = 0; i < jsonDataSouces.GoiY.NuocThai.length; i++) {
         //Tạo sự kiện
@@ -506,28 +443,28 @@ function AnHienThongTin(linhVucXuLy) {
             //Code
             if (gopSinhHoat === false) {
                 //Ẩn hết chỉ tiêu - thông số đầu vào
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - yêu cầu đầu ra
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - thông số đầu vào
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - yêu cầu đầu ra
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById("box_xuLyNuocThai_YeuCauDauRa_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
@@ -536,43 +473,43 @@ function AnHienThongTin(linhVucXuLy) {
 
             if (gopSinhHoat === true) {
                 //Ẩn hết chỉ tiêu - thông số đầu vào
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - nồng độ ô nhiễm hỗn hợp
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam + "_NongDoHH";
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Ẩn hết chỉ tiêu - yêu cầu đầu ra
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu.length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.TatCaChiTieu[i].ID;
+                for (var i = 0; i < jsonDBNuocThai.TatCaChiTieu.length; i++) {
+                    bienTam = jsonDBNuocThai.TatCaChiTieu[i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "none";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - thông số đầu vào
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - nồng độ ô nhiễm hỗn hợp
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam + "_NongDoHH";
                     document.getElementById("box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
                 }
 
                 //Hiện lại theo đúng quy chuẩn - yêu cầu đầu ra
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai].length; i++) {
-                    bienTam = jsonDataSouces.CoSoDuLieu.NuocThai[loaiNuocThai][i].ID;
+                for (var i = 0; i < jsonDBNuocThai[loaiNuocThai].length; i++) {
+                    bienTam = jsonDBNuocThai[loaiNuocThai][i].ID;
                     bienTam = bienTam.replace("ThongThongSoDauVao", "YeuCauDauRa");
                     document.getElementById("box_xuLyNuocThai_YeuCauDauRa_ChiTieuONhiem").appendChild(document.getElementById(bienTam).parentNode.parentNode);
                     document.getElementById(bienTam).parentNode.parentNode.style.display = "block";
@@ -639,19 +576,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 1) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 2) {
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN142008.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -661,19 +598,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 3) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 4) {
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -688,19 +625,19 @@ function AnHienThongTin(linhVucXuLy) {
                     //Cột A
                     if (quyChuan === 3) {
                         //Hiện tại sử dụng đề xuất 01 sơ đồ công nghệ
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotA[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
 
                     //Cột B
                     else if (quyChuan === 4) {
-                        duLieuSoDoCongNghe_NuocThai = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].GiaTri;
+                        duLieuSoDoCongNghe_NuocThai = jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].GiaTri;
                         //Tạo mảng từ tệp dữ liệu
-                        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
-                            congTrinhDaChon.push(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan[j]);
+                        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan.length; j++) {
+                            congTrinhDaChon.push(jsonDBNuocThai.SoDoCongNghe.QCVN11MT2015_GopSH.CotB[0].CongTrinhDonVi_QuyChuan[j]);
                         }
                     }
                 }
@@ -746,8 +683,8 @@ function AnHienThongTin(linhVucXuLy) {
             document.getElementById("soDoCongNghe").innerHTML = "";
 
             //Ẩn toàn bộ công trình đơn vị
-            for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-                AnDoiTuong(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
+            for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+                AnDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
             }
         }
     }
@@ -1269,12 +1206,12 @@ function NapDuLieuChoWebTuLocalStorageVaFile() {
 function LuuDuLieuVaoLocalStorage() {
     //Biến
     var duLieuNguoiDung = JSON.stringify(jsonDataUser);
-    var duLieuTaiNguyen = JSON.stringify(jsonDataSouces);
+    var duLieuNuocThai = JSON.stringify(jsonDBNuocThai);
     var duLieuSoatLoi = kiemTraThongBaoBiTrung;
 
     //Lưu vào local
     localStorage.setItem("duLieuNguoiDung", duLieuNguoiDung);
-    localStorage.setItem("duLieuTaiNguyen", duLieuTaiNguyen);
+    localStorage.setItem("duLieuNuocThai", duLieuNuocThai);
     localStorage.setItem("duLieuSoatLoi", duLieuSoatLoi);
 }
 
@@ -1282,13 +1219,13 @@ function LuuDuLieuVaoLocalStorage() {
 function NapDuLieuTuLocalStorage() {
     //Biến
     var duLieuNguoiDung = localStorage.getItem("duLieuNguoiDung");
-    var duLieuTaiNguyen = localStorage.getItem("duLieuTaiNguyen");
+    var duLieuNuocThai = localStorage.getItem("duLieuNuocThai");
     var duLieuSoatLoi = localStorage.getItem("duLieuSoatLoi");
 
     //chuyển dữ liệu sang Json
-    if (duLieuNguoiDung !== null && duLieuTaiNguyen !== null && duLieuSoatLoi !== null) {
+    if (duLieuNguoiDung !== null && duLieuNuocThai !== null && duLieuSoatLoi !== null) {
         jsonDataUser = JSON.parse(duLieuNguoiDung);
-        jsonDataSouces = JSON.parse(duLieuTaiNguyen);
+        jsonDBNuocThai = JSON.parse(duLieuNuocThai);
         kiemTraThongBaoBiTrung = duLieuSoatLoi;
 
         NapDuLieuChoWebTuLocalStorageVaFile();
@@ -1319,44 +1256,33 @@ function TuDongCapNhatThayDoiVaoJsonCore() {
             }
         }
     }
-
-    //Nước cấp
-    else if (linhVucTinhToan === 2) {
-
-    }
-
-    //Khí thải
-    else if (linhVucTinhToan === 3) {
-
-    }
-
-    //Chất thải rắn
-    else if (linhVucTinhToan === 4) {
-
-    }
 }
 
 //Xoá dữ liệu trong Local Storage
 function XoaDuLieuTuLocalStorage() {
     //Biến
+    var xacNhan = confirm("Bạn chắc chắn xoá mọi dữ liệu được lưu trên trang web này?");
+
     //Code
-    //làm rỗng các biến
-    jsonDataUser = "";
-    jsonDataSouces = "";
-    kiemTraThongBaoBiTrung = "";
+    if (xacNhan) {
+        jsonDataUser = "";
+        jsonDBNuocThai = "";
+        kiemTraThongBaoBiTrung = "";
+        localStorage.removeItem("duLieuNguoiDung");
+        localStorage.removeItem("duLieuNuocThai");
+        localStorage.removeItem("duLieuSoatLoi");
 
-    //Loại bỏ khỏi local storage
-    localStorage.removeItem("duLieuNguoiDung");
-    localStorage.removeItem("duLieuTaiNguyen");
-    localStorage.removeItem("duLieuSoatLoi");
-
-    //Thực hiện tải lại trang để áp dụng thay đổi
-    setTimeout(function () { location.reload() }, 250);
+        HienThiThongBao("Dữ liệu đã được xoá thành công!");
+        setTimeout(function () { location.reload() }, 250);
+    } else {
+        HienThiThongBao("Dữ liệu vẫn được giữ an toàn!");
+    }
 }
-
 //-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
 ///=================================================NƯỚC THẢI
 //Biến chung
+const duongDanDBNuocThai = "./file/DB_NuocThai.json";
+var jsonDBNuocThai = "";
 var duLieuSoDoCongNghe_NuocThai = "";
 var congTrinhDaChon = [];
 var taoCongTrinh = "dauVao=>start: Nước thải đầu vào\n", taoDuongVe = "dauVao";
@@ -1367,14 +1293,14 @@ var nuocThai_BOD5_DauVao;
 //Chương trình con
 //Ẩn hiện công trình đơn vị cho nước thải
 function AnHienCongTrinhDonVi(mangCongTrinh) {
-    for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-        AnDoiTuong(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
+    for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+        AnDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].IDSectionHienThi);
     }
     for (var i = 0; i < mangCongTrinh.length; i++) {
-        for (var j = 0; j < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
-            if (mangCongTrinh[i] === jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
-                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
-                HienDoiTuong(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+        for (var j = 0; j < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; j++) {
+            if (mangCongTrinh[i] === jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].ID) {
+                DiChuyenCacNode("box_XuLyNuocThai_CongTrinhDonVi", jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
+                HienDoiTuong(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[j].IDSectionHienThi);
             }
         }
 
@@ -1397,12 +1323,12 @@ function ChonCongTrinhDonViVaVeSoDo_NuocThai() {
     }
     //Nếu chưa thực hiện vẽ
     if (kiemTraDaChon === false) {
-        for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+        for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
             if (bienLuuTam === congTrinh) {
                 //Khi tìm được: tạo mảng, tạo ds công trình, tạo đường vẽ, trả về giá trị mặt định cho nút
                 congTrinhDaChon.push(bienLuuTam);
-                taoCongTrinh = taoCongTrinh + jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
+                taoCongTrinh = taoCongTrinh + jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri;
                 taoDuongVe = taoDuongVe + "->" + congTrinh;
                 //Reset comboBox lựa chọn
                 document.getElementById("comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai").selectedIndex = 0;
@@ -1434,12 +1360,12 @@ function XoaCongTrinhDonViVeLaiSoDo_NuocThai() {
     }
     //Thực hiện xoá và làm lại code vẽ sơ đồ công nghệ
     if (kiemTraCoCongTrinhKhong) {
-        for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
-            bienLuuTam = jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
+        for (var i = 0; i < jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi.length; i++) {
+            bienLuuTam = jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].ID;
             if (bienLuuTam === congTrinh) {
                 //Xoá string công trình
-                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
-                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonDataSouces.CoSoDuLieu.NuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
+                str1 = taoCongTrinh.slice(0, taoCongTrinh.indexOf(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri));
+                str2 = taoCongTrinh.slice(taoCongTrinh.indexOf(jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri) + jsonDBNuocThai.SoDoCongNghe.CongTrinhDonVi[i].GiaTri.length, taoCongTrinh.length);
                 taoCongTrinh = str1 + str2;
                 //Xoá string tạo đường vẽ
                 str1 = taoDuongVe.slice(0, taoDuongVe.indexOf("->" + congTrinh));
@@ -1595,9 +1521,9 @@ function TinhToanChoXuLyNuocThai() {
 
         //Code
         //Kiểm tra đầu vào
-        if (KiemTraDieuKienTinhToan(jsonKiemTraChung)) {
+        if (KiemTraDuLieuVao(jsonKiemTraChung)) {
             if (QCApDung === 1) {
-                if (KiemTraDieuKienTinhToan(jsonKiemTraQC14)) {
+                if (KiemTraDuLieuVao(jsonKiemTraQC14)) {
                     k = document.getElementById("input_xuLyNuocThai_YeuCauDauRa_HeSoK").value;
                     //Áp dụng cho QCVN 14:2008/BTNMT
                     for (var i = 0; i < mangIDQuyChuan14.length; i++) {
@@ -1605,19 +1531,19 @@ function TinhToanChoXuLyNuocThai() {
                         if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 1) {
                             //Đối với cột A
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotA[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN142008.CotA[bienChiTieu];
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotA[bienChiTieu] * k);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN142008.CotA[bienChiTieu] * k);
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             }
                         } else if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 2) {
                             //Đối với cột B
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotB[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN142008.CotB[bienChiTieu];
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotB[bienChiTieu] * k);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN142008.CotB[bienChiTieu] * k);
                                 NhapGiaTriChoTextBox(mangIDQuyChuan14[i], ketQuaTinh);
                             }
                         }
@@ -1627,30 +1553,30 @@ function TinhToanChoXuLyNuocThai() {
 
             //Áp dụng cho quy chuẩn 11-MT:2015/BTNMT
             else if (QCApDung === 2) {
-                if (KiemTraDieuKienTinhToan(jsonKiemTraQC4011)) {
+                if (KiemTraDuLieuVao(jsonKiemTraQC4011)) {
                     kq = document.getElementById("input_xuLyNuocThai_YeuCauDauRa_HeSoKq").value;
                     kf = document.getElementById("input_xuLyNuocThai_YeuCauDauRa_HeSoKf").value;
 
                     //Áp dụng cho QCVN 11-MT:2015/BTNMT
-                    for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.NTTS.length; i++) {
-                        bienChiTieu = jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.slice(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.length);
-                        idNhap = jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.replace("ThongThongSoDauVao", "YeuCauDauRa");
+                    for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                        bienChiTieu = jsonDBNuocThai.NTTS[i].ID.slice(jsonDBNuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDBNuocThai.NTTS[i].ID.length);
+                        idNhap = jsonDBNuocThai.NTTS[i].ID.replace("ThongThongSoDauVao", "YeuCauDauRa");
                         if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 3) {
                             //Đối với cột A
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu];
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu] * kq * kf);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN11MT2015.CotA[bienChiTieu] * kq * kf);
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             }
                         } else if (document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN").selectedIndex === 4) {
                             //Đối với cột B
                             if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                                ketQuaTinh = jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu];
+                                ketQuaTinh = jsonDBNuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu];
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             } else {
-                                ketQuaTinh = Math.round(jsonDataSouces.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu] * kq * kf);
+                                ketQuaTinh = Math.round(jsonDBNuocThai.QCVN.QCVN11MT2015.CotB[bienChiTieu] * kq * kf);
                                 NhapGiaTriChoTextBox(idNhap, ketQuaTinh);
                             }
                         }
@@ -1670,25 +1596,25 @@ function TinhToanChoXuLyNuocThai() {
 
         //Code
         if (loaiNuocThai === 2) {
-            for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.NTTS.length; i++) {
-                giaTriNuocThaiChinh = document.getElementById(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID).value;
+            for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                giaTriNuocThaiChinh = document.getElementById(jsonDBNuocThai.NTTS[i].ID).value;
                 try {
-                    giaTriNuocThaiSH = document.getElementById(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID + "_SH").value;
+                    giaTriNuocThaiSH = document.getElementById(jsonDBNuocThai.NTTS[i].ID + "_SH").value;
                 } catch (error) {
                     giaTriNuocThaiSH = 0;
                 }
-                bienTam = jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.slice(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID.length);
+                bienTam = jsonDBNuocThai.NTTS[i].ID.slice(jsonDBNuocThai.NTTS[i].ID.lastIndexOf("_") + 1, jsonDBNuocThai.NTTS[i].ID.length);
                 if (bienTam === "pH") {
                     if (So(giaTriNuocThaiSH) < So(giaTriNuocThaiChinh)) {
                         ketQua = giaTriNuocThaiSH + " - " + giaTriNuocThaiChinh;
                     } else {
                         ketQua = giaTriNuocThaiChinh + " - " + giaTriNuocThaiSH;
                     }
-                    NhapGiaTriChoTextBox(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID + "_NongDoHH", ketQua);
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID + "_NongDoHH", ketQua);
                 } else {
                     tongLuuLuong = So(luuLuongNuocThaiChinh) + So(luuLuongNuocThaiSH);
                     ketQua = ((giaTriNuocThaiSH * luuLuongNuocThaiSH) + (giaTriNuocThaiChinh * luuLuongNuocThaiChinh)) / tongLuuLuong;
-                    NhapGiaTriChoTextBox(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID + "_NongDoHH", TuDongLamTronSo(ketQua));
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID + "_NongDoHH", TuDongLamTronSo(ketQua));
                 }
             }
         }
@@ -1874,12 +1800,12 @@ function TinhToanChoXuLyNuocThai() {
 
         //Code
         if (kiemTraTruocKhiTinh === true) {
-            if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
+            if (KiemTraDuLieuVao(jsonKiemTra0)) {
                 //Tự nhập
                 if (phuongAn === 1) {
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra2)) {
                         TongDoCaoThucTe();
-                        if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
+                        if (KiemTraDuLieuVao(jsonKiemTra5)) {
                             TheTichThucTe();
                         }
                     }
@@ -1887,16 +1813,16 @@ function TinhToanChoXuLyNuocThai() {
 
                 //Tính từ thời gian lưu
                 else if (phuongAn === 2) {
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra1)) {
                         TheTichHuuIch();
 
-                        if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
+                        if (KiemTraDuLieuVao(jsonKiemTra2)) {
                             TongDoCaoThucTe();
 
-                            if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
+                            if (KiemTraDuLieuVao(jsonKiemTra3)) {
                                 //Hình chữ nhật
                                 if (TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc") === 2) {
-                                    if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
+                                    if (KiemTraDuLieuVao(jsonKiemTra4)) {
                                         SuyRaChieuRong();
                                         TheTichThucTe();
                                     }
@@ -2144,16 +2070,16 @@ function TinhToanChoXuLyNuocThai() {
         if (kiemTraTruocKhiTinh === true) {
             ThoiGianLuu();
             TheTichHuuIchLyThuyet();
-            if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
+            if (KiemTraDuLieuVao(jsonKiemTra3)) {
                 TheTichHuuIch();
-                if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
+                if (KiemTraDuLieuVao(jsonKiemTra0)) {
                     TongDoCaoThucTe();
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra1)) {
                         hinhDangBe = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe");
 
                         //hình chữ nhật
                         if (hinhDangBe === 1) {
-                            if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
+                            if (KiemTraDuLieuVao(jsonKiemTra2)) {
                                 HinhChuNhat();
                                 TheTichThucTe("ChuNhat");
                             }
@@ -2177,33 +2103,33 @@ function TinhToanChoXuLyNuocThai() {
 
         //Máy móc, thiết bị
         if (kiemTraTruocKhiTinh === true) {
-            if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
+            if (KiemTraDuLieuVao(jsonKiemTra4)) {
                 dangKhuayTron = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron");
 
                 //Khuấy trộn cơ khí
                 if (dangKhuayTron === 1) {
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra5)) {
                         CongSuatMayKhuayTron();
                     }
                 }
 
                 //Khuấy trộn khí nén
                 if (dangKhuayTron === 2) {
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra6)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra6)) {
                         LuongKhiNenCanThiet();
-                        if (KiemTraDieuKienTinhToan(jsonKiemTra7)) {
+                        if (KiemTraDuLieuVao(jsonKiemTra7)) {
                             loaiKhechTan = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan");
 
                             //Ống phân phối khí
                             if (loaiKhechTan === 1) {
-                                if (KiemTraDieuKienTinhToan(jsonKiemTra8)) {
+                                if (KiemTraDuLieuVao(jsonKiemTra8)) {
                                     SoOngPhanPhoi();
                                 }
                             }
 
                             //Đĩa phân phối khí
                             else if (loaiKhechTan === 2) {
-                                if (KiemTraDieuKienTinhToan(jsonKiemTra9)) {
+                                if (KiemTraDuLieuVao(jsonKiemTra9)) {
                                     SoDiaPhanPhoi();
                                 }
                             }
@@ -2455,18 +2381,18 @@ function TinhToanChoXuLyNuocThai() {
         //Code
         //Thông số, kích thước
         if (kiemTraTruocKhiTinh === true) {
-            if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
+            if (KiemTraDuLieuVao(jsonKiemTra0)) {
                 //SS và BOD5 quy chuẩn
                 SSBOD5CanDat_QCVN();
 
                 //Nồng độ SS và BOD5 sau xử lý ước tính
                 SSBOD5_SauXuLy();
 
-                if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
+                if (KiemTraDuLieuVao(jsonKiemTra1)) {
                     //BOD hoà tan tối đa
                     LuongBODHoaTanToiDa();
 
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra2)) {
                         phuongAnTheTich = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich");
                         HeSoPhanHuyNoiBaoONhietDoKhuVuc();
 
@@ -2479,7 +2405,7 @@ function TinhToanChoXuLyNuocThai() {
 
                         //Theo thời gian lưu nước
                         else if (phuongAnTheTich === 2) {
-                            if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
+                            if (KiemTraDuLieuVao(jsonKiemTra3)) {
                                 TheTichBeHieuKhi("nuoc");
                             }
                         }
@@ -2498,11 +2424,11 @@ function TinhToanChoXuLyNuocThai() {
             //Tải nạp chất hữu cơ theo thể tích bể
             TaiNapChatHuuCo();
 
-            if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
+            if (KiemTraDuLieuVao(jsonKiemTra4)) {
                 //Lượng bùn dư mỗi ngày
                 LuongBunDuMoiNgay();
 
-                if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
+                if (KiemTraDuLieuVao(jsonKiemTra5)) {
                     //Lượng bùn thải bỏ hằNg ngày
                     LuongBunThaiBoHangNgay();
 
@@ -2512,15 +2438,15 @@ function TinhToanChoXuLyNuocThai() {
                     //Lưu luọng bùn hoàn lưu
                     LuuLuongBunHoanLuu();
 
-                    if (KiemTraDieuKienTinhToan(jsonKiemTra6)) {
+                    if (KiemTraDuLieuVao(jsonKiemTra6)) {
                         TongDoCaoThucTe();
 
-                        if (KiemTraDieuKienTinhToan(jsonKiemTra7)) {
+                        if (KiemTraDuLieuVao(jsonKiemTra7)) {
                             hinhDangBe = TuDongLayDuLieu("comboBox_XuLyNuocThai_HieuKhi_HinhDangBe");
 
                             //hình chữ nhật
                             if (hinhDangBe === 1) {
-                                if (KiemTraDieuKienTinhToan(jsonKiemTra8)) {
+                                if (KiemTraDuLieuVao(jsonKiemTra8)) {
                                     HinhChuNhat();
                                     TheTichThucTe("ChuNhat");
                                 }
@@ -2553,28 +2479,28 @@ function TinhToanChoXuLyNuocThai() {
 
     //Code
     //Xử lý tính toán II -> IV
-    if (KiemTraDieuKienTinhToan(jsonKiemTra)) {
+    if (KiemTraDuLieuVao(jsonKiemTra)) {
         //Xử lý riêng lẻ
         if (xuLyGopSinhHoat === 0) {
             //Đối với nước thải sinh hoạt
             if (loaiNuocThaiXuLy === 1) {
-                if (KiemTraDieuKienTinhToan(jsonDataSouces.CoSoDuLieu.NuocThai.NTSH)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTSH)) {
                     XuLyHeSoQuyChuan_NuocThai(1);
                 }
             }
 
             //Đối với nước thải thuỷ sản
             if (loaiNuocThaiXuLy === 2) {
-                if (KiemTraDieuKienTinhToan(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTTS)) {
                     XuLyHeSoQuyChuan_NuocThai(2);
                 }
             }
         }
 
         //Xử lý gộp với sinh hoạt
-        else if (xuLyGopSinhHoat === 1 && KiemTraDieuKienTinhToan(jsonLuuLuongSHGop) && KiemTraDieuKienTinhToan(jsonSinhHoatKhiGop)) {
+        else if (xuLyGopSinhHoat === 1 && KiemTraDuLieuVao(jsonLuuLuongSHGop) && KiemTraDuLieuVao(jsonSinhHoatKhiGop)) {
             if (loaiNuocThaiXuLy === 2) {
-                if (KiemTraDieuKienTinhToan(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS)) {
+                if (KiemTraDuLieuVao(jsonDBNuocThai.NTTS)) {
                     XuLyNongDoONhiemGop(2);
                     XuLyHeSoQuyChuan_NuocThai(2);
                 }
@@ -2584,13 +2510,13 @@ function TinhToanChoXuLyNuocThai() {
 
     //Xử lý V
     if (kiemTraTruocKhiTinh === true) {
-        if (KiemTraDieuKienTinhToan(jsonKiemTraCongNgheLuaChon)) {
+        if (KiemTraDuLieuVao(jsonKiemTraCongNgheLuaChon)) {
         }
     }
 
     //Xử lý tính toán VI
     if (kiemTraTruocKhiTinh === true) {
-        if (KiemTraDieuKienTinhToan(jsonDataSouces.CoSoDuLieu.NuocThai.ThongSoTinhToan)) {
+        if (KiemTraDuLieuVao(jsonDBNuocThai.ThongSoTinhToan)) {
             XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
         }
     }
@@ -2600,10 +2526,10 @@ function TinhToanChoXuLyNuocThai() {
 
 
     //Hố thu
-    XuLyTinhToanHoThu_NuocThai();
+    /* XuLyTinhToanHoThu_NuocThai(); */
 
     //Bể điều hoà
-    TinhToanBeDieuHoa_NuocThai();
+    /* TinhToanBeDieuHoa_NuocThai(); */
 
     //Bể bùn hoạt tính
     /* NuocThai_BeBunHoatTinh(); */
@@ -2644,7 +2570,7 @@ function XuLySuKienChinh() {
         //Không hiển thị thông báo lỗi
         anHienThongBaoSoatLoi = true;
         //Kiểm tra đầu vào
-        if (KiemTraDieuKienTinhToan(jsonKiemTraDauVao)) {
+        if (KiemTraDuLieuVao(jsonKiemTraDauVao)) {
             if (index === 1) {
                 TinhToanChoXuLyNuocThai();
             } else if (index === 2) {
@@ -2749,14 +2675,16 @@ function XuLySuKienChinh() {
         LuuDuLieuVaoLocalStorage();
 
         //Tiến hành tải xuống
-        if (KiemTraDieuKienThucHienLenh(jsonKiemTra0)) {
+        if (KiemTraDuLieuVao(jsonKiemTra0)) {
             download(tenFile + ".json", JSON.stringify(jsonDataUser));
-            HienThiThongBao("Tải xuống thành công!");
+            HienThiThongBao("Tải xuống thành công");
+        } else {
+            HienThiThongBao("Vui lòng nhập tên tệp!");
         }
     });
 
     //6 Xoá dữ liệu lưu trữ
-    document.getElementById("btn_XacNhanXoaLocalStorage").addEventListener("click", function () {
+    document.getElementById("btn_XoaLocalStorage").addEventListener("click", function () {
         XoaDuLieuTuLocalStorage();
     });
 
@@ -2769,8 +2697,6 @@ function XuLySuKienChinh() {
             HienThiThongBao("Không phát hiện lỗi!");
         }
     });
-
-    //8 Hiển thị modal thống kê dữ liệu
 }
 
 //Xử lý cho nước thải
@@ -2859,15 +2785,15 @@ function XuLySuKien_NuocThai() {
         function NhapDuLieuPhuHopQuyChuan() {
             //Đối với nước thải sinh hoạt
             if (loaiNuocThaiXuLy === 1) {
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.NTSH.length; i++) {
-                    NhapGiaTriChoTextBox(jsonDataSouces.CoSoDuLieu.NuocThai.NTSH[i].ID, jsonDataSouces.CoSoDuLieu.NuocThai.NTSH[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTSH[i].ID, jsonDBNuocThai.NTSH[i].GiaTri);
                 }
             }
 
             //Đối với nước thải thuỷ sản
             else if (loaiNuocThaiXuLy === 2) {
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.NTTS.length; i++) {
-                    NhapGiaTriChoTextBox(jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].ID, jsonDataSouces.CoSoDuLieu.NuocThai.NTTS[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTTS.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTTS[i].ID, jsonDBNuocThai.NTTS[i].GiaTri);
                 }
             }
         }
@@ -2881,8 +2807,8 @@ function XuLySuKien_NuocThai() {
 
             //Đối với nước thải gộp sinh hoạt
             else if (xuLyGopSinhHoat === 1) {
-                for (var i = 0; i < jsonDataSouces.CoSoDuLieu.NuocThai.NTSH.length; i++) {
-                    NhapGiaTriChoTextBox(jsonDataSouces.CoSoDuLieu.NuocThai.NTSH[i].ID + "_SH", jsonDataSouces.CoSoDuLieu.NuocThai.NTSH[i].GiaTri);
+                for (var i = 0; i < jsonDBNuocThai.NTSH.length; i++) {
+                    NhapGiaTriChoTextBox(jsonDBNuocThai.NTSH[i].ID + "_SH", jsonDBNuocThai.NTSH[i].GiaTri);
                 }
                 NhapDuLieuPhuHopQuyChuan();
             }
@@ -3038,18 +2964,20 @@ function XuLySuKien_NuocThai() {
 
 //----------------------------------------------------------------V. PHẦN CHÍNH - CHẠY MẶC ĐỊNH KHI LOAD WEB-------------------------------------------------------------------------------------
 window.addEventListener("load", function () {
-    //Lấy dữ liệU tài nguyên + tạo event cho toàn bộ nút gợi ý
+    //Thông tin trợ giúp trong modal
     LayDuLieuJsonTuSourcesCode(pathDataSources, function (duLieuTraVe) {
-        //Lấy dữ liệu tài nguyên
         jsonDataSouces = duLieuTraVe;
-
-        //Tạo event cho toàn bộ nút gợi ý
         XuLyHienThongTinGoiYTrongModal();
     });
 
-    //Lấy dữ liệu người dùng
+    //Lấy jsonDataUser mẫu từ sources code khi load trang
     LayDuLieuJsonTuSourcesCode(pathDataUser, function (duLieuTraVe) {
         jsonDataUser = duLieuTraVe;
+    });
+
+    //Lấy CSDL nước thải từ sources code khi load trang
+    LayDuLieuJsonTuSourcesCode(duongDanDBNuocThai, function (duLieuTraVe) {
+        jsonDBNuocThai = duLieuTraVe;
     });
 
     //Mặc định chạy hiển thị gợi ý trên toàn bộ web
@@ -3063,24 +2991,24 @@ window.addEventListener("load", function () {
     XuLySuKienChinh();
     XuLySuKien_NuocThai();
 
-    //Sự kiện tự động tính toán số liệu
+    //Tự động tính toán số liệu
     TuDongTinhToan();
 
     //Lưu trữ dữ liệu trước khi đóng browser
     window.addEventListener("beforeunload", function () {
-        if (jsonDataUser !== "" && jsonDataSouces !== "") {
+        if (jsonDataUser !== "" && jsonDBNuocThai !== "") {
             TuDongCapNhatThayDoiVaoJsonCore();
             LuuDuLieuVaoLocalStorage();
         }
 
-        //Xoá ngôn ngữ dịch đang tồn tại
+        //Xoá ngôn ngữ dịch
         document.cookie = "googtrans = ";
     });
 
     //Nạp dữ liệu từ local storage (nếu có)
     NapDuLieuTuLocalStorage();
 
-    //Mở khoá thao tác + bắt đầu sử dụng
+    //Mở thao tác
     setTimeout(function () {
         document.getElementById("lock_page").remove();
     }, 500);
@@ -3112,27 +3040,3 @@ console.log(ip[i].id);
 }
 }
 */
-
-
-
-
-//Dữ liệU
-var tabledata = [
-    { id: 1, stt: "1", thongSo: "12", donVi: "red", soLieu: "", ghiChu: "" },
-    { id: 2, stt: "2", thongSo: "12", donVi: "red", soLieu: "", ghiChu: "" },
-    { id: 3, stt: "3", thongSo: "12", donVi: "red", soLieu: "", ghiChu: "" },
-    { id: 4, stt: "4", thongSo: "12", donVi: "red", soLieu: "", ghiChu: "" },
-    { id: 5, stt: "5", thongSo: "12", donVi: "red", soLieu: "", ghiChu: "" },
-];
-//Tạo bảng từ dữ liệu với ID table
-var table = new Tabulator("#table_BangThongKeDuLieu", {
-    data: tabledata, //Định nghĩa biến dữ liệU
-    layout: "fitColumns", //Tự động chọn kích thước cột
-    columns: [
-        { title: "STT", field: "stt", width: 100, hozAlign: "center" },
-        { title: "Tên thông số", field: "thongSo", hozAlign: "left" },
-        { title: "Đơn vị", field: "donVi", width: 150, hozAlign: "center" },
-        { title: "Số liệu", field: "soLieu", hozAlign: "right" },
-        { title: "Ghi chú", field: "ghiChu", hozAlign: "left" },
-    ], //Định nghĩa số cột
-});

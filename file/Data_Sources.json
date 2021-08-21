@@ -1,5 +1,12 @@
 {
     "GoiY": {
+        "LinhVuc" : [
+            {
+                "Ten": "1.1 Lĩnh vực cần tính toán cho môi trường",
+                "ID": "info_LinhVucTinhToan",
+                "GiaTri": "<p><strong>Lưu &yacute;:</strong> khi đ&atilde; thực hiện t&iacute;nh to&aacute;n ở một lĩnh vực cụ thể, khi chuyển sang lĩnh vực kh&aacute;c bạn n&ecirc;n sử dụng chức năng <span style=\"color: #ff0000;\"><strong>\"Xo&aacute; mọi dữ liệu đ&atilde; nhập\"</strong></span>&nbsp;(trước khi thực hiện t&iacute;nh to&aacute;n ở lĩnh vực mới). Điều n&agrave;y nhằm đảm bảo chương tr&igrave;nh chạy ổn định nhất c&oacute; thể. C&aacute;m ơn!</p>"
+            }
+        ],
         "NuocThai": [
             {
                 "Ten": "3.1 Lưu lượng",
@@ -49,27 +56,604 @@
             {
                 "Ten": "Chọn các công trình đơn vị có trong công nghệ",
                 "ID": "info_XuLyNuocThai_CongNghe_CongNgheLuaChonLai",
-                "GiaTri":"<p><strong>Hướng dẫn thực hiện lựa chọn c&ocirc;ng tr&igrave;nh đơn vị cho c&ocirc;ng nghệ xử l&yacute;:</strong></p> <p>- Khi bạn chọn một c&ocirc;ng tr&igrave;nh đơn vị trong danh s&aacute;ch, c&ocirc;ng tr&igrave;nh sẽ được tự động th&ecirc;m v&agrave;o c&ocirc;ng nghệ (nh&igrave;n v&agrave;o sơ đồ c&ocirc;ng nghệ được tự động vẽ)</p> <p>- C&ocirc;ng tr&igrave;nh đơn vị được th&ecirc;m v&agrave;o&nbsp;tại vị tr&iacute; nối tiếp c&ocirc;ng tr&igrave;nh ph&iacute;a trước n&oacute; (từ tr&ecirc;n xuống dưới)</p> <p>- Để xo&aacute; một c&ocirc;ng tr&igrave;nh đơn vị, chọn v&agrave;o c&ocirc;ng tr&igrave;nh đơn vị đ&oacute; sau đ&oacute; nhấn v&agrave;o n&uacute;t <strong>\"Xo&aacute; c&ocirc;ng tr&igrave;nh\"</strong></p> <p>Ch&uacute; &yacute;: sơ đồ c&ocirc;ng nghệ vẫn sẽ được giữ nguy&ecirc;n khi bạn chuyển từ <strong>\"Sử dụng sơ đồ c&ocirc;ng nghệ đề xuất\"</strong> sang <strong>\"Chọn lại c&ocirc;ng nghệ\"&nbsp;</strong>(điều n&agrave;y gi&uacute;p cho việc điều chỉnh sơ đồ c&ocirc;ng nghệ được nhanh hơn)</p> <p>&nbsp;</p>"
+                "GiaTri": "<p><strong>Hướng dẫn thực hiện lựa chọn c&ocirc;ng tr&igrave;nh đơn vị cho c&ocirc;ng nghệ xử l&yacute;:</strong></p> <p>- Khi bạn chọn một c&ocirc;ng tr&igrave;nh đơn vị trong danh s&aacute;ch, c&ocirc;ng tr&igrave;nh sẽ được tự động th&ecirc;m v&agrave;o c&ocirc;ng nghệ (nh&igrave;n v&agrave;o sơ đồ c&ocirc;ng nghệ được tự động vẽ)</p> <p>- C&ocirc;ng tr&igrave;nh đơn vị được th&ecirc;m v&agrave;o&nbsp;tại vị tr&iacute; nối tiếp c&ocirc;ng tr&igrave;nh ph&iacute;a trước n&oacute; (từ tr&ecirc;n xuống dưới)</p> <p>- Để xo&aacute; một c&ocirc;ng tr&igrave;nh đơn vị, chọn v&agrave;o c&ocirc;ng tr&igrave;nh đơn vị đ&oacute; sau đ&oacute; nhấn v&agrave;o n&uacute;t <strong>\"Xo&aacute; c&ocirc;ng tr&igrave;nh\"</strong></p> <p>Ch&uacute; &yacute;: sơ đồ c&ocirc;ng nghệ vẫn sẽ được giữ nguy&ecirc;n khi bạn chuyển từ <strong>\"Sử dụng sơ đồ c&ocirc;ng nghệ đề xuất\"</strong> sang <strong>\"Chọn lại c&ocirc;ng nghệ\"&nbsp;</strong>(điều n&agrave;y gi&uacute;p cho việc điều chỉnh sơ đồ c&ocirc;ng nghệ được nhanh hơn)</p> <p>&nbsp;</p>"
             },
             {
                 "Ten": "6.1 Lưu lượng tính toán ngày đêm",
                 "ID": "info_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong",
-                "GiaTri":"<p>Lưu lượng t&iacute;nh to&aacute;n ng&agrave;y đ&ecirc;m l&agrave; tổng lưu lượng nước thải (nếu xử l&yacute; chung 02 loại nước thải) hoặc lưu lượng nước thải xử l&yacute;.</p>"
+                "GiaTri": "<p>Lưu lượng t&iacute;nh to&aacute;n ng&agrave;y đ&ecirc;m l&agrave; tổng lưu lượng nước thải (nếu xử l&yacute; chung 02 loại nước thải) hoặc lưu lượng nước thải xử l&yacute;.</p>"
             },
             {
                 "Ten": "6.2 Thời gian hoạt động của dự án",
                 "ID": "info_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong",
-                "GiaTri":"<p>Thời gian hoạt động sản xuất của dự &aacute;n (ph&aacute;t sinh nước thải)</p>"
+                "GiaTri": "<p>Thời gian hoạt động sản xuất của dự &aacute;n (ph&aacute;t sinh nước thải)</p>"
             },
             {
                 "Ten": "6.5 Hệ số không điều hoà Kmax",
                 "ID": "info_xuLyNuocThai_ThongSoTinhToan_Kmax",
-                "GiaTri":"<p>Hệ số kh&ocirc;ng điều ho&agrave; Kmax l&agrave;&nbsp;tỉ lệ giữa lưu lượng nước thải lớn nhất v&agrave; lưu lượng nước thải trung b&igrave;nh.</p>"
+                "GiaTri": "<p>Hệ số kh&ocirc;ng điều ho&agrave; Kmax l&agrave;&nbsp;tỉ lệ giữa lưu lượng nước thải lớn nhất v&agrave; lưu lượng nước thải trung b&igrave;nh.</p>"
             }
         ],
         "NuocCap": [],
         "KhiThai": [],
         "ChatThaiRan": []
+    },
+    "CoSoDuLieu": {
+        "NuocThai": {
+            "TatCaChiTieu": [
+                {
+                    "Ten": "pH",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_pH"
+                },
+                {
+                    "Ten": "BOD<sub>5</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_BOD5"
+                },
+                {
+                    "Ten": "TSS",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TSS"
+                },
+                {
+                    "Ten": "TDS",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TDS"
+                },
+                {
+                    "Ten": "H<sub>2</sub>S",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_H2S"
+                },
+                {
+                    "Ten": "NH<sub>3</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NH3"
+                },
+                {
+                    "Ten": "NO<sub>3</sub><sup>-</sup>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NO3-"
+                },
+                {
+                    "Ten": "Dầu mỡ động, thực vật",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV"
+                },
+                {
+                    "Ten": "Tổng các chất hoạt động bề mặt",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM"
+                },
+                {
+                    "Ten": "PO<sub>4</sub><sup>3-</sup>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_PO43-"
+                },
+                {
+                    "Ten": "Tổng Coliforms",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms"
+                },
+                {
+                    "Ten": "COD",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_COD"
+                },
+                {
+                    "Ten": "Tổng Nitơ (tính theo N)",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TN"
+                },
+                {
+                    "Ten": "Tổng phốt pho (tính theo P)",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TP"
+                },
+                {
+                    "Ten": "Clo dư",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_CloDu"
+                }
+            ],
+            "NTSH": [
+                {
+                    "Ten": "pH",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_pH",
+                    "GiaTri": "8"
+                },
+                {
+                    "Ten": "BOD<sub>5</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_BOD5",
+                    "GiaTri": 5
+                },
+                {
+                    "Ten": "TSS",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TSS",
+                    "GiaTri": 60
+                },
+                {
+                    "Ten": "TDS",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TDS",
+                    "GiaTri": 10
+                },
+                {
+                    "Ten": "H<sub>2</sub>S",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_H2S",
+                    "GiaTri": 20
+                },
+                {
+                    "Ten": "NH<sub>3</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NH3",
+                    "GiaTri": 25
+                },
+                {
+                    "Ten": "NO<sub>3</sub><sup>-</sup>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NO3-",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Dầu mỡ động, thực vật",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV",
+                    "GiaTri": 100
+                },
+                {
+                    "Ten": "Tổng các chất hoạt động bề mặt",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM",
+                    "GiaTri": 120
+                },
+                {
+                    "Ten": "PO<sub>4</sub><sup>3-</sup>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_PO43-",
+                    "GiaTri": 140
+                },
+                {
+                    "Ten": "Tổng Coliforms",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms",
+                    "GiaTri": 150
+                }
+            ],
+            "NTTS": [
+                {
+                    "Ten": "pH",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_pH",
+                    "GiaTri": "5"
+                },
+                {
+                    "Ten": "BOD<sub>5</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_BOD5",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "COD",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_COD",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "TSS",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TSS",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "NH<sub>3</sub>",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_NH3",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Tổng Nitơ (tính theo N)",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TN",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Tổng phốt pho (tính theo P)",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TP",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Dầu mỡ động, thực vật",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Clo dư",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_CloDu",
+                    "GiaTri": 50
+                },
+                {
+                    "Ten": "Tổng Coliforms",
+                    "ID": "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms",
+                    "GiaTri": 50
+                }
+            ],
+            "QCVN": {
+                "QCVN142008": {
+                    "CotA": {
+                        "pH": "5 - 9",
+                        "BOD5": 30,
+                        "TSS": 50,
+                        "TDS": 500,
+                        "H2S": 1,
+                        "NH3": 5,
+                        "NO3-": 30,
+                        "DMDTV": 10,
+                        "TCCHDBM": 5,
+                        "PO43-": 6,
+                        "TColiforms": 3000
+                    },
+                    "CotB": {
+                        "pH": "5 - 9",
+                        "BOD5": 50,
+                        "TSS": 100,
+                        "TDS": 1000,
+                        "H2S": 4,
+                        "NH3": 10,
+                        "NO3-": 50,
+                        "DMDTV": 20,
+                        "TCCHDBM": 10,
+                        "PO43-": 10,
+                        "TColiforms": 5000
+                    }
+                },
+                "QCVN11MT2015": {
+                    "CotA": {
+                        "pH": "6 - 9",
+                        "BOD5": 30,
+                        "COD": 75,
+                        "TSS": 50,
+                        "NH3": 10,
+                        "TN": 30,
+                        "TP": 10,
+                        "DMDTV": 10,
+                        "CloDu": 1,
+                        "TColiforms": 3000
+                    },
+                    "CotB": {
+                        "pH": "5.5 - 9",
+                        "BOD5": 50,
+                        "COD": 150,
+                        "TSS": 100,
+                        "NH3": 20,
+                        "TN": 60,
+                        "TP": 20,
+                        "DMDTV": 20,
+                        "CloDu": 2,
+                        "TColiforms": 5000
+                    }
+                }
+            },
+            "SoDoCongNghe": {
+                "QCVN142008": {
+                    "CotA": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào sinh hoạt\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\ntrungGian=>operation: Bể trung gian\ncotLocApLuc=>operation: Cột lọc áp lực\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->trungGian->cotLocApLuc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "trungGian",
+                                "cotLocApLuc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 3",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ],
+                    "CotB": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào sinh hoạt\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ]
+                },
+                "QCVN11MT2015": {
+                    "CotA": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào thuỷ sản\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\ntrungGian=>operation: Bể trung gian\ncotLocApLuc=>operation: Cột lọc áp lực\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->trungGian->cotLocApLuc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "trungGian",
+                                "cotLocApLuc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 3",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ],
+                    "CotB": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào thuỷ sản\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ]
+                },
+                "QCVN11MT2015_GopSH": {
+                    "CotA": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào thuỷ sản gộp sinh hoạt\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\ntrungGian=>operation: Bể trung gian\ncotLocApLuc=>operation: Cột lọc áp lực\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->trungGian->cotLocApLuc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "trungGian",
+                                "cotLocApLuc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 3",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ],
+                    "CotB": [
+                        {
+                            "Ten": "Sơ đồ công nghệ 1",
+                            "GiaTri": "dauVao=>start: Nước thải đầu vào thuỷ sản gộp sinh hoạt\nhoThu=>operation: Hố thu gom\ndieuHoa=>operation: Bể điều hoà\nthieuKhi=>operation: Bể thiếu khí\nhieuKhi=>operation: Bể hiếu khí\nlangSinhHoc=>operation: Bể lắng sinh học\nkhuTrung=>operation: Bể khử trùng\ndauRa=>end: Nước thải sau xử lý\ndauVao->hoThu->dieuHoa->thieuKhi->hieuKhi->langSinhHoc->khuTrung->dauRa",
+                            "IDHienThi": "soDoCongNghe",
+                            "CongTrinhDonVi_QuyChuan": [
+                                "hoThu",
+                                "dieuHoa",
+                                "thieuKhi",
+                                "hieuKhi",
+                                "langSinhHoc",
+                                "khuTrung"
+                            ]
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        },
+                        {
+                            "Ten": "Sơ đồ công nghệ 2",
+                            "GiaTri": "",
+                            "IDHienThi": "",
+                            "CongTrinhDonVi_QuyChuan": ""
+                        }
+                    ]
+                },
+                "CongTrinhDonVi": [
+                    {
+                        "ID": "dauVao",
+                        "Ten": "Nước thải đầu vào",
+                        "GiaTri": "dauVao=>start: Nước thải đầu vào\n",
+                        "IDSectionHienThi": []
+                    },
+                    {
+                        "ID": "dauRa",
+                        "Ten": "Nước thải sau xử lý",
+                        "GiaTri": "dauRa=>end: Nước thải sau xử lý\n",
+                        "IDSectionHienThi": []
+                    },
+                    {
+                        "ID": "hoThu",
+                        "Ten": "Hố thu gom",
+                        "GiaTri": "hoThu=>operation: Hố thu gom\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_HoThu"
+                        ]
+                    },
+                    {
+                        "ID": "tachMo",
+                        "Ten": "Bể tách mỡ",
+                        "GiaTri": "tachMo=>operation: Bể tách mỡ\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_TachMo"
+                        ]
+                    },
+                    {
+                        "ID": "langCat",
+                        "Ten": "Bể lắng cát",
+                        "GiaTri": "langCat=>operation: Bể lắng cát\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_LangCat"
+                        ]
+                    },
+                    {
+                        "ID": "dieuHoa",
+                        "Ten": "Bể điều hoà",
+                        "GiaTri": "dieuHoa=>operation: Bể điều hoà\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_DieuHoa"
+                        ]
+                    },
+                    {
+                        "ID": "tuyenNoi",
+                        "Ten": "Bể tuyển nổi",
+                        "GiaTri": "tuyenNoi=>operation: Bể tuyển nổi\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_TuyenNoi"
+                        ]
+                    },
+                    {
+                        "ID": "langHoaLy",
+                        "Ten": "Bể lắng hoá lý",
+                        "GiaTri": "langHoaLy=>operation: Bể lắng hoá lý\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_LangHoaLy"
+                        ]
+                    },
+                    {
+                        "ID": "langSinhHoc",
+                        "Ten": "Bể lắng sinh học",
+                        "GiaTri": "langSinhHoc=>operation: Bể lắng sinh học\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_LangSinhHoc"
+                        ]
+                    },
+                    {
+                        "ID": "khuTrung",
+                        "Ten": "Bể khử trùng",
+                        "GiaTri": "khuTrung=>operation: Bể khử trùng\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_KhuTrung"
+                        ]
+                    },
+                    {
+                        "ID": "trungGian",
+                        "Ten": "Bể trung gian",
+                        "GiaTri": "trungGian=>operation: Bể trung gian\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_TrungGian"
+                        ]
+                    },
+                    {
+                        "ID": "cotLocApLuc",
+                        "Ten": "Cột lọc áp lực",
+                        "GiaTri": "cotLocApLuc=>operation: Cột lọc áp lực\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_CotLocApLuc"
+                        ]
+                    },
+                    {
+                        "ID": "keoTu",
+                        "Ten": "Bể keo tụ",
+                        "GiaTri": "keoTu=>operation: Bể keo tụ\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_KeoTu"
+                        ]
+                    },
+                    {
+                        "ID": "taoBong",
+                        "Ten": "Bể tạo bông",
+                        "GiaTri": "taoBong=>operation: Bể tạo bông\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_TaoBong"
+                        ]
+                    },
+                    {
+                        "ID": "yemKhi",
+                        "Ten": "Bể UASB",
+                        "GiaTri": "yemKhi=>operation: Bể UASB\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_YemKhi"
+                        ]
+                    },
+                    {
+                        "ID": "thieuKhi",
+                        "Ten": "Bể thiếu khí",
+                        "GiaTri": "thieuKhi=>operation: Bể thiếu khí\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_ThieuKhi"
+                        ]
+                    },
+                    {
+                        "ID": "hieuKhi",
+                        "Ten": "Bể hiếu khí",
+                        "GiaTri": "hieuKhi=>operation: Bể hiếu khí\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_HieuKhi"
+                        ]
+                    },
+                    {
+                        "ID": "locSinhHoc",
+                        "Ten": "Bể lọc sinh học nhỏ giọt",
+                        "GiaTri": "locSinhHoc=>operation: Bể lọc sinh học nhỏ giọt\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_LocSinhHoc"
+                        ]
+                    },
+                    {
+                        "ID": "longQuaySinhHoc",
+                        "Ten": "Lồng quay sinh học",
+                        "GiaTri": "longQuaySinhHoc=>operation: Lồng quay sinh học\n",
+                        "IDSectionHienThi": [
+                            "section_XuLyNuocThai_LongQuaySinhHoc"
+                        ]
+                    }
+                ]
+            },
+            "ThongSoTinhToan": [
+                {
+                    "Ten": "6.2 Thời gian hoạt động của dự án",
+                    "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong"
+                },
+                {
+                    "Ten": "6.5 Hệ số không điều hoà Kmax",
+                    "ID": "input_xuLyNuocThai_ThongSoTinhToan_Kmax"
+                },
+                {
+                    "Ten": "6.7 Hệ số không điều hoà Kmin",
+                    "ID": "input_xuLyNuocThai_ThongSoTinhToan_Kmin"
+                },
+                {
+                    "Ten": "6.9 Thời gian hoạt động của hệ thống xử lý",
+                    "ID": "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong"
+                }
+            ]
+        },
+        "NuocCap" : {},
+        "KhiThai" : {},
+        "ChatThaiRan" : {}
     }
-    
 }
