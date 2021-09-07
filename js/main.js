@@ -4070,8 +4070,8 @@ function TaoBangThongKeSoLieu() {
       resizableColumns: "header", //Chỉ cho phép thay đổi độ rộng ở tiêu đề
       height: "90%", //Độ cao bảng so với parent
       headerSort: false, //Tắt tính năng sort ở header
-      printAsHtml: true, //in như html
-      printStyled: true, //có xét đến định dạng trên html
+/*       printAsHtml: true, //in như html
+      printStyled: true, //có xét đến định dạng trên html */
       columns: [{
           title: "TT",
           field: "tt",
