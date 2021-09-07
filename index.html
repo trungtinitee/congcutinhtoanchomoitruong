@@ -2,67 +2,86 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ỨNG DỤNG MÔI TRƯỜNG</title>
 
-  <!-- Css Libraries -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="./lib/bootstrap-select-lib/css/bootstrap-select.min.css" />
 
   <!-- Font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet" />
+
   <!-- Tabulator -->
-  <link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/semantic-ui/tabulator_semantic-ui.min.css"
-    rel="stylesheet">
+  <link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css" rel="stylesheet" />
 
   <!-- Template Stylesheet -->
-  <link rel="stylesheet" href="./css/style.css">
-
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
-  <!--======================================  PHẦN NGOÀI CÙNG    ===========================================-->
+  <!--======================================  PHẦN NỀN    ===========================================-->
   <!-- Dịch ngôn ngữ -->
   <div id="google_translate_element"></div>
 
   <!-- Nền cho website -->
   <div class="main-background"></div>
 
-  <!-- Khoá thao tác đến khi page loaded -->
+  <!-- Không cho thao tác khi tài nguyên loading -->
   <div id="lock_page">
     <div class="loader"></div>
   </div>
 
+  <!-- Bắt đầu tạo tiêu đề chính -->
+  <div class="">
+    <h2 class="title-header">ỨNG DỤNG MÔI TRƯỜNG</h2>
+  </div>
+
+  <!--======================================  PHẦN MÓNG   ===========================================-->
   <!-- Phần lõi -->
   <div class="core">
-
     <!--======================================   NÚT LỆNH    ===========================================-->
     <!-- Bắt đầu tạo nút tính toán -->
-    <button type="button" class="btn btn-primary" id="btn_calculator" style="display: none;">cal</button>
+    <button type="button" class="btn btn-primary" id="btn_calculator" style="display: none">
+      cal
+    </button>
     <!-- Kết thúc tạo nút tính toán -->
 
     <!-- Bắt đầu tạo nút soát lỗi -->
-    <button type="button" class="btn btn-danger btn-bug" id="btn_KiemTraLoi"><i class="fas fa-exclamation"></i></button>
+    <button type="button" class="btn btn-danger btn-bug" id="btn_KiemTraLoi">
+      <i class="fas fa-exclamation"></i>
+    </button>
     <!-- Kết thúc tạo nút soát lỗi -->
 
     <!-- Bắt đầu nút thống kê -->
     <button type="button" id="btn_ThongKeDuLieuTinhToan" class="btn btn-primary btn-statistical" data-bs-toggle="modal"
-      data-bs-target="#modal_ThongKeDuLieuTinhToan"><i class="fas fa-table"></i></button>
+      data-bs-target="#modal_ThongKeDuLieuTinhToan">
+      <i class="fas fa-table"></i>
+    </button>
     <!-- Kết thúc nút thống kê -->
+
+    <!-- Bắt đầu nút nhập liệu -->
+    <button disabled type="button" id="btn_NhapLieu" class="btn btn-primary btn-statistical" style="bottom: 150px"
+      data-bs-toggle="modal" data-bs-target="#modal_ThietKeGiaoDien">
+      <i class="fas fa-keyboard"></i>
+    </button>
+    <!-- Kết thúc nút nhập liệu -->
 
     <!--======================================   THÔNG BÁO    ===========================================-->
     <!--Bắt đầu tạo thông báo-->
-    <div class="position-fixed top-0 end-0 p-3" style="z-index: 20">
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 2000">
       <div id="thongBao" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header" style="background-color: #0d6efd; color: #ffffff;">
+        <div class="toast-header" style="background-color: #0d6efd; color: #ffffff">
           <strong class="me-auto">Thông báo</strong>
           <button type="button" id="dongThongBao" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="toast-body" style="background-color: #dbe9ff;" id="thongTinThongBao"></div>
+        <div class="toast-body" style="background-color: #dbe9ff" id="thongTinThongBao"></div>
       </div>
     </div>
     <!--Kết thúc tạo thông báo-->
@@ -78,22 +97,25 @@
     <!--======================================   HỘP THOẠI    ===========================================-->
     <!--Bắt đầu tạo modal gợi ý-->
     <!-- Nút lệnh để click hiển thị modal -->
-    <button style="display: none;" type="button" id="btn_HienThiModal" class="btn btn" data-bs-toggle="modal"
-      data-bs-target="#modal_FullScreen">Hiển thị gợi ý</button>
+    <button style="display: none" type="button" id="btn_HienThiModal" class="btn btn" data-bs-toggle="modal"
+      data-bs-target="#modal_GoiY">
+      hint
+    </button>
 
     <!-- Modal Gợi ý -->
-    <div class="modal fade" id="modal_FullScreen" tabindex="-1" aria-labelledby="modal_FullScreenLabel"
-      style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="modal_GoiY" tabindex="-1" aria-labelledby="modal_FullScreenLabel" style="display: none"
+      aria-hidden="true">
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
             <h4><i class="fas fa-info-circle"></i> Thông tin trợ giúp</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" id="modal_HienThiThongTinTroGiup">
-          </div>
+          <div class="modal-body" id="modal_HienThiThongTinTroGiup"></div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Đóng
+            </button>
           </div>
         </div>
       </div>
@@ -107,7 +129,9 @@
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
-            <h4><i class="fas fa-table"></i> Bảng thống kê kết quả tính toán</h4>
+            <h4>
+              <i class="fas fa-table"></i> Bảng thống kê kết quả tính toán
+            </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="databody_ThongKeDuLieuTinhToan">
@@ -116,21 +140,50 @@
             <!-- Kết thúc tạo bảng thống kê -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Đóng
+            </button>
           </div>
         </div>
       </div>
     </div>
     <!--Kết thúc tạo modal thống kê-->
+    
+    <!-- Bắt đầu modal nhập liệu -->
+    <!-- Phần modal -->
+    <div class="modal fade" id="modal_ThietKeGiaoDien" tabindex="-1" aria-labelledby="modal_FullScreenLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>
+              <i class="fas fa-keyboard"></i> Thiết kế giao diện
+            </h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="databody_ThietKeGiaoDien">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnFunc_DongModalThietKe">
+              Đóng
+            </button>
+            <button type="button" class="btn btn-primary" id="btnFunc_ChapNhanCapNhatThietKe">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Kết thúc modal nhập liệu-->
 
     <!-- Bắt đầu Modal xác nhận xoá mọi dữ liệu-->
-    <div class="modal fade" id="modal_XacNhanXoaData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="modal_XacNhanXoaData" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-question-circle"></i> Hãy xác nhận thông
-              tin dưới đây:</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">
+              <i class="fas fa-question-circle"></i> Hãy xác nhận thông tin
+              dưới đây:
+            </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -138,8 +191,12 @@
             <p><b>Lưu ý: </b>một khi thực hiện xoá sẽ không thể phục hồi.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-            <button type="button" class="btn btn-primary" id="btn_XacNhanXoaLocalStorage">Xác nhận</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Đóng
+            </button>
+            <button type="button" class="btn btn-primary" id="btn_XacNhanXoaMoiDuLieuDuocLuu">
+              Xác nhận
+            </button>
           </div>
         </div>
       </div>
@@ -147,7 +204,8 @@
     <!-- Kết thúc Modal xác nhận xoá mọi dữ liệu-->
 
     <!--======================================   THÀNH PHẦN KHÁC    ===========================================-->
-    <!-- Bắt đầu chọn nhiều giá trị cho comboBox
+    <!-- 
+      Bắt đầu chọn nhiều giá trị cho comboBox
             <div class="col-8 fix-full-screen">
               <select data-multiple-separator=" > " data-actions-box="true" data-size="5" class="selectpicker" multiple
                 id="multiSelect_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" title="Chọn các công trình đơn vị..."
@@ -168,53 +226,61 @@
             </div> 
       Kết thúc chọn nhiều giá trị cho comboBox
     -->
-
-
     <!--======================================   PHẦN CHÍNH    ===========================================-->
     <div class="container" id="container_CongCuTinhToanChoMoiTruong">
-      <!-- Bắt đầu tạo tiêu đề chính -->
-      <div class="row">
-        <h2 class="title-header">ỨNG DỤNG MÔI TRƯỜNG</h2>
-      </div>
-      <!-- Kết thúc tạo tiêu đề chính -->
-
       <!--======================================   CHỨC NĂNG    ===========================================-->
       <!-- Bắt đầu Vùng chức năng -->
       <div class="row group-unit-alway-show func-group">
         <h4 class="title-1 title-special" data-bs-toggle="collapse" data-bs-target="#chucNang" aria-expanded="false"
-          aria-controls="chucNang"><i class="fas fa-tools"></i> CHỨC NĂNG</h4>
+          aria-controls="chucNang">
+          <i class="fas fa-tools"></i> CHỨC NĂNG
+        </h4>
         <div class="collapse show" id="chucNang">
           <div class="row">
             <div class="col-md fix-full-screen">
-              <h5 class="title-2"><i class="fas fa-file-import"></i> Nhập tệp dữ liệu</h5>
+              <h5 class="title-2">
+                <i class="fas fa-file-import"></i> Nhập tệp dữ liệu
+              </h5>
               <div class="input-group">
-                <button class="btn btn-primary func-btn" type="button" id="btn_CapNhatDuLieuTuFile">Cập nhật</button>
+                <button class="btn btn-primary func-btn" type="button" id="btn_CapNhatDuLieuTuFile">
+                  Cập nhật
+                </button>
                 <span class="input-group-text">Chọn tệp</span>
                 <label for="upload_TaiLenTepDuLieu" class="form-control" id="nhapTepDuLieu">
                   <div id="tenTepTaiLen">...</div>
                 </label>
               </div>
-              <input style="display: none;" type="file" accept=".json" class="form-control" id="upload_TaiLenTepDuLieu"
-                aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              <input style="display: none" type="file" accept=".json" class="form-control" id="upload_TaiLenTepDuLieu"
+                aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
             </div>
             <div class="col-md fix-full-screen">
-              <h5 class="title-2"><i class="fas fa-file-export"></i> Xuất tệp dữ liệu</h5>
+              <h5 class="title-2">
+                <i class="fas fa-file-export"></i> Xuất tệp dữ liệu
+              </h5>
               <div class="input-group">
-                <button class="btn btn-primary func-btn" type="button" id="btn_TaiXuongTepDuLieu">Tải xuống</button>
+                <button class="btn btn-primary func-btn" type="button" id="btn_TaiXuongTepDuLieu">
+                  Tải xuống
+                </button>
                 <span class="input-group-text">Tên tệp</span>
                 <input placeholder="Hãy nhập tên!" type="text" class="form-control" aria-label="fileTaiXuong"
-                  id="input_TenFileTaiXuong">
+                  id="input_TenFileTaiXuong" />
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 fix-full-screen">
-              <h5 class="title-2"><i class="fas fa-broom"></i> Xoá mọi dữ liệu đã nhập</h5>
+              <h5 class="title-2">
+                <i class="fas fa-broom"></i> Xoá mọi dữ liệu đã nhập
+              </h5>
               <button type="button" class="btn btn-danger func-btn" data-bs-toggle="modal"
-                data-bs-target="#modal_XacNhanXoaData">Xoá</button>
+                data-bs-target="#modal_XacNhanXoaData">
+                Xoá
+              </button>
             </div>
             <div class="col-md-6 fix-full-screen">
-              <h5 class="title-2"><i class="fas fa-language"></i> Dịch sang ngôn ngữ khác</h5>
+              <h5 class="title-2">
+                <i class="fas fa-language"></i> Dịch sang ngôn ngữ khác
+              </h5>
               <select class="form-select" aria-label="default-select" id="comboBox_DichSangNgonNguKhac">
                 <option value="English">Tiếng Anh</option>
                 <option value="Chinese (Traditional)">Tiếng Hoa</option>
@@ -223,22 +289,25 @@
               </select>
             </div>
           </div>
+          <!-- Thu gọn mục -->
+          <div class="collapse-section">
+            <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('chucNang')"></i>
+          </div>
         </div>
       </div>
       <!-- Bắt đầu Vùng chức năng -->
-
       <!--======================================   LĨNH VỰC TÍNH TOÁN    ===========================================-->
       <!-- Bắt đầu lĩnh vực tính toán-->
-      <div class="row group-unit-alway-show">
+      <div class="row group-unit-alway-show group-no-collapse" id="section_LinhVucTinhToan">
         <h4 class="title-1">I. LĨNH VỰC TÍNH TOÁN</h4>
         <h5 class="title-2">1.1 Lĩnh vực cần tính toán cho môi trường</h5>
         <div class="col-8 fix-full-screen">
           <select class="form-select" aria-label="default-select" id="comboBox_LinhVucTinhToan">
             <option selected>Chọn một phương án...</option>
             <option value="1">Xử lý nước thải</option>
-            <option value="2">Xử lý nước cấp</option>
-            <option value="3">Xử lý khí thải</option>
-            <option value="4">Xử lý chất thải rắn</option>
+            <option disabled value="2">Xử lý nước cấp</option>
+            <option disabled value="3">Xử lý khí thải</option>
+            <option disabled value="4">Xử lý chất thải rắn</option>
           </select>
           <!--Nút trợ giúp-->
           <a id="info_LinhVucTinhToan" class="btn-suggest btn-suggest-comboBox btn-outside-collapse"><i
@@ -246,2132 +315,841 @@
         </div>
       </div>
       <!-- Kết thúc lĩnh vực tính toán-->
-
-      <!-- Bắt đầu phương pháp xử lý-->
-      <div class="row group-unit" id="section_XuLyNuocThai">
-        <h4 class="title-1">II. XỬ LÝ NƯỚC THẢI</h4>
-        <h5 class="title-2">2.1 Loại nước thải cần xử lý</h5>
-        <div class="col-8 fix-full-screen">
-          <!-- Nước thải thứ 1 -->
-          <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai">
-            <option selected>Chọn một phương án...</option>
-            <option value="1">Nước thải sinh hoạt</option>
-            <option value="2">Nước thải thuỷ sản</option>
-            <option disabled value="3">Nước thải công nghiệp</option>
-            <option disabled value="4">Nước thải y tế</option>
-            <option disabled value="5">Nước thải dệt, nhuộm</option>
-          </select>
-          <button type="button" class="btn btn-success btn-sm btn-csdl" id="btn_xuLyNuocThai_GopSinhHoat"><i
-              class="fas fa-plus-circle" id="plus_XuLyNuocThai_GopSinhHoat"></i><i class="fas fa-minus-circle"
-              id="minus_XuLyNuocThai_GopSinhHoat" style="display: none;"></i> Nước thải sinh hoạt (xử lý chung)</button>
-          <select style="display: none;" disabled class="form-select" aria-label="default-select"
-            id="comboBox_XuLyNuocThai_GopSinhHoat">
-            <option selected>Chọn một phương án...</option>
-            <option value="1">Nước thải sinh hoạt</option>
-          </select>
-        </div>
-      </div>
-      <div class="row group-unit" id="section_XuLyNuocCap">
-        <h4 class="title-1">II. XỬ LÝ NƯỚC CẤP</h4>
-        <h5 class="title-2">2.1 Loại nước cấp cần xử lý</h5>
-        <div class="col-8 fix-full-screen">
-          <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocCap">
-            <option selected>Chọn một phương án...</option>
-            <option value="1">Nước cấp sinh hoạt</option>
-            <option value="2">Nước cấp ăn, uống</option>
-          </select>
-        </div>
-      </div>
-      <div class="row group-unit" id="section_XuLyKhiThai">
-        <h4 class="title-1">II. XỬ LÝ KHÍ THẢI</h4>
-        <h5 class="title-2">2.1 Loại khí thải cần xử lý</h5>
-        <div class="col-8 fix-full-screen">
-          <select class="form-select" aria-label="default-select" id="comboBox_XuLyKhiThai">
-            <option selected>Chọn một phương án...</option>
-            <option value="1">Khí thải lò hơi</option>
-            <option value="2">Khí thải xi mạ</option>
-          </select>
-        </div>
-      </div>
-      <div class="row group-unit" id="section_XuLyChatThaiRan">
-        <h4 class="title-1">II. XỬ LÝ CHẤT THẢI RẮN</h4>
-        <h5 class="title-2">2.1 Phương pháp cần xử lý</h5>
-        <div class="col-8 fix-full-screen">
-          <select class="form-select" aria-label="default-select" id="comboBox_XuLyChatThaiRan">
-            <option selected>Chọn một phương án...</option>
-            <option value="1">Ủ compost</option>
-            <option value="2">Chôn lấp hợp vệ sinh</option>
-            <option value="3">Đốt</option>
-          </select>
-        </div>
-      </div>
-      <!-- Kết thúc phương pháp xử lý-->
-
       <!--======================================   XỬ LÝ NƯỚC THẢI    ===========================================-->
-      <div>
-        <!-- Bắt đầu thông số đầu vào-->
-        <div class="row group-unit" id="section_XuLyNuocThai_ThongSoDauVao">
-          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThongSoDauVao"
-            aria-expanded="false" aria-controls="xuLyNuocThai_ThongSoDauVao">III. THÔNG SỐ ĐẦU VÀO</h4>
-          <div class="collapse" id="xuLyNuocThai_ThongSoDauVao">
-            <h5 class="title-2">3.1 Lưu lượng</h5>
-            <h6 class="title-2 title-3" id="title_xuLyNuocThai_ThongThongSoDauVao_LuuLuongChinh"></h6>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <input type="number" class="form-control" aria-label="Lưu lượng" aria-describedby="basic-addon2"
-                  id="input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai">
-                <span class="input-group-text" id="basic-addon2">m<sup>3</sup>/d</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai" class="btn-suggest"><i
-                    class="fas fa-info-circle"></i></a>
-              </div>
-            </div>
-            <div id="box_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH" style="display: none;">
-              <h6 class="title-2 title-3">Nước thải sinh hoạt</h6>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <input type="number" class="form-control" aria-label="Lưu lượng" aria-describedby="basic-addon2"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH">
-                  <span class="input-group-text" id="basic-addon2">m<sup>3</sup>/d</span>
-                </div>
-              </div>
-            </div>
+      <div id="box_XuLyNuocThai" style="display: none">
+        <div>
+          <!-- Bắt đầu công trình đơn vị cho nước thải -->
+          <div id="box_XuLyNuocThai_CongTrinhDonVi">
+            <!-- Bắt đầu tính toán bể tách mỡ -->
+            <div class="row group-unit" id="section_XuLyNuocThai_TachMo">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TachMo" aria-expanded="false"
+                aria-controls="xuLyNuocThai_TachMo">
+                BỂ TÁCH MỠ
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_TachMo">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <h5 class="title-2">3.2 Diện tích đất hữu dụng</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <input type="number" class="form-control" placeholder="Bỏ trống nếu không yêu cầu!"
-                  aria-label="Diện tích đất" aria-describedby="basic-addon2"
-                  id="input_xuLyNuocThai_ThongThongSoDauVao_DienTichDat">
-                <span class="input-group-text" id="basic-addon2">m<sup>2</sup></span>
-                <a id="info_xuLyNuocThai_ThongThongSoDauVao_DienTichDat" class="btn-suggest"><i
-                    class="fas fa-info-circle"></i></a>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TachMo')"></i>
+                </div>
               </div>
             </div>
+            <!-- Kết thúc tính toán bể tách mỡ -->
 
-            <!-- Trường hợp 01 loại nước thải -->
-            <h5 class="title-2">3.3 Nồng độ các chất ô nhiễm</h5>
-            <h6 class="title-2 title-3" id="title_xuLyNuocThai_ThongThongSoDauVao_LoaiNuoc1"></h6>
-            <div id="box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem">
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">pH</span>
-                  <input type="number" class="form-control" aria-label="pH"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_pH">
-                  <span class="input-group-text">-</span>
-                  <!--Nút trợ giúp-->
-                  <a id="info_xuLyNuocThai_ThongThongSoDauVao_NongDoCacChatONhiem" class="btn-suggest"><i
-                      class="fas fa-info-circle"></i></a>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">BOD<sub>5</sub></span>
-                  <input type="number" class="form-control" aria-label="BOD5"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_BOD5">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TSS</span>
-                  <input type="number" class="form-control" aria-label="TSS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TSS">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TDS</span>
-                  <input type="number" class="form-control" aria-label="TDS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TDS">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">H<sub>2</sub>S</span>
-                  <input type="number" class="form-control" aria-label="H2S"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_H2S">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Amoni</span>
-                  <input type="number" class="form-control" aria-label="NH3"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NH3">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">NO<sub>3</sub><sup>-</sup></span>
-                  <input type="number" class="form-control" aria-label="NO3-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NO3-">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Dầu mỡ động, thực vật</span>
-                  <input type="number" class="form-control" aria-label="DMDTV"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_DMDTV">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng các chất hoạt động bề mặt</span>
-                  <input type="number" class="form-control" aria-label="TCCHDBM"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">PO<sub>4</sub><sup>3-</sup></span>
-                  <input type="number" class="form-control" aria-label="PO43-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_PO43-">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Coliforms</span>
-                  <input type="number" class="form-control" aria-label="TColiforms"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TColiforms">
-                  <span class="input-group-text">MPN/100mL</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">COD</span>
-                  <input type="number" class="form-control" aria-label="COD"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_COD">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Nitơ (tính theo N)</span>
-                  <input type="number" class="form-control" aria-label="TN"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TN">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng phốt pho (tính theo P)</span>
-                  <input type="number" class="form-control" aria-label="TP"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TP">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Clo dư</span>
-                  <input type="number" class="form-control" aria-label="CloDu"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_CloDu">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-            </div>
+            <!-- Bắt đầu tính toán bể lắng cát -->
+            <div class="row group-unit" id="section_XuLyNuocThai_LangCat">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangCat" aria-expanded="false"
+                aria-controls="xuLyNuocThai_LangCat">
+                BỂ LẮNG CÁT
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_LangCat">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Trường hợp gộp chung nước thải sinh hoạt -->
-            <div id="box_xuLyNuocThai_ThongThongSoDauVao_ChiTieuONhiem_SH" style="display: none;">
-              <h6 class="title-2 title-3">Nước thải sinh hoạt</h6>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">pH</span>
-                  <input type="number" class="form-control" aria-label="pH"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_pH_SH">
-                  <span class="input-group-text">-</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">BOD<sub>5</sub></span>
-                  <input type="number" class="form-control" aria-label="BOD5"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_BOD5_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TSS</span>
-                  <input type="number" class="form-control" aria-label="TSS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TSS_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TDS</span>
-                  <input type="number" class="form-control" aria-label="TDS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TDS_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">H<sub>2</sub>S</span>
-                  <input type="number" class="form-control" aria-label="H2S"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_H2S_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Amoni</span>
-                  <input type="number" class="form-control" aria-label="NH3"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NH3_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">NO<sub>3</sub><sup>-</sup></span>
-                  <input type="number" class="form-control" aria-label="NO3-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NO3-_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Dầu mỡ động, thực vật</span>
-                  <input type="number" class="form-control" aria-label="DMDTV"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_DMDTV_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng các chất hoạt động bề mặt</span>
-                  <input type="number" class="form-control" aria-label="TCCHDBM"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">PO<sub>4</sub><sup>3-</sup></span>
-                  <input type="number" class="form-control" aria-label="PO43-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_PO43-_SH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Coliforms</span>
-                  <input type="number" class="form-control" aria-label="TColiforms"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TColiforms_SH">
-                  <span class="input-group-text">MPN/100mL</span>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangCat')"></i>
                 </div>
               </div>
             </div>
+            <!-- Kết thúc tính toán bể lắng cát -->
 
-            <!--Nút lấy số liệu từ CSDL-->
-            <button type="button" class="btn btn-success btn-sm btn-csdl" id="btn_xuLyNuocThai_ThongSoDauVao_CSDL">Số
-              liệu mẫu</button>
+            <!-- Bắt đầu tính toán bể tuyển nổi -->
+            <div class="row group-unit" id="section_XuLyNuocThai_TuyenNoi">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TuyenNoi"
+                aria-expanded="false" aria-controls="xuLyNuocThai_TuyenNoi">
+                BỂ TUYỂN NỔI
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_TuyenNoi">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Nồng độ chất ô nhiễm hỗn hợp -->
-            <div id="box_xuLyNuocThai_ThongThongSoDauVao_NongDoHH" style="display: none;">
-              <h5 class="title-2" id="title_xuLyNuocThai_ThongThongSoDauVao_NongDoHH">3.4 Nồng độ các chất ô nhiễm hỗn
-                hợp
-              </h5>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">pH</span>
-                  <input disabled type="text" class="form-control" aria-label="pH"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_pH_NongDoHH">
-                  <span class="input-group-text">-</span>
-                  <!--Nút trợ giúp-->
-                  <a id="info_xuLyNuocThai_ThongThongSoDauVao_NongDoHH" class="btn-suggest"><i
-                      class="fas fa-info-circle"></i></a>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">BOD<sub>5</sub></span>
-                  <input disabled type="number" class="form-control" aria-label="BOD5"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_BOD5_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TSS</span>
-                  <input disabled type="number" class="form-control" aria-label="TSS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TSS_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TDS</span>
-                  <input disabled type="number" class="form-control" aria-label="TDS"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TDS_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">H<sub>2</sub>S</span>
-                  <input disabled type="number" class="form-control" aria-label="H2S"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_H2S_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Amoni</span>
-                  <input disabled type="number" class="form-control" aria-label="NH3"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NH3_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">NO<sub>3</sub><sup>-</sup></span>
-                  <input disabled type="number" class="form-control" aria-label="NO3-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_NO3-_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Dầu mỡ động, thực vật</span>
-                  <input disabled type="number" class="form-control" aria-label="DMDTV"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_DMDTV_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng các chất hoạt động bề mặt</span>
-                  <input disabled type="number" class="form-control" aria-label="TCCHDBM"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">PO<sub>4</sub><sup>3-</sup></span>
-                  <input disabled type="number" class="form-control" aria-label="PO43-"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_PO43-_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Coliforms</span>
-                  <input disabled type="number" class="form-control" aria-label="TColiforms"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TColiforms_NongDoHH">
-                  <span class="input-group-text">MPN/100mL</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">COD</span>
-                  <input disabled type="number" class="form-control" aria-label="COD"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_COD_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Nitơ (tính theo N)</span>
-                  <input disabled type="number" class="form-control" aria-label="TN"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TN_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng phốt pho (tính theo P)</span>
-                  <input disabled type="number" class="form-control" aria-label="TP"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_TP_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Clo dư</span>
-                  <input disabled type="number" class="form-control" aria-label="CloDu"
-                    id="input_xuLyNuocThai_ThongThongSoDauVao_CloDu_NongDoHH">
-                  <span class="input-group-text">mg/L</span>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TuyenNoi')"></i>
                 </div>
               </div>
             </div>
+            <!-- Kết thúc tính toán bể tuyển nổi -->
 
-            <!-- Thu gọn mục -->
-            <div class="collapse-section">
-              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_ThongSoDauVao')"></i>
-            </div>
-          </div>
-        </div>
-        <!-- Kết thúc thông số đầu vào-->
+            <!-- Bắt đầu tính toán bể lắng hoá lý -->
+            <div class="row group-unit" id="section_XuLyNuocThai_LangHoaLy">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangHoaLy"
+                aria-expanded="false" aria-controls="xuLyNuocThai_LangHoaLy">
+                BỂ LẮNG HOÁ LÝ
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_LangHoaLy">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-        <!-- Bắt đầu yêu cầu đầu ra-->
-        <div class="row group-unit" id="section_XuLyNuocThai_YeuCauDauRa">
-          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_YeuCauDauRa" aria-expanded="false"
-            aria-controls="xuLyNuocThai_YeuCauDauRa">IV. YÊU CẦU ĐẦU RA</h4>
-          <div class="collapse" id="xuLyNuocThai_YeuCauDauRa">
-            <!-- Nguồn tiếp nhận nước thải-->
-            <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-            <div class="col-8 fix-full-screen">
-              <select class="form-select" aria-label="default-select"
-                id="comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan">
-                <option selected>Chọn một phương án...</option>
-                <option value="1">Dùng cho mục đích cấp nước sinh hoạt</option>
-                <option value="2">Không dùng cho mục đích cấp nước sinh hoạt</option>
-              </select>
-              <!--Nút trợ giúp-->
-              <a id="info_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan" class="btn-suggest btn-suggest-comboBox"><i
-                  class="fas fa-info-circle"></i></a>
-            </div>
-            <!-- Quy chuẩn áp dụng-->
-            <h5 class="title-2">4.2 Quy chuẩn áp dụng</h5>
-            <div class="col-8 fix-full-screen">
-              <select disabled class="form-select" aria-label="default-select"
-                id="comboBox_XuLyNuocThai_YeuCauDauRa_QCVN">
-                <option selected>Chọn một phương án...</option>
-                <option value="1">QCVN 14:2008/BTNMT, cột A</option>
-                <option value="2">QCVN 14:2008/BTNMT, cột B</option>
-                <option value="3">QCVN 11-MT:2015/BTNMT, cột A</option>
-                <option value="4">QCVN 11-MT:2015/BTNMT, cột B</option>
-                <option value="5">QCVN 40:2011/BTNMT, cột A</option>
-                <option value="6">QCVN 40:2011/BTNMT, cột B</option>
-                <option value="7">QCVN 28:2010/BTNMT, cột A</option>
-                <option value="8">QCVN 28:2010/BTNMT, cột B</option>
-              </select>
-            </div>
-            <!-- Hệ số chuyển đổi -->
-            <h5 class="title-2">4.3 Hệ số chuyển đổi</h5>
-            <!-- Đối với nước thải sinh hoạt -->
-            <div class="col-8 fix-full-screen" id="heSoKQC14">
-              <div class="input-group">
-                <span class="input-group-text">Hệ số K</span>
-                <input placeholder="1 - 1.2" type="number" class="form-control" aria-label="Hệ số K"
-                  id="input_xuLyNuocThai_YeuCauDauRa_HeSoK">
-                <span class="input-group-text">-</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_YeuCauDauRa_HeSoK" class="btn-suggest btn-suggest-comboBox"><i
-                    class="fas fa-info-circle"></i></a>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangHoaLy')"></i>
+                </div>
               </div>
             </div>
-            <!-- Đối với nước thải công nghiệp và thuỷ sản -->
-            <div class="col-8 fix-full-screen" id="heSoKQC401">
-              <div class="input-group">
-                <span class="input-group-text">Hệ số K<sub>q</sub></span>
-                <input placeholder="0.6 - 1.3" type="number" class="form-control" aria-label="Hệ số K"
-                  id="input_xuLyNuocThai_YeuCauDauRa_HeSoKq">
-                <span class="input-group-text">-</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_YeuCauDauRa_HeSoKqKf" class="btn-suggest btn-suggest-comboBox"><i
-                    class="fas fa-info-circle"></i></a>
-              </div>
-            </div>
-            <div class="col-8 fix-full-screen" id="heSoKQC402">
-              <div class="input-group">
-                <span class="input-group-text">Hệ số K<sub>f</sub></span>
-                <input placeholder="0.9 - 1.2" type="number" class="form-control" aria-label="Hệ số K"
-                  id="input_xuLyNuocThai_YeuCauDauRa_HeSoKf">
-                <span class="input-group-text">-</span>
-              </div>
-            </div>
-            <!-- Giá trị nồng độ các chất ô nhiễm được tính lại theo quy chuẩn -->
-            <h5 class="title-2">4.4 Nồng độ các chất ô nhiễm được tính toán lại</h5>
+            <!-- Kết thúc tính toán bể lắng hoá lý -->
 
-            <!-- Nồng độ các chỉ tiêu ô nhiễm được tính toán lại - theo loại nước thải thứ 1 (trường hợp có 02 loại nước thải) -->
-            <div id="box_xuLyNuocThai_YeuCauDauRa_ChiTieuONhiem">
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">pH</span>
-                  <input disabled type="text" class="form-control" aria-label="pH"
-                    id="input_xuLyNuocThai_YeuCauDauRa_pH">
-                  <span class="input-group-text">-</span>
-                  <!--Nút trợ giúp-->
-                  <a id="info_xuLyNuocThai_YeuCauDauRa_TinhToanNongDoChatONhiem"
-                    class="btn-suggest btn-suggest-comboBox"><i class="fas fa-info-circle"></i></a>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">BOD<sub>5</sub></span>
-                  <input disabled type="number" class="form-control" aria-label="BOD5"
-                    id="input_xuLyNuocThai_YeuCauDauRa_BOD5">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TSS</span>
-                  <input disabled type="number" class="form-control" aria-label="TSS"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TSS">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">TDS</span>
-                  <input disabled type="number" class="form-control" aria-label="TDS"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TDS">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">H<sub>2</sub>S</span>
-                  <input disabled type="number" class="form-control" aria-label="H2S"
-                    id="input_xuLyNuocThai_YeuCauDauRa_H2S">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Amoni</span>
-                  <input disabled type="number" class="form-control" aria-label="NH3"
-                    id="input_xuLyNuocThai_YeuCauDauRa_NH3">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">NO<sub>3</sub><sup>-</sup></span>
-                  <input disabled type="number" class="form-control" aria-label="NO3-"
-                    id="input_xuLyNuocThai_YeuCauDauRa_NO3-">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Dầu mỡ động, thực vật</span>
-                  <input disabled type="number" class="form-control" aria-label="DMDTV"
-                    id="input_xuLyNuocThai_YeuCauDauRa_DMDTV">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng các chất hoạt động bề mặt</span>
-                  <input disabled type="number" class="form-control" aria-label="TCCHDBM"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TCCHDBM">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">PO<sub>4</sub><sup>3-</sup></span>
-                  <input disabled type="number" class="form-control" aria-label="PO43-"
-                    id="input_xuLyNuocThai_YeuCauDauRa_PO43-">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Coliforms</span>
-                  <input disabled type="number" class="form-control" aria-label="TColiforms"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TColiforms">
-                  <span class="input-group-text">MPN/100mL</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">COD</span>
-                  <input disabled type="number" class="form-control" aria-label="COD"
-                    id="input_xuLyNuocThai_YeuCauDauRa_COD">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng Nitơ (tính theo N)</span>
-                  <input disabled type="number" class="form-control" aria-label="TN"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TN">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Tổng phốt pho (tính theo P)</span>
-                  <input disabled type="number" class="form-control" aria-label="TP"
-                    id="input_xuLyNuocThai_YeuCauDauRa_TP">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-              <div class="col-8 fix-full-screen">
-                <div class="input-group">
-                  <span class="input-group-text">Clo dư</span>
-                  <input disabled type="number" class="form-control" aria-label="CloDu"
-                    id="input_xuLyNuocThai_YeuCauDauRa_CloDu">
-                  <span class="input-group-text">mg/L</span>
-                </div>
-              </div>
-            </div>
+            <!-- Bắt đầu tính toán bể lắng sinh học -->
+            <div class="row group-unit" id="section_XuLyNuocThai_LangSinhHoc">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangSinhHoc"
+                aria-expanded="false" aria-controls="xuLyNuocThai_LangSinhHoc">
+                BỂ LẮNG SINH HỌC
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_LangSinhHoc">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Thu gọn mục -->
-            <div class="collapse-section">
-              <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_YeuCauDauRa')"></i>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up"
+                    onclick="javascript:ClickToCollapse('xuLyNuocThai_LangSinhHoc')"></i>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <!-- Kết thúc yêu cầu đầu ra-->
+            <!-- Kết thúc tính toán bể lắng sinh học -->
 
-        <!-- Bắt đầu lựa chọn công nghệ-->
-        <div class="row group-unit" id="section_XuLyNuocThai_LuaChonCongNghe">
-          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LuaChonCongNghe"
-            aria-expanded="false" aria-controls="xuLyNuocThai_LuaChonCongNghe" id="title_XuLyNuocThai_LuaChonCongNghe">
-            V.
-            CÔNG NGHỆ</h4>
-          <div class="collapse" id="xuLyNuocThai_LuaChonCongNghe">
+            <!-- Bắt đầu tính toán bể khử trùng -->
+            <div class="row group-unit" id="section_XuLyNuocThai_KhuTrung">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KhuTrung"
+                aria-expanded="false" aria-controls="xuLyNuocThai_KhuTrung">
+                BỂ KHỬ TRÙNG
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_KhuTrung">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Tạo sơ đồ công nghệ lựa chọn-->
-            <h5 class="title-2">5.1 Công nghệ lựa chọn</h5>
-            <div class="col-8 fix-full-screen">
-              <select class="form-select" aria-label="default-select"
-                id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon">
-                <option selected>Chọn một phương án...</option>
-                <option value="1">Sử dụng sơ đồ công nghệ được đề xuất</option>
-                <option value="2">Chọn lại công nghệ</option>
-              </select>
-              <!--Nút trợ giúp-->
-              <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChon" class="btn-suggest btn-suggest-comboBox"><i
-                  class="fas fa-info-circle"></i></a>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KhuTrung')"></i>
+                </div>
+              </div>
             </div>
-            <div class="col" id="subSection_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" style="display: none;">
-              <h6 class="title-2 title-3">Chọn các công trình đơn vị có trong công nghệ</h6>
-              <div class="col-8 fix-full-screen">
-                <select class="form-select" aria-label="default-select"
-                  id="comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChonLai">
-                  <option selected>Chọn một phương án...</option>
-                  <!-- Xử lý lý học -->
-                  <option disabled style="color: #fff; background: #04aa6d;">Xử lý lý học</option>
-                  <option value="hoThu">Hố thu gom</option>
-                  <option value="tachMo">Bể tách mỡ</option>
-                  <option value="langCat">Bể lắng cát</option>
-                  <option value="dieuHoa">Bể điều hoà</option>
-                  <option value="tuyenNoi">Bể tuyển nổi</option>
-                  <option value="langHoaLy">Bể lắng hoá lý</option>
-                  <option value="langSinhHoc">Bể lắng sinh học</option>
-                  <option value="khuTrung">Bể khử trùng</option>
-                  <option value="trungGian">Bể trung gian</option>
-                  <option value="cotLocApLuc">Cột lọc áp lực</option>
+            <!-- Kết thúc tính toán bể khử trùng -->
 
-                  <!-- Xử lý hoá học -->
-                  <option disabled style="color: #fff; background: #04aa6d;">Xử lý hoá học</option>
-                  <option value="keoTu">Bể keo tụ</option>
-                  <option value="taoBong">Bể tạo bông</option>
+            <!-- Bắt đầu tính toán bể trung gian -->
+            <div class="row group-unit" id="section_XuLyNuocThai_TrungGian">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TrungGian"
+                aria-expanded="false" aria-controls="xuLyNuocThai_TrungGian">
+                BỂ TRUNG GIAN
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_TrungGian">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-                  <!-- Xử lý sinh học -->
-                  <option disabled style="color: #fff; background: #04aa6d;">Xử lý sinh học</option>
-                  <option value="yemKhi">Bể UASB</option>
-                  <option value="thieuKhi">Bể thiếu khí</option>
-                  <option value="hieuKhi">Bể hiếu khí</option>
-                  <option value="locSinhHoc">Bể lọc sinh học nhỏ giọt</option>
-                  <option value="longQuaySinhHoc">Lồng quay sinh học</option>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TrungGian')"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Kết thúc tính toán bể trung gian -->
 
-                  <!-- Xử lý nâng cao -->
-                  <option disabled style="color: #fff; background: #04aa6d;">Xử lý nâng cao</option>
-                </select>
-                <!--Nút trợ giúp-->
-                <a id="info_XuLyNuocThai_CongNghe_CongNgheLuaChonLai" class="btn-suggest btn-suggest-comboBox"><i
-                    class="fas fa-info-circle"></i></a>
-                <!--Nút lấy số liệu từ CSDL-->
-                <button type="button" class="btn btn-success btn-sm btn-csdl"
-                  id="btn_xuLyNuocThai_CongNghe_XoaCongTrinhDV">Xoá công trình</button>
-              </div>
-            </div>
-            <!--Tạo sơ đồ công nghệ được đề xuất-->
-            <h5 class="title-2">5.2 Sơ đồ công nghệ xử lý</h5>
-            <div id="soDoCongNghe" class="col fix-full-screen fix-SoDoCongNghe"></div>
+            <!-- Bắt đầu tính toán cột lọc áp lực -->
+            <div class="row group-unit" id="section_XuLyNuocThai_CotLocApLuc">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_CotLocApLuc"
+                aria-expanded="false" aria-controls="xuLyNuocThai_CotLocApLuc">
+                CỘT LỌC ÁP LỰC
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_CotLocApLuc">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Thu gọn mục -->
-            <div class="collapse-section">
-              <i class="fas fa-angle-double-up"
-                onclick="javascript:ClickToCollapse('xuLyNuocThai_LuaChonCongNghe')"></i>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up"
+                    onclick="javascript:ClickToCollapse('xuLyNuocThai_CotLocApLuc')"></i>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <!-- Kết thúc lựa chọn công nghệ-->
+            <!-- Kết thúc tính toán cột lọc áp lực -->
 
-        <!-- Bắt đầu thông số tính toán-->
-        <div class="row group-unit" id="section_XuLyNuocThai_ThongSoTinhToan">
-          <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThongSoTinhToan"
-            aria-expanded="false" aria-controls="xuLyNuocThai_ThongSoTinhToan">VI. THÔNG SỐ TÍNH TOÁN</h4>
-          <div class="collapse" id="xuLyNuocThai_ThongSoTinhToan">
-            <!-- Nguồn tiếp nhận nước thải-->
-            <h5 class="title-2">6.1 Lưu lượng tính toán ngày đêm</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>tongNgayDem</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QtongNgayDem"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong">
-                <span class="input-group-text">m <sup>3</sup>/d</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong" class="btn-suggest"><i
-                    class="fas fa-info-circle"></i></a>
-              </div>
-            </div>
-            <h5 class="title-2">6.2 Thời gian hoạt động của dự án</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">T<sub>hoatDong</sub></span>
-                <input type="number" class="form-control" aria-label="ThoatDong"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong">
-                <span class="input-group-text">h/d</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong" class="btn-suggest"><i
-                    class="fas fa-info-circle"></i></a>
-              </div>
-            </div>
-            <h5 class="title-2">6.3 Lưu lượng trung bình giờ</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>trungBinhGio</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QtrungBinhGio"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGio">
-                <span class="input-group-text">m <sup>3</sup>/h</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.4 Lưu lượng trung bình giây</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>trungBinhGiay</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QtrungBinhGio"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGiay">
-                <span class="input-group-text">m <sup>3</sup>/s</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.5 Hệ số không điều hoà Kmax</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">K<sub>max</sub></span>
-                <input type="number" class="form-control" aria-label="Kmax"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_Kmax">
-                <span class="input-group-text">-</span>
-                <!--Nút trợ giúp-->
-                <a id="info_xuLyNuocThai_ThongSoTinhToan_Kmax" class="btn-suggest"><i
-                    class="fas fa-info-circle"></i></a>
-              </div>
-            </div>
-            <h5 class="title-2">6.6 Lưu lượng lớn nhất giây</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>maxGiay</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QmaxGiay"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay">
-                <span class="input-group-text">m <sup>3</sup>/s</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.7 Hệ số không điều hoà Kmin</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">K<sub>min</sub></span>
-                <input type="number" class="form-control" aria-label="Kmin"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_Kmin">
-                <span class="input-group-text">-</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.8 Lưu lượng nhỏ nhất giây</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>minGiay</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QminGiay"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMinGiay">
-                <span class="input-group-text">m <sup>3</sup>/s</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.9 Thời gian hoạt động của hệ thống xử lý</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">T<sub>heThong</sub></span>
-                <input type="number" class="form-control" aria-label="TheThong"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong">
-                <span class="input-group-text">h/d</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.10 Lưu lượng xử lý giờ của hệ thống</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>xuLyGio</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QxuLyGio"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio">
-                <span class="input-group-text">m <sup>3</sup>/h</span>
-              </div>
-            </div>
-            <h5 class="title-2">6.11 Lưu lượng xử lý giây của hệ thống</h5>
-            <div class="col-8 fix-full-screen">
-              <div class="input-group">
-                <span class="input-group-text">Q<sub>xuLyGiay</sub></span>
-                <input disabled type="number" class="form-control" aria-label="QxuLyGiay"
-                  id="input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGiay">
-                <span class="input-group-text">m <sup>3</sup>/s</span>
-              </div>
-            </div>
-            <!--Nút lấy số liệu từ CSDL-->
-            <!-- <button type="button" class="btn btn-success btn-sm btn-csdl"
-            id="btn_xuLyNuocThai_ThongSoTinhToan_SoLieuMau">Số
-            liệu mẫu</button> -->
+            <!-- Bắt đầu tính toán bể keo tụ -->
+            <div class="row group-unit" id="section_XuLyNuocThai_KeoTu">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KeoTu" aria-expanded="false"
+                aria-controls="xuLyNuocThai_KeoTu">
+                BỂ KEO TỤ
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_KeoTu">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-            <!-- Thu gọn mục -->
-            <div class="collapse-section">
-              <i class="fas fa-angle-double-up"
-                onclick="javascript:ClickToCollapse('xuLyNuocThai_ThongSoTinhToan')"></i>
-            </div>
-          </div>
-        </div>
-        <!-- Kết thúc thông số tính toán-->
-
-        <!-- Bắt đầu công trình đơn vị cho nước thải -->
-        <div id="box_XuLyNuocThai_CongTrinhDonVi">
-          <!-- Bắt đầu tính toán hố thu gom -->
-          <div class="row group-unit" id="section_XuLyNuocThai_HoThu">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HoThu" aria-expanded="false"
-              aria-controls="xuLyNuocThai_HoThu">HỐ THU GOM</h4>
-            <div class="collapse" id="xuLyNuocThai_HoThu">
-
-              <h5 class="title-2">A. Thông số, kích thước</h5>
-              <h5 class="title-2 title-3">- Phương án tính toán</h5>
-              <div class="col-8 fix-full-screen">
-                <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocThai_HoThu_PhuongAn">
-                  <option selected>Chọn một phương án...</option>
-                  <option value="1">Nhập kích thước tham khảo</option>
-                  <option value="2">Tính toán dựa trên thời gian lưu</option>
-                </select>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KeoTu')"></i>
+                </div>
               </div>
+            </div>
+            <!-- Kết thúc tính toán bể keo tụ -->
 
-              <div id="box_XuLyNuocThai_HoThu_PhuongAn" style="display: none;">
+            <!-- Bắt đầu tính toán bể tạo bông -->
+            <div class="row group-unit" id="section_XuLyNuocThai_TaoBong">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TaoBong" aria-expanded="false"
+                aria-controls="xuLyNuocThai_TaoBong">
+                BỂ TẠO BÔNG
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_TaoBong">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up"
+                    onclick="javascript:ClickToCollapse('xuLyNuocxuLyNuocThai_TaoBongThai_TachMo')"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Kết thúc tính toán bể tạo bông -->
+
+            <!-- Bắt đầu tính toán bể UASB -->
+            <div class="row group-unit" id="section_XuLyNuocThai_YemKhi">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_YemKhi" aria-expanded="false"
+                aria-controls="xuLyNuocThai_YemKhi">
+                BỂ UASB
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_YemKhi">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_YemKhi')"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Kết thúc tính toán bể UASB -->
+
+            <!-- Bắt đầu tính toán bể thiếu khí -->
+            <div class="row group-unit" id="section_XuLyNuocThai_ThieuKhi">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThieuKhi"
+                aria-expanded="false" aria-controls="xuLyNuocThai_ThieuKhi">
+                BỂ THIẾU KHÍ
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_ThieuKhi">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_ThieuKhi')"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Kết thúc tính toán bể thiếu khí -->
+
+            <!-- Bắt đầu tính toán bể hiếu khí -->
+            <div class="row group-unit" id="section_XuLyNuocThai_HieuKhi">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HieuKhi" aria-expanded="false"
+                aria-controls="xuLyNuocThai_HieuKhi">
+                BỂ HIẾU KHÍ
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_HieuKhi">
+                <h5 class="title-2">A. Thông số, kích thước</h5>
+                <!-- Thông số, kích thước -->
                 <div>
-                  <h5 class="title-2 title-3">- Thời gian lưu nước</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">T<sub>luuNuocHoThu</sub></span>
-                      <input placeholder="10 - 30" type="number" class="form-control" aria-label="tThoiGianLuuNuoc"
-                        id="input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc">
-                      <span class="input-group-text">phút</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích hữu ích</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>huuIchHoThu</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VhuuIchHoThu"
-                        id="input_xuLyNuocThai_HoThu_TheTichHuuIch">
-                      <input type="number" class="form-control" aria-label="VhuuIchHoThu"
-                        id="input_xuLyNuocThai_HoThu_TheTichHuuIch_SuaLai">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao ống thoát - mực nước</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>ongThoat</sub></span>
-                      <input type="number" class="form-control" aria-label="HsauOngThoat"
-                        id="input_xuLyNuocThai_HoThu_DoCaoOngThoat">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao bảo vệ</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>baoVe</sub></span>
-                      <input placeholder="0.2 - 0.4" type="number" class="form-control" aria-label="HcaoBaoVe"
-                        id="input_xuLyNuocThai_HoThu_DoCaoBaoVe">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao hữu ích</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>huuIchHoThu</sub></span>
-                      <input type="number" class="form-control" aria-label="HhuuDungHoThu"
-                        id="input_xuLyNuocThai_HoThu_DoCaoHuuIch">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Tổng độ cao thực tế</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>thucTeHoThu</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="HthucTeHoThu"
-                        id="input_xuLyNuocThai_HoThu_DoCaoThucTe">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 class="title-2 title-3">- Dạng hình học</h5>
-                  <div class="col-8 fix-full-screen">
-                    <select class="form-select" aria-label="default-select"
-                      id="comboBox_XuLyNuocThai_HoThu_DangHinhHoc">
-                      <option selected>Chọn một phương án...</option>
-                      <option value="1">Hình vuông</option>
-                      <option value="2">Hình chữ nhật</option>
-                      <option value="2">Hình tròn</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div style="display: none;" id="box_XuLyNuocThai_HoThu_DangHinhHoc">
-                  <!-- Cho hình vuông + hình chữ nhật -->
+                  <!-- Phương án xác định thể tích -->
                   <div>
-                    <h5 class="title-2 title-3">- Chiều dài</h5>
+                    <h5 class="title-2 title-3">
+                      - Phương án xác định thể tích
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <select class="form-select" aria-label="default-select"
+                        id="comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich">
+                        <option selected>Chọn một phương án...</option>
+                        <option value="1">
+                          Xác định theo thời gian lưu của vi khuẩn
+                        </option>
+                        <option value="2">
+                          Xác định theo thời gian lưu nước
+                        </option>
+                        <option disabled value="3">
+                          Xác định theo tốc độ sử dụng chất nền
+                        </option>
+                        <option disabled value="4">
+                          Xác định theo tỉ lệ F/M
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Nồng độ SS và BOD5 cần đạt theo quy chuẩn -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Nồng độ SS và BOD<sub>5</sub> cần đạt - QCVN
+                    </h5>
                     <div class="col-8 fix-full-screen">
                       <div class="input-group">
-                        <span class="input-group-text">L<sub>hoThu</sub></span>
-                        <input disabled type="number" class="form-control" aria-label="LhoThu"
-                          id="input_xuLyNuocThai_HoThu_ChieuDai">
-                        <input type="number" class="form-control" aria-label="LhoThu"
-                          id="input_xuLyNuocThai_HoThu_ChieuDai_SuaLai">
+                        <span class="input-group-text">SS<sub>quyChuan</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="SSquyChuan"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">BOD<sub>5quyChuan</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="BOD5quyChuan"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nồng độ SS và BOD5 sau xử lý -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Nồng độ SS và BOD<sub>5</sub> sau xử lý (sau lắng - ước
+                      tính)
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">SS<sub>sauXuLy</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="SSsauXuLy"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy" />
+                        <input type="number" class="form-control" aria-label="SSsauXuLy"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy_SuaLai" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">BOD<sub>5sauXuLy</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="BOD5sauXuLy"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy" />
+                        <input type="number" class="form-control" aria-label="BOD5sauXuLy"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy_SuaLai" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- % các chẩt phân huỷ sinh học trong SS đầu ra -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Tỉ lệ các chất phân huỷ sinh học trong SS sau xử lý
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">R<sub>phanHuySinhHocSS</sub></span>
+                        <input placeholder="60 - 70" type="number" class="form-control" aria-label="RphanHuySinhHocSS"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS" />
+                        <span class="input-group-text">%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Lượng BOD hoà tan tối đa trong nước thải sau xử lý -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Lượng BOD hoà tan tối đa trong nước thải sau xử lý
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">BOD<sub>hoaTanSauXL</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="BODhoaTanSauXL"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nhiệt độ khu vực tính toán -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Nhiệt độ trung bình khu vực tính toán
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">t<sub>khuVuc</sub></span>
+                        <input placeholder="VN = 25 - 30" type="number" class="form-control" aria-label="tkhuVuc"
+                          id="input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc" />
+                        <span class="input-group-text"><sup>o</sup>C</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Thời gian lưu vi khuẩn (bùn) -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Thời gian lưu vi khuẩn (bùn)
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">&theta;<sub>c</sub></span>
+                        <input placeholder="3 - 15" type="number" class="form-control" aria-label="TluuVK"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan" />
+                        <span class="input-group-text">ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn hoạt tính -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn
+                      hoạt tính
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">X</span>
+                        <input placeholder="&leq; 4000" type="number" class="form-control" aria-label="MLVSS"
+                          id="input_xuLyNuocThai_HieuKhi_MLVSS" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Hệ số sản lượng bùn -->
+                  <div>
+                    <h5 class="title-2 title-3">- Hệ số sản lượng bùn</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">Y</span>
+                        <input placeholder="0.4 - 0.8" type="number" class="form-control" aria-label="Y"
+                          id="input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun" />
+                        <span class="input-group-text">mg VSS/mg bCOD</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Hệ số phân huỷ nội bào ở 20 độ C-->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Hệ số phân huỷ nội bào (ở 20 độ C)
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">k<sub>d20</sub></span>
+                        <input placeholder="0.06 - 0.075" type="number" class="form-control" aria-label="kd"
+                          id="input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do" />
+                        <span class="input-group-text">ngày<sup>-1</sup></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Hệ số điều chỉnh theo nhiệt độ-->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Hệ số điều chỉnh k<sub>d</sub> theo nhiệt độ
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">C<sub>dieuChinhkd</sub></span>
+                        <input placeholder="1.03 - 1.08" type="number" class="form-control" aria-label="CdieuChinhkd"
+                          id="input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd" />
+                        <span class="input-group-text">-</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Hệ số phân huỷ nội bào ở nhiệt độ khu vực -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Hệ số phân huỷ nội bào (ở nhiệt độ khu vực)
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">k<sub>d</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="kd"
+                          id="input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc" />
+                        <span class="input-group-text">ngày<sup>-1</sup></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Xác định theo thời gian lưu nước -->
+                  <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu" style="display: none">
+                    <div>
+                      <h5 class="title-2 title-3">
+                        - Thời gian lưu nước trong bể
+                      </h5>
+                      <div class="col-8 fix-full-screen">
+                        <div class="input-group">
+                          <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
+                          <input placeholder="4 - 8" type="number" class="form-control" aria-label="TluuHieuKhi"
+                            id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu" />
+                          <span class="input-group-text">giờ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Thể tích bể bùn hoạt tính cần có -->
+                  <div>
+                    <h5 class="title-2 title-3">- Thể tích bể hiếu khí</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">V<sub>huuIchHieuKhi</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="VhuuIchHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_TheTichHuuIch" />
+                        <input type="number" class="form-control" aria-label="VhuuIchHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_TheTichHuuIch_SuaLai" />
+                        <span class="input-group-text">m<sup>3</sup></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Thời gian lưu nước -->
+                  <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK" style="display: none">
+                    <h5 class="title-2 title-3">- Thời gian tồn lưu nước</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="TluuHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuu" />
+                        <span class="input-group-text">giờ</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tỉ lệ F/M -->
+                  <div>
+                    <h5 class="title-2 title-3">- Tỉ lệ F/M</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">F/M<sub>hieuKhi</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="FMhieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_TiLeFM" />
+                        <span class="input-group-text">ngày<sup>-1</sup></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tải nạp chất hữu cơ theo thể tích bể -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Tải nạp chất hữu cơ theo thể tích bể
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">L<sub>BOD</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="LBOD"
+                          id="input_xuLyNuocThai_HieuKhi_TaiNapChatHuuCo" />
+                        <span class="input-group-text">kg/m<sup>3</sup>*ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Độ tro của bùn -->
+                  <div>
+                    <h5 class="title-2 title-3">- Độ tro của bùn</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">R<sub>troBun</sub></span>
+                        <input placeholder="20 - 30" type="number" class="form-control" aria-label="RtroBun"
+                          id="input_xuLyNuocThai_HieuKhi_DoTroCuaBun" />
+                        <span class="input-group-text">%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Lượng bùn xả bỏ mỗi ngày -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Lượng bùn dư thải bỏ mỗi ngày
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">W<sub>bunThaiMoiNgay</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="WbunThaiMoiNgay"
+                          id="input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay" />
+                        <span class="input-group-text">kg/ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nồng độ bùn ở đáy bể lắng sinh học -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Nồng độ bùn ở đáy bể lắng sinh học
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">C<sub>bunDayLangSH</sub></span>
+                        <input placeholder="7000 - 10000" type="number" class="form-control" aria-label="CbunDayLangSH"
+                          id="input_xuLyNuocThai_HieuKhi_NongDoBunDayBeLang" />
+                        <span class="input-group-text">mg/L</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Lượng bùn thải bỏ hằng ngày -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Lượng bùn thải bỏ hằng ngày
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">Q<sub>bunThai</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="QbunThai"
+                          id="input_xuLyNuocThai_HieuKhi_LuuLuongBunThaiBoMoiNgay" />
+                        <span class="input-group-text">m<sup>3</sup>/ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Thời gian vận hành không thải bỏ bùn -->
+                  <div>
+                    <h5 class="title-2 title-3">
+                      - Thời gian vận hành không thải bỏ bùn (khi không cấy vi
+                      sinh)
+                    </h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">T<sub>khongThaiBun</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="TkhongThaiBun"
+                          id="input_xuLyNuocThai_HieuKhi_ThoiGianVanHanhKhongThaiBoBun" />
+                        <span class="input-group-text">ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Lưu lượng bùn hoàn lưu -->
+                  <div>
+                    <h5 class="title-2 title-3">- Lưu lượng bùn hoàn lưu</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">Q<sub>hoanLuuBun</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="QhoanLuuBun"
+                          id="input_xuLyNuocThai_HieuKhi_LuuLuongBunHoanLuu" />
+                        <span class="input-group-text">m<sup>3</sup>/ngày</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Độ cao hữu ích -->
+                  <div>
+                    <h5 class="title-2 title-3">- Độ cao hữu ích</h5>
+                    <div class="col-8 fix-full-screen">
+                      <div class="input-group">
+                        <span class="input-group-text">H<sub>huuIchHieuKhi</sub></span>
+                        <input placeholder="3 - 4.6" type="number" class="form-control" aria-label="HhuuIchHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_DoCaoHuuIch" />
                         <span class="input-group-text">m</span>
                       </div>
                     </div>
                   </div>
-
+                  <!-- Độ cao bảo vệ -->
                   <div>
-                    <h5 class="title-2 title-3">- Chiều rộng</h5>
+                    <h5 class="title-2 title-3">- Độ cao bảo vệ</h5>
                     <div class="col-8 fix-full-screen">
                       <div class="input-group">
-                        <span class="input-group-text">W<sub>hoThu</sub></span>
-                        <input disabled type="number" class="form-control" aria-label="WhoThu"
-                          id="input_xuLyNuocThai_HoThu_ChieuRong">
-                        <input type="number" class="form-control" aria-label="WhoThu"
-                          id="input_xuLyNuocThai_HoThu_ChieuRong_SuaLai">
+                        <span class="input-group-text">H<sub>baoVeHieuKhi</sub></span>
+                        <input placeholder="0.3 - 0.6" type="number" class="form-control" aria-label="HbaoVeHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_DoCaoBaove" />
                         <span class="input-group-text">m</span>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Cho hình tròn -->
+                  <!-- Tổng độ cao thực tế -->
                   <div>
-                    <h5 class="title-2 title-3">- Đường kính</h5>
+                    <h5 class="title-2 title-3">- Tổng độ cao thực tế</h5>
                     <div class="col-8 fix-full-screen">
                       <div class="input-group">
-                        <span class="input-group-text">D<sub>hoThu</sub></span>
-                        <input disabled type="number" class="form-control" aria-label="DhoThu"
-                          id="input_xuLyNuocThai_HoThu_DuongKinh">
-                        <input type="number" class="form-control" aria-label="DhoThu"
-                          id="input_xuLyNuocThai_HoThu_DuongKinh_SuaLai">
+                        <span class="input-group-text">H<sub>thucTeHieuKhi</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="HthucTeHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_DoCaoThucTe" />
                         <span class="input-group-text">m</span>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Thể tích tính toán lại -->
+                  <!-- Hình dạng bể -->
+                  <div>
+                    <h5 class="title-2 title-3">- Hình dạng bể</h5>
+                    <div class="col-8 fix-full-screen">
+                      <select class="form-select" aria-label="default-select"
+                        id="comboBox_XuLyNuocThai_HieuKhi_HinhDangBe">
+                        <option selected>Chọn một phương án...</option>
+                        <option value="1">Hình chữ nhật</option>
+                        <option value="2">Hình vuông</option>
+                        <option value="3">Hình tròn</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- Hình chữ nhật -->
+                    <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat" style="display: none">
+                      <!-- Chiều dài -->
+                      <div>
+                        <h5 class="title-2 title-3">- Chiều dài</h5>
+                        <div class="col-8 fix-full-screen">
+                          <div class="input-group">
+                            <span class="input-group-text">L<sub>hieuKhi</sub></span>
+                            <input type="number" class="form-control" aria-label="LHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat" />
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Chiều rộng -->
+                      <div>
+                        <h5 class="title-2 title-3">- Chiều rộng</h5>
+                        <div class="col-8 fix-full-screen">
+                          <div class="input-group">
+                            <span class="input-group-text">W<sub>hieuKhi</sub></span>
+                            <input disabled type="number" class="form-control" aria-label="WHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat" />
+                            <input type="number" class="form-control" aria-label="WHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat_SuaLai" />
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Hình vuông -->
+                    <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong" style="display: none">
+                      <!-- Chiều dài -->
+                      <div>
+                        <h5 class="title-2 title-3">- Chiều dài</h5>
+                        <div class="col-8 fix-full-screen">
+                          <div class="input-group">
+                            <span class="input-group-text">L<sub>hieuKhi</sub></span>
+                            <input disabled type="number" class="form-control" aria-label="LHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong" />
+                            <input type="number" class="form-control" aria-label="LHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong_SuaLai" />
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Chiều rộng -->
+                      <div>
+                        <h5 class="title-2 title-3">- Chiều rộng</h5>
+                        <div class="col-8 fix-full-screen">
+                          <div class="input-group">
+                            <span class="input-group-text">W<sub>hieuKhi</sub></span>
+                            <input disabled type="number" class="form-control" aria-label="WHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong" />
+                            <input type="number" class="form-control" aria-label="WHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong_SuaLai" />
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Hình tròn -->
+                    <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron" style="display: none">
+                      <!-- Đường kính -->
+                      <div>
+                        <h5 class="title-2 title-3">- Đường kính</h5>
+                        <div class="col-8 fix-full-screen">
+                          <div class="input-group">
+                            <span class="input-group-text">D<sub>hieuKhi</sub></span>
+                            <input disabled type="number" class="form-control" aria-label="DHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron" />
+                            <input type="number" class="form-control" aria-label="DHieuKhi"
+                              id="input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron_SuaLai" />
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Thể tích thực tế -->
                   <div>
                     <h5 class="title-2 title-3">- Thể tích thực tế</h5>
                     <div class="col-8 fix-full-screen">
                       <div class="input-group">
-                        <span class="input-group-text">V<sub>thucTeHoThu</sub></span>
-                        <input disabled type="number" class="form-control" aria-label="VthucTeHoThu"
-                          id="input_xuLyNuocThai_HoThu_TheTichThucTe">
+                        <span class="input-group-text">V<sub>thucTeHieuKhi</sub></span>
+                        <input disabled type="number" class="form-control" aria-label="VthucTeHieuKhi"
+                          id="input_xuLyNuocThai_HieuKhi_TheTichThucTe" />
                         <span class="input-group-text">m<sup>3</sup></span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!--Nút lấy số liệu từ CSDL-->
-              <!-- <button type="button" class="btn btn-success btn-sm btn-csdl" id="btn_xuLyNuocThai_HoThu_SoLieuMau">Số
-              liệu mẫu</button> -->
-
-              <!-- Máy móc, thiết bị -->
-              <h5 class="title-2">B. Máy móc, thiết bị</h5>
-              <div>
-                <h5 class="title-2 title-3">- Bơm chìm</h5>
-                <div class="col-8 fix-full-screen">
-                  <div class="input-group">
-                    <span class="input-group-text">Lưu lượng (&#8805;)</span>
-                    <input disabled type="number" class="form-control" aria-label="luuluongbom"
-                      id="input_xuLyNuocThai_HoThu_LuuLuongBom_LitPhut">
-                    <span class="input-group-text">lít/phút</span>
-                    <input disabled type="number" class="form-control" aria-label="luuluongbom"
-                      id="input_xuLyNuocThai_HoThu_LuuLuongBom_m3gio">
-                    <span class="input-group-text">m<sup>3</sup>/giờ</span>
-                  </div>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HieuKhi')"></i>
                 </div>
-                <div class="col-8 fix-full-screen">
-                  <div class="input-group">
-                    <span class="input-group-text">Cột áp</span>
-                    <input disabled value="8 - 10" type="text" class="form-control" aria-label="cotap"
-                      id="input_xuLyNuocThai_HoThu_CotApBom">
-                    <span class="input-group-text">m</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HoThu')"></i>
               </div>
             </div>
-          </div>
-          <!-- Kết thúc tính toán hố thu gom -->
+            <!-- Kết thúc tính toán bể hiếu khí -->
 
-          <!-- Bắt đầu tính toán bể tách mỡ -->
-          <div class="row group-unit" id="section_XuLyNuocThai_TachMo">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TachMo" aria-expanded="false"
-              aria-controls="xuLyNuocThai_TachMo">BỂ TÁCH MỠ</h4>
-            <div class="collapse" id="xuLyNuocThai_TachMo">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+            <!-- Bắt đầu tính toán Bể lọc sinh học nhỏ giọt -->
+            <div class="row group-unit" id="section_XuLyNuocThai_LocSinhHoc">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LocSinhHoc"
+                aria-expanded="false" aria-controls="xuLyNuocThai_LocSinhHoc">
+                BỂ LỌC SINH HỌC NHỎ GIỌT
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_LocSinhHoc">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TachMo')"></i>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LocSinhHoc')"></i>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Kết thúc tính toán bể tách mỡ -->
+            <!-- Kết thúc tính toán Bể lọc sinh học nhỏ giọt -->
 
-          <!-- Bắt đầu tính toán bể lắng cát -->
-          <div class="row group-unit" id="section_XuLyNuocThai_LangCat">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangCat" aria-expanded="false"
-              aria-controls="xuLyNuocThai_LangCat">BỂ LẮNG CÁT</h4>
-            <div class="collapse" id="xuLyNuocThai_LangCat">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
+            <!-- Bắt đầu tính toán Lồng quay sinh học -->
+            <div class="row group-unit" id="section_XuLyNuocThai_LongQuaySinhHoc">
+              <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LongQuaySinhHoc"
+                aria-expanded="false" aria-controls="xuLyNuocThai_LongQuaySinhHoc">
+                LỔNG QUAY SINH HỌC
+              </h4>
+              <div class="collapse" id="xuLyNuocThai_LongQuaySinhHoc">
+                <!-- Nguồn tiếp nhận nước thải-->
+                <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
 
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangCat')"></i>
+                <!-- Thu gọn mục -->
+                <div class="collapse-section">
+                  <i class="fas fa-angle-double-up"
+                    onclick="javascript:ClickToCollapse('xuLyNuocThai_LongQuaySinhHoc')"></i>
+                </div>
               </div>
             </div>
+            <!-- Kết thúc tính toán Lồng quay sinh học -->
           </div>
-          <!-- Kết thúc tính toán bể lắng cát -->
-
-          <!-- Bắt đầu tính toán bể điều hoà -->
-          <div class="row group-unit" id="section_XuLyNuocThai_DieuHoa">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_DieuHoa" aria-expanded="false"
-              aria-controls="xuLyNuocThai_DieuHoa">BỂ ĐIỀU HOÀ</h4>
-            <div class="collapse" id="xuLyNuocThai_DieuHoa">
-              <h5 class="title-2">A. Thông số, kích thước</h5>
-              <div>
-                <!-- Thời gian lưu -->
-                <div>
-                  <h5 class="title-2 title-3">- Thời gian lưu</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">T<sub>luuDieuHoa</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="TluuDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_ThoiGianLuu">
-                      <input type="number" class="form-control" aria-label="TluuDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_ThoiGianLuu_SuaLai">
-                      <span class="input-group-text">giờ</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thể tích hữu ích (lý thuyết)-->
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích hữu ích (lý thuyết)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>huuIchDieuHoa(LT)</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VhuuIchDieuHoaLT"
-                        id="input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet">
-                      <input type="number" class="form-control" aria-label="VhuuIchDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet_SuaLai">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hệ số vượt tải -->
-                <div>
-                  <h5 class="title-2 title-3">- Hệ số vượt tải</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">K<sub>vuotTai</sub></span>
-                      <input placeholder="1.1 - 1.2" type="number" class="form-control" aria-label="KvuotTai"
-                        id="input_xuLyNuocThai_DieuHoa_HeSoVuotTai">
-                      <span class="input-group-text">-</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thể tích hữu ích (thực tế)-->
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích hữu ích (thực tế)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>huuIchDieuHoa(TT)</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VhuuIchDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_TheTichHuuIch">
-                      <input type="number" class="form-control" aria-label="VhuuIchDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_TheTichHuuIch_SuaLai">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Độ cao hữu ích -->
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao hữu ích</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>huuIchDieuHoa</sub></span>
-                      <input type="number" class="form-control" aria-label="HhuuIchDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_DoCaoHuuIch">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Độ cao bảo vệ -->
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao bảo vệ</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>baoVeDieuHoa</sub></span>
-                      <input placeholder="0.2 - 0.4" type="number" class="form-control" aria-label="HbaoVeDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_DoCaoBaove">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Tổng độ cao thực tế -->
-                <div>
-                  <h5 class="title-2 title-3">- Tổng độ cao thực tế</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>thucTeDieuHoa</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="HthucTeDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_DoCaoThucTe">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hình dạng bể -->
-                <div>
-                  <h5 class="title-2 title-3">- Hình dạng bể</h5>
-                  <div class="col-8 fix-full-screen">
-                    <select class="form-select" aria-label="default-select"
-                      id="comboBox_XuLyNuocThai_DieuHoa_HinhDangBe">
-                      <option selected>Chọn một phương án...</option>
-                      <option value="1">Hình chữ nhật</option>
-                      <option value="2">Hình vuông</option>
-                      <option value="3">Hình tròn</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <!-- Hình chữ nhật -->
-                  <div id="box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat" style="display: none;">
-                    <!-- Chiều dài -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều dài</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">L<sub>dieuHoa</sub></span>
-                          <input type="number" class="form-control" aria-label="LdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Chiều rộng -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều rộng</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">W<sub>dieuHoa</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="WdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat">
-                          <input type="number" class="form-control" aria-label="WdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Hình vuông -->
-                  <div id="box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong" style="display: none;">
-                    <!-- Chiều dài -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều dài</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">L<sub>dieuHoa</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="LdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong">
-                          <input type="number" class="form-control" aria-label="LdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Chiều rộng -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều rộng</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">W<sub>dieuHoa</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="WdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong">
-                          <input type="number" class="form-control" aria-label="WdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Hình tròn -->
-                  <div id="box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron" style="display: none;">
-                    <!-- Đường kính -->
-                    <div>
-                      <h5 class="title-2 title-3">- Đường kính</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">D<sub>dieuHoa</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="DdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron">
-                          <input type="number" class="form-control" aria-label="DdieuHoa"
-                            id="input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thể tích thực tế -->
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích thực tế</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>thucTeDieuHoa</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VthucTeDieuHoa"
-                        id="input_xuLyNuocThai_DieuHoa_TheTichThucTe">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h5 class="title-2">B. Máy móc, thiết bị</h5>
-              <!-- Dạng khuấy trộn -->
-              <div>
-                <h5 class="title-2 title-3">- Dạng khuấy trộn</h5>
-                <div class="col-8 fix-full-screen">
-                  <select class="form-select" aria-label="default-select"
-                    id="comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron">
-                    <option selected>Chọn một phương án...</option>
-                    <option value="1">Khuấy trộn cơ khí</option>
-                    <option value="2">Khuấy trộn khí nén</option>
-                  </select>
-                </div>
-              </div>
-              <!-- Khuấy trộn khí nén -->
-              <div id="box_XuLyNuocThai_DieuHoa_KhiNen" style="display: none;">
-                <!-- Tốc độ khí nén -->
-                <div>
-                  <h5 class="title-2 title-3">- Tốc độ khí nén cung cấp</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">v<sub>khiNen</sub></span>
-                      <input placeholder="0.01 - 0.02" type="number" class="form-control" aria-label="vkhiNen"
-                        id="input_xuLyNuocThai_DieuHoa_KhiNen_TocDoKhiNenCungCap">
-                      <span class="input-group-text">m<sup>3</sup>(KK)/m <sup>3</sup>(TT)*phút</span>
-                    </div>
-                  </div>
-                </div>
-                <!--  Thể tích khí nén cần cung cấp -->
-                <div>
-                  <h5 class="title-2 title-3">- Lượng khí nén cần thiết cho khuấy trộn</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">Q<sub>khiNen</sub></span>
-                      <input disabled placeholder="" type="number" class="form-control" aria-label="QkhiNen"
-                        id="input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron">
-                      <span class="input-group-text">m<sup>3</sup>/phút</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Loại khuếch tán không khí -->
-                <div>
-                  <h5 class="title-2 title-3">- Loại khuếch tán khí</h5>
-                  <div class="col-8 fix-full-screen">
-                    <select class="form-select" aria-label="default-select"
-                      id="comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan">
-                      <option selected>Chọn một phương án...</option>
-                      <option value="1">Ống phân phối khí</option>
-                      <option value="2">Đĩa phân phối khí</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- Ống phân phối khí -->
-                <div id="box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi" style="display: none;">
-                  <!-- Lưu lượng không khí trên mỗi đơn vị phân phối -->
-                  <div>
-                    <h5 class="title-2 title-3">- Lưu lượng khí trên mỗi ống (cái)</h5>
-                    <div class="col-8 fix-full-screen">
-                      <div class="input-group">
-                        <span class="input-group-text">Q<sub>khiOng</sub></span>
-                        <input placeholder="" type="number" class="form-control" aria-label="QkhiOng"
-                          id="input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_LuongKhiTrenMoiOng">
-                        <span class="input-group-text">m<sup>3</sup>/phút</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Số lượng ống phân phối -->
-                  <div>
-                    <h5 class="title-2 title-3">- Số ống (cái) phân phối cần thiết</h5>
-                    <div class="col-8 fix-full-screen">
-                      <div class="input-group">
-                        <span class="input-group-text">N<sub>ong</sub></span>
-                        <input disabled placeholder="" type="number" class="form-control" aria-label="Nong"
-                          id="input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_SoLuongOng">
-                        <span class="input-group-text">ống (cái)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Đĩa phân phối khí -->
-                <div id="box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi" style="display: none;">
-                  <!-- Lưu lượng không khí trên mỗi đơn vị phân phối -->
-                  <div>
-                    <h5 class="title-2 title-3">- Lưu lượng khí trên mỗi đĩa</h5>
-                    <div class="col-8 fix-full-screen">
-                      <div class="input-group">
-                        <span class="input-group-text">Q<sub>khiDia</sub></span>
-                        <input placeholder="" type="number" class="form-control" aria-label="QkhiDia"
-                          id="input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_LuongKhiTrenMoiDia">
-                        <span class="input-group-text">m<sup>3</sup>/phút</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Số lượng ống phân phối -->
-                  <div>
-                    <h5 class="title-2 title-3">- Số đĩa phân phối cần thiết</h5>
-                    <div class="col-8 fix-full-screen">
-                      <div class="input-group">
-                        <span class="input-group-text">N<sub>dia</sub></span>
-                        <input disabled placeholder="" type="number" class="form-control" aria-label="Ndia"
-                          id="input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_SoLuongDia">
-                        <span class="input-group-text">cái</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Khuấy trộn cơ khí -->
-              <div id="box_XuLyNuocThai_DieuHoa_CoKhi" style="display: none;">
-                <!-- Công suất cung cấp cho mỗi m3 nước thải-->
-                <div>
-                  <h5 class="title-2 title-3">- Công suất cung cấp mỗi cho mỗi m<sup>3</sup> nước thải</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">P<sub>cungCap</sub></span>
-                      <input placeholder="4 - 8" type="number" class="form-control" aria-label="PcungCap"
-                        id="input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiM3Nuoc">
-                      <span class="input-group-text">W/m<sup>3</sup>(TT)</span>
-                    </div>
-                  </div>
-                </div>
-                <!--  Thể tích khí nén cần cung cấp -->
-                <div>
-                  <h5 class="title-2 title-3">- Công suất thiết bị khuấy trộn</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">P<sub>khuayTron</sub></span>
-                      <input disabled placeholder="" type="number" class="form-control" aria-label="PkhuayTron"
-                        id="input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_KW">
-                      <span class="input-group-text">kW</span>
-                      <input disabled placeholder="" type="number" class="form-control" aria-label="PkhuayTron"
-                        id="input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_HP">
-                      <span class="input-group-text">HP</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_DieuHoa')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể điều hoà -->
-
-          <!-- Bắt đầu tính toán bể tuyển nổi -->
-          <div class="row group-unit" id="section_XuLyNuocThai_TuyenNoi">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TuyenNoi" aria-expanded="false"
-              aria-controls="xuLyNuocThai_TuyenNoi">BỂ TUYỂN NỔI</h4>
-            <div class="collapse" id="xuLyNuocThai_TuyenNoi">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TuyenNoi')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể tuyển nổi -->
-
-          <!-- Bắt đầu tính toán bể lắng hoá lý -->
-          <div class="row group-unit" id="section_XuLyNuocThai_LangHoaLy">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangHoaLy" aria-expanded="false"
-              aria-controls="xuLyNuocThai_LangHoaLy">BỂ LẮNG HOÁ LÝ</h4>
-            <div class="collapse" id="xuLyNuocThai_LangHoaLy">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangHoaLy')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể lắng hoá lý -->
-
-          <!-- Bắt đầu tính toán bể lắng sinh học -->
-          <div class="row group-unit" id="section_XuLyNuocThai_LangSinhHoc">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LangSinhHoc"
-              aria-expanded="false" aria-controls="xuLyNuocThai_LangSinhHoc">BỂ LẮNG SINH HỌC</h4>
-            <div class="collapse" id="xuLyNuocThai_LangSinhHoc">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LangSinhHoc')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể lắng sinh học -->
-
-          <!-- Bắt đầu tính toán bể khử trùng -->
-          <div class="row group-unit" id="section_XuLyNuocThai_KhuTrung">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KhuTrung" aria-expanded="false"
-              aria-controls="xuLyNuocThai_KhuTrung">BỂ KHỬ TRÙNG</h4>
-            <div class="collapse" id="xuLyNuocThai_KhuTrung">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KhuTrung')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể khử trùng -->
-
-          <!-- Bắt đầu tính toán bể trung gian -->
-          <div class="row group-unit" id="section_XuLyNuocThai_TrungGian">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TrungGian" aria-expanded="false"
-              aria-controls="xuLyNuocThai_TrungGian">BỂ TRUNG GIAN</h4>
-            <div class="collapse" id="xuLyNuocThai_TrungGian">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_TrungGian')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể trung gian -->
-
-          <!-- Bắt đầu tính toán cột lọc áp lực -->
-          <div class="row group-unit" id="section_XuLyNuocThai_CotLocApLuc">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_CotLocApLuc"
-              aria-expanded="false" aria-controls="xuLyNuocThai_CotLocApLuc">CỘT LỌC ÁP LỰC</h4>
-            <div class="collapse" id="xuLyNuocThai_CotLocApLuc">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_CotLocApLuc')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán cột lọc áp lực -->
-
-          <!-- Bắt đầu tính toán bể keo tụ -->
-          <div class="row group-unit" id="section_XuLyNuocThai_KeoTu">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_KeoTu" aria-expanded="false"
-              aria-controls="xuLyNuocThai_KeoTu">BỂ KEO TỤ</h4>
-            <div class="collapse" id="xuLyNuocThai_KeoTu">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_KeoTu')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể keo tụ -->
-
-          <!-- Bắt đầu tính toán bể tạo bông -->
-          <div class="row group-unit" id="section_XuLyNuocThai_TaoBong">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_TaoBong" aria-expanded="false"
-              aria-controls="xuLyNuocThai_TaoBong">BỂ TẠO BÔNG</h4>
-            <div class="collapse" id="xuLyNuocThai_TaoBong">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up"
-                  onclick="javascript:ClickToCollapse('xuLyNuocxuLyNuocThai_TaoBongThai_TachMo')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể tạo bông -->
-
-          <!-- Bắt đầu tính toán bể UASB -->
-          <div class="row group-unit" id="section_XuLyNuocThai_YemKhi">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_YemKhi" aria-expanded="false"
-              aria-controls="xuLyNuocThai_YemKhi">BỂ UASB</h4>
-            <div class="collapse" id="xuLyNuocThai_YemKhi">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_YemKhi')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể UASB -->
-
-          <!-- Bắt đầu tính toán bể thiếu khí -->
-          <div class="row group-unit" id="section_XuLyNuocThai_ThieuKhi">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_ThieuKhi" aria-expanded="false"
-              aria-controls="xuLyNuocThai_ThieuKhi">BỂ THIẾU KHÍ</h4>
-            <div class="collapse" id="xuLyNuocThai_ThieuKhi">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_ThieuKhi')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể thiếu khí -->
-
-          <!-- Bắt đầu tính toán bể hiếu khí -->
-          <div class="row group-unit" id="section_XuLyNuocThai_HieuKhi">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_HieuKhi" aria-expanded="false"
-              aria-controls="xuLyNuocThai_HieuKhi">BỂ HIẾU KHÍ</h4>
-            <div class="collapse" id="xuLyNuocThai_HieuKhi">
-              <h5 class="title-2">A. Thông số, kích thước</h5>
-              <!-- Thông số, kích thước -->
-              <div>
-                <!-- Phương án xác định thể tích -->
-                <div>
-                  <h5 class="title-2 title-3">- Phương án xác định thể tích</h5>
-                  <div class="col-8 fix-full-screen">
-                    <select class="form-select" aria-label="default-select"
-                      id="comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich">
-                      <option selected>Chọn một phương án...</option>
-                      <option value="1">Xác định theo thời gian lưu của vi khuẩn</option>
-                      <option value="2">Xác định theo thời gian lưu nước</option>
-                      <option disabled value="3">Xác định theo tốc độ sử dụng chất nền</option>
-                      <option disabled value="4">Xác định theo tỉ lệ F/M</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- Nồng độ SS và BOD5 cần đạt theo quy chuẩn -->
-                <div>
-                  <h5 class="title-2 title-3">- Nồng độ SS và BOD<sub>5</sub> cần đạt - QCVN</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">SS<sub>quyChuan</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="SSquyChuan"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">BOD<sub>5quyChuan</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="BOD5quyChuan"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Nồng độ SS và BOD5 sau xử lý -->
-                <div>
-                  <h5 class="title-2 title-3">- Nồng độ SS và BOD<sub>5</sub> sau xử lý (sau lắng - ước tính)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">SS<sub>sauXuLy</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="SSsauXuLy"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy">
-                      <input type="number" class="form-control" aria-label="SSsauXuLy"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy_SuaLai">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">BOD<sub>5sauXuLy</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="BOD5sauXuLy"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy">
-                      <input type="number" class="form-control" aria-label="BOD5sauXuLy"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy_SuaLai">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- % các chẩt phân huỷ sinh học trong SS đầu ra -->
-                <div>
-                  <h5 class="title-2 title-3">- Tỉ lệ các chất phân huỷ sinh học trong SS sau xử lý</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">R<sub>phanHuySinhHocSS</sub></span>
-                      <input placeholder="60 - 70" type="number" class="form-control" aria-label="RphanHuySinhHocSS"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS">
-                      <span class="input-group-text">%</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Lượng BOD hoà tan tối đa trong nước thải sau xử lý -->
-                <div>
-                  <h5 class="title-2 title-3">- Lượng BOD hoà tan tối đa trong nước thải sau xử lý</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">BOD<sub>hoaTanSauXL</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="BODhoaTanSauXL"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Nhiệt độ khu vực tính toán -->
-                <div>
-                  <h5 class="title-2 title-3">- Nhiệt độ trung bình khu vực tính toán</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">t<sub>khuVuc</sub></span>
-                      <input placeholder="VN = 25 - 30" type="number" class="form-control" aria-label="tkhuVuc"
-                        id="input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc">
-                      <span class="input-group-text"><sup>o</sup>C</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thời gian lưu vi khuẩn (bùn) -->
-                <div>
-                  <h5 class="title-2 title-3">- Thời gian lưu vi khuẩn (bùn)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">&theta;<sub>c</sub></span>
-                      <input placeholder="3 - 15" type="number" class="form-control" aria-label="TluuVK"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan">
-                      <span class="input-group-text">ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn hoạt tính -->
-                <div>
-                  <h5 class="title-2 title-3">- Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn hoạt tính</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">X</span>
-                      <input placeholder="&leq; 4000" type="number" class="form-control" aria-label="MLVSS"
-                        id="input_xuLyNuocThai_HieuKhi_MLVSS">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hệ số sản lượng bùn -->
-                <div>
-                  <h5 class="title-2 title-3">- Hệ số sản lượng bùn</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">Y</span>
-                      <input placeholder="0.4 - 0.8" type="number" class="form-control" aria-label="Y"
-                        id="input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun">
-                      <span class="input-group-text">mg VSS/mg bCOD</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hệ số phân huỷ nội bào ở 20 độ C-->
-                <div>
-                  <h5 class="title-2 title-3">- Hệ số phân huỷ nội bào (ở 20 độ C)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">k<sub>d20</sub></span>
-                      <input placeholder="0.06 - 0.075" type="number" class="form-control" aria-label="kd"
-                        id="input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do">
-                      <span class="input-group-text">ngày<sup>-1</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hệ số điều chỉnh theo nhiệt độ-->
-                <div>
-                  <h5 class="title-2 title-3">- Hệ số điều chỉnh k<sub>d</sub> theo nhiệt độ</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">C<sub>dieuChinhkd</sub></span>
-                      <input placeholder="1.03 - 1.08" type="number" class="form-control" aria-label="CdieuChinhkd"
-                        id="input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd">
-                      <span class="input-group-text">-</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hệ số phân huỷ nội bào ở nhiệt độ khu vực -->
-                <div>
-                  <h5 class="title-2 title-3">- Hệ số phân huỷ nội bào (ở nhiệt độ khu vực)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">k<sub>d</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="kd"
-                        id="input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc">
-                      <span class="input-group-text">ngày<sup>-1</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Xác định theo thời gian lưu nước -->
-                <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu" style="display: none;">
-                  <div>
-                    <h5 class="title-2 title-3">- Thời gian lưu nước trong bể</h5>
-                    <div class="col-8 fix-full-screen">
-                      <div class="input-group">
-                        <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
-                        <input placeholder="4 - 8" type="number" class="form-control" aria-label="TluuHieuKhi"
-                          id="input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu">
-                        <span class="input-group-text">giờ</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thể tích bể bùn hoạt tính cần có -->
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích bể hiếu khí</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>huuIchHieuKhi</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VhuuIchHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_TheTichHuuIch">
-                      <input type="number" class="form-control" aria-label="VhuuIchHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_TheTichHuuIch_SuaLai">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thời gian lưu nước -->
-                <div id="box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK" style="display: none;">
-                  <h5 class="title-2 title-3">- Thời gian tồn lưu nước</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">T<sub>luuHieuKhi</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="TluuHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianLuu">
-                      <span class="input-group-text">giờ</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Tỉ lệ F/M -->
-                <div>
-                  <h5 class="title-2 title-3">- Tỉ lệ F/M</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">F/M<sub>hieuKhi</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="FMhieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_TiLeFM">
-                      <span class="input-group-text">ngày<sup>-1</sup></span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Tải nạp chất hữu cơ theo thể tích bể -->
-                <div>
-                  <h5 class="title-2 title-3">- Tải nạp chất hữu cơ theo thể tích bể</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">L<sub>BOD</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="LBOD"
-                        id="input_xuLyNuocThai_HieuKhi_TaiNapChatHuuCo">
-                      <span class="input-group-text">kg/m<sup>3</sup>*ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Độ tro của bùn -->
-                <div>
-                  <h5 class="title-2 title-3">- Độ tro của bùn</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">R<sub>troBun</sub></span>
-                      <input placeholder="20 - 30" type="number" class="form-control" aria-label="RtroBun"
-                        id="input_xuLyNuocThai_HieuKhi_DoTroCuaBun">
-                      <span class="input-group-text">%</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Lượng bùn xả bỏ mỗi ngày -->
-                <div>
-                  <h5 class="title-2 title-3">- Lượng bùn dư thải bỏ mỗi ngày</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">W<sub>bunThaiMoiNgay</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="WbunThaiMoiNgay"
-                        id="input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay">
-                      <span class="input-group-text">kg/ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Nồng độ bùn ở đáy bể lắng sinh học -->
-                <div>
-                  <h5 class="title-2 title-3">- Nồng độ bùn ở đáy bể lắng sinh học</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">C<sub>bunDayLangSH</sub></span>
-                      <input placeholder="7000 - 10000" type="number" class="form-control" aria-label="CbunDayLangSH"
-                        id="input_xuLyNuocThai_HieuKhi_NongDoBunDayBeLang">
-                      <span class="input-group-text">mg/L</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Lượng bùn thải bỏ hằng ngày -->
-                <div>
-                  <h5 class="title-2 title-3">- Lượng bùn thải bỏ hằng ngày</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">Q<sub>bunThai</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="QbunThai"
-                        id="input_xuLyNuocThai_HieuKhi_LuuLuongBunThaiBoMoiNgay">
-                      <span class="input-group-text">m<sup>3</sup>/ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thời gian vận hành không thải bỏ bùn -->
-                <div>
-                  <h5 class="title-2 title-3">- Thời gian vận hành không thải bỏ bùn (khi không cấy vi sinh)</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">T<sub>khongThaiBun</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="TkhongThaiBun"
-                        id="input_xuLyNuocThai_HieuKhi_ThoiGianVanHanhKhongThaiBoBun">
-                      <span class="input-group-text">ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Lưu lượng bùn hoàn lưu -->
-                <div>
-                  <h5 class="title-2 title-3">- Lưu lượng bùn hoàn lưu</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">Q<sub>hoanLuuBun</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="QhoanLuuBun"
-                        id="input_xuLyNuocThai_HieuKhi_LuuLuongBunHoanLuu">
-                      <span class="input-group-text">m<sup>3</sup>/ngày</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Độ cao hữu ích -->
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao hữu ích</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>huuIchHieuKhi</sub></span>
-                      <input placeholder="3 - 4.6" type="number" class="form-control" aria-label="HhuuIchHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_DoCaoHuuIch">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Độ cao bảo vệ -->
-                <div>
-                  <h5 class="title-2 title-3">- Độ cao bảo vệ</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>baoVeHieuKhi</sub></span>
-                      <input placeholder="0.3 - 0.6" type="number" class="form-control" aria-label="HbaoVeHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_DoCaoBaove">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Tổng độ cao thực tế -->
-                <div>
-                  <h5 class="title-2 title-3">- Tổng độ cao thực tế</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">H<sub>thucTeHieuKhi</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="HthucTeHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_DoCaoThucTe">
-                      <span class="input-group-text">m</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Hình dạng bể -->
-                <div>
-                  <h5 class="title-2 title-3">- Hình dạng bể</h5>
-                  <div class="col-8 fix-full-screen">
-                    <select class="form-select" aria-label="default-select"
-                      id="comboBox_XuLyNuocThai_HieuKhi_HinhDangBe">
-                      <option selected>Chọn một phương án...</option>
-                      <option value="1">Hình chữ nhật</option>
-                      <option value="2">Hình vuông</option>
-                      <option value="3">Hình tròn</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <!-- Hình chữ nhật -->
-                  <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat" style="display: none;">
-                    <!-- Chiều dài -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều dài</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">L<sub>hieuKhi</sub></span>
-                          <input type="number" class="form-control" aria-label="LHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Chiều rộng -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều rộng</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">W<sub>hieuKhi</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="WHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat">
-                          <input type="number" class="form-control" aria-label="WHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Hình vuông -->
-                  <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong" style="display: none;">
-                    <!-- Chiều dài -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều dài</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">L<sub>hieuKhi</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="LHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong">
-                          <input type="number" class="form-control" aria-label="LHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Chiều rộng -->
-                    <div>
-                      <h5 class="title-2 title-3">- Chiều rộng</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">W<sub>hieuKhi</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="WHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong">
-                          <input type="number" class="form-control" aria-label="WHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Hình tròn -->
-                  <div id="box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron" style="display: none;">
-                    <!-- Đường kính -->
-                    <div>
-                      <h5 class="title-2 title-3">- Đường kính</h5>
-                      <div class="col-8 fix-full-screen">
-                        <div class="input-group">
-                          <span class="input-group-text">D<sub>hieuKhi</sub></span>
-                          <input disabled type="number" class="form-control" aria-label="DHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron">
-                          <input type="number" class="form-control" aria-label="DHieuKhi"
-                            id="input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron_SuaLai">
-                          <span class="input-group-text">m</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Thể tích thực tế -->
-                <div>
-                  <h5 class="title-2 title-3">- Thể tích thực tế</h5>
-                  <div class="col-8 fix-full-screen">
-                    <div class="input-group">
-                      <span class="input-group-text">V<sub>thucTeHieuKhi</sub></span>
-                      <input disabled type="number" class="form-control" aria-label="VthucTeHieuKhi"
-                        id="input_xuLyNuocThai_HieuKhi_TheTichThucTe">
-                      <span class="input-group-text">m<sup>3</sup></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_HieuKhi')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán bể hiếu khí -->
-
-          <!-- Bắt đầu tính toán Bể lọc sinh học nhỏ giọt -->
-          <div class="row group-unit" id="section_XuLyNuocThai_LocSinhHoc">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LocSinhHoc"
-              aria-expanded="false" aria-controls="xuLyNuocThai_LocSinhHoc">BỂ LỌC SINH HỌC NHỎ GIỌT</h4>
-            <div class="collapse" id="xuLyNuocThai_LocSinhHoc">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up" onclick="javascript:ClickToCollapse('xuLyNuocThai_LocSinhHoc')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán Bể lọc sinh học nhỏ giọt -->
-
-          <!-- Bắt đầu tính toán Lồng quay sinh học -->
-          <div class="row group-unit" id="section_XuLyNuocThai_LongQuaySinhHoc">
-            <h4 class="title-1" data-bs-toggle="collapse" data-bs-target="#xuLyNuocThai_LongQuaySinhHoc"
-              aria-expanded="false" aria-controls="xuLyNuocThai_LongQuaySinhHoc">LỔNG QUAY SINH HỌC</h4>
-            <div class="collapse" id="xuLyNuocThai_LongQuaySinhHoc">
-              <!-- Nguồn tiếp nhận nước thải-->
-              <h5 class="title-2">4.1 Nguồn tiếp nhận nước thải</h5>
-
-              <!-- Thu gọn mục -->
-              <div class="collapse-section">
-                <i class="fas fa-angle-double-up"
-                  onclick="javascript:ClickToCollapse('xuLyNuocThai_LongQuaySinhHoc')"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Kết thúc tính toán Lồng quay sinh học -->
         </div>
       </div>
-
+      <!--======================================   XỬ LÝ NƯỚC CẤP    ===========================================-->
+      <div id="box_XuLyNuocCap" style="display: none">
+        <!-- Bắt đầu phương pháp xử lý-->
+        <div class="row group-unit-alway-show group-no-collapse" id="section_XuLyNuocCap">
+          <h4 class="title-1">II. XỬ LÝ NƯỚC CẤP</h4>
+          <h5 class="title-2">2.1 Loại nước cấp cần xử lý</h5>
+          <div class="col-8 fix-full-screen">
+            <select class="form-select" aria-label="default-select" id="comboBox_XuLyNuocCap">
+              <option selected>Chọn một phương án...</option>
+              <option value="1">Nước cấp sinh hoạt</option>
+              <option value="2">Nước cấp ăn, uống</option>
+            </select>
+          </div>
+        </div>
+        <!-- Kết thúc phương pháp xử lý-->
+      </div>
+      <!--======================================   XỬ LÝ KHÍ THẢI    ===========================================-->
+      <div id="box_XuLyKhiThai" style="display: none">
+        <!-- Bắt đầu phương pháp xử lý-->
+        <div class="row group-unit-alway-show group-no-collapse" id="section_XuLyKhiThai">
+          <h4 class="title-1">II. XỬ LÝ KHÍ THẢI</h4>
+          <h5 class="title-2">2.1 Loại khí thải cần xử lý</h5>
+          <div class="col-8 fix-full-screen">
+            <select class="form-select" aria-label="default-select" id="comboBox_XuLyKhiThai">
+              <option selected>Chọn một phương án...</option>
+              <option value="1">Khí thải lò hơi</option>
+              <option value="2">Khí thải xi mạ</option>
+            </select>
+          </div>
+        </div>
+        <!-- Kết thúc phương pháp xử lý-->
+      </div>
+      <!--======================================   XỬ LÝ CHẤT THẢI RẮN    ===========================================-->
+      <div id="box_XuLyChatThaiRan" style="display: none">
+        <!-- Bắt đầu phương pháp xử lý-->
+        <div class="row group-unit-alway-show group-no-collapse" id="section_XuLyChatThaiRan">
+          <h4 class="title-1">II. XỬ LÝ CHẤT THẢI RẮN</h4>
+          <h5 class="title-2">2.1 Phương pháp cần xử lý</h5>
+          <div class="col-8 fix-full-screen">
+            <select class="form-select" aria-label="default-select" id="comboBox_XuLyChatThaiRan">
+              <option selected>Chọn một phương án...</option>
+              <option value="1">Ủ compost</option>
+              <option value="2">Chôn lấp hợp vệ sinh</option>
+              <option value="3">Đốt</option>
+            </select>
+          </div>
+        </div>
+        <!-- Kết thúc phương pháp xử lý-->
+      </div>
     </div>
   </div>
 
+  <!--======================================  PHẦN CHÂN   ===========================================-->
+  <div class="footer-page"></div>
+
+  <!--======================================  PHẦN SCRIPT   ===========================================-->
   <!-- JavaScript Libraries -->
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!--Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+  </script>
   <script src="./lib/bootstrap-select-lib/js/bootstrap-select.min.js"></script>
 
   <!--Flowchart-->
@@ -2383,36 +1161,62 @@
 
   <!-- Google translate -->
   <script type="text/javascript">
-
     //Code by google
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+      new google.translate.TranslateElement({
+          pageLanguage: "vi",
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+        },
+        "google_translate_element"
+      );
     }
 
     //Translate to others language (except main language)
     function translateLanguage(lang) {
       googleTranslateElementInit();
-      var $frame = $('.goog-te-menu-frame:first');
-      $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+      var $frame = $(".goog-te-menu-frame:first");
+      $frame
+        .contents()
+        .find(".goog-te-menu2-item span.text:contains(" + lang + ")")
+        .get(0)
+        .click();
       return false;
     }
 
     //Chuyển sang ngôn ngữ khác
-    document.getElementById("comboBox_DichSangNgonNguKhac").addEventListener("change", function () {
-      var lang = document.getElementById("comboBox_DichSangNgonNguKhac").value;
-      if (lang !== "Vietnamese") {
-        translateLanguage(lang);
-      } else {
-        location.reload();
-      }
-    });
+    document
+      .getElementById("comboBox_DichSangNgonNguKhac")
+      .addEventListener("change", function () {
+        var lang = document.getElementById(
+          "comboBox_DichSangNgonNguKhac"
+        ).value;
+        if (lang !== "Vietnamese") {
+          translateLanguage(lang);
+        } else {
+          location.reload();
+        }
+      });
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     type="text/javascript"></script>
 
+  <!-- IndexdDB - only key-val used -->
+  <script src="https://cdn.jsdelivr.net/npm/idb-keyval@5/dist/iife/index-min.js"></script>
+
   <!-- Template Javascript -->
   <script src="./js/main.js"></script>
 
+  <!--======================================  GHI CHÚ   ===========================================-->
+  <!--
+    1. Container: được xem là một đối tượng chứa chính
+    2. Box: một hợp chứa những đối tượng ẩn (ẩn cùng nhau + một nhóm) + mặt đỊnh ẩn trên website
+    3. Section: một phần tử tính toán (01 công trình đơn vị của website)
+        Có 02 loại:
+         + Có thể thu gọn
+         + Không thể thu gọn
+    4. Parent: giữ vai trò như mốc cố đỊnh cho các phần tử bên trong có thể di chuyển, sắp xếp, hoán đổi vị trí.
+  -->
 </body>
 
 </html>

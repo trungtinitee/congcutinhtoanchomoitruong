@@ -1,45 +1,55 @@
-/* General format*/
+/* Định dạng chung*/
 
 body {
-    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    line-height: normal;
 }
 
 .main-background {
-   /*  background-image: url(../img/back-1.jpg);
+    /*  background-image: url(../img/back-1.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover; */
-    background: #73c5e1;
+    background: #dbe9ff;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0px;
     z-index: -10;
-    opacity: .25;
+    opacity: .5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #ffffff;
 }
 
 .core {
     margin: 25px 0px;
+    padding-bottom: 100px;
+}
+
+.footer-page {
+    height: 100px;
+    width: 100%;
+    background: #04aa6d;
+    position: absolute;
+    bottom: 0px;
 }
 
 .title-header {
-    font-weight: bold;
+    font-family: "Bungee", Arial, sans-serif;
+    font-size: 2.5rem;
     text-align: center;
     color: #0d6efd;
-    /* background: linear-gradient(188deg, rgba(13, 110, 253, 1) 0%, rgba(4, 170, 109, 1) 50%, rgba(13, 110, 253, 1) 100%); */
-    padding: 10px 10px;
-    margin-bottom: 30px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 30px;
-    border: 5px solid #04aa6d;
-    display: inline;
+    padding: 18px 0px;
+    margin-bottom: 36px;
+    border-bottom: 5px solid #04aa6d;
+    border-top: 5px solid #04aa6d;
+    display: block;
     background-image: url(../img/back-2.jpg);
     background-size: cover;
 }
@@ -48,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     background: #04aa6d;
     padding: 10px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     z-index: 10;
 }
 
@@ -57,22 +67,24 @@ h1, h2, h3, h4, h5, h6 {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .title-2 {
     color: #04aa6d;
     font-weight: bold;
     padding-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     margin-bottom: 5px;
     margin-left: 0px;
     margin-right: 0px;
 }
 
 .title-3 {
-    color: #000000;
-    font-size: 17px;
-    padding-left: 10px;
+    color: #212529;
+    font-size: 1rem;
+    padding-left: 5px;
+    padding-top: 10px;
 }
 
 .group-unit {
@@ -82,18 +94,22 @@ h1, h2, h3, h4, h5, h6 {
     background: #f8f9fa;
     display: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-end-start-radius: 8px;
-    border-end-end-radius: 8px;
+    border-end-start-radius: 0px;
+    border-end-end-radius: 0px;
 }
 
 .group-unit-alway-show {
     border: 1px solid #04aa6d;
     margin-bottom: 15px;
-    padding-bottom: 7px;
+    /* padding-bottom: 7px; */
     background: #f8f9fa;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-end-start-radius: 8px;
-    border-end-end-radius: 8px;
+    border-end-start-radius: 0px;
+    border-end-end-radius: 0px;
+}
+
+.group-no-collapse {
+    padding-bottom: 7px;
 }
 
 .func-group {
@@ -116,6 +132,10 @@ h1, h2, h3, h4, h5, h6 {
     .fix-full-screen {
         width: 100%;
     }
+
+    .title-header {
+        font-size: 2rem;
+    }
 }
 
 .fix-full-screen {
@@ -132,6 +152,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+/* Nút switch */
+.form-check {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
 .btn-bug {
     position: fixed;
     bottom: 15px;
@@ -140,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 50px;
 }
 
-.btn-statistical{
+.btn-statistical {
     position: fixed;
     bottom: 65px;
     right: 0px;
@@ -155,7 +181,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .collapse-section {
     text-align: center;
-    margin-top: 7px;
+    margin-top: 12px;
+    line-height: normal;
 }
 
 .collapse-section i {
@@ -193,10 +220,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-suggest i {
-    font-size: larger;
+    font-size: 1.35rem;
 }
 
-.btn-outside-collapse{
+.btn-outside-collapse {
     right: 0px;
 }
 
@@ -207,9 +234,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
 }
 
-.modal-body, .modal-footer {
+.modal-body,
+.modal-footer {
     background: #dbe9ff;
-    color: #000000;
+    color: #212529;
 }
 
 .modal-body img {
@@ -230,6 +258,11 @@ h1, h2, h3, h4, h5, h6 {
 .fix-SoDoCongNghe svg {
     max-width: 100%;
     height: auto;
+}
+
+.div-list{
+    color: #fff;
+    background: #04aa6d;
 }
 
 /* Khoá thao tác */
@@ -259,7 +292,8 @@ h1, h2, h3, h4, h5, h6 {
     animation: rotation 1s linear infinite;
 }
 
-.loader::after, .loader::before {
+.loader::after,
+.loader::before {
     content: '';
     box-sizing: border-box;
     position: absolute;
@@ -289,6 +323,7 @@ h1, h2, h3, h4, h5, h6 {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -298,6 +333,7 @@ h1, h2, h3, h4, h5, h6 {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(-360deg);
     }
@@ -309,18 +345,36 @@ body {
     top: 0 !important;
 }
 
-#google_translate_element, .skiptranslate {
+#google_translate_element,
+.skiptranslate {
     display: none;
 }
 
 .goog-tooltip {
     display: none !important;
 }
+
 .goog-tooltip:hover {
     display: none !important;
 }
+
 .goog-text-highlight {
     background-color: transparent !important;
-    border: none !important; 
+    border: none !important;
     box-shadow: none !important;
+}
+
+/* Định dạng tabulator */
+
+.tabulator {
+    font-size: 1rem;
+}
+
+.tabulator-cell {
+    padding: 5px 10px !important;
+}
+
+.tabulator-col-title {
+    text-align: center;
+    font-size: 1rem;
 }
