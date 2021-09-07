@@ -5,6 +5,7 @@ const pathDataUser = "./file/Data_User.json";
 var kiemTraTruocKhiTinh = false; //! Xoá?
 var kiemTraThongBaoBiTrung = "";
 var anHienThongBaoSoatLoi = false;
+var bangThongKe;
 var jsonDataUser = "",
   jsonDataSources = "";
 
@@ -479,7 +480,7 @@ function NapDuLieuChoWebTuIndexdDBVaFile() {
     }
     //* Ẩn hiện thông tin phù hợp
     TuDongThaoTacTrenDoiTuong();
-    
+
     //* Tính toán đồng bộ lại
     document.getElementById("btn_calculator").click();
 
@@ -3015,7 +3016,7 @@ function XuLySuKienChinh() {
 
     //! Tự động tính toán trên toàn website
     TuDongTinhToanTrenDoiTuong();
-    
+
     //? Kiểm tra đầu vào
     /* if (KiemTraDieuKienTinhToan(jsonKiemTraDauVao)) {
       if (index === 1) {
@@ -3137,6 +3138,15 @@ function XuLySuKienChinh() {
     TaoBangThongKeSoLieu();
   });
 
+  //* IN DỮ LIỆU THỐNG KÊ
+  document.getElementById("btn_InDuLieuThongKe").addEventListener("click", function () {
+    window.bangThongKe.print();
+  });
+
+  //* XUẤT FILE EXCEL DỮ LIỆU EXCEL
+  document.getElementById("btn_InDuLieuExcel").addEventListener("click", () => {
+    window.bangThongKe.download("xlsx", "dulieuthongke.xlsx");
+  });
   //===================================== PHẦN TỬ ========================================
   //* TẢI LÊN TỆP DỮ LIỆU - TỪ NGƯỜI DÙNG
   document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
@@ -3409,6 +3419,7 @@ function NhapVaoForm() {
         TuDongNhapDuLieu("switch_ThietKe_ThongKe_TatCa", mangThucHien[giaTriIndex].ThongKe.TatCa);
         TuDongNhapDuLieu("switch_ThietKe_ThongKe_RutGon", mangThucHien[giaTriIndex].ThongKe.RutGon);
         TuDongNhapDuLieu("switch_ThietKe_ThongKe_TuyChon", mangThucHien[giaTriIndex].ThongKe.TuyChon);
+        TuDongNhapDuLieu("input_ThietKe_ThongKe_GhiChu", mangThucHien[giaTriIndex].ThongKe.GhiChu);
         TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.IDPhuThuoc);
         TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriPhuThuoc.join(";"));
         TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriTuyChon", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriTuyChon.join(";"));
@@ -3500,7 +3511,8 @@ function TaoDiChuyenLuuDoiTuong() {
     "ThongKe": {
       "TatCa": true,
       "RutGon": true,
-      "TuyChon": false
+      "TuyChon": false,
+      "GhiChu": ""
     },
     "GhiChu": "",
     "ChoPhepSuaLai": false,
@@ -3551,7 +3563,7 @@ function TaoDiChuyenLuuDoiTuong() {
         "GiaTriPhuThuoc": [],
         "DuongDanCSDL": []
       },
-      "LamTron" : ""
+      "LamTron": ""
     }
   };
   let linhVuc = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
@@ -3650,6 +3662,7 @@ function TaoDiChuyenLuuDoiTuong() {
     mauJson.ThongKe.TatCa = TuDongLayDuLieu("switch_ThietKe_ThongKe_TatCa");
     mauJson.ThongKe.RutGon = TuDongLayDuLieu("switch_ThietKe_ThongKe_RutGon");
     mauJson.ThongKe.TuyChon = TuDongLayDuLieu("switch_ThietKe_ThongKe_TuyChon");
+    mauJson.ThongKe.GhiChu = TuDongLayDuLieu("input_ThietKe_ThongKe_GhiChu");
 
     //* Nhập cho khoá thao tác
     mauJson.KhoaThaoTac.IDPhuThuoc = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc");
@@ -3888,10 +3901,10 @@ document.getElementById("btn_NhapLieu").addEventListener("click", function () {
 
   //* Thêm filed cho json
   function ThemTruongMoiChoJsonData() {
-    let mangTaiNguyen = window.jsonDataSources.CauTruc.NuocThai;
+    let mangTaiNguyen = window.jsonDataSources.CauTruc.ThietKe;
 
     for (let i = 0; i < mangTaiNguyen.length; i++) {
-      mangTaiNguyen[i].TinhToan.LamTron = "";
+      mangTaiNguyen[i].ThongKe.GhiChu = "";
     }
   }
 
@@ -3906,120 +3919,159 @@ document.getElementById("btn_NhapLieu").addEventListener("click", function () {
 //* Thống kê bằng bảng
 function TaoBangThongKeSoLieu() {
   //Biến
-  let linhVucTinhToan = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
-  let dinhDangBang = "";
-  let jsonKiemTra0 = [{
-    Ten: "1.1 Lĩnh vực cần tính toán cho môi trường",
-    ID: "comboBox_LinhVucTinhToan",
-  }, ];
-
+  let indexLinhVuc = TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID);
+  let linhVucXuLy, mangTaiNguyen, dinhDangBang;
+  
   //Chương trình con
-  function DuLieuThongKeChung(LinhVuc) {
+  //* Xử lý kiểm tra ẩn hiện
+  //* Kiểm tra ẩn hiện
+  function KiemTraAnHien(viTri) {
     //Biến
-    let duLieuBang = [];
-    let mangHienThi = window.jsonDataSources.CauTruc[LinhVuc];
+    let kiemTra = true;
+    
+    //Thực hiện
+    //* Kiểm tra ẩn hiện của section
+    let idSection = mangTaiNguyen[viTri].IDSection;
+    let idBoxSection = idSection.replace("section", "box");
+    let trangThaiSection = document.getElementById(idBoxSection).style.display;
 
-    //Code
-    if (LinhVuc === "NuocThai") {
-      //Biến
-      let dem = 1;
+    //? Nếu đang ẩn
+    if (trangThaiSection === "none") {
+      kiemTra = false;
+    }
 
-      for (let i = 0; i < mangHienThi.length; i++) {
-        //Biến
-        let kiemTraPhuThuoc = mangHienThi[i].AnHien.IDPhuThuoc;
-        let kiemTraThongKe = mangHienThi[i].ThongKe.TatCa;
-        let kieuDuLieu = document.getElementById(mangHienThi[i].ID).tagName;
-        let duLieuMau = {
-          id: "",
-          thongSo: "",
-          donVi: "",
-          soLieu: "",
-          ghiChu: "",
-        };
+    //* Kiểm tra chính đối tượng
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    let kieuDoiTuong = mangTaiNguyen[viTri].Kieu;
+    let idBoxDoiTuong = idDoiTuong.replace(kieuDoiTuong, "box");
+    let trangThaiDoiTuong = document.getElementById(idBoxDoiTuong).style.display;
 
-        if (kiemTraThongKe) {
-          //Khi không bị phụ thuộc
-          if (kiemTraPhuThuoc.length === 0) {
-            //Gán id
-            duLieuMau.id = dem;
-            dem = dem + 1;
+    //? Nếu đang ẩn
+    if (trangThaiDoiTuong === "none") {
+      kiemTra = false;
+    }
 
-            //Input thì gán tên vào thông số và giá trị vào giá trị
-            //Select thì gán tên vào thông số và giá trị vào ghi chú
-            if (kieuDuLieu === "INPUT") {
-              duLieuMau.thongSo =
-                mangHienThi[i].Ten + " | " + mangHienThi[i].KyHieu;
-              duLieuMau.soLieu = TuDongLayDuLieu(mangHienThi[i].ID);
-            } else if (kieuDuLieu === "SELECT") {
-              let doiTuongSelect = document.getElementById(mangHienThi[i].ID);
-              duLieuMau.thongSo =
-                doiTuongSelect.options[doiTuongSelect.selectedIndex].text;
-            } else {
-              HienThiThongBao("Lỗi khi hiển thị bảng thống kê");
-            }
-            //Đơn vị
-            duLieuMau.donVi = mangHienThi[i].DonVi;
+    return kiemTra;
+  }
 
-            //Ghi chú
-            duLieuMau.ghiChu = mangHienThi[i].GhiChu;
+  //* Kiểm tra các field không thống kê
+  function KiemTraKieuThongKe(viTri) {
+    //Biến
+    let mangKieu = [
+      "anchor",
+      "section",
+      "btnInCal",
+      "flowChart"
+    ];
+    let kiemTra = true;
+    let kieuDoiTuong = mangTaiNguyen[viTri].Kieu;
 
-            //Đưa vào mảng dữ liệu
-            duLieuBang.push(duLieuMau);
-          }
-
-          //Bị phụ thuộc
-          else {
-            //Biến
-            let giaTri = TuDongLayDuLieu(kiemTraPhuThuoc);
-            let mangGiaTriPhuThuoc = mangHienThi[i].AnHien.GiaTriPhuThuoc;
-            let kiemTra = false;
-
-            //Xử lý
-            for (let j = 0; j < mangGiaTriPhuThuoc.length; j++) {
-              let giaTriKiemTra = mangGiaTriPhuThuoc[j];
-              if (giaTri === giaTriKiemTra) {
-                kiemTra = true;
-              }
-            }
-
-            if (kiemTra === true) {
-              //Gán id
-              duLieuMau.id = dem;
-              dem = dem + 1;
-
-              //Input thì gán tên vào thông số và giá trị vào giá trị
-              //Select thì gán tên vào thông số và giá trị vào ghi chú
-              if (kieuDuLieu === "INPUT") {
-                duLieuMau.thongSo =
-                  mangHienThi[i].Ten + " | " + mangHienThi[i].KyHieu;
-                duLieuMau.soLieu = TuDongLayDuLieu(mangHienThi[i].ID);
-              } else if (kieuDuLieu === "SELECT") {
-                let doiTuongSelect = document.getElementById(mangHienThi[i].ID);
-                duLieuMau.thongSo =
-                  doiTuongSelect.options[doiTuongSelect.selectedIndex].text;
-              } else {
-                HienThiThongBao("Lỗi khi hiển thị bảng thống kê");
-              }
-              //Đơn vị
-              duLieuMau.donVi = mangHienThi[i].DonVi;
-
-              //Ghi chú
-              duLieuMau.ghiChu = mangHienThi[i].GhiChu;
-
-              //Đưa vào mảng dữ liệu
-              duLieuBang.push(duLieuMau);
-            }
-          }
-        }
+    //Thực hiện
+    //* lặp duyệt có trùng kiểu bị loại
+    for (let i = 0; i < mangKieu.length; i++){
+      //? Nếu trùng
+      if (kieuDoiTuong === mangKieu[i]) {
+        kiemTra = false;
+        break;
       }
     }
+
+    //* Trả kết quả
+    return kiemTra;
+  }
+
+  //* Xử lý xuất dữ liệu thống kê
+  function XuLyThongKe() {
+    //Biến
+    let duLieuBang = [];
+    let dem = 1;
+
+    for (let i = 0; i < mangTaiNguyen.length; i++) {
+      let kiemTraThongKe = mangTaiNguyen[i].ThongKe.TatCa;
+      let duLieuMau = {
+        id: "",
+        thongSo: "",
+        donVi: "",
+        soLieu: "",
+        ghiChu: "",
+      };
+
+      //? khác section, flowchart, btnInCal, anchor, title
+      if (KiemTraKieuThongKe(i)) {
+        //? có thống kê và đang hiển thị
+        if (kiemTraThongKe === true && KiemTraAnHien(i) === true) {
+          //Gán id
+          duLieuMau.id = dem;
+          dem = dem + 1;
+
+          //Gán thông số
+          duLieuMau.thongSo = mangTaiNguyen[i].Ten + " | " + mangTaiNguyen[i].KyHieu;
+
+          //Đơn vị
+          duLieuMau.donVi = mangTaiNguyen[i].DonVi;
+
+          //* Xử lý số liệu và ghi chú
+          let kieuDoiTuong = mangTaiNguyen[i].Kieu;
+          //? Kiểu input
+          if (kieuDoiTuong === "input") {
+            //Gán số liệu
+            duLieuMau.soLieu = TuDongLayDuLieu(mangTaiNguyen[i].ID);
+
+            //Ghi chú
+            duLieuMau.ghiChu = mangTaiNguyen[i].ThongKe.GhiChu;
+          }
+
+          //? Kiểu switch
+          else if (kieuDoiTuong === "switch") {
+            //Gán số liệu
+            let tam = TuDongLayDuLieu(mangTaiNguyen[i].ID);
+            if (tam) {
+              duLieuMau.soLieu = "Có";
+            }
+            else {
+              duLieuMau.soLieu = "Không";
+            }
+        
+            //Ghi chú
+            duLieuMau.ghiChu = mangTaiNguyen[i].ThongKe.GhiChu;
+          }
+
+          //? Kiểu comboBox
+          else if (kieuDoiTuong === "comboBox") {
+            //Ghi chú
+            let tam = document.getElementById(mangTaiNguyen[i].ID);
+            duLieuMau.ghiChu = tam.options[tam.selectedIndex].text;
+          }
+
+          //? Kiểu title
+          else if (kieuDoiTuong === "title") {
+            duLieuMau.ghiChu = mangTaiNguyen[i].ThongKe.GhiChu;
+          }
+
+          //Đưa vào mảng dữ liệu
+          duLieuBang.push(duLieuMau);
+        }
+      }
+      
+    }
+    return duLieuBang;
+  }
+
+  //Thực hiện
+  //? Lĩnh vực khác 0
+  if (indexLinhVuc !== 0) {
+    linhVucXuLy = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien[indexLinhVuc - 1];
+    mangTaiNguyen = window.jsonDataSources.CauTruc[linhVucXuLy];
+
     //Gán dữ liệU và định dạng bảng + xem chung
     dinhDangBang = {
-      data: duLieuBang, //Định nghĩa biến dữ liệu cho bảng
+      data: XuLyThongKe(), //Định nghĩa biến dữ liệu cho bảng
       layout: "fitColumns", //Tự động chọn kích thước cột
       resizableColumns: "header", //Chỉ cho phép thay đổi độ rộng ở tiêu đề
       height: "90%", //Độ cao bảng so với parent
       headerSort: false, //Tắt tính năng sort ở header
+      printAsHtml: true, //in như html
+      printStyled: true, //có xét đến định dạng trên html
       columns: [{
           title: "TT",
           field: "tt",
@@ -4074,15 +4126,9 @@ function TaoBangThongKeSoLieu() {
         },
       ], //Định nghĩa số cột
     };
-  }
-
-  if (KiemTraDieuKienThucHienLenh(jsonKiemTra0)) {
-    if (linhVucTinhToan === 1) {
-      DuLieuThongKeChung("NuocThai");
-    }
 
     //Tạo bảng từ dữ liệu với ID table
-    let table = new Tabulator("#table_BangThongKeDuLieu", dinhDangBang);
+    window.bangThongKe = new Tabulator("#table_BangThongKeDuLieu", dinhDangBang);
   }
 }
 
@@ -5707,7 +5753,7 @@ function TuDongTinhToanTrenDoiTuong() {
     let truyCap = mangDuLieu.QCVN;
     let idDoiTuong = mangTaiNguyen[viTri].ID;
     let chiTieu = idDoiTuong.slice(idDoiTuong.lastIndexOf("_") + 1, idDoiTuong.length);
-    
+
     //* Lặp truy cập đường dẫn và trả kết quả
     for (let i = 0; i < catDuongDan.length; i++) {
       truyCap = truyCap[catDuongDan[i]];

@@ -67,7 +67,7 @@
     <!-- Kết thúc nút thống kê -->
 
     <!-- Bắt đầu nút nhập liệu -->
-    <button disabled type="button" id="btn_NhapLieu" class="btn btn-primary btn-statistical" style="bottom: 150px"
+    <button type="button" id="btn_NhapLieu" class="btn btn-primary btn-statistical" style="bottom: 150px"
       data-bs-toggle="modal" data-bs-target="#modal_ThietKeGiaoDien">
       <i class="fas fa-keyboard"></i>
     </button>
@@ -138,6 +138,19 @@
             <!-- Bắt đầu tạo bảng thống kê -->
             <div id="table_BangThongKeDuLieu"></div>
             <!-- Kết thúc tạo bảng thống kê -->
+
+            <!-- Vùng chức năng thống kê -->
+            <div class="row border-func-thongke">
+              <div class="col-md-6 fix-full-screen">
+                <button type="button" class="btn btn-primary func-btn" id="btn_InDuLieuThongKe">
+                  <i class="fas fa-print"></i> In | PDF
+                </button>
+                <button type="button" class="btn btn-success func-btn" id="btn_InDuLieuExcel">
+                  <i class="far fa-file-excel"></i> Excel
+                </button>
+              </div>
+            </div>
+            <!-- Vùng chức năng thống kê -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -1158,6 +1171,7 @@
 
   <!-- Tabulator -->
   <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
+  <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
 
   <!-- Google translate -->
   <script type="text/javascript">

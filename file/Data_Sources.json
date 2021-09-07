@@ -531,7 +531,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -607,7 +608,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -683,7 +685,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -762,7 +765,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -836,9 +840,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -914,7 +919,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": true,
@@ -990,7 +996,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1066,7 +1073,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1142,7 +1150,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1224,7 +1233,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -1313,7 +1323,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Thêm nước sinh hoạt (xử lý chung)",
                 "ChoPhepSuaLai": false,
@@ -1394,7 +1405,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1468,9 +1480,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tiêu đề cho lưu lượng xử lý",
                 "ChoPhepSuaLai": false,
@@ -1546,7 +1559,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Lưu lượng nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -1628,7 +1642,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Lưu lượng nước thải sinh hoạt xử lý chung",
                 "ChoPhepSuaLai": false,
@@ -1704,7 +1719,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1778,9 +1794,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1854,9 +1871,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -1941,7 +1959,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nước thải chính - nồng độ ô nhiễm",
                 "ChoPhepSuaLai": false,
@@ -2026,7 +2045,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2111,7 +2131,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2193,7 +2214,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2275,7 +2297,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2360,7 +2383,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2442,7 +2466,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2527,7 +2552,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2609,7 +2635,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2691,7 +2718,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2776,7 +2804,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2858,7 +2887,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -2940,7 +2970,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -3022,7 +3053,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -3104,7 +3136,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm nước thải chính",
                 "ChoPhepSuaLai": false,
@@ -3184,9 +3217,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -3268,7 +3302,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3350,7 +3385,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3432,7 +3468,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3514,7 +3551,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3596,7 +3634,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3678,7 +3717,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3760,7 +3800,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3842,7 +3883,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -3924,7 +3966,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -4006,7 +4049,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -4088,7 +4132,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm nước thải sinh hoạt",
                 "ChoPhepSuaLai": false,
@@ -4164,7 +4209,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nút nhấn lấy số liệu nồng độ từ CSDL",
                 "ChoPhepSuaLai": false,
@@ -4244,9 +4290,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tiêu đề hỗn hợp nước thải tính toán lại",
                 "ChoPhepSuaLai": false,
@@ -4330,7 +4377,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4417,7 +4465,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4506,7 +4555,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4595,7 +4645,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4684,7 +4735,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4773,7 +4825,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4862,7 +4915,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -4951,7 +5005,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5040,7 +5095,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5129,7 +5185,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5218,7 +5275,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5307,7 +5365,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5395,7 +5454,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5483,7 +5543,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5571,7 +5632,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ ô nhiễm hỗn hợp nước thải",
                 "ChoPhepSuaLai": false,
@@ -5651,7 +5713,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Section yêu cầu đầu ra",
                 "ChoPhepSuaLai": false,
@@ -5727,7 +5790,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tính chất nguồn tiếp nhận",
                 "ChoPhepSuaLai": false,
@@ -5808,7 +5872,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Quy chuẩn áp dụng cho loại nước thải",
                 "ChoPhepSuaLai": false,
@@ -5936,9 +6001,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -6023,7 +6089,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Hệ số K",
                 "ChoPhepSuaLai": false,
@@ -6108,7 +6175,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Hệ số Kq",
                 "ChoPhepSuaLai": false,
@@ -6193,7 +6261,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Hệ số Kf",
                 "ChoPhepSuaLai": false,
@@ -6267,9 +6336,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tiêu đề nồng độ ô nhiễm tính toán lại",
                 "ChoPhepSuaLai": false,
@@ -6354,7 +6424,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -6464,7 +6535,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -6574,7 +6646,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -6681,7 +6754,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -6788,7 +6862,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -6898,7 +6973,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7005,7 +7081,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7115,7 +7192,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7222,7 +7300,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7329,7 +7408,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7439,7 +7519,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7546,7 +7627,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7653,7 +7735,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7760,7 +7843,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7867,7 +7951,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nồng độ chất ô nhiễm tính toán lại theo quy chuẩn",
                 "ChoPhepSuaLai": true,
@@ -7968,7 +8053,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Section công nghệ lựa chọn",
                 "ChoPhepSuaLai": false,
@@ -8044,7 +8130,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Công nghệ lựa chọn",
                 "ChoPhepSuaLai": false,
@@ -8129,7 +8216,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Đề xuất công trình cho công nghệ",
                 "ChoPhepSuaLai": false,
@@ -8232,7 +8320,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Xoá công trình đơn vị",
                 "ChoPhepSuaLai": false,
@@ -8310,7 +8399,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -8446,7 +8536,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section thông số tính toán cho nước thải",
                 "ChoPhepSuaLai": false,
@@ -8522,7 +8613,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tổng lưu lượng tính toán",
                 "ChoPhepSuaLai": false,
@@ -8601,7 +8693,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thời gian hoạt động mỗi ngày",
                 "ChoPhepSuaLai": false,
@@ -8677,7 +8770,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lượng nước thải mỗi giờ",
                 "ChoPhepSuaLai": false,
@@ -8756,7 +8850,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lưu lượng mỗi giây",
                 "ChoPhepSuaLai": false,
@@ -8835,7 +8930,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "hệ số nước thải nhiều nhất",
                 "ChoPhepSuaLai": false,
@@ -8911,7 +9007,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -8991,7 +9088,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -9067,7 +9165,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -9147,7 +9246,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thường là thời gian hoạt động của nhà máy hoặc 24 giờ",
                 "ChoPhepSuaLai": false,
@@ -9223,7 +9323,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lưu lượng cần phải xử lý mỗi giờ làm việc",
                 "ChoPhepSuaLai": false,
@@ -9302,7 +9403,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -9381,7 +9483,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -9457,7 +9560,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho hố thu gom nước thải",
                 "ChoPhepSuaLai": false,
@@ -9531,9 +9635,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": "Hố thu gom"
                 },
                 "GhiChu": "Thông số, kích thước cho hố thu",
                 "ChoPhepSuaLai": false,
@@ -9609,7 +9714,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Hố thu gom",
                 "ChoPhepSuaLai": false,
@@ -9696,7 +9802,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thời gian lưu nước trong bể",
                 "ChoPhepSuaLai": false,
@@ -9778,7 +9885,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Thể tích chứa nước thải",
                 "ChoPhepSuaLai": true,
@@ -9857,7 +9965,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Độ sâu đường ống thoát nước thải so với mặc đất (cos0)",
                 "ChoPhepSuaLai": false,
@@ -9933,7 +10042,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Độ cao bảo vệ chống tràn",
                 "ChoPhepSuaLai": false,
@@ -10009,7 +10119,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Độ cao phần chứa nước thải",
                 "ChoPhepSuaLai": false,
@@ -10085,7 +10196,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tổng độ cao",
                 "ChoPhepSuaLai": false,
@@ -10171,7 +10283,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Kiểu hình học mặc bằng",
                 "ChoPhepSuaLai": false,
@@ -10257,7 +10370,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều dài - dạng chữ nhật",
                 "ChoPhepSuaLai": false,
@@ -10339,7 +10453,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều rộng - dạng chữ nhật",
                 "ChoPhepSuaLai": true,
@@ -10425,7 +10540,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều dài - dạng hình vuông",
                 "ChoPhepSuaLai": true,
@@ -10510,7 +10626,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều rộng - dạng hình vuông",
                 "ChoPhepSuaLai": true,
@@ -10595,7 +10712,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "đường kính - dạng hình tròn",
                 "ChoPhepSuaLai": true,
@@ -10680,7 +10798,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều dài - nhập kích thước tham khảo",
                 "ChoPhepSuaLai": false,
@@ -10762,7 +10881,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều rộng - nhập kích thước tham khảo",
                 "ChoPhepSuaLai": false,
@@ -10838,7 +10958,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Thể tích thực tế hố thu",
                 "ChoPhepSuaLai": false,
@@ -10948,9 +11069,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": "Hố thu gom"
                 },
                 "GhiChu": "Thiết bị, máy móc",
                 "ChoPhepSuaLai": false,
@@ -11026,7 +11148,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Lưu lượng bơm chìm - lít/phút",
                 "ChoPhepSuaLai": false,
@@ -11104,7 +11227,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Lưu lượng bơm chìm - m3/giờ",
                 "ChoPhepSuaLai": false,
@@ -11182,7 +11306,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Cột áp bơm",
                 "ChoPhepSuaLai": false,
@@ -11258,7 +11383,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể tách dầu mỡ",
                 "ChoPhepSuaLai": false,
@@ -11334,7 +11460,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể lắng cát",
                 "ChoPhepSuaLai": false,
@@ -11410,7 +11537,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể tuyển nổi",
                 "ChoPhepSuaLai": false,
@@ -11486,7 +11614,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể lắng hoá lý - lắng sơ cấp",
                 "ChoPhepSuaLai": false,
@@ -11562,7 +11691,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể lắng sinh học - lắng thứ cấp",
                 "ChoPhepSuaLai": false,
@@ -11638,7 +11768,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể khử trùng",
                 "ChoPhepSuaLai": false,
@@ -11714,7 +11845,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể trung gian",
                 "ChoPhepSuaLai": false,
@@ -11790,7 +11922,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho cột lọc áp lực",
                 "ChoPhepSuaLai": false,
@@ -11866,7 +11999,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể keo tụ",
                 "ChoPhepSuaLai": false,
@@ -11942,7 +12076,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể tạo bông",
                 "ChoPhepSuaLai": false,
@@ -12018,7 +12153,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể uasb",
                 "ChoPhepSuaLai": false,
@@ -12094,7 +12230,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể thiếu khí",
                 "ChoPhepSuaLai": false,
@@ -12170,7 +12307,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể xử lý sinh học hiếu khí",
                 "ChoPhepSuaLai": false,
@@ -12246,7 +12384,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể lọc sinh học nhỏ giọt",
                 "ChoPhepSuaLai": false,
@@ -12322,7 +12461,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho lồng quay sinh học",
                 "ChoPhepSuaLai": false,
@@ -12398,7 +12538,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "section cho bể điều hoà lưu lượng",
                 "ChoPhepSuaLai": false,
@@ -12472,9 +12613,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": "Bể điều hoà"
                 },
                 "GhiChu": "Thông số, kích thước cho bể điều hoà",
                 "ChoPhepSuaLai": false,
@@ -12550,7 +12692,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thời gian lưu nước trong bể điều hoà",
                 "ChoPhepSuaLai": true,
@@ -12629,7 +12772,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thể tích lý thuyết bể điều hoà",
                 "ChoPhepSuaLai": true,
@@ -12708,7 +12852,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "tỉ số lưu lượng vượt quá số liệu thiết kế",
                 "ChoPhepSuaLai": false,
@@ -12784,7 +12929,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "thể tích thực tế bể điều hoà",
                 "ChoPhepSuaLai": true,
@@ -12863,7 +13009,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "độ cao chứa nước thải",
                 "ChoPhepSuaLai": false,
@@ -12939,7 +13086,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "độ cao chống tràn",
                 "ChoPhepSuaLai": false,
@@ -13015,7 +13163,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "tổng độ cao",
                 "ChoPhepSuaLai": false,
@@ -13094,7 +13243,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Kiểu hình học mặc bằng",
                 "ChoPhepSuaLai": false,
@@ -13180,7 +13330,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều dài - dạng chữ nhật",
                 "ChoPhepSuaLai": false,
@@ -13262,7 +13413,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều rộng - dạng chữ nhật",
                 "ChoPhepSuaLai": true,
@@ -13348,7 +13500,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều dài - dạng hình vuông",
                 "ChoPhepSuaLai": true,
@@ -13433,7 +13586,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chiều rộng - dạng hình vuông",
                 "ChoPhepSuaLai": true,
@@ -13518,7 +13672,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Đường kính - dạng hình tròn",
                 "ChoPhepSuaLai": true,
@@ -13597,7 +13752,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Thể tích thực tế bể điều hoà lưu lượng",
                 "ChoPhepSuaLai": false,
@@ -13695,9 +13851,10 @@
                     "GiaTriGoiY": ""
                 },
                 "ThongKe": {
-                    "TatCa": false,
+                    "TatCa": true,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": "Bể điều hoà"
                 },
                 "GhiChu": "máy móc, thiết bị cho bể điều hoà",
                 "ChoPhepSuaLai": false,
@@ -13773,7 +13930,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "dạng khuấy đảo nước thải",
                 "ChoPhepSuaLai": false,
@@ -13860,7 +14018,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "tốc độ khí nén cung cấp",
                 "ChoPhepSuaLai": false,
@@ -13942,7 +14101,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lượng khí nén cần thiết",
                 "ChoPhepSuaLai": false,
@@ -14027,7 +14187,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "phương pháp khuếch tán không khí",
                 "ChoPhepSuaLai": false,
@@ -14112,7 +14273,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lượng không khí trên mỗi ống",
                 "ChoPhepSuaLai": false,
@@ -14194,7 +14356,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "số lượng ống phân phối",
                 "ChoPhepSuaLai": false,
@@ -14279,7 +14442,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "lượng khí qua mỗi đĩa",
                 "ChoPhepSuaLai": false,
@@ -14361,7 +14525,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "số đĩa phân phối bể điều hoà",
                 "ChoPhepSuaLai": false,
@@ -14446,7 +14611,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "công suất máy khuấy cần cung cấp cho mỗi đơn vị nước thải",
                 "ChoPhepSuaLai": false,
@@ -14528,7 +14694,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "công suất khuấy cần cung cấp",
                 "ChoPhepSuaLai": false,
@@ -14613,7 +14780,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "số lượng máy khuấy",
                 "ChoPhepSuaLai": false,
@@ -14695,7 +14863,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "công suất mỗi máy khuấy cần có - kw",
                 "ChoPhepSuaLai": false,
@@ -14780,7 +14949,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "công suất mỗi máy khuấy cần có - hp",
                 "ChoPhepSuaLai": false,
@@ -14947,7 +15117,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Tạo section thiết kế",
                 "ChoPhepSuaLai": false,
@@ -15023,7 +15194,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập thứ tự",
                 "ChoPhepSuaLai": false,
@@ -15099,7 +15271,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -15175,7 +15348,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chọn loại đối tượng cần tạo",
                 "ChoPhepSuaLai": false,
@@ -15260,7 +15434,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chọn loại tiêu đè của đối tượng",
                 "ChoPhepSuaLai": false,
@@ -15339,7 +15514,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập tên đối tượng",
                 "ChoPhepSuaLai": false,
@@ -15415,7 +15591,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập ký hiệu đối tượng",
                 "ChoPhepSuaLai": false,
@@ -15491,7 +15668,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập đơn vị đối tượng",
                 "ChoPhepSuaLai": false,
@@ -15567,7 +15745,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập ID đối tượng",
                 "ChoPhepSuaLai": false,
@@ -15643,7 +15822,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Nhập ID section",
                 "ChoPhepSuaLai": false,
@@ -15719,7 +15899,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Đối tượng neo giữ sẽ là gốc để thực hiện các thủ tục trong website",
                 "ChoPhepSuaLai": false,
@@ -15795,7 +15976,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -15871,7 +16053,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -15947,7 +16130,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16023,7 +16207,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "Chọn kiểu số hay chữ nhập vào input",
                 "ChoPhepSuaLai": false,
@@ -16102,7 +16287,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16178,7 +16364,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16254,7 +16441,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16330,7 +16518,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16406,7 +16595,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16482,7 +16672,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16558,7 +16749,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16634,7 +16826,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16710,7 +16903,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16786,7 +16980,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16862,7 +17057,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -16938,7 +17134,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17014,7 +17211,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17090,7 +17288,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17146,6 +17345,83 @@
             },
             {
                 "ThuTu": "",
+                "Ten": "Ghi chú trong thống kê",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "input_ThietKe_ThongKe_GhiChu",
+                "IDSection": "section_ThietKe_Chinh",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": false,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": "",
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "text",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
                 "Ten": "Nhóm khoá thao tác",
                 "KyHieu": "",
                 "DonVi": "-",
@@ -17166,7 +17442,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17242,7 +17519,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17318,7 +17596,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17394,7 +17673,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17470,7 +17750,8 @@
                 "ThongKe": {
                     "TatCa": true,
                     "RutGon": true,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17546,7 +17827,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17622,7 +17904,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17698,7 +17981,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17774,7 +18058,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17850,7 +18135,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -17926,7 +18212,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18002,7 +18289,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18078,7 +18366,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18154,7 +18443,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18230,7 +18520,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18306,7 +18597,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18382,7 +18674,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18458,7 +18751,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
@@ -18534,7 +18828,8 @@
                 "ThongKe": {
                     "TatCa": false,
                     "RutGon": false,
-                    "TuyChon": false
+                    "TuyChon": false,
+                    "GhiChu": ""
                 },
                 "GhiChu": "",
                 "ChoPhepSuaLai": false,
