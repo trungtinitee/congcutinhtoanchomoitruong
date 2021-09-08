@@ -2589,11 +2589,7 @@ function TinhToanChoXuLyNuocThai() {
         );
 
         let vHuuIchHieuKhi = TuDongLamTronSo(
-          (So(qTongNgayDem) *
-            So(thetaC) *
-            So(y) *
-            (So(bod5DauVao) - So(bodHoaTanSauXL))) /
-          (So(x) * (1 + So(kd) * So(thetaC)))
+          (So(qTongNgayDem) * So(thetaC) * So(y) * (So(bod5DauVao) - So(bodHoaTanSauXL))) / (So(x) * (1 + So(kd) * So(thetaC)))
         );
         TuDongNhapDuLieu(
           "input_xuLyNuocThai_HieuKhi_TheTichHuuIch",
@@ -2686,8 +2682,7 @@ function TinhToanChoXuLyNuocThai() {
       );
 
       let yOBS = So(y) / (1 + So(kd) * So(thetaC));
-      let pX =
-        So(qTongNgayDem) * yOBS * (So(bod5DauVao) - So(bodHoaTanSauXL)) * 0.001;
+      let pX = So(qTongNgayDem) * yOBS * (So(bod5DauVao) - So(bodHoaTanSauXL)) * 0.001;
       let pBun = pX / ((100 - So(rTroBun)) / 100);
       let wBunThaiMoiNgay = TuDongLamTronSo(
         pBun - So(qTongNgayDem) * So(ssSauXuLy) * 0.001
@@ -3147,6 +3142,7 @@ function XuLySuKienChinh() {
   document.getElementById("btn_InDuLieuExcel").addEventListener("click", () => {
     window.bangThongKe.download("xlsx", "dulieuthongke.xlsx");
   });
+
   //===================================== PHẦN TỬ ========================================
   //* TẢI LÊN TỆP DỮ LIỆU - TỪ NGƯỜI DÙNG
   document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
@@ -3300,8 +3296,11 @@ window.addEventListener("load", function () {
 
         //! Mở khoá và bắt đầu sử dụng
         setTimeout(function () {
-          document.getElementById("lock_page").remove();
+          document.getElementById("lock_page").style.opacity = 0;
         }, 500);
+        setTimeout(function () {
+          document.getElementById("lock_page").remove();
+        }, 1000);
       });
     });
   });

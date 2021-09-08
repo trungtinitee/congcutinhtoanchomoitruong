@@ -277,6 +277,7 @@ h6 {
     z-index: 9999;
     background: #04aa6d;
     opacity: .5;
+    transition: .5s;
 }
 
 .loader {
