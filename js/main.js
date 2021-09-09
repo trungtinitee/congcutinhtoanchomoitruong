@@ -1,15 +1,15 @@
-//!----------------------------------------------------------------I. BIẾN CHUNG ----------------------------------------------------------------
+//!----------------------------------------------------------------I. BIẾN TOÀN CỤC ----------------------------------------------------------------
 
 const pathDataSources = "./file/Data_Sources.json";
 const pathDataUser = "./file/Data_User.json";
-var kiemTraTruocKhiTinh = false; //! Xoá?
+var kiemTraTruocKhiTinh = false;
 var kiemTraThongBaoBiTrung = "";
 var anHienThongBaoSoatLoi = false;
 var bangThongKe;
 var jsonDataUser = "",
   jsonDataSources = "";
 
-//!---------------------------------------------------------------II. HÀM SỬ DỤNG CHUNG ----------------------------------------------------------------------
+//!---------------------------------------------------------------II. CHƯƠNG TRÌNH CON ----------------------------------------------------------------------
 
 //* THAO TÁC THỜI GIAN THỰC
 /* 
@@ -486,8 +486,6 @@ function NapDuLieuChoWebTuIndexdDBVaFile() {
 
     //*Lưu dữ liệu mới vào indexdDB
     NhapDuLieuLuuTruWebsite();
-
-    AnHienThongTin(linhVucXuLy); //todo Bỏ
   }
 }
 
@@ -700,492 +698,6 @@ function LayMangDuLieuTuMultiSelectDropdown(select) {
 //* DI CHUYỂN NODE CON ĐẾN NODE CHA
 function DiChuyenCacNode(idPhanTuCha, idPhanTuCon) {
   document.getElementById(idPhanTuCha).appendChild(document.getElementById(idPhanTuCon));
-}
-
-//Ẩn hiện thông tin cho toàn chương trình - XOÁ BỎ??
-function AnHienThongTin(linhVucXuLy) {
-  //Khai báo biến
-  let loaiNuocThai = document.getElementById("comboBox_XuLyNuocThai");
-
-  //Chương trình con
-
-  //Ẩn hiện thông tin phương án cho hố thu
-  function AnHienPhuongAnHoThu_NuocThai() {
-    //Khai báo biến
-    let phuongAn = document.getElementById(
-      "comboBox_XuLyNuocThai_HoThu_PhuongAn"
-    ).selectedIndex;
-    let mangPA1 = [
-      "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
-      "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
-      "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
-      "input_xuLyNuocThai_HoThu_DoCaoThucTe",
-      "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
-      "input_xuLyNuocThai_HoThu_TheTichThucTe",
-    ];
-    let mangPA2 = [
-      "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
-      "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
-      "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
-      "input_xuLyNuocThai_HoThu_DoCaoThucTe",
-      "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
-      "input_xuLyNuocThai_HoThu_TheTichThucTe",
-      "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
-      "input_xuLyNuocThai_HoThu_TheTichHuuIch",
-    ];
-
-    let mangPA3 = [
-      "input_xuLyNuocThai_HoThu_ChieuDai",
-      "input_xuLyNuocThai_HoThu_ChieuRong",
-    ];
-    let mangPA4 = ["input_xuLyNuocThai_HoThu_DuongKinh"];
-    //Code
-    //Ẩn mặc định
-    if (phuongAn === 0) {
-      document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display =
-        "none";
-    }
-
-    //Hiện với phương án 1
-    else if (phuongAn === 1) {
-      for (let i = 0; i < mangPA2.length; i++) {
-        document.getElementById(
-          mangPA2[i]
-        ).parentNode.parentNode.parentNode.style.display = "none";
-      }
-      for (let i = 0; i < mangPA1.length; i++) {
-        document.getElementById(
-          mangPA1[i]
-        ).parentNode.parentNode.parentNode.style.display = "block";
-      }
-
-      //Xử lý dạng hình học
-      document.getElementById(
-        "comboBox_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).selectedIndex = 2;
-      document.getElementById(
-        "comboBox_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).disabled = true;
-      for (let i = 0; i < mangPA4.length; i++) {
-        document.getElementById(
-          mangPA4[i]
-        ).parentNode.parentNode.parentNode.style.display = "none";
-      }
-      for (let i = 0; i < mangPA3.length; i++) {
-        document.getElementById(
-          mangPA3[i]
-        ).parentNode.parentNode.parentNode.style.display = "block";
-      }
-
-      //Xử lý người dùng tự nhập
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuDai_SuaLai"
-      ).style.display = "none";
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuDai"
-      ).disabled = false;
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuRong_SuaLai"
-      ).style.display = "none";
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuRong"
-      ).disabled = false;
-
-      //Hiển thị lại nội dung
-      document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display =
-        "block";
-      document.getElementById(
-        "box_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).style.display = "block";
-    }
-
-    //Ẩn hiện với phương án 2
-    else if (phuongAn === 2) {
-      for (let i = 0; i < mangPA1.length; i++) {
-        document.getElementById(
-          mangPA1[i]
-        ).parentNode.parentNode.parentNode.style.display = "none";
-      }
-      for (let i = 0; i < mangPA2.length; i++) {
-        document.getElementById(
-          mangPA2[i]
-        ).parentNode.parentNode.parentNode.style.display = "block";
-      }
-
-      //Xử lý dạng hình học
-      /* document.getElementById("comboBox_XuLyNuocThai_HoThu_DangHinhHoc").selectedIndex = 0; */
-      document.getElementById(
-        "comboBox_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).disabled = false;
-      for (let i = 0; i < mangPA4.length; i++) {
-        document.getElementById(
-          mangPA4[i]
-        ).parentNode.parentNode.parentNode.style.display = "block";
-      }
-
-      //Xử lý người dùng tự nhập
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuDai_SuaLai"
-      ).style.display = "block";
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuDai"
-      ).disabled = true;
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuRong_SuaLai"
-      ).style.display = "block";
-      document.getElementById(
-        "input_xuLyNuocThai_HoThu_ChieuRong"
-      ).disabled = true;
-
-      //Xử lý hiển thị chung
-      document.getElementById(
-        "box_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).style.display = "none";
-      document.getElementById("box_XuLyNuocThai_HoThu_PhuongAn").style.display =
-        "block";
-    }
-  }
-
-  //Ẩn hiện loại hình học cho hố thu
-  function AnHienDangHinhHocHoThu_NuocThai() {
-    //Khai báo biến
-    let phuongAn = TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc");
-    let mangPA1 = [
-      "input_xuLyNuocThai_HoThu_ChieuDai",
-      "input_xuLyNuocThai_HoThu_ChieuRong",
-    ];
-    let mangPA2 = ["input_xuLyNuocThai_HoThu_DuongKinh"];
-
-    //Code
-    //Ẩn hết mặc định
-    if (phuongAn === 0) {
-      document.getElementById(
-        "box_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).style.display = "none";
-    }
-
-    //Với phương án 1 và 2
-    else {
-      if (phuongAn === 1 || phuongAn === 2) {
-        for (let i = 0; i < mangPA2.length; i++) {
-          document.getElementById(
-            mangPA2[i]
-          ).parentNode.parentNode.parentNode.style.display = "none";
-        }
-        for (let i = 0; i < mangPA1.length; i++) {
-          document.getElementById(
-            mangPA1[i]
-          ).parentNode.parentNode.parentNode.style.display = "block";
-        }
-
-        //Hình chữ nhật
-        if (phuongAn === 2) {
-          document.getElementById(
-            "input_xuLyNuocThai_HoThu_ChieuDai_SuaLai"
-          ).style.display = "none";
-          document.getElementById(
-            "input_xuLyNuocThai_HoThu_ChieuDai"
-          ).disabled = false;
-        }
-
-        //Hình vuông
-        else if (phuongAn === 1) {
-          document.getElementById(
-            "input_xuLyNuocThai_HoThu_ChieuDai_SuaLai"
-          ).style.display = "block";
-          document.getElementById(
-            "input_xuLyNuocThai_HoThu_ChieuDai"
-          ).disabled = true;
-        }
-      }
-
-      //Với phương án 3
-      else if (phuongAn === 3) {
-        for (let i = 0; i < mangPA1.length; i++) {
-          document.getElementById(
-            mangPA1[i]
-          ).parentNode.parentNode.parentNode.style.display = "none";
-        }
-        for (let i = 0; i < mangPA2.length; i++) {
-          document.getElementById(
-            mangPA2[i]
-          ).parentNode.parentNode.parentNode.style.display = "block";
-        }
-      }
-      document.getElementById(
-        "box_XuLyNuocThai_HoThu_DangHinhHoc"
-      ).style.display = "block";
-    }
-  }
-
-  //Ẩn hiện bể điều hoà
-  //Ẩn hiên dạng khuấy trộn
-  function AnHienDangKhuayTronDieuHoa_NuocThai() {
-    //Khai báo biến
-    let dangKhuayTron = TuDongLayDuLieu(
-      "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron"
-    );
-
-    //Code
-    if (dangKhuayTron === 1) {
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", false);
-    } else if (dangKhuayTron === 2) {
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", false);
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
-    } else {
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_KhiNen", true);
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_CoKhi", true);
-    }
-  }
-
-  //Ẩn hiện loại khếch tán khí
-  function AnHienLoaiKhechTanKhi_DieuHoa_NuocThai() {
-    //khai báo biến
-    let dangKhuechTan = TuDongLayDuLieu(
-      "comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan"
-    );
-
-    //Code
-    if (dangKhuechTan === 1) {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi",
-        false
-      );
-    } else if (dangKhuechTan === 2) {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi",
-        false
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi",
-        true
-      );
-    } else {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhiKhi",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoiKhi",
-        true
-      );
-    }
-  }
-
-  //Ẩn hiện dạng hình học
-  function AnHienDangHinhHocDieuHoa_NuocThai() {
-    //Khai báo biến
-    let index = TuDongLayDuLieu("comboBox_XuLyNuocThai_DieuHoa_HinhDangBe");
-
-    //Hình chữ nhật
-    if (index === 1) {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat",
-        false
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong",
-        true
-      );
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-    }
-
-    //Hình vuông
-    else if (index === 2) {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong",
-        false
-      );
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-    }
-
-    //Hình tròn
-    else if (index === 3) {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron",
-        false
-      );
-    }
-
-    //Không hiện gì
-    else {
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_ChuNhat",
-        true
-      );
-      AnHienDoiTuongDangBlock(
-        "box_XuLyNuocThai_DieuHoa_HinhDangBe_Vuong",
-        true
-      );
-      AnHienDoiTuongDangBlock("box_XuLyNuocThai_DieuHoa_HinhDangBe_Tron", true);
-    }
-  }
-
-  //Ẩn hiện bể sinh học hiếu khí
-  function AnHienHieuKhi_NuocThai() {
-    //Khai báo biến
-
-    //Chương trình con
-    //Phương án tính thể tích bể
-    function PhuongAnTinhTheTich() {
-      //Biến
-      let phuongAn = TuDongLayDuLieu(
-        "comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich"
-      );
-
-      //Code
-      //Thời gian lưu vi khuẩn
-      if (phuongAn === 1) {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK",
-          false
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu",
-          true
-        );
-      }
-
-      //ThờI gian lưu nước
-      else if (phuongAn === 2) {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu",
-          false
-        );
-      }
-
-      //Còn lại
-      else {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuuVK",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_XacDinhTheTich_ThoiGianLuu",
-          true
-        );
-      }
-    }
-
-    //Hình dạng bể
-    function HinhDangBe() {
-      //Biến
-      let dangHinhHoc = TuDongLayDuLieu(
-        "comboBox_XuLyNuocThai_HieuKhi_HinhDangBe"
-      );
-
-      //Code
-      //Hình chữ nhật
-      if (dangHinhHoc === 1) {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat",
-          false
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron",
-          true
-        );
-      }
-
-      //Hình vuông
-      else if (dangHinhHoc === 2) {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong",
-          false
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron",
-          true
-        );
-      }
-
-      //Hình tròn
-      else if (dangHinhHoc === 3) {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron",
-          false
-        );
-      }
-
-      //Còn lại
-      else {
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_ChuNhat",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Vuong",
-          true
-        );
-        AnHienDoiTuongDangBlock(
-          "box_XuLyNuocThai_HieuKhi_HinhDangBe_Tron",
-          true
-        );
-      }
-    }
-
-    //Code
-    PhuongAnTinhTheTich();
-    HinhDangBe();
-  }
-
-  //Nước thải
-  if (linhVucXuLy === "NuocThai") {
-    //Hố thu
-    //AnHienPhuongAnHoThu_NuocThai();
-    //AnHienDangHinhHocHoThu_NuocThai();
-
-    //Bể điều hoà
-    //AnHienDangHinhHocDieuHoa_NuocThai();
-    //AnHienDangKhuayTronDieuHoa_NuocThai();
-    //AnHienLoaiKhechTanKhi_DieuHoa_NuocThai();
-
-    //Bể sinh học hiếu khí
-    //AnHienHieuKhi_NuocThai();
-  } else if (linhVucXuLy === "NuocCap") {
-    //Nước cấp
-  } else if (linhVucXuLy === "KhiThai") {
-    //Khí thải
-  } else if (linhVucXuLy === "ChatThaiRan") {
-    //Chất thải rắn
-  }
 }
 
 //* CHUYỂN CHỮ THÀNH SỐ
@@ -1459,2475 +971,19 @@ function ChayPopoverTrenWebsite() {
   });
 }
 
-//!-------------------------------------------------------------III. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
-///=================================================NƯỚC THẢI
-//Biến nồng độ chất ô nhiễm cho nước thải
-var nuocThai_BOD5_DauVao;
-
-//Tính toán chính
-function TinhToanChoXuLyNuocThai() {
-  //Khai báo biến
-  let loaiNuocThaiXuLy = document.getElementById(
-    "comboBox_XuLyNuocThai"
-  ).selectedIndex;
-  let xuLyGopSinhHoat = TuDongLayDuLieu("switch_xuLyNuocThai_GopSinhHoat");
-
-  let jsonSinhHoatKhiGop = [{
-      Ten: "pH",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_pH_SH",
-    },
-    {
-      Ten: "BOD<sub>5</sub>",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_BOD5_SH",
-    },
-    {
-      Ten: "TSS",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_TSS_SH",
-    },
-    {
-      Ten: "TDS",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_TDS_SH",
-    },
-    {
-      Ten: "H<sub>2</sub>S",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_H2S_SH",
-    },
-    {
-      Ten: "NH<sub>3</sub>",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_NH3_SH",
-    },
-    {
-      Ten: "NO<sub>3</sub><sup>-</sup>",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_NO3-_SH",
-    },
-    {
-      Ten: "Dầu mỡ động, thực vật",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_DMDTV_SH",
-    },
-    {
-      Ten: "Tổng các chất hoạt động bề mặt",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_TCCHDBM_SH",
-    },
-    {
-      Ten: "PO<sub>4</sub><sup>3-</sup>",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_PO43-_SH",
-    },
-    {
-      Ten: "Tổng Coliforms",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_TColiforms_SH",
-    },
-  ];
-  let jsonLuuLuongSHGop = [{
-    Ten: "Lưu lượng nước thải sinh hoạt - xử lý chung",
-    ID: "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH",
-  }, ];
-  let jsonKiemTra = [{
-      Ten: "2.1 Chọn loại nước thải",
-      ID: "comboBox_XuLyNuocThai",
-    },
-    {
-      Ten: "3.1 Lưu lượng",
-      ID: "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai",
-    },
-  ];
-  let jsonKiemTraCongNgheLuaChon = [{
-    Ten: "5.1 Công nghệ lựa chọn",
-    ID: "comboBox_XuLyNuocThai_CongNghe_CongNgheLuaChon",
-  }, ];
-
-  //Gán giá trị nồng độ các chất ô nhiễm
-  function NongDoCONDauVao() {
-    //Biến
-    let kiemTra = TuDongLayDuLieu("switch_xuLyNuocThai_GopSinhHoat");
-
-    //Code
-    if (window.kiemTraTruocKhiTinh === true) {
-      if (kiemTra === false) {
-        window.nuocThai_BOD5_DauVao = TuDongLayDuLieu(
-          "input_xuLyNuocThai_ThongThongSoDauVao_BOD5"
-        );
-      } else {
-        window.nuocThai_BOD5_DauVao = TuDongLayDuLieu(
-          "input_xuLyNuocThai_ThongThongSoDauVao_BOD5" + "_NongDoHH"
-        );
-      }
-    }
-  }
-
-  //Chương trình con
-  // Xử lý nồng độ chất ô nhiễm theo hệ số K
-  function XuLyHeSoQuyChuan_NuocThai(QCApDung) {
-    //Khai báo biến
-    let k, kq, kf, bienChiTieu, ketQuaTinh, idNhap;
-    let mangIDQuyChuan14 = [
-      "input_xuLyNuocThai_YeuCauDauRa_pH",
-      "input_xuLyNuocThai_YeuCauDauRa_BOD5",
-      "input_xuLyNuocThai_YeuCauDauRa_TSS",
-      "input_xuLyNuocThai_YeuCauDauRa_TDS",
-      "input_xuLyNuocThai_YeuCauDauRa_H2S",
-      "input_xuLyNuocThai_YeuCauDauRa_NH3",
-      "input_xuLyNuocThai_YeuCauDauRa_NO3-",
-      "input_xuLyNuocThai_YeuCauDauRa_DMDTV",
-      "input_xuLyNuocThai_YeuCauDauRa_TCCHDBM",
-      "input_xuLyNuocThai_YeuCauDauRa_PO43-",
-      "input_xuLyNuocThai_YeuCauDauRa_TColiforms",
-    ];
-    let jsonKiemTraChung = [{
-      Ten: "4.1 Nguồn tiếp nhận nước thải",
-      ID: "comboBox_XuLyNuocThai_YeuCauDauRa_NguonTiepNhan",
-    }, ];
-    let jsonKiemTraQC14 = [{
-      Ten: "4.3 Hệ số chuyển đổi",
-      ID: "input_xuLyNuocThai_YeuCauDauRa_HeSoK",
-    }, ];
-    let jsonKiemTraQC4011 = [{
-        Ten: "4.3 Hệ số chuyển đổi (Kq)",
-        ID: "input_xuLyNuocThai_YeuCauDauRa_HeSoKq",
-      },
-      {
-        Ten: "4.3 Hệ số chuyển đổi (Kf)",
-        ID: "input_xuLyNuocThai_YeuCauDauRa_HeSoKf",
-      },
-    ];
-
-    //Code
-    //Kiểm tra đầu vào
-    if (KiemTraDieuKienTinhToan(jsonKiemTraChung)) {
-      if (QCApDung === 1) {
-        if (KiemTraDieuKienTinhToan(jsonKiemTraQC14)) {
-          k = document.getElementById(
-            "input_xuLyNuocThai_YeuCauDauRa_HeSoK"
-          ).value;
-          //Áp dụng cho QCVN 14:2008/BTNMT
-          for (let i = 0; i < mangIDQuyChuan14.length; i++) {
-            bienChiTieu = mangIDQuyChuan14[i].slice(
-              mangIDQuyChuan14[i].lastIndexOf("_") + 1,
-              mangIDQuyChuan14[i].length
-            );
-            if (
-              document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN")
-              .selectedIndex === 1
-            ) {
-              //Đối với cột A
-              if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                ketQuaTinh =
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotA[
-                    bienChiTieu
-                  ];
-                TuDongNhapDuLieu(mangIDQuyChuan14[i], ketQuaTinh);
-              } else {
-                ketQuaTinh = Math.round(
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotA[
-                    bienChiTieu
-                  ] * k
-                );
-                TuDongNhapDuLieu(mangIDQuyChuan14[i], ketQuaTinh);
-              }
-            } else if (
-              document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN")
-              .selectedIndex === 2
-            ) {
-              //Đối với cột B
-              if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                ketQuaTinh =
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotB[
-                    bienChiTieu
-                  ];
-                TuDongNhapDuLieu(mangIDQuyChuan14[i], ketQuaTinh);
-              } else {
-                ketQuaTinh = Math.round(
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN142008.CotB[
-                    bienChiTieu
-                  ] * k
-                );
-                TuDongNhapDuLieu(mangIDQuyChuan14[i], ketQuaTinh);
-              }
-            }
-          }
-        }
-      }
-
-      //Áp dụng cho quy chuẩn 11-MT:2015/BTNMT
-      else if (QCApDung === 2) {
-        if (KiemTraDieuKienTinhToan(jsonKiemTraQC4011)) {
-          kq = document.getElementById(
-            "input_xuLyNuocThai_YeuCauDauRa_HeSoKq"
-          ).value;
-          kf = document.getElementById(
-            "input_xuLyNuocThai_YeuCauDauRa_HeSoKf"
-          ).value;
-
-          //Áp dụng cho QCVN 11-MT:2015/BTNMT
-          for (
-            let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS.length; i++
-          ) {
-            bienChiTieu = window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.slice(
-              window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.lastIndexOf("_") +
-              1,
-              window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.length
-            );
-            idNhap = window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.replace(
-              "ThongThongSoDauVao",
-              "YeuCauDauRa"
-            );
-            if (
-              document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN")
-              .selectedIndex === 3
-            ) {
-              //Đối với cột A
-              if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                ketQuaTinh =
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotA[
-                    bienChiTieu
-                  ];
-                TuDongNhapDuLieu(idNhap, ketQuaTinh);
-              } else {
-                ketQuaTinh = Math.round(
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotA[
-                    bienChiTieu
-                  ] *
-                  kq *
-                  kf
-                );
-                TuDongNhapDuLieu(idNhap, ketQuaTinh);
-              }
-            } else if (
-              document.getElementById("comboBox_XuLyNuocThai_YeuCauDauRa_QCVN")
-              .selectedIndex === 4
-            ) {
-              //Đối với cột B
-              if (bienChiTieu === "pH" || bienChiTieu === "TColiforms") {
-                ketQuaTinh =
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotB[
-                    bienChiTieu
-                  ];
-                TuDongNhapDuLieu(idNhap, ketQuaTinh);
-              } else {
-                ketQuaTinh = Math.round(
-                  window.jsonDataSources.CoSoDuLieu.NuocThai.QCVN.QCVN11MT2015.CotB[
-                    bienChiTieu
-                  ] *
-                  kq *
-                  kf
-                );
-                TuDongNhapDuLieu(idNhap, ketQuaTinh);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  //Xử lý nồng độ ô nhiễm hỗn hợp nước thải
-  function XuLyNongDoONhiemGop(loaiNuocThai) {
-    //Khai báo biến
-    let giaTriNuocThaiChinh, giaTriNuocThaiSH;
-    let luuLuongNuocThaiChinh = document.getElementById(
-      "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai"
-    ).value;
-    let luuLuongNuocThaiSH = document.getElementById(
-      "input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH"
-    ).value;
-    let tongLuuLuong, ketQua, bienTam;
-
-    //Code
-    if (loaiNuocThai === 2) {
-      for (let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS.length; i++) {
-        giaTriNuocThaiChinh = document.getElementById(
-          window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID
-        ).value;
-        try {
-          giaTriNuocThaiSH = document.getElementById(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID + "_SH"
-          ).value;
-        } catch (error) {
-          /* giaTriNuocThaiSH = 0; */
-          continue;
-        }
-        bienTam = window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.slice(
-          window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.lastIndexOf("_") + 1,
-          window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID.length
-        );
-        if (bienTam === "pH") {
-          if (So(giaTriNuocThaiSH) < So(giaTriNuocThaiChinh)) {
-            ketQua = giaTriNuocThaiSH + " - " + giaTriNuocThaiChinh;
-          } else {
-            ketQua = giaTriNuocThaiChinh + " - " + giaTriNuocThaiSH;
-          }
-          TuDongNhapDuLieu(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID + "_NongDoHH",
-            ketQua
-          );
-        } else {
-          tongLuuLuong = So(luuLuongNuocThaiChinh) + So(luuLuongNuocThaiSH);
-          ketQua =
-            (giaTriNuocThaiSH * luuLuongNuocThaiSH +
-              giaTriNuocThaiChinh * luuLuongNuocThaiChinh) /
-            tongLuuLuong;
-          TuDongNhapDuLieu(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID + "_NongDoHH",
-            TuDongLamTronSo(ketQua)
-          );
-        }
-      }
-    }
-  }
-
-  //Xử lý thông số tính toán
-  function XuLyThongSoTinhToan_NuocThai(indexXuLyGop) {
-    //Khai báo biến
-    let qTongNgayDem, tHoatDong, kMax, kMin, tHeThong;
-
-    //Code
-    //6.1 Lưu lượng tính toán ngày đêm
-    //? Có nước thải sinh hoạt gộp
-    if (indexXuLyGop === false) {
-      qTongNgayDem = TuDongLayDuLieu("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai");
-      TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong", qTongNgayDem);
-    }
-
-    //? Không có gộp sinh hoạt
-    else {
-      let nuocThaiChinh = TuDongLayDuLieu("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai");
-      let nuocSinhHoat = TuDongLayDuLieu("input_xuLyNuocThai_ThongThongSoDauVao_LuuLuongNuocThai_SH");
-      qTongNgayDem = TuDongLamTronSo(So(nuocThaiChinh) + So(nuocSinhHoat));
-      TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong", qTongNgayDem);
-    }
-
-    //6.3 Lưu lượng trung bình giờ
-    tHoatDong = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong");
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGio", TuDongLamTronSo(qTongNgayDem / tHoatDong));
-
-    //6.4 Lưu lượng trung bình giây
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTrungBinhGiay", TuDongLamTronSo(qTongNgayDem / (tHoatDong * 3600)));
-
-    //6.6 Lưu lượng lớn nhất giây
-    kMax = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_Kmax");
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay", TuDongLamTronSo((qTongNgayDem * kMax) / (tHoatDong * 3600)));
-
-    //6.6 Lưu lượng nhỏ nhất giây
-    kMin = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_Kmin");
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMinGiay", TuDongLamTronSo((qTongNgayDem * kMin) / (tHoatDong * 3600)));
-
-    //6.10 Lưu lượng xử lý giờ của hệ thống
-    tHeThong = TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong");
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio", TuDongLamTronSo(qTongNgayDem / tHeThong));
-
-    //6.11 Lưu lượng xử lý giây của hệ thống
-    TuDongNhapDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGiay", TuDongLamTronSo(qTongNgayDem / (tHeThong * 3600)));
-  }
-
-  //Tính toán cho hố thu
-  function XuLyTinhToanHoThu_NuocThai() {
-    //Khai báo biến
-    let phuongAn = document.getElementById(
-      "comboBox_XuLyNuocThai_HoThu_PhuongAn"
-    ).selectedIndex;
-    let jsonKiemTra0 = [{
-      Ten: "Hố thu gom | Phương án tính toán",
-      ID: "comboBox_XuLyNuocThai_HoThu_PhuongAn",
-    }, ];
-    let jsonKiemTra1 = [{
-      Ten: "Hố thu gom | Thời gian lưu nước",
-      ID: "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
-    }, ];
-
-    let jsonKiemTra2 = [{
-        Ten: "Hố thu gom | Độ cao ống thoát - mực nước",
-        ID: "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
-      },
-      {
-        Ten: "Hố thu gom | Độ cao bảo vệ",
-        ID: "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
-      },
-      {
-        Ten: "Hố thu gom | Độ cao hữu ích",
-        ID: "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
-      },
-    ];
-
-    let jsonKiemTra3 = [{
-      Ten: "Hố thu gom | Dạng hình học",
-      ID: "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
-    }, ];
-
-    let jsonKiemTra4 = [{
-      Ten: "Hố thu gom | Chiều dài",
-      ID: "input_xuLyNuocThai_HoThu_ChieuDai",
-    }, ];
-
-    let jsonKiemTra5 = [{
-        Ten: "Hố thu gom | Chiều dài",
-        ID: "input_xuLyNuocThai_HoThu_ChieuDai",
-      },
-      {
-        Ten: "Hố thu gom | Chiều rộng",
-        ID: "input_xuLyNuocThai_HoThu_ChieuRong",
-      },
-    ];
-
-    //Chương trình con
-    //Tổng độ cao thực tế
-    function TongDoCaoThucTe() {
-      let hOngThoat = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoOngThoat");
-      let hBaoVe = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoBaoVe");
-      let hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
-
-      let hThucTeHoThu = TuDongLamTronSo(
-        So(hOngThoat) + So(hBaoVe) + So(hHuuIch)
-      );
-
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_DoCaoThucTe", hThucTeHoThu);
-    }
-
-    //Thể tích thực tế
-    function TheTichThucTe() {
-      let lHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuDai");
-      let wHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuRong");
-      let hThucTeHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_DoCaoThucTe"
-      );
-
-      let vThucTeHoThu = TuDongLamTronSo(
-        So(lHoThu) * So(wHoThu) * So(hThucTeHoThu)
-      );
-
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichThucTe", vThucTeHoThu);
-    }
-
-    //Thể tích hữu ích
-    function TheTichHuuIch() {
-      let qLonNhatGiay = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay"
-      );
-      let tLuuNuocHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc"
-      );
-
-      let vHuuIchHoThu = TuDongLamTronSo(
-        So(qLonNhatGiay) * 60 * So(tLuuNuocHoThu)
-      );
-
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichHuuIch", vHuuIchHoThu);
-    }
-
-    //Suy ra chiều rộng
-    function SuyRaChieuRong() {
-      let lHoThu = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_ChieuDai");
-      let vHuuIchHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_TheTichHuuIch"
-      );
-      let hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
-
-      let wHoThu = TuDongLamTronSo(So(vHuuIchHoThu) / So(hHuuIch) / So(lHoThu));
-
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuRong", wHoThu);
-    }
-
-    //Suy ra chiều dài và rộng - hình vuông
-    function SuyRaChieuDaiVaRong() {
-      let vHuuIchHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_TheTichHuuIch"
-      );
-      let hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
-
-      let lHoThu = TuDongLamTronSo(Math.sqrt(So(vHuuIchHoThu / So(hHuuIch))));
-
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuDai", lHoThu);
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_ChieuRong", lHoThu);
-    }
-
-    //Suy ra đường kính - hình tròn
-    function SuyRaDuongKinh() {
-      let vHuuIchHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_TheTichHuuIch"
-      );
-      let hHuuIch = TuDongLayDuLieu("input_xuLyNuocThai_HoThu_DoCaoHuuIch");
-      let hThucTeHoThu = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HoThu_DoCaoThucTe"
-      );
-
-      let dHoThu = TuDongLamTronSo(
-        Math.sqrt((4 / Math.PI) * (So(vHuuIchHoThu) / So(hHuuIch)))
-      );
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_DuongKinh", dHoThu);
-
-      let vThucTeHoThu = TuDongLamTronSo(
-        Math.PI * Math.pow(dHoThu / 2, 2) * So(hThucTeHoThu)
-      );
-      TuDongNhapDuLieu("input_xuLyNuocThai_HoThu_TheTichThucTe", vThucTeHoThu);
-    }
-
-    //Tính lưu lượng bơm của hố thu
-    function LuuLuongBomChim() {
-      let luuLuongm3GiayLonNhat = So(
-        TuDongLayDuLieu("input_xuLyNuocThai_ThongSoTinhToan_LuuLuongMaxGiay")
-      );
-
-      //Lưu lượng lít/phút
-      let luuLuongBomLitPhut = TuDongLamTronSo(
-        luuLuongm3GiayLonNhat * 60 * 1000
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HoThu_LuuLuongBom_LitPhut",
-        luuLuongBomLitPhut
-      );
-
-      //Lưu lượng m3/giờ
-      let luuLuongBomm3Gio = TuDongLamTronSo(luuLuongm3GiayLonNhat * 3600);
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HoThu_LuuLuongBom_m3gio",
-        luuLuongBomm3Gio
-      );
-    }
-
-    //Code
-    if (window.kiemTraTruocKhiTinh === true) {
-      if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
-        //Tự nhập
-        if (phuongAn === 1) {
-          if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
-            TongDoCaoThucTe();
-            if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
-              TheTichThucTe();
-            }
-          }
-        }
-
-        //Tính từ thời gian lưu
-        else if (phuongAn === 2) {
-          if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
-            TheTichHuuIch();
-
-            if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
-              TongDoCaoThucTe();
-
-              if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
-                //Hình chữ nhật
-                if (
-                  TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc") ===
-                  2
-                ) {
-                  if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
-                    SuyRaChieuRong();
-                    TheTichThucTe();
-                  }
-                }
-
-                //Hình vuông
-                else if (
-                  TuDongLayDuLieu("comboBox_XuLyNuocThai_HoThu_DangHinhHoc") ===
-                  1
-                ) {
-                  SuyRaChieuDaiVaRong();
-                  TheTichThucTe();
-                }
-
-                //Hình trụ tròn
-                else {
-                  SuyRaDuongKinh();
-                }
-              }
-            }
-          }
-        }
-        LuuLuongBomChim();
-      }
-    }
-  }
-
-  //Tính toán bể điều hoà
-  function TinhToanBeDieuHoa_NuocThai() {
-    //Khai báo biến
-    let hinhDangBe, dangKhuayTron, loaiKhechTan;
-    let jsonKiemTra0 = [{
-        Ten: "Bể điều hoà | Độ cao hữu ích",
-        ID: "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch",
-      },
-      {
-        Ten: "Bể điều hoà | Độ cao bảo vệ",
-        ID: "input_xuLyNuocThai_DieuHoa_DoCaoBaove",
-      },
-    ];
-    let jsonKiemTra1 = [{
-      Ten: "Bể điều hoà | Hình dạng bể",
-      ID: "comboBox_XuLyNuocThai_DieuHoa_HinhDangBe",
-    }, ];
-    let jsonKiemTra2 = [{
-      Ten: "Bể điều hoà | Chiều dài",
-      ID: "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat",
-    }, ];
-    let jsonKiemTra3 = [{
-      Ten: "Bể điều hoà | Hệ số vượt tải",
-      ID: "input_xuLyNuocThai_DieuHoa_HeSoVuotTai",
-    }, ];
-
-    let jsonKiemTra4 = [{
-      Ten: "Bể điều hoà | Dạng khuấy trộn",
-      ID: "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron",
-    }, ];
-
-    let jsonKiemTra5 = [{
-      Ten: "Bể điều hoà | Công suất cung cấp mỗi cho mỗi m<sup>3</sup> nước thải",
-      ID: "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiM3Nuoc",
-    }, ];
-
-    let jsonKiemTra6 = [{
-      Ten: "Bể điều hoà | Tốc độ khí nén cung cấp",
-      ID: "input_xuLyNuocThai_DieuHoa_KhiNen_TocDoKhiNenCungCap",
-    }, ];
-
-    let jsonKiemTra7 = [{
-      Ten: "Bể điều hoà | Loại khuếch tán khí",
-      ID: "comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan",
-    }, ];
-
-    let jsonKiemTra8 = [{
-      Ten: "Bể điều hoà | Lưu lượng khí trên mỗi ống (cái)",
-      ID: "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_LuongKhiTrenMoiOng",
-    }, ];
-
-    let jsonKiemTra9 = [{
-      Ten: "Bể điều hoà | Lưu lượng khí trên mỗi đĩa",
-      ID: "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_LuongKhiTrenMoiDia",
-    }, ];
-
-    //Code
-    //tính toán thời gian lưu
-    function ThoiGianLuu() {
-      let tHoatDong = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDong"
-      );
-      let tHeThong = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong"
-      );
-
-      let tLuuDieuHoa = So(tHeThong) - So(tHoatDong);
-      if (tLuuDieuHoa === 0) {
-        TuDongNhapDuLieu("input_xuLyNuocThai_DieuHoa_ThoiGianLuu", 8);
-      } else {
-        TuDongNhapDuLieu("input_xuLyNuocThai_DieuHoa_ThoiGianLuu", tLuuDieuHoa);
-      }
-    }
-
-    //Thể tích hữu ích lý thuyết
-    function TheTichHuuIchLyThuyet() {
-      let qXuLyGio = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio"
-      );
-      let tLuuDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_ThoiGianLuu"
-      );
-
-      let vHuuIchDieuHoaLyThuyet = TuDongLamTronSo(
-        So(qXuLyGio) * So(tLuuDieuHoa)
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet",
-        vHuuIchDieuHoaLyThuyet
-      );
-    }
-
-    //Thể tích hữu ích
-    function TheTichHuuIch() {
-      let vHuuIchDieuHoaLyThuyet = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet"
-      );
-      let kHeSoVuotTai = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_HeSoVuotTai"
-      );
-
-      let vHuuIchDieuHoa = TuDongLamTronSo(
-        So(vHuuIchDieuHoaLyThuyet) * So(kHeSoVuotTai)
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch",
-        vHuuIchDieuHoa
-      );
-    }
-
-    //Tổng độ cao thực tế
-    function TongDoCaoThucTe() {
-      let hHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch"
-      );
-      let hBaoVeDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoBaove"
-      );
-
-      let hThucTeDieuHoa = So(hHuuIchDieuHoa) + So(hBaoVeDieuHoa);
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoThucTe",
-        hThucTeDieuHoa
-      );
-    }
-
-    //Hình chữ nhật
-    function HinhChuNhat() {
-      let lDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat"
-      );
-      let vHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch"
-      );
-      let hHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch"
-      );
-
-      let wDieuHoa = TuDongLamTronSo(
-        So(vHuuIchDieuHoa) / So(hHuuIchDieuHoa) / lDieuHoa
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat",
-        wDieuHoa
-      );
-    }
-
-    //Hình vuông
-    function HinhVuong() {
-      let vHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch"
-      );
-      let hHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch"
-      );
-
-      let lDieuHoa = TuDongLamTronSo(
-        Math.sqrt(So(vHuuIchDieuHoa) / So(hHuuIchDieuHoa))
-      );
-      let wDieuHoa = lDieuHoa;
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong",
-        lDieuHoa
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong",
-        wDieuHoa
-      );
-    }
-
-    //Hình tròn
-    function HinhTron() {
-      let vHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch"
-      );
-      let hHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch"
-      );
-
-      let dDieuHoa = TuDongLamTronSo(
-        Math.sqrt((4 / Math.PI) * (So(vHuuIchDieuHoa) / So(hHuuIchDieuHoa)))
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron",
-        dDieuHoa
-      );
-    }
-
-    //Thể tích thực tế
-    function TheTichThucTe(loaiHinhHoc) {
-      //Hình tròn bằng true
-      if (loaiHinhHoc === "Tron") {
-        let dDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron"
-        );
-        let hThucTeDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_DoCaoThucTe"
-        );
-
-        let vThucTeDieuHoa = TuDongLamTronSo(
-          Math.PI * Math.pow(So(dDieuHoa / 2), 2) * So(hThucTeDieuHoa)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_DieuHoa_TheTichThucTe",
-          vThucTeDieuHoa
-        );
-      }
-
-      //Hình chữ nhật
-      else if (loaiHinhHoc === "ChuNhat") {
-        let hThucTeDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_DoCaoThucTe"
-        );
-        let wDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat"
-        );
-        let lDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat"
-        );
-
-        let vThucTeDieuHoa = TuDongLamTronSo(
-          So(hThucTeDieuHoa) * So(wDieuHoa) * So(lDieuHoa)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_DieuHoa_TheTichThucTe",
-          vThucTeDieuHoa
-        );
-      }
-
-      //Hình vuông
-      else if (loaiHinhHoc === "Vuong") {
-        let hThucTeDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_DoCaoThucTe"
-        );
-        let wDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong"
-        );
-        let lDieuHoa = TuDongLayDuLieu(
-          "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong"
-        );
-
-        let vThucTeDieuHoa = TuDongLamTronSo(
-          So(hThucTeDieuHoa) * So(wDieuHoa) * So(lDieuHoa)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_DieuHoa_TheTichThucTe",
-          vThucTeDieuHoa
-        );
-      }
-    }
-
-    //Công suất thiết bị khuấy trộn
-    function CongSuatMayKhuayTron() {
-      let pCungCap = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiM3Nuoc"
-      );
-      let vHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch"
-      );
-
-      let pKhuayTronkW = TuDongLamTronSo(
-        (So(pCungCap) * So(vHuuIchDieuHoa)) / 1000
-      );
-      let pKhuayTronHP = TuDongLamTronSo(pKhuayTronkW * 1.34102);
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_KW",
-        pKhuayTronkW
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_HP",
-        pKhuayTronHP
-      );
-    }
-
-    //Lượng khí nén cần thiết
-    function LuongKhiNenCanThiet() {
-      let vHuuIchDieuHoa = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_TheTichHuuIch"
-      );
-      let vKhiNen = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_TocDoKhiNenCungCap"
-      );
-
-      let qKhiNen = TuDongLamTronSo(So(vHuuIchDieuHoa) * So(vKhiNen));
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron",
-        qKhiNen
-      );
-    }
-
-    //Số ống phân phối cần thiết
-    function SoOngPhanPhoi() {
-      let qKhiNen = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron"
-      );
-      let qKhiOng = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_LuongKhiTrenMoiOng"
-      );
-
-      let nOng = So(qKhiNen) / So(qKhiOng);
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_SoLuongOng",
-        nOng.toFixed(0)
-      );
-    }
-
-    //Số đĩa phân phối cần thiết
-    function SoDiaPhanPhoi() {
-      let qKhiNen = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron"
-      );
-      let qKhiDia = TuDongLayDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_LuongKhiTrenMoiDia"
-      );
-
-      let nDia = So(qKhiNen) / So(qKhiDia);
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_SoLuongDia",
-        nDia.toFixed(0)
-      );
-    }
-
-    //Thông số, kích thước
-    if (window.kiemTraTruocKhiTinh === true) {
-      ThoiGianLuu();
-      TheTichHuuIchLyThuyet();
-      if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
-        TheTichHuuIch();
-        if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
-          TongDoCaoThucTe();
-          if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
-            hinhDangBe = TuDongLayDuLieu(
-              "comboBox_XuLyNuocThai_DieuHoa_HinhDangBe"
-            );
-
-            //hình chữ nhật
-            if (hinhDangBe === 1) {
-              if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
-                HinhChuNhat();
-                TheTichThucTe("ChuNhat");
-              }
-            }
-
-            //Hình vuông
-            else if (hinhDangBe === 2) {
-              HinhVuong();
-              TheTichThucTe("Vuong");
-            }
-
-            //Hình tròn
-            else if (hinhDangBe === 3) {
-              HinhTron();
-              TheTichThucTe("Tron");
-            }
-          }
-        }
-      }
-    }
-
-    //Máy móc, thiết bị
-    if (window.kiemTraTruocKhiTinh === true) {
-      if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
-        dangKhuayTron = TuDongLayDuLieu(
-          "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron"
-        );
-
-        //Khuấy trộn cơ khí
-        if (dangKhuayTron === 1) {
-          if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
-            CongSuatMayKhuayTron();
-          }
-        }
-
-        //Khuấy trộn khí nén
-        if (dangKhuayTron === 2) {
-          if (KiemTraDieuKienTinhToan(jsonKiemTra6)) {
-            LuongKhiNenCanThiet();
-            if (KiemTraDieuKienTinhToan(jsonKiemTra7)) {
-              loaiKhechTan = TuDongLayDuLieu(
-                "comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan"
-              );
-
-              //Ống phân phối khí
-              if (loaiKhechTan === 1) {
-                if (KiemTraDieuKienTinhToan(jsonKiemTra8)) {
-                  SoOngPhanPhoi();
-                }
-              }
-
-              //Đĩa phân phối khí
-              else if (loaiKhechTan === 2) {
-                if (KiemTraDieuKienTinhToan(jsonKiemTra9)) {
-                  SoDiaPhanPhoi();
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  //Tính toán bể bùn hoạt tính
-  function NuocThai_BeBunHoatTinh() {
-    //Biến
-    let phuongAnTheTich, hinhDangBe;
-    let jsonKiemTra0 = [{
-      Ten: "Bể hiếu khí | Phương án xác định thể tích",
-      ID: "comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich",
-    }, ];
-    let jsonKiemTra1 = [{
-      Ten: "Bể hiếu khí | Tỉ lệ các chất phân huỷ sinh học trong SS sau xử lý",
-      ID: "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS",
-    }, ];
-    let jsonKiemTra2 = [{
-        Ten: "Bể hiếu khí | Nhiệt độ trung bình khu vực tính toán",
-        ID: "input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc",
-      },
-      {
-        Ten: "Bể hiếu khí | Thời gian lưu vi khuẩn (bùn)",
-        ID: "input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan",
-      },
-      {
-        Ten: "Bể hiếu khí | Nồng độ các chất lơ lửng dễ bay hơi trong hỗn hợp bùn hoạt tính",
-        ID: "input_xuLyNuocThai_HieuKhi_MLVSS",
-      },
-      {
-        Ten: "Bể hiếu khí | Hệ số sản lượng bùn",
-        ID: "input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun",
-      },
-      {
-        Ten: "Bể hiếu khí | Hệ số phân huỷ nội bào (ở 20 độ C)",
-        ID: "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do",
-      },
-      {
-        Ten: "Bể hiếu khí | Hệ số điều chỉnh kd theo nhiệt độ",
-        ID: "input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd",
-      },
-    ];
-    let jsonKiemTra3 = [{
-      Ten: "Bể hiếu khí | Thời gian lưu nước trong bể",
-      ID: "input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu",
-    }, ];
-    let jsonKiemTra4 = [{
-      Ten: "Bể hiếu khí | Độ tro của bùn",
-      ID: "input_xuLyNuocThai_HieuKhi_DoTroCuaBun",
-    }, ];
-    //Chương trình con
-    //SS và BOD5 quy chuẩn
-    function SSBOD5CanDat_QCVN() {
-      let nuocThai_SS_QuyChuan = TuDongLayDuLieu(
-        "input_xuLyNuocThai_YeuCauDauRa_TSS"
-      );
-      let nuocThai_BOD5_QuyChuan = TuDongLayDuLieu(
-        "input_xuLyNuocThai_YeuCauDauRa_BOD5"
-      );
-
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan",
-        nuocThai_SS_QuyChuan
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan",
-        nuocThai_BOD5_QuyChuan
-      );
-    }
-
-    //Nồng độ SS và BOD5 sau xử lý ước tính
-    function SSBOD5_SauXuLy() {
-      let nuocThai_SS_QuyChuan = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan"
-      );
-      let nuocThai_BOD5_QuyChuan = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan"
-      );
-
-      let ss_SauXuLy = TuDongLamTronSo(0.68 * So(nuocThai_SS_QuyChuan));
-      let bod5_SauXuLy = TuDongLamTronSo(0.92 * So(nuocThai_BOD5_QuyChuan));
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy",
-        ss_SauXuLy
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy",
-        bod5_SauXuLy
-      );
-    }
-
-    //BOD hoà tan tối đa
-    function LuongBODHoaTanToiDa() {
-      let ssSauXuLy = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy"
-      );
-      let bod5SauXuLy = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy"
-      );
-      let rPhanHuySinhHocSS = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS"
-      );
-
-      let bodHoaTanSauXL = TuDongLamTronSo(
-        So(bod5SauXuLy) -
-        So(ssSauXuLy) * (So(rPhanHuySinhHocSS) / 100) * 1.42 * 0.68
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy",
-        bodHoaTanSauXL
-      );
-    }
-
-    //hệ số phân huỷ nội bào theo nhiệt độ khu vực
-    function HeSoPhanHuyNoiBaoONhietDoKhuVuc() {
-      let tKhuVuc = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc");
-      let kd20 = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do"
-      );
-      let cDieuChinhKd = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd"
-      );
-
-      let kd = TuDongLamTronSo(
-        So(kd20) * Math.pow(So(cDieuChinhKd), So(tKhuVuc) - 20)
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc",
-        kd
-      );
-    }
-
-    //Thể tích bể hiếu khí
-    function TheTichBeHieuKhi(phuongAn) {
-      //Code
-      //ThờI gian lưu vi khuẩn
-      if (phuongAn === "viKhuan") {
-        //Thể tích
-        let qTongNgayDem = TuDongLayDuLieu(
-          "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong"
-        );
-        let thetaC = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan"
-        );
-        let y = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun");
-        let bod5DauVao = window.nuocThai_BOD5_DauVao;
-        let bodHoaTanSauXL = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy"
-        );
-        let x = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_MLVSS");
-        let kd = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc"
-        );
-
-        let vHuuIchHieuKhi = TuDongLamTronSo(
-          (So(qTongNgayDem) * So(thetaC) * So(y) * (So(bod5DauVao) - So(bodHoaTanSauXL))) / (So(x) * (1 + So(kd) * So(thetaC)))
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_HieuKhi_TheTichHuuIch",
-          vHuuIchHieuKhi
-        );
-      }
-
-      //Thời gian lưu nước
-      else if (phuongAn === "nuoc") {
-        let qXuLyGio = TuDongLayDuLieu(
-          "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio"
-        );
-        let tLuuHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu"
-        );
-
-        let vHuuIchHieuKhi = TuDongLamTronSo(So(qXuLyGio) * So(tLuuHieuKhi));
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_HieuKhi_TheTichHuuIch",
-          vHuuIchHieuKhi
-        );
-      }
-    }
-
-    //Thời gian lưu tồn nước tính toán - phương án thời gian lưu vi khuẩn
-    function ThoiGianLuuNuoc_TinhLai() {
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-      let qXuLyGio = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio"
-      );
-
-      let tLuuHieuKhi = TuDongLamTronSo(So(vHuuIchHieuKhi) / So(qXuLyGio));
-      TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_ThoiGianLuu", tLuuHieuKhi);
-    }
-
-    //Tỉ lệ F/M
-    function TiLeFM() {
-      let qTongNgayDem = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong"
-      );
-      let bod5DauVao = window.nuocThai_BOD5_DauVao;
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-      let x = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_MLVSS");
-
-      let fmHieuKhi = TuDongLamTronSo(
-        (So(qTongNgayDem) * So(bod5DauVao)) / (So(vHuuIchHieuKhi) * So(x))
-      );
-      TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TiLeFM", fmHieuKhi);
-    }
-
-    //Tải nạp chất hữu cơ theo thể tích bể
-    function TaiNapChatHuuCo() {
-      let qTongNgayDem = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong"
-      );
-      let bod5DauVao = window.nuocThai_BOD5_DauVao;
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-
-      let lBOD = TuDongLamTronSo(
-        (So(qTongNgayDem) * So(bod5DauVao)) / (So(vHuuIchHieuKhi) * 1000)
-      );
-      TuDongNhapDuLieu("input_xuLyNuocThai_HieuKhi_TaiNapChatHuuCo", lBOD);
-    }
-
-    //Lượng bùn dư thải bỏ mỗi ngày
-    function LuongBunDuMoiNgay() {
-      let bodHoaTanSauXL = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy"
-      );
-      let thetaC = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan"
-      );
-      let y = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun");
-      let kd = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc"
-      );
-      let qTongNgayDem = TuDongLayDuLieu(
-        "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong"
-      );
-      let bod5DauVao = window.nuocThai_BOD5_DauVao;
-      let rTroBun = TuDongLayDuLieu("input_xuLyNuocThai_HieuKhi_DoTroCuaBun");
-      let ssSauXuLy = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy"
-      );
-
-      let yOBS = So(y) / (1 + So(kd) * So(thetaC));
-      let pX = So(qTongNgayDem) * yOBS * (So(bod5DauVao) - So(bodHoaTanSauXL)) * 0.001;
-      let pBun = pX / ((100 - So(rTroBun)) / 100);
-      let wBunThaiMoiNgay = TuDongLamTronSo(
-        pBun - So(qTongNgayDem) * So(ssSauXuLy) * 0.001
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay",
-        wBunThaiMoiNgay
-      );
-    }
-
-    //Hình chữ nhật
-    function HinhChuNhat() {
-      let lHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat"
-      );
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-      let hHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_DoCaoHuuIch"
-      );
-
-      let wHieuKhi = TuDongLamTronSo(
-        So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi) / lHieuKhi
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat",
-        wHieuKhi
-      );
-    }
-
-    //Hình vuông
-    function HinhVuong() {
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-      let hHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_DoCaoHuuIch"
-      );
-
-      let lHieuKhi = TuDongLamTronSo(
-        Math.sqrt(So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi))
-      );
-      let wHieuKhi = lHieuKhi;
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong",
-        lHieuKhi
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong",
-        wHieuKhi
-      );
-    }
-
-    //Hình tròn
-    function HinhTron() {
-      let vHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_TheTichHuuIch"
-      );
-      let hHuuIchHieuKhi = TuDongLayDuLieu(
-        "input_xuLyNuocThai_HieuKhi_DoCaoHuuIch"
-      );
-
-      let dHieuKhi = TuDongLamTronSo(
-        Math.sqrt((4 / Math.PI) * (So(vHuuIchHieuKhi) / So(hHuuIchHieuKhi)))
-      );
-      TuDongNhapDuLieu(
-        "input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron",
-        dHieuKhi
-      );
-    }
-
-    //Thể tích thực tế
-    function TheTichThucTe(loaiHinhHoc) {
-      //Hình tròn bằng true
-      if (loaiHinhHoc === "Tron") {
-        let dHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_DuongKinh_HinhTron"
-        );
-        let hThucTeHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_DoCaoThucTe"
-        );
-
-        let vThucTeHieuKhi = TuDongLamTronSo(
-          Math.PI * Math.pow(So(dHieuKhi / 2), 2) * So(hThucTeHieuKhi)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_HieuKhi_TheTichThucTe",
-          vThucTeHieuKhi
-        );
-      }
-
-      //Hình chữ nhật
-      else if (loaiHinhHoc === "ChuNhat") {
-        let hThucTeHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_DoCaoThucTe"
-        );
-        let wHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat"
-        );
-        let lHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat"
-        );
-
-        let vThucTeHieuKhi = TuDongLamTronSo(
-          So(hThucTeHieuKhi) * So(wHieuKhi) * So(lHieuKhi)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_HieuKhi_TheTichThucTe",
-          vThucTeHieuKhi
-        );
-      }
-
-      //Hình vuông
-      else if (loaiHinhHoc === "Vuong") {
-        let hThucTeHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_DoCaoThucTe"
-        );
-        let wHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong"
-        );
-        let lHieuKhi = TuDongLayDuLieu(
-          "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong"
-        );
-
-        let vThucTeHieuKhi = TuDongLamTronSo(
-          So(hThucTeHieuKhi) * So(wHieuKhi) * So(lHieuKhi)
-        );
-        TuDongNhapDuLieu(
-          "input_xuLyNuocThai_HieuKhi_TheTichThucTe",
-          vThucTeHieuKhi
-        );
-      }
-    }
-
-    //Code
-    //Thông số, kích thước
-    if (window.kiemTraTruocKhiTinh === true) {
-      if (KiemTraDieuKienTinhToan(jsonKiemTra0)) {
-        //SS và BOD5 quy chuẩn
-        SSBOD5CanDat_QCVN();
-
-        //Nồng độ SS và BOD5 sau xử lý ước tính
-        SSBOD5_SauXuLy();
-
-        if (KiemTraDieuKienTinhToan(jsonKiemTra1)) {
-          //BOD hoà tan tối đa
-          LuongBODHoaTanToiDa();
-
-          if (KiemTraDieuKienTinhToan(jsonKiemTra2)) {
-            phuongAnTheTich = TuDongLayDuLieu(
-              "comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich"
-            );
-            HeSoPhanHuyNoiBaoONhietDoKhuVuc();
-
-            //Theo thời gian lưu vi khuẩn
-            if (phuongAnTheTich === 1) {
-              TheTichBeHieuKhi("viKhuan");
-
-              ThoiGianLuuNuoc_TinhLai();
-            }
-
-            //Theo thời gian lưu nước
-            else if (phuongAnTheTich === 2) {
-              if (KiemTraDieuKienTinhToan(jsonKiemTra3)) {
-                TheTichBeHieuKhi("nuoc");
-              }
-            }
-          }
-        }
-      }
-    }
-
-    //Tiếp tục tính toán
-    if (window.kiemTraTruocKhiTinh === true) {
-      //Tỉ lệ F/M
-      TiLeFM();
-
-      //Tải nạp chất hữu cơ theo thể tích bể
-      TaiNapChatHuuCo();
-
-      if (KiemTraDieuKienTinhToan(jsonKiemTra4)) {
-        //Lượng bùn dư mỗi ngày
-        LuongBunDuMoiNgay();
-
-        if (KiemTraDieuKienTinhToan(jsonKiemTra5)) {
-          //Lượng bùn thải bỏ hằNg ngày
-          LuongBunThaiBoHangNgay();
-
-          //Thời gian vận hành không thải bỏ bùn
-          ThoiGianVanHanhKhongThaiBun();
-
-          //Lưu luọng bùn hoàn lưu
-          LuuLuongBunHoanLuu();
-
-          if (KiemTraDieuKienTinhToan(jsonKiemTra6)) {
-            TongDoCaoThucTe();
-
-            if (KiemTraDieuKienTinhToan(jsonKiemTra7)) {
-              hinhDangBe = TuDongLayDuLieu(
-                "comboBox_XuLyNuocThai_HieuKhi_HinhDangBe"
-              );
-
-              //hình chữ nhật
-              if (hinhDangBe === 1) {
-                if (KiemTraDieuKienTinhToan(jsonKiemTra8)) {
-                  HinhChuNhat();
-                  TheTichThucTe("ChuNhat");
-                }
-              }
-
-              //Hình vuông
-              else if (hinhDangBe === 2) {
-                HinhVuong();
-                TheTichThucTe("Vuong");
-              }
-
-              //Hình tròn
-              else if (hinhDangBe === 3) {
-                HinhTron();
-                TheTichThucTe("Tron");
-              }
-            }
-          }
-        }
-      }
-    }
-
-    //Máy móc, thiết bị
-    if (window.kiemTraTruocKhiTinh === true) {}
-  }
-
-  //Code
-  //Xử lý tính toán II -> IV
-  if (KiemTraDieuKienTinhToan(jsonKiemTra)) {
-    //Xử lý riêng lẻ
-    if (xuLyGopSinhHoat === false) {
-      //Đối với nước thải sinh hoạt
-      if (loaiNuocThaiXuLy === 1) {
-        if (KiemTraDieuKienTinhToan(window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH)) {
-          XuLyHeSoQuyChuan_NuocThai(1);
-        }
-      }
-
-      //Đối với nước thải thuỷ sản
-      if (loaiNuocThaiXuLy === 2) {
-        if (KiemTraDieuKienTinhToan(window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS)) {
-          XuLyHeSoQuyChuan_NuocThai(2);
-        }
-      }
-    }
-
-    //Xử lý gộp với sinh hoạt
-    else if (
-      xuLyGopSinhHoat === true &&
-      KiemTraDieuKienTinhToan(jsonLuuLuongSHGop) &&
-      KiemTraDieuKienTinhToan(jsonSinhHoatKhiGop)
-    ) {
-      if (loaiNuocThaiXuLy === 2) {
-        if (KiemTraDieuKienTinhToan(window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS)) {
-          XuLyNongDoONhiemGop(2);
-          XuLyHeSoQuyChuan_NuocThai(2);
-        }
-      }
-    }
-  }
-
-  //Xử lý V
-  if (window.kiemTraTruocKhiTinh === true) {
-    if (KiemTraDieuKienTinhToan(jsonKiemTraCongNgheLuaChon)) {}
-  }
-
-  //Xử lý tính toán VI
-  if (window.kiemTraTruocKhiTinh === true) {
-    if (
-      KiemTraDieuKienTinhToan(
-        window.jsonDataSources.CoSoDuLieu.NuocThai.ThongSoTinhToan
-      )
-    ) {
-      XuLyThongSoTinhToan_NuocThai(xuLyGopSinhHoat);
-    }
-  }
-
-  //Gán nồng độ chất ô nhiễm đầu vào cho biến
-  NongDoCONDauVao();
-
-  //Hố thu
-  //XuLyTinhToanHoThu_NuocThai();
-
-  //Bể điều hoà
-  //TinhToanBeDieuHoa_NuocThai();
-
-  //Bể bùn hoạt tính
-  /* NuocThai_BeBunHoatTinh(); */
-}
-
-//=================================================NƯỚC CẤP
-//3.2 Tính toán cho xử lý nước cấp
-function TinhToanChoXuLyNuocCap() {}
-
-//=================================================KHÍ THẢI
-//3.3 Tính toán cho xử lý khí thải
-function TinhToanChoXuLyKhiThai() {}
-
-//=================================================CHẤT THẢI RẮN
-//3.4 Tính toán cho xử lý chất thải rắn
-function TinhToanChoXuLyChatThaiRan() {}
-
-//!-----------------------------------------------------------IV. XỬ LÝ SỰ KIỆN-----------------------------------------------------------------------
-//4.1 Xử lý chung
-//Xử lý chính
-function XuLySuKienChinh() {
-  //===================================== NÚT LỆNH ========================================
-  //* NÚT TÍNH TOÁN
-  document.getElementById("btn_calculator").addEventListener("click", function () {
-    //Khai báo biến
-    let index = document.getElementById("comboBox_LinhVucTinhToan").selectedIndex;
-    let jsonKiemTraDauVao = [{
-      Ten: "1.1 Lĩnh vực cần tính toán cho môi trường",
-      ID: "comboBox_LinhVucTinhToan",
-    }, ];
-
-    //Code
-    //* Không hiển thị thông báo lỗi
-    window.anHienThongBaoSoatLoi = true;
-
-    //! Tự động tính toán trên toàn website
-    TuDongTinhToanTrenDoiTuong();
-
-    //? Kiểm tra đầu vào
-    /* if (KiemTraDieuKienTinhToan(jsonKiemTraDauVao)) {
-      if (index === 1) {
-        TinhToanChoXuLyNuocThai();
-      } else if (index === 2) {
-        TinhToanChoXuLyNuocCap();
-      } else if (index === 3) {
-        TinhToanChoXuLyKhiThai();
-      } else if (index === 4) {
-        TinhToanChoXuLyChatThaiRan();
-      }
-    } */
-
-    //* Hiển thị dữ liệu trên console
-    console.log("%c Sources-Data: ", "color: green; font-weight: bold; font-size: 16px;");
-    console.log(window.jsonDataSources);
-    console.log("%c User-Data: ", "color: green; font-weight: bold; font-size: 16px;");
-    console.log(window.jsonDataUser);
-  });
-
-  //* CẬP NHẬT DỮ LIỆU
-  document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", function () {
-    //Khai báo biến
-
-    //Chương trình con
-    function KiemTraUpload() {
-      let kiemTra = document.getElementById("upload_TaiLenTepDuLieu").value;
-      if (kiemTra === "") {
-        document.getElementById("nhapTepDuLieu").style.borderColor = "red";
-        return false;
-      } else {
-        document.getElementById("nhapTepDuLieu").style.borderColor = "#ced4da";
-        return true;
-      }
-    }
-
-    //Code
-    //? Có file upload
-    if (KiemTraUpload()) {
-      //* Nạp dữ liệu vào website
-      NapDuLieuChoWebTuIndexdDBVaFile();
-
-      //* Thông báo thành công
-      HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
-
-      //* Reset ô nhập file
-      document.getElementById("tenTepTaiLen").innerText = "..."; //Cân nhắc
-    }
-
-    //? Không có file
-    else {
-      HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
-    }
-  });
-
-  //* TẢI XUỐNG DỮ LIỆU
-  document.getElementById("btn_TaiXuongTepDuLieu").addEventListener("click", function () {
-    //Biến
-    let tenFile = document.getElementById("input_TenFileTaiXuong").value;
-    let jsonKiemTra0 = [{
-      Ten: "Xuất tệp dữ liệu | Tên tệp",
-      ID: "input_TenFileTaiXuong",
-    }, ];
-    //Chương trình con
-    function download(filename, text) {
-      //Tạo link
-      let element = document.createElement("a");
-      element.setAttribute(
-        "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-      );
-      element.setAttribute("download", filename);
-
-      //Ẩn hiển thị
-      element.style.display = "none";
-      document.body.appendChild(element);
-
-      //Click
-      element.click();
-
-      //Loại bỏ
-      document.body.removeChild(element);
-    }
-
-    //Code
-    //* Cập nhật lần cuối trước khi tải
-    TuDongCapNhatThayDoiTuUser();
-
-    //? Tiến hành tải xuống
-    if (KiemTraDieuKienThucHienLenh(jsonKiemTra0)) {
-      download(tenFile + ".json", JSON.stringify(window.jsonDataUser));
-      HienThiThongBao("Tải xuống thành công!");
-    }
-  });
-
-  //* XOÁ DỮ LIỆU
-  document.getElementById("btn_XacNhanXoaMoiDuLieuDuocLuu").addEventListener("click", function () {
-    XoaToanBoDuLieuWebsite();
-  });
-
-  //* KIỂM TRA LỖI
-  document.getElementById("btn_KiemTraLoi").addEventListener("click", function () {
-    //Biến
-    let thongBaoLoi = window.kiemTraThongBaoBiTrung.slice(window.kiemTraThongBaoBiTrung.indexOf("@") + 1, window.kiemTraThongBaoBiTrung.length);
-
-    //? Có lỗi và chưa kết thúc tính toán
-    if (thongBaoLoi !== "" && window.kiemTraTruocKhiTinh === false) {
-      HienThiThongBao(thongBaoLoi);
-    }
-
-    //? Không còn lỗi
-    else {
-      HienThiThongBao("Không phát hiện lỗi!");
-    }
-  });
-
-  //* THỐNG KÊ SỐ LIỆU
-  document.getElementById("btn_ThongKeDuLieuTinhToan").addEventListener("click", function () {
-    TaoBangThongKeSoLieu();
-  });
-
-  //* IN DỮ LIỆU THỐNG KÊ
-  document.getElementById("btn_InDuLieuThongKe").addEventListener("click", function () {
-    window.bangThongKe.print();
-  });
-
-  //* XUẤT FILE EXCEL DỮ LIỆU EXCEL
-  document.getElementById("btn_InDuLieuExcel").addEventListener("click", () => {
-    window.bangThongKe.download("xlsx", "dulieuthongke.xlsx");
-  });
-
-  //===================================== PHẦN TỬ ========================================
-  //* TẢI LÊN TỆP DỮ LIỆU - TỪ NGƯỜI DÙNG
-  document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
-    //Khai báo biến
-    let reader = new FileReader();
-
-    //Code
-    reader.addEventListener("load", function () {
-      let result = JSON.parse(reader.result);
-      window.jsonDataUser = result;
-      HienThiThongBao("Tải lên tệp tin thành công!");
-    });
-    reader.readAsText(
-      document.getElementById("upload_TaiLenTepDuLieu").files[0]
-    );
-
-    //* Hiển thị tên file tải lên
-    let tenTep = document.getElementById("upload_TaiLenTepDuLieu").value;
-    tenTep = tenTep.split("\\").pop();
-    document.getElementById("tenTepTaiLen").innerText = tenTep;
-  });
-  //* XỬ LÝ TẢI FILE CÙNG TÊN
-  document.getElementById("upload_TaiLenTepDuLieu").addEventListener("click", function () {
-    //* Xoá file cũ
-    document.getElementById("upload_TaiLenTepDuLieu").value = "";
-
-    //* Xoá tên file trong upload btn
-    document.getElementById("tenTepTaiLen").innerText = "...";
-  });
-}
-
-function XuLySuKien_NuocThai() {
-  //* SỐ LIỆU TỪ CSDL
-  document.getElementById("btnInCal_xuLyNuocThai_ThongSoDauVao_CSDL").addEventListener("click", function () {
-    //Khai báo biến
-    let loaiNuocThaiXuLy = TuDongLayDuLieu("comboBox_XuLyNuocThai");
-    let xuLyGopSinhHoat = TuDongLayDuLieu("switch_xuLyNuocThai_GopSinhHoat");
-
-    //Chương trình con
-    //* Nhập dữ liệu phù hợp quy chuẩn được chọn
-    function NhapDuLieuPhuHopQuyChuan() {
-      //? Đối với nước thải sinh hoạt
-      if (loaiNuocThaiXuLy === 1) {
-        for (
-          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH.length; i++
-        ) {
-          TuDongNhapDuLieu(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].ID,
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].GiaTri
-          );
-        }
-      }
-
-      //Đối với nước thải thuỷ sản
-      else if (loaiNuocThaiXuLy === 2) {
-        for (
-          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS.length; i++
-        ) {
-          TuDongNhapDuLieu(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID,
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].GiaTri
-          );
-        }
-      }
-    }
-
-    //Code
-    if (loaiNuocThaiXuLy !== 0) {
-      //Đối với không gộp nước thải sinh hoạt
-      if (xuLyGopSinhHoat === false) {
-        NhapDuLieuPhuHopQuyChuan();
-      }
-
-      //Đối với nước thải gộp sinh hoạt
-      else if (xuLyGopSinhHoat === true) {
-        for (
-          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH.length; i++
-        ) {
-          TuDongNhapDuLieu(
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].ID + "_SH",
-            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].GiaTri
-          );
-        }
-        NhapDuLieuPhuHopQuyChuan();
-      }
-
-      //Tính toán tiếp tục
-      TuDongThaoTacTrenDoiTuong();
-      document.getElementById("btn_calculator").click();
-
-    } else {
-      HienThiThongBao("2.1 Chọn loại nước thải");
-    }
-  });
-}
-
-//!-------------------------------------------------------V. NẠP TÀI NGUYÊN WEBSITE-------------------------------------------------------------------------------------
-window.addEventListener("load", function () {
-  //* LẤY DỮ LIỆU TÀI NGUYÊN - SEVER
-  LayDuLieuJsonTuSourcesCode(pathDataSources, function (duLieuTraVe) {
-    window.jsonDataSources = duLieuTraVe;
-
-    //* LẤY DỮ LIỆU NGƯỜI DÙNG - SEVER
-    LayDuLieuJsonTuSourcesCode(pathDataUser, function (duLieuTraVe) {
-      const mangKeyLuuTrongIndexdDB = ["duLieuTaiNguyen", "duLieuNguoiDung", "duLieuSoatLoi"];
-      window.jsonDataUser = duLieuTraVe;
-
-      //* LẤY DỮ LIỆU TÀI NGUYÊN + NGƯỜI DÙNG - CLIENT
-      LayDuLieuTuIndexdDB(mangKeyLuuTrongIndexdDB).then(function ([dataTN, dataND, dataL]) {
-        //Biến
-        let tonTaiDuLieuCu = false;
-
-        //Thực hiện
-        //? Tồn tại dữ liệu cũ
-        if (dataTN !== undefined && dataND !== undefined && dataL !== undefined) {
-          //! Gắn giá trị cho biến toàn cục từ dữ liệu cũ
-          window.jsonDataSources = dataTN;
-          window.jsonDataUser = dataND;
-          window.kiemTraThongBaoBiTrung = dataL;
-          tonTaiDuLieuCu = true;
-        }
-
-        //! Render đối tượng cho toàn website
-        TaoDoiTuongChoWebsite();
-
-        //! Xử lý sự kiện
-        TaoSuKienHienThongTinGoiY();
-        XuLySuKienChinh();
-        XuLySuKien_NuocThai();
-        XuLySuKien_ThietKe(); //! Xoá sau khi xong thiết kế
-        XuLyThoiGianThucToanWebsite();
-        ChayPopoverTrenWebsite();
-
-        //? Tồn tại dữ liệu cũ
-        if (tonTaiDuLieuCu) {
-          //! Nạp dữ liệu vào website
-          NapDuLieuChoWebTuIndexdDBVaFile();
-        }
-
-        //! Lưu dữ liệu người dùng trước khi đóng website
-        window.addEventListener("beforeunload", function () {
-          //? Chỉ lưu lại dữ liệu khi có lĩnh vực được chọn => tức có dữ liệu
-          if (TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID) !== 0) {
-            TuDongCapNhatThayDoiTuUser();
-            NhapDuLieuLuuTruWebsite();
-          }
-
-          //! Reset lại ngôn ngữ mặc định - vietnam
-          document.cookie = "googtrans = ";
-        });
-
-        //! Mở khoá và bắt đầu sử dụng
-        setTimeout(function () {
-          document.getElementById("lock_page").style.opacity = 0;
-        }, 500);
-        setTimeout(function () {
-          document.getElementById("lock_page").remove();
-        }, 1000);
-      });
-    });
-  });
-});
-
-//!-----------------------------------------------------------------VII. THIẾT KẾ WEBSITE--------------------------------------------------------------------------------------------------------------
-
-//! ========================================= DESIGN WEBSITE
-//* Nhập thông tin từ tài nguyên vào form
-function NhapVaoForm() {
-  //Biến
-  let giaTriIndex = parseInt(TuDongLayDuLieu("input_ThietKe_ThuTu"));
-  let linhVuc = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
-  let mangThucHien;
-
-  //Thực hiện
-  //? Néu có lĩnh vực
-  if (linhVuc !== 0) {
-    linhVuc = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien[linhVuc - 1];
-    mangThucHien = window.jsonDataSources.CauTruc[linhVuc];
-
-    //? Nếu có index
-    if (isNaN(giaTriIndex) === false) {
-      //? Nằm trong mảng thực hiện
-      if (giaTriIndex < mangThucHien.length && giaTriIndex >= 0) {
-        //* Nhập ghi chú
-        TuDongNhapDuLieu("input_ThietKe_GhiChu", mangThucHien[giaTriIndex].GhiChu);
-
-        //* Nhập liệu cho kiểu
-        let kieuDoiTuong = mangThucHien[giaTriIndex].Kieu
-        if (kieuDoiTuong === "section") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 1);
-        } else if (kieuDoiTuong === "title") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 2);
-        } else if (kieuDoiTuong === "comboBox") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 3);
-        } else if (kieuDoiTuong === "input") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 4);
-        } else if (kieuDoiTuong === "switch") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 5);
-        } else if (kieuDoiTuong === "btnInCal") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 6);
-        } else if (kieuDoiTuong === "anchor") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 7);
-        } else if (kieuDoiTuong === "flowChart") {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 8);
-        }
-        //? Không chọn gì
-        else {
-          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 0);
-        }
-
-        //* Nhập liệu cho loại tiêu đề
-        let loaiTieuDe = mangThucHien[giaTriIndex].LoaiTieuDe;
-        if (loaiTieuDe === "loai1") {
-          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 1);
-        } else if (loaiTieuDe === "loai2") {
-          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 2);
-        } else {
-          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 0);
-        }
-
-        //* Nhập liệU cho nhóm dưới đây
-        TuDongNhapDuLieu("input_ThietKe_Ten", mangThucHien[giaTriIndex].Ten);
-        TuDongNhapDuLieu("input_ThietKe_KyHieu", mangThucHien[giaTriIndex].KyHieu);
-        TuDongNhapDuLieu("input_ThietKe_DonVi", mangThucHien[giaTriIndex].DonVi);
-        TuDongNhapDuLieu("input_ThietKe_ID", mangThucHien[giaTriIndex].ID);
-        TuDongNhapDuLieu("input_ThietKe_IDSection", mangThucHien[giaTriIndex].IDSection);
-        TuDongNhapDuLieu("input_ThietKe_IDNeoGiun", mangThucHien[giaTriIndex].IDNeoGiu);
-        TuDongNhapDuLieu("input_ThietKe_CongTrinhDonVi", mangThucHien[giaTriIndex].CongTrinhDonVi);
-
-        //* Nhập cho danh sách giá trị - combo Box
-        TuDongNhapDuLieu("input_ThietKe_DanhSachGiaTri", mangThucHien[giaTriIndex].DanhSachGiaTri.join(";"));
-
-        //* NhậP cho hướng dẫn nhập liệu - place holder
-        TuDongNhapDuLieu("input_ThietKe_HuongDanNhap", mangThucHien[giaTriIndex].HuongDanNhap);
-
-        //* Nhập liệu cho kiểu nhập input
-        let kieuNhapVao = mangThucHien[giaTriIndex].KieuNhap;
-        if (kieuNhapVao === "number") {
-          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 1);
-        } else if (kieuNhapVao === "text") {
-          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 2);
-        } else {
-          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 0);
-        }
-
-        //* Nhập liệu cho nhóm dưới đây
-        TuDongNhapDuLieu("switch_ThietKe_ChoPhepSuaLai", mangThucHien[giaTriIndex].ChoPhepSuaLai);
-        TuDongNhapDuLieu("switch_ThietKe_ThuGon", mangThucHien[giaTriIndex].ThuGon);
-        TuDongNhapDuLieu("input_ThietKe_AnHien_IDPhuThuoc", mangThucHien[giaTriIndex].AnHien.IDPhuThuoc.join(";"));
-
-        //* Nhập mảng ẩn hiện
-        let giaTriAnHienPhuThuoc = mangThucHien[giaTriIndex].AnHien.GiaTriPhuThuoc;
-        let tam = "";
-        //* Lặp từng đối tượng
-        for (let i = 0; i < giaTriAnHienPhuThuoc.length; i++) {
-          //? Nằm ở cuối mảng
-          if (i === giaTriAnHienPhuThuoc.length - 1) {
-            tam = tam + giaTriAnHienPhuThuoc[i].toString();
-          }
-
-          //? Cộng vào bình thưỜNg
-          else {
-            tam = tam + giaTriAnHienPhuThuoc[i].toString() + ";";
-          }
-        }
-        TuDongNhapDuLieu("input_ThietKe_AnHien_GiaTriPhuThuoc", tam);
-
-        //* Nhập các trường dưới đây
-        TuDongNhapDuLieu("input_ThietKe_AnHien_GiaTriThucHien", mangThucHien[giaTriIndex].AnHien.GiaTriThucHien.join(";"));
-        TuDongNhapDuLieu("switch_ThietKe_AnHien_MacDinh", mangThucHien[giaTriIndex].AnHien.MacDinh);
-        TuDongNhapDuLieu("input_ThietKe_GoiY_IDGoiY", mangThucHien[giaTriIndex].GoiY.IDGoiY);
-        TuDongNhapDuLieu("input_ThietKe_GoiY_GiaTriGoiY", mangThucHien[giaTriIndex].GoiY.GiaTriGoiY);
-        TuDongNhapDuLieu("switch_ThietKe_ThongKe_TatCa", mangThucHien[giaTriIndex].ThongKe.TatCa);
-        TuDongNhapDuLieu("switch_ThietKe_ThongKe_RutGon", mangThucHien[giaTriIndex].ThongKe.RutGon);
-        TuDongNhapDuLieu("switch_ThietKe_ThongKe_TuyChon", mangThucHien[giaTriIndex].ThongKe.TuyChon);
-        TuDongNhapDuLieu("input_ThietKe_ThongKe_GhiChu", mangThucHien[giaTriIndex].ThongKe.GhiChu);
-        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.IDPhuThuoc);
-        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriPhuThuoc.join(";"));
-        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriTuyChon", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriTuyChon.join(";"));
-        TuDongNhapDuLieu("switch_ThietKe_KhoaThaoTac_MacDinh", mangThucHien[giaTriIndex].KhoaThaoTac.MacDinh);
-        TuDongNhapDuLieu("input_ThietKe_TraVeMacDinh", mangThucHien[giaTriIndex].TraVeMacDinh.join(";"));
-        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_IDPhuThuoc", mangThucHien[giaTriIndex].TuDongDienTruoc.IDPhuThuoc.join(";"));
-
-        //* Nhập cho mảng giá trị phụ thuộc
-        let giaTriTuDongDienPhuThuoc = mangThucHien[giaTriIndex].TuDongDienTruoc.GiaTriPhuThuoc;
-        let tam1 = "";
-        //* Duyệt từNg đối tượng
-        for (let i = 0; i < giaTriTuDongDienPhuThuoc.length; i++) {
-          //? Nằm ở cuối mảng
-          if (i === giaTriTuDongDienPhuThuoc.length - 1) {
-            tam1 = tam1 + giaTriTuDongDienPhuThuoc[i].toString();
-          }
-
-          //? Cộng vào bình thưỜNg
-          else {
-            tam1 = tam1 + giaTriTuDongDienPhuThuoc[i].toString() + ";";
-          }
-        }
-        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriPhuThuoc", tam1);
-        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriDien", mangThucHien[giaTriIndex].TuDongDienTruoc.GiaTriDien.join(";"));
-
-        //* Nhập cho nhóm công thức tính toán
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_DieuKien", mangThucHien[giaTriIndex].TinhToan.DieuKien.join(";"));
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_IDCongNghe", mangThucHien[giaTriIndex].TinhToan.IDCongNghe);
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_CongThuc", mangThucHien[giaTriIndex].TinhToan.CongThuc);
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_LamTron", mangThucHien[giaTriIndex].TinhToan.LamTron);
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_KieuTinh", mangThucHien[giaTriIndex].TinhToan.KieuTinh);
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_IDPhuThuoc", mangThucHien[giaTriIndex].TinhToan.DuLieu.IDPhuThuoc.join(";"));
-        //* Nhập cho mảng giá trị phụ thuộc
-        let giaTriTinhToanPhuThuoc = mangThucHien[giaTriIndex].TinhToan.DuLieu.GiaTriPhuThuoc;
-        let tam2 = "";
-        //* Duyệt từNg đối tượng
-        for (let i = 0; i < giaTriTinhToanPhuThuoc.length; i++) {
-          //? Nằm ở cuối mảng
-          if (i === giaTriTinhToanPhuThuoc.length - 1) {
-            tam2 = tam2 + giaTriTinhToanPhuThuoc[i].toString();
-          }
-
-          //? Cộng vào bình thưỜNg
-          else {
-            tam2 = tam2 + giaTriTinhToanPhuThuoc[i].toString() + ";";
-          }
-        }
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_GiaTriPhuThuoc", tam2);
-        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_DuongDanCSDL", mangThucHien[giaTriIndex].TinhToan.DuLieu.DuongDanCSDL.join(";"));
-      }
-
-      //? Nằm ngoài mảng
-      else if (giaTriIndex >= mangThucHien.length) {
-        HienThiThongBao("Index nằm ngoài mảng!");
-      }
-    }
-  }
-
-  //? Nếu chưa có
-  else {
-    HienThiThongBao("Hãy chọn lĩnh vực tính toán!");
-  }
-}
-
-//* Thực hiện tạo mới, di chuyển và thay đổi đối tượng
-function TaoDiChuyenLuuDoiTuong() {
-  //Biến
-  let kiemTraIndex = TuDongLayDuLieu("input_ThietKe_ThuTu");
-  //* Mẫu json đỐi tượng
-  let mauJson = {
-    "ThuTu": "",
-    "Ten": "",
-    "KyHieu": "",
-    "DonVi": "",
-    "ID": "",
-    "IDSection": "",
-    "CongTrinhDonVi": "",
-    "AnHien": {
-      "IDPhuThuoc": [],
-      "IDBox": "",
-      "GiaTriPhuThuoc": [],
-      "GiaTriThucHien": [],
-      "MacDinh": true
-    },
-    "GoiY": {
-      "IDGoiY": "",
-      "GiaTriGoiY": ""
-    },
-    "ThongKe": {
-      "TatCa": true,
-      "RutGon": true,
-      "TuyChon": false,
-      "GhiChu": ""
-    },
-    "GhiChu": "",
-    "ChoPhepSuaLai": false,
-    "KhoaThaoTac": {
-      "IDPhuThuoc": "",
-      "GiaTriPhuThuoc": [],
-      "GiaTriTuyChon": [],
-      "MacDinh": false
-    },
-    "TraVeMacDinh": [],
-    "Kieu": "",
-    "TuDongDienTruoc": {
-      "IDPhuThuoc": [],
-      "GiaTriPhuThuoc": [],
-      "GiaTriDien": []
-    },
-    "ThuGon": true,
-    "DanhSachGiaTri": [],
-    "LoaiTieuDe": "",
-    "HuongDanNhap": "",
-    "KieuNhap": "",
-    "TaoSoDo": {
-      "TaoCongTrinh_DauVao": "",
-      "_TaoCongTrinh": "",
-      "TaoDuongVe_DauVao": "",
-      "_TaoDuongVe": "",
-      "TaoCongTrinh_DauRa": "",
-      "TaoDuongVe_DauRa": "",
-      "IDHienThi": "",
-      "_DanhSachCongTrinh": "",
-      "_DuLieuSoDo": "",
-      "ChonCongTrinh": false,
-      "DeXuat": {
-        "IDPhuThuoc": [],
-        "GiaTriPhuThuoc": [],
-        "DuongDanCSDL": []
-      },
-      "DSCongTrinhDonVi": []
-    },
-    "IDNeoGiu": "",
-    "TinhToan": {
-      "DieuKien": [],
-      "IDCongNghe": "",
-      "CongThuc": "",
-      "KieuTinh": "",
-      "DuLieu": {
-        "IDPhuThuoc": [],
-        "GiaTriPhuThuoc": [],
-        "DuongDanCSDL": []
-      },
-      "LamTron": ""
-    }
-  };
-  let linhVuc = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
-  let kiemTraThongBao = true;
-
-  //Chương trình con
-  function NhapLieuChoJsonMau() {
-    //* Nhập dữ liệu vào json mẫu
-    //* Nhập ghi chú đối tượng
-    mauJson.GhiChu = TuDongLayDuLieu("input_ThietKe_GhiChu");
-
-    //* Nhập kiểu
-    let kieuDoiTuong = document.getElementById("comboBox_ThietKe_Kieu");
-    //? Đang chọn mặc định
-    if (kieuDoiTuong.selectedIndex === 0) {
-      mauJson.Kieu = "";
-    }
-    //? Trường hợp còn lại
-    else {
-      mauJson.Kieu = kieuDoiTuong.options[kieuDoiTuong.selectedIndex].text;
-    }
-
-    //* Nhập loại tiêu đề
-    let loaiTieuDe = document.getElementById("comboBox_ThietKe_LoaiTieuDe");
-    //? Đang chọn mặc định
-    if (loaiTieuDe.selectedIndex === 0) {
-      mauJson.LoaiTieuDe = "";
-    }
-    //? Trường hợp còn lại
-    else {
-      mauJson.LoaiTieuDe = loaiTieuDe.options[loaiTieuDe.selectedIndex].text;
-    }
-
-    //* Nhập các đối tượng dưới đây
-    mauJson.Ten = TuDongLayDuLieu("input_ThietKe_Ten");
-    mauJson.KyHieu = TuDongLayDuLieu("input_ThietKe_KyHieu");
-    mauJson.DonVi = TuDongLayDuLieu("input_ThietKe_DonVi");
-    mauJson.ID = TuDongLayDuLieu("input_ThietKe_ID");
-    mauJson.IDSection = TuDongLayDuLieu("input_ThietKe_IDSection");
-    mauJson.IDNeoGiu = TuDongLayDuLieu("input_ThietKe_IDNeoGiun");
-    mauJson.CongTrinhDonVi = TuDongLayDuLieu("input_ThietKe_CongTrinhDonVi");
-
-    //* Nhập danh sách giá trị
-    let danhSachGiaTri = TuDongLayDuLieu("input_ThietKe_DanhSachGiaTri");
-    //? Khác rỗng
-    if (danhSachGiaTri !== "") {
-      mauJson.DanhSachGiaTri = danhSachGiaTri.split(";");
-    }
-
-    //* Nhập place holder
-    mauJson.HuongDanNhap = TuDongLayDuLieu("input_ThietKe_HuongDanNhap");
-
-    //* Nhập kiểu nhậP vào input
-    let kieuNhapVao = document.getElementById("comboBox_ThietKe_KieuNhap");
-    //? Đang chọn mặc định
-    if (kieuNhapVao.selectedIndex === 0) {
-      mauJson.KieuNhap = "";
-    }
-    //? Trường hợp còn lại
-    else {
-      mauJson.KieuNhap = kieuNhapVao.options[kieuNhapVao.selectedIndex].text;
-    }
-
-    //* Nhập các đối tượng dưới đây
-    mauJson.ChoPhepSuaLai = TuDongLayDuLieu("switch_ThietKe_ChoPhepSuaLai");
-    mauJson.ThuGon = TuDongLayDuLieu("switch_ThietKe_ThuGon");
-
-    //* NhậP cho ẩn hiện đối tượng
-    let idAnHienPhuThuoc = TuDongLayDuLieu("input_ThietKe_AnHien_IDPhuThuoc");
-    //? Khác rỗng
-    if (idAnHienPhuThuoc !== "") {
-      mauJson.AnHien.IDPhuThuoc = idAnHienPhuThuoc.split(";");
-    }
-    let giaTriAnHienPhuThuoc = TuDongLayDuLieu("input_ThietKe_AnHien_GiaTriPhuThuoc");
-    //? Khác rỗng
-    if (giaTriAnHienPhuThuoc !== "") {
-      let mangTam = giaTriAnHienPhuThuoc.split(";");
-      let tam = [];
-
-      //* Lặp từng nhóm để tiếp tục tạo mảng
-      for (let i = 0; i < mangTam.length; i++) {
-        tam.push(mangTam[i].split(","));
-      }
-      mauJson.AnHien.GiaTriPhuThuoc = tam;
-    }
-    let giaTriAnHienThucHien = TuDongLayDuLieu("input_ThietKe_AnHien_GiaTriThucHien");
-    //? Khác rỗng
-    if (giaTriAnHienThucHien !== "") {
-      mauJson.AnHien.GiaTriThucHien = giaTriAnHienThucHien.split(";");
-    }
-
-    //* Nhập cho các đốI tượng dưỚI đây
-    mauJson.AnHien.MacDinh = TuDongLayDuLieu("switch_ThietKe_AnHien_MacDinh");
-    mauJson.GoiY.IDGoiY = TuDongLayDuLieu("input_ThietKe_GoiY_IDGoiY");
-    mauJson.GoiY.GiaTriGoiY = TuDongLayDuLieu("input_ThietKe_GoiY_GiaTriGoiY");
-    mauJson.ThongKe.TatCa = TuDongLayDuLieu("switch_ThietKe_ThongKe_TatCa");
-    mauJson.ThongKe.RutGon = TuDongLayDuLieu("switch_ThietKe_ThongKe_RutGon");
-    mauJson.ThongKe.TuyChon = TuDongLayDuLieu("switch_ThietKe_ThongKe_TuyChon");
-    mauJson.ThongKe.GhiChu = TuDongLayDuLieu("input_ThietKe_ThongKe_GhiChu");
-
-    //* Nhập cho khoá thao tác
-    mauJson.KhoaThaoTac.IDPhuThuoc = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc");
-    let giaTriKhoaPhuThuoc = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_GiaTriPhuThuoc");
-    //? Khác rỗng
-    if (giaTriKhoaPhuThuoc !== "") {
-      mauJson.KhoaThaoTac.GiaTriPhuThuoc = giaTriKhoaPhuThuoc.split(";");
-    }
-    let giaTriKhoaTuyChon = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_GiaTriTuyChon");
-    //? Khác rỗng
-    if (giaTriKhoaTuyChon !== "") {
-      mauJson.KhoaThaoTac.GiaTriTuyChon = giaTriKhoaTuyChon.split(";");
-    }
-    mauJson.KhoaThaoTac.MacDinh = TuDongLayDuLieu("switch_ThietKe_KhoaThaoTac_MacDinh");
-
-    //* Nhập cho trả về mặc định
-    let traVeMacDinh = TuDongLayDuLieu("input_ThietKe_TraVeMacDinh");
-    //? Khác rỗng
-    if (traVeMacDinh !== "") {
-      mauJson.TraVeMacDinh = traVeMacDinh.split(";");
-    }
-
-    //* Nhập cho tự động điền trước
-    let idDienTruocPhuThuoc = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_IDPhuThuoc");
-    //? Khác rỗng
-    if (idDienTruocPhuThuoc !== "") {
-      mauJson.TuDongDienTruoc.IDPhuThuoc = idDienTruocPhuThuoc.split(";");
-    }
-    let giaTriDienTruocPhuThuoc = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriPhuThuoc");
-    //? Khác rỗng
-    if (giaTriDienTruocPhuThuoc !== "") {
-      let mangTam = giaTriDienTruocPhuThuoc.split(";");
-      let tam = [];
-
-      //* Lặp từng nhóm để tiếp tục tạo mảng
-      for (let i = 0; i < mangTam.length; i++) {
-        tam.push(mangTam[i].split(","));
-      }
-      mauJson.TuDongDienTruoc.GiaTriPhuThuoc = tam;
-    }
-    let giaTriDienVao = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriDien");
-    //? Khác rỗng
-    if (giaTriDienVao !== "") {
-      mauJson.TuDongDienTruoc.GiaTriDien = giaTriDienVao.split(";");
-    }
-
-    //* Nhập cho công thức tính toán
-    let dieuKienTinhToan = TuDongLayDuLieu("input_ThietKe_TinhToan_DieuKien");
-    //? Khác rỗng
-    if (dieuKienTinhToan !== "") {
-      mauJson.TinhToan.DieuKien = dieuKienTinhToan.split(";");
-    }
-    mauJson.TinhToan.IDCongNghe = TuDongLayDuLieu("input_ThietKe_TinhToan_IDCongNghe");
-    mauJson.TinhToan.CongThuc = TuDongLayDuLieu("input_ThietKe_TinhToan_CongThuc");
-    mauJson.TinhToan.LamTron = TuDongLayDuLieu("input_ThietKe_TinhToan_LamTron");
-    mauJson.TinhToan.KieuTinh = TuDongLayDuLieu("input_ThietKe_TinhToan_KieuTinh");
-    let duLieuIDPhuThuoc = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_IDPhuThuoc");
-    //? Khác rỗng
-    if (duLieuIDPhuThuoc !== "") {
-      mauJson.TinhToan.DuLieu.IDPhuThuoc = duLieuIDPhuThuoc.split(";");
-    }
-    let tinhToanDuLieuPhuThuoc = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_GiaTriPhuThuoc");
-    //? Khác rỗng
-    if (tinhToanDuLieuPhuThuoc !== "") {
-      let mangTam = tinhToanDuLieuPhuThuoc.split(";");
-      let tam = [];
-
-      //* Lặp từng nhóm để tiếp tục tạo mảng
-      for (let i = 0; i < mangTam.length; i++) {
-        tam.push(mangTam[i].split(","));
-      }
-      mauJson.TinhToan.DuLieu.GiaTriPhuThuoc = tam;
-    }
-    let duLieuDuongDanCSDL = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_DuongDanCSDL");
-    //? Khác rỗng
-    if (duLieuDuongDanCSDL !== "") {
-      mauJson.TinhToan.DuLieu.DuongDanCSDL = duLieuDuongDanCSDL.split(";");
-    }
-  }
-
-  //Thực hiện
-  //? Néu có lĩnh vực
-  if (linhVuc !== 0) {
-    linhVuc = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien[linhVuc - 1];
-
-    //? Tạo mới đối tượng vào cuối mảng
-    if (kiemTraIndex.indexOf("+", 0) !== -1) {
-      NhapLieuChoJsonMau();
-      window.jsonDataSources.CauTruc[linhVuc].push(mauJson);
-    }
-
-    //? Xoá đối tượng
-    else if (kiemTraIndex.indexOf("-", 0) !== -1) {
-      // Biến
-      let viTri = parseInt(kiemTraIndex.replace("-", ""));
-
-      //Thực hiện
-      //* Xoá tại vị tí đối tượng
-      window.jsonDataSources.CauTruc[linhVuc].splice(viTri, 1);
-    }
-
-    //? Di chuyển đối tượng
-    else if (kiemTraIndex.indexOf("m", 0) !== -1) {
-      // Biến
-      let viTriHienTai = parseInt(kiemTraIndex.slice(0, kiemTraIndex.indexOf("m", 0)));
-      let viTriMoi = parseInt(kiemTraIndex.slice(kiemTraIndex.indexOf("m", 0) + 1, kiemTraIndex.length));
-      let copyDoiTuong = window.jsonDataSources.CauTruc[linhVuc][viTriHienTai];
-
-      //Thực hiện
-      //* Xoá đối tượng hiện tại
-      window.jsonDataSources.CauTruc[linhVuc].splice(viTriHienTai, 1);
-
-      //*Di chuyển đối tượng đã copy đến vị trí mới
-      window.jsonDataSources.CauTruc[linhVuc].splice(viTriMoi, 0, copyDoiTuong);
-    }
-
-    //? Không nhập gì
-    else if (kiemTraIndex === "") {
-      HienThiThongBao("Hãy nhập vị trí đối tượng?");
-      kiemTraThongBao = false;
-    }
-
-    //? Chỉnh sửa, cập nhật thuộc tính
-    else {
-      //Biến
-      let viTriHienTai = parseInt(kiemTraIndex);
-
-      //Thực hiệN
-      //* Tạo json mẫu
-      NhapLieuChoJsonMau();
-
-      //* Đổi đối tượng mới vào vị trí đối tượng cũ
-      window.jsonDataSources.CauTruc[linhVuc].splice(viTriHienTai, 1, mauJson);
-    }
-
-    //? Không có lỗi
-    if (kiemTraThongBao) {
-      //* Lưu lại thay đổi của json datasources
-      NhapDuLieuLuuTruWebsite();
-
-      //* Nhấn nút tính toán
-      document.getElementById("btn_calculator").click();
-
-      //* Hiển thị thông báo
-      HienThiThongBao("Cập nhật thành công!");
-
-      //* Tự đỘng đóng modal
-      setTimeout(function () {
-        document.getElementById("btnFunc_DongModalThietKe").click();
-      }, 50);
-
-      //* Reload cập nhật dữ liệu
-      setTimeout(() => {
-        location.reload();
-      }, 50);
-    }
-  }
-
-  //? Nếu chưa có
-  else {
-    HienThiThongBao("Hãy chọn lĩnh vực tính toán!");
-  }
-}
-
-//* Tạo sự kiện cho thiết kế
-function XuLySuKien_ThietKe() {
-  //* Sự kiện điền dữ liệu có sẵn vào form
-  document.getElementById("input_ThietKe_ThuTu").addEventListener("input", function () {
-    NhapVaoForm();
-  });
-
-  //* Sự kiện thao tác trên modal chỉnh sửa
-  document.getElementById("btnFunc_ChapNhanCapNhatThietKe").addEventListener("click", function () {
-    TaoDiChuyenLuuDoiTuong();
-  });
-
-  //* Sự kiện click double để xoá
-  let inputDouble = document.getElementsByTagName("input");
-  //* Lặp tìm input thiết kế
-  for (let i = 0; i < inputDouble.length; i++) {
-    //? input thiết kế
-    if (inputDouble[i].id.indexOf("input_ThietKe") !== -1) {
-      inputDouble[i].addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-        TuDongNhapDuLieu(this.id, "");
-      });
-    }
-  }
-
-  //* Hiển thị danh sách đỐi tượng
-  let danhSach = window.jsonDataSources.CauTruc.NuocThai;
-  for (let i = 0; i < danhSach.length; i++) {
-    console.log(i + " - " + danhSach[i].ID);
-  }
-}
-
-//* Nhập dữ liệu cho json sources bằng code
-document.getElementById("btn_NhapLieu").addEventListener("click", function () {
-  //Chương trình con
-  //Tạo data json lưu dữ liệu người dùng
-  function TaoJsonLuuDuLieuNguoiDung() {
-    //Biến
-    let mangLamLai = window.jsonDataUser.DuLieu.NuocThai;
-    let mangThucHien = window.jsonDataSources.CauTruc.NuocThai;
-
-    //Thực hiện
-    for (let i = 0; i < mangThucHien.length; i++) {
-      let mau = {
-        "ID": "",
-        "GiaTri": ""
-      };
-
-      let mauFlowchart = {
-        "ID": "",
-        "GiaTri": "",
-        "CongTrinhDonVi_Tep": "",
-        "ChuoiCongTrinh": "",
-        "ChuoiDuongVe": ""
-      };
-
-      if (mangThucHien[i].Kieu === "comboBox" || mangThucHien[i].Kieu === "switch" || mangThucHien[i].Kieu === "input" || mangThucHien[i].Kieu === "flowChart") {
-        //? Nếu là flowChart
-        if (mangThucHien[i].Kieu === "flowChart") {
-          mauFlowchart.ID = mangThucHien[i].ID;
-          mangLamLai.push(mauFlowchart);
-        }
-
-        //? Các kiểu còn lại
-        else {
-          mau.ID = mangThucHien[i].ID;
-          mangLamLai.push(mau);
-        }
-      }
-    }
-  }
-
-  //* Thêm filed cho json
-  function ThemTruongMoiChoJsonData() {
-    let mangTaiNguyen = window.jsonDataSources.CauTruc.ThietKe;
-
-    for (let i = 0; i < mangTaiNguyen.length; i++) {
-      mangTaiNguyen[i].ThongKe.GhiChu = "";
-    }
-  }
-
-  //ThemTruongMoiChoJsonData();
-  //Thực hiện
-  //console.log(window.jsonDataSources);
-  //console.log(window.jsonDataUser);
-});
-
-//!-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-
-//* Thống kê bằng bảng
+//* XỬ LÝ DỮ LIỆU THỐNG KÊ
 function TaoBangThongKeSoLieu() {
   //Biến
   let indexLinhVuc = TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID);
   let linhVucXuLy, mangTaiNguyen, dinhDangBang;
-  
+
   //Chương trình con
   //* Xử lý kiểm tra ẩn hiện
   //* Kiểm tra ẩn hiện
   function KiemTraAnHien(viTri) {
     //Biến
     let kiemTra = true;
-    
+
     //Thực hiện
     //* Kiểm tra ẩn hiện của section
     let idSection = mangTaiNguyen[viTri].IDSection;
@@ -3967,7 +1023,7 @@ function TaoBangThongKeSoLieu() {
 
     //Thực hiện
     //* lặp duyệt có trùng kiểu bị loại
-    for (let i = 0; i < mangKieu.length; i++){
+    for (let i = 0; i < mangKieu.length; i++) {
       //? Nếu trùng
       if (kieuDoiTuong === mangKieu[i]) {
         kiemTra = false;
@@ -4026,11 +1082,10 @@ function TaoBangThongKeSoLieu() {
             let tam = TuDongLayDuLieu(mangTaiNguyen[i].ID);
             if (tam) {
               duLieuMau.soLieu = "Có";
-            }
-            else {
+            } else {
               duLieuMau.soLieu = "Không";
             }
-        
+
             //Ghi chú
             duLieuMau.ghiChu = mangTaiNguyen[i].ThongKe.GhiChu;
           }
@@ -4051,7 +1106,7 @@ function TaoBangThongKeSoLieu() {
           duLieuBang.push(duLieuMau);
         }
       }
-      
+
     }
     return duLieuBang;
   }
@@ -4069,8 +1124,8 @@ function TaoBangThongKeSoLieu() {
       resizableColumns: "header", //Chỉ cho phép thay đổi độ rộng ở tiêu đề
       height: "90%", //Độ cao bảng so với parent
       headerSort: false, //Tắt tính năng sort ở header
-/*       printAsHtml: true, //in như html
-      printStyled: true, //có xét đến định dạng trên html */
+      /*       printAsHtml: true, //in như html
+            printStyled: true, //có xét đến định dạng trên html */
       columns: [{
           title: "TT",
           field: "tt",
@@ -4131,7 +1186,8 @@ function TaoBangThongKeSoLieu() {
   }
 }
 
-//! TỰ ĐỘNG RENDER WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
+//!-------------------------------------------------------------III. RENDER THÀNH PHẦN WEBSITE------------------------------------------------------------------
+//Todo: TỰ ĐỘNG RENDER WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
 function TaoDoiTuongChoWebsite() {
   //Biến
   let mangLinhVuc = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien;
@@ -4812,7 +1868,441 @@ function TaoDoiTuongChoWebsite() {
   }
 }
 
-//! TỰ ĐỘNG ẨN HIỆN TOÀN BỘ WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
+//!-------------------------------------------------------------IV. XỬ LÝ TÍNH TOÁN------------------------------------------------------------------
+//Todo: TỰ ĐỘNG TÍNH TOÁN TOÀN BỘ WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
+function TuDongTinhToanTrenDoiTuong() {
+  //Biến
+  let linhVucXuLy = "";
+  let mangTaiNguyen, mangDuLieu;
+
+  //Chương trình con
+  //* Tìm ra lĩnh vực đang xử lý
+  function TimLinhVucXuLy() {
+    //Biến
+    let indexLinhVuc = TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID);
+    let mangGiaTriThucHien = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien;
+    let mangSoSanh = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriPhuThuoc;
+
+    //Thực hiện
+    //* Lặp tìm giá trị
+    for (let i = 0; i < mangSoSanh.length; i++) {
+      //? Nếu đúng giá trị cần so sánh
+      if (mangSoSanh[i] === indexLinhVuc) {
+        linhVucXuLy = mangGiaTriThucHien[i];
+      }
+    }
+  }
+
+  //* Kiểm tra giá trị hiện tại
+  function SoSanhGiaTriHienTaiVaMang(giaTriHienTai, mangSoSanh, TonTaiHoacKhongT_ViTriF) {
+    //Biến
+    let tonTai = false;
+    let viTriGiaTri = -1;
+
+    //Kiểm tra tồn tại giá trị hiện tại và mảng so sánh
+    for (let i = 0; i < mangSoSanh.length; i++) {
+      //Loại dấu , và chuyển đầu vào sang str
+      let bienSoSanh = mangSoSanh[i].toString().replace(/,/g, "");
+      let giaTriSoSanh = giaTriHienTai.toString();
+
+      //So sánh, trả kết quả
+      if (bienSoSanh === giaTriSoSanh) {
+        tonTai = true;
+        viTriGiaTri = i;
+      }
+    }
+
+    //Trả về
+    //Trả về có tồn tại trong mảng hay không
+    if (TonTaiHoacKhongT_ViTriF) {
+      return tonTai;
+    }
+
+    //Trả về vị trí tồn tại
+    else {
+      return viTriGiaTri;
+    }
+  }
+
+  //* Tự động trả về mặc định
+  function TraVeMacDinh(id) {
+    //Biến
+    let kieuKiemTra = id.slice(0, id.indexOf("_", 0));
+
+    //Thực hiện
+    //? Input
+    if (kieuKiemTra === "input") {
+      document.getElementById(id).value = "";
+    }
+
+    //? Select
+    else if (kieuKiemTra === "comboBox") {
+      document.getElementById(id).selectedIndex = 0;
+    }
+
+    //? Switch
+    else if (kieuKiemTra === "switch") {
+      document.getElementById(id).checked = false;
+    }
+
+    //Lỗi
+    else {
+      console.log("ID lỗi: " + id);
+      HienThiThongBao("Lỗi trả về giá trị mặc định");
+    }
+  }
+
+  //* Kiểm tra ẩn hiện
+  function KiemTraAnHien(viTri) {
+    //Biến
+    let kiemTra = true;
+
+    //Thực hiện
+    //* Kiểm tra ẩn hiện của section
+    let idSection = mangTaiNguyen[viTri].IDSection;
+    let idBoxSection = idSection.replace("section", "box");
+    let trangThaiSection = document.getElementById(idBoxSection).style.display;
+
+    //? Nếu đang ẩn
+    if (trangThaiSection === "none") {
+      kiemTra = false;
+    }
+
+    //* Kiểm tra chính đối tượng
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    let kieuDoiTuong = mangTaiNguyen[viTri].Kieu;
+    let idBoxDoiTuong = idDoiTuong.replace(kieuDoiTuong, "box");
+    let trangThaiDoiTuong = document.getElementById(idBoxDoiTuong).style.display;
+
+    //? Nếu đang ẩn
+    if (trangThaiDoiTuong === "none") {
+      kiemTra = false;
+    }
+
+    return kiemTra;
+  }
+
+  //* Kiểm tra các field đầu vào đã đủ điều kiện chưa
+  function KiemTraDieuKien(viTri) {
+    //Biến
+    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+    let kiemTra = true;
+
+    //Thực hiện
+    //* Lặp từng đỐi tượng để kiểm tra
+    for (let i = 0; i < mangDieuKien.length; i++) {
+      let idHienTai = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
+      let giaTriHienTai = TuDongLayDuLieu(idHienTai);
+      let kieuDoiTuong, trangThaiHienTai;
+
+      //* Lặp tìm ra kiểu đối tượng
+      for (let j = 0; j < mangTaiNguyen.length; j++) {
+        //? ID trùng với id đang kiểm tra
+        if (mangTaiNguyen[j].ID === idHienTai) {
+          kieuDoiTuong = mangTaiNguyen[j].Kieu;
+          break;
+        }
+      }
+
+      //* Lấy trạng thái ẩn hiện
+      trangThaiHienTai = document.getElementById(idHienTai.replace(kieuDoiTuong, "box")).style.display;
+
+      //? Kiểu là comboBox
+      if (kieuDoiTuong === "comboBox" && giaTriHienTai === 0 && trangThaiHienTai === "block") {
+        kiemTra = false;
+        break;
+      }
+
+      //? Kiểu là input
+      if (kieuDoiTuong === "input" && giaTriHienTai === "" && trangThaiHienTai === "block") {
+        kiemTra = false;
+        break;
+      }
+    }
+
+    //? Chưa đủ điều kiện tính toán
+    if (kiemTra === false) {
+      //* Reset đối tượng
+      TraVeMacDinh(mangTaiNguyen[viTri].ID);
+    }
+
+    //* Trả giá trị về
+    return kiemTra;
+  }
+
+  //* Kiểm tra có thuộc sơ đồ công nghệ
+  function KiemTraSoDo(viTri) {
+    //Biến
+    let idSoDo = mangTaiNguyen[viTri].TinhToan.IDCongNghe;
+    let congTrinh = mangTaiNguyen[viTri].CongTrinhDonVi;
+    let kiemTra = false;
+
+    //Thực hiện
+    //* Lặp tìm vị trí id công nghệ
+    for (let i = 0; i < mangTaiNguyen.length; i++) {
+      //? Tìm thấy id sơ đồ
+      if (mangTaiNguyen[i].ID === idSoDo) {
+        let _danhSachCongTrinh = mangTaiNguyen[i].TaoSoDo._DanhSachCongTrinh;
+        let danhSachCT = window[_danhSachCongTrinh];
+
+        //* Lặp kiểm tra có nằm trong danh sách công trình
+        for (let j = 0; j < danhSachCT.length; j++) {
+          //? tìm thấy công trình trong danh sách
+          if (danhSachCT[j] === congTrinh) {
+            kiemTra = true;
+            break;
+          }
+        }
+        break;
+      }
+    }
+
+    //* Trả về giá trị kt
+    return kiemTra;
+  }
+
+  //* Chuyển chuỗi thành công thức và tính toán trả kết quả
+  function TinhToanKetQua(viTri) {
+    //Biến
+    let bieuThuc = mangTaiNguyen[viTri].TinhToan.CongThuc;
+    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+
+    //Thực hiện
+    //* Lặp lấy số liệu hiện tại và gán biến
+    for (let i = 0; i < mangDieuKien.length; i++) {
+      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
+      let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
+      let soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
+
+      //* Gán biến
+      eval("var " + tenBien + " = " + soLieuHienTai + ";");
+    }
+
+    //* Tính toán kết quả
+    let ketQuaTinh = eval(bieuThuc + ";");
+    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
+
+    //? Kiểu là số
+    if (kieuDoiTuong === "number") {
+      let kiemTraLamTron = mangTaiNguyen[viTri].TinhToan.LamTron;
+
+      //? Có làm tròn
+      if (kiemTraLamTron !== "") {
+        ketQuaTinh = ketQuaTinh.toFixed(kiemTraLamTron);
+      }
+
+      //? Làm tròn theo nguyên tắt
+      else {
+        ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
+      }
+    }
+
+    //* Nhập số liệu trở lại field đang chờ
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
+  }
+
+  //* Tính toán nồng độ hỗn hợp cho nước thải
+  function TinhToanNongDoHonHop_NuocThai(viTri) {
+    //Biến
+    let bieuThuc = mangTaiNguyen[viTri].TinhToan.CongThuc;
+    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+
+    //Thực hiện
+    //* Lặp lấy số liệu hiện tại và gán biến
+    for (let i = 0; i < mangDieuKien.length; i++) {
+      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
+      let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
+      let idBoxLaySo = idLaySoLieu.replace("input", "box");
+      let trangThai = document.getElementById(idBoxLaySo).style.display;
+      let soLieuHienTai;
+
+      //? Trạng thái không ẩn
+      if (trangThai !== "none") {
+        soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
+      }
+
+      //? Trạng thái ẩn
+      else {
+        soLieuHienTai = 0;
+      }
+
+      //* Gán biến
+      eval("var " + tenBien + " = " + soLieuHienTai + ";");
+    }
+
+    //* Tính toán kết quả
+    let ketQuaTinh = eval(bieuThuc + ";");
+    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
+
+    //? Kiểu là số
+    if (kieuDoiTuong === "number") {
+      ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
+    }
+
+    //* Nhập số liệu trở lại field đang chờ
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
+  }
+
+  //* Tính toán nồng độ chất ô nhiễm theo hệ số k, kq, kf
+  function TinhToanNongDoTheoQuyChuan_NuocThai(viTri) {
+    //Biến
+    let mangIDPhuThuoc = mangTaiNguyen[viTri].TinhToan.DuLieu.IDPhuThuoc;
+    let mangSoSanh = mangTaiNguyen[viTri].TinhToan.DuLieu.GiaTriPhuThuoc;
+    let mangDuongDan = mangTaiNguyen[viTri].TinhToan.DuLieu.DuongDanCSDL;
+    let chuoiGiaTriHienTai = "";
+
+    //Thực hiện
+    //* Lấy giá trị phụ thuộc ghép thành chuỗi
+    for (let i = 0; i < mangIDPhuThuoc.length; i++) {
+      let giaTri = TuDongLayDuLieu(mangIDPhuThuoc[i]);
+
+      //* cộng chuỗi
+      chuoiGiaTriHienTai = chuoiGiaTriHienTai + giaTri.toString();
+    }
+
+    //* Lấy số liệu chỉ tiêu từ đường dẫn
+    let viTriKetQua = SoSanhGiaTriHienTaiVaMang(chuoiGiaTriHienTai, mangSoSanh, false);
+    let duongDan = mangDuongDan[viTriKetQua];
+    let catDuongDan = duongDan.split(".");
+    let truyCap = mangDuLieu.QCVN;
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    let chiTieu = idDoiTuong.slice(idDoiTuong.lastIndexOf("_") + 1, idDoiTuong.length);
+
+    //* Lặp truy cập đường dẫn và trả kết quả
+    for (let i = 0; i < catDuongDan.length; i++) {
+      truyCap = truyCap[catDuongDan[i]];
+    }
+    let ketQua = truyCap[chiTieu];
+
+    //* Xử lý kết quả tính
+    //? Không phải pH và tổng coliforms
+    if (chiTieu !== "pH" && chiTieu !== "TColiforms") {
+      let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+
+      //* Duyệt nhân hệ số quy đổi với số liệu quy chuẩn
+      for (let i = 1; i < mangDieuKien.length; i++) {
+        let idDieuKien = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
+        let idBoxDieuKien = idDieuKien.replace("input", "box");
+        let trangThaiAnHien = document.getElementById(idBoxDieuKien).style.display;
+
+        //? Có hiện
+        if (trangThaiAnHien !== "none") {
+          ketQua = ketQua * So(TuDongLayDuLieu(idDieuKien));
+        }
+      }
+
+      //* làm tròn kết qua
+      ketQua = TuDongLamTronSo(ketQua);
+    }
+
+    //* Trả kết quả về field đang chờ
+    TuDongNhapDuLieu(idDoiTuong, ketQua);
+  }
+
+  //* Tính toán thể tích theo dạng hình học
+  function TinhToanTheTichDangHinhHoc_NuocThai(viTri) {
+    //Biến
+    let mangIDPhuThuoc = mangTaiNguyen[viTri].TinhToan.DuLieu.IDPhuThuoc;
+    let mangSoSanh = mangTaiNguyen[viTri].TinhToan.DuLieu.GiaTriPhuThuoc;
+    let mangCongThuc = mangTaiNguyen[viTri].TinhToan.DuLieu.DuongDanCSDL;
+    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+    let chuoiGiaTriHienTai = "";
+
+    //Thực hiện
+    //* Lấy giá trị phụ thuộc ghép thành chuỗi
+    for (let i = 0; i < mangIDPhuThuoc.length; i++) {
+      let giaTri = TuDongLayDuLieu(mangIDPhuThuoc[i]);
+
+      //* cộng chuỗi
+      chuoiGiaTriHienTai = chuoiGiaTriHienTai + giaTri.toString();
+    }
+
+    //* Lấy số liệu chỉ tiêu từ đường dẫn
+    let viTriKetQua = SoSanhGiaTriHienTaiVaMang(chuoiGiaTriHienTai, mangSoSanh, false);
+    let congThuc = mangCongThuc[viTriKetQua];
+
+    //* Tìm các biến có trong công thức và gán giá trị
+    for (let i = 0; i < mangDieuKien.length; i++) {
+      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
+
+      //? Tên biến có trong công thức
+      if (congThuc.indexOf(tenBien, 0) !== -1) {
+        let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
+        let soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
+
+        //* Gán biến
+        eval("var " + tenBien + " = " + soLieuHienTai + ";");
+      }
+    }
+
+    //* Tính toán kết quả
+    let ketQuaTinh = eval(congThuc + ";");
+    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
+
+    //? Kiểu là số
+    if (kieuDoiTuong === "number") {
+      ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
+    }
+
+    //* Nhập số liệu trở lại field đang chờ
+    let idDoiTuong = mangTaiNguyen[viTri].ID;
+    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
+  }
+
+  //Thực hiện
+  //* Tìm lĩnh vực xử lý
+  TimLinhVucXuLy();
+
+  //? Nếu tồn tại lĩnh vực xử lý
+  if (linhVucXuLy !== "") {
+    mangTaiNguyen = window.jsonDataSources.CauTruc[linhVucXuLy];
+    mangDuLieu = window.jsonDataSources.CoSoDuLieu[linhVucXuLy];
+
+    //* Lặp xử lý tính toán từng đối tượng
+    for (let i = 0; i < mangTaiNguyen.length; i++) {
+      let kiemTraCongTrinhDonVi = mangTaiNguyen[i].CongTrinhDonVi;
+      let kiemTraDieuKien = mangTaiNguyen[i].TinhToan.DieuKien.length;
+      let kiemTraKieuTinh = mangTaiNguyen[i].TinhToan.KieuTinh;
+
+      //? Có công thức tính toán
+      if (kiemTraDieuKien !== 0) {
+        //? Có hiển thị
+        if (KiemTraAnHien(i)) {
+          //? Điều kiện đầu vào
+          if (KiemTraDieuKien(i)) {
+            //? Kiểu tính bình thường
+            if (kiemTraKieuTinh === "") {
+              TinhToanKetQua(i);
+            }
+
+            //? Kiểu tính ngoại lệ
+            else {
+              //? Tính nồng độ hỗn hợp
+              if (kiemTraKieuTinh === "nongDoHonHop") {
+                TinhToanNongDoHonHop_NuocThai(i);
+              }
+
+              //? Tính toán nồng độ chất ô nhiễm theo hệ số k, kq, kf
+              if (kiemTraKieuTinh === "nongDoTheoQuyChuan") {
+                TinhToanNongDoTheoQuyChuan_NuocThai(i);
+              }
+
+              //? Tính toán dạng hình học
+              if (kiemTraKieuTinh === "dangHinhHoc") {
+                TinhToanTheTichDangHinhHoc_NuocThai(i);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//!-----------------------------------------------------------V. XỬ LÝ SỰ KIỆN-----------------------------------------------------------------------
+//Todo: TỰ ĐỘNG ẨN HIỆN TOÀN BỘ WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
 function TuDongThaoTacTrenDoiTuong(idThucHien) {
   //Biến
   let indexLinhVuc = TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID);
@@ -5452,434 +2942,901 @@ function TuDongThaoTacTrenDoiTuong(idThucHien) {
   }
 }
 
-//! TỰ ĐỘNG TÍNH TOÁN TOÀN BỘ WEBSITE (XỬ LÝ QUA JSON DATA SOURCES)
-function TuDongTinhToanTrenDoiTuong() {
-  //Biến
-  let linhVucXuLy = "";
-  let mangTaiNguyen, mangDuLieu;
+function XuLySuKienChinh() {
+  //===================================== NÚT LỆNH ========================================
+  //* NÚT TÍNH TOÁN
+  document.getElementById("btn_calculator").addEventListener("click", function () {
+    //! Tự động tính toán trên toàn website
+    TuDongTinhToanTrenDoiTuong();
 
-  //Chương trình con
-  //* Tìm ra lĩnh vực đang xử lý
-  function TimLinhVucXuLy() {
-    //Biến
-    let indexLinhVuc = TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID);
-    let mangGiaTriThucHien = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien;
-    let mangSoSanh = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriPhuThuoc;
+    //* Hiển thị dữ liệu trên console
+    console.log("%c Sources-Data: ", "color: green; font-weight: bold; font-size: 16px;");
+    console.log(window.jsonDataSources);
+    console.log("%c User-Data: ", "color: green; font-weight: bold; font-size: 16px;");
+    console.log(window.jsonDataUser);
+  });
 
-    //Thực hiện
-    //* Lặp tìm giá trị
-    for (let i = 0; i < mangSoSanh.length; i++) {
-      //? Nếu đúng giá trị cần so sánh
-      if (mangSoSanh[i] === indexLinhVuc) {
-        linhVucXuLy = mangGiaTriThucHien[i];
-      }
-    }
-  }
+  //* CẬP NHẬT DỮ LIỆU
+  document.getElementById("btn_CapNhatDuLieuTuFile").addEventListener("click", function () {
+    //Khai báo biến
 
-  //* Kiểm tra giá trị hiện tại
-  function SoSanhGiaTriHienTaiVaMang(giaTriHienTai, mangSoSanh, TonTaiHoacKhongT_ViTriF) {
-    //Biến
-    let tonTai = false;
-    let viTriGiaTri = -1;
-
-    //Kiểm tra tồn tại giá trị hiện tại và mảng so sánh
-    for (let i = 0; i < mangSoSanh.length; i++) {
-      //Loại dấu , và chuyển đầu vào sang str
-      let bienSoSanh = mangSoSanh[i].toString().replace(/,/g, "");
-      let giaTriSoSanh = giaTriHienTai.toString();
-
-      //So sánh, trả kết quả
-      if (bienSoSanh === giaTriSoSanh) {
-        tonTai = true;
-        viTriGiaTri = i;
+    //Chương trình con
+    function KiemTraUpload() {
+      let kiemTra = document.getElementById("upload_TaiLenTepDuLieu").value;
+      if (kiemTra === "") {
+        document.getElementById("nhapTepDuLieu").style.borderColor = "red";
+        return false;
+      } else {
+        document.getElementById("nhapTepDuLieu").style.borderColor = "#ced4da";
+        return true;
       }
     }
 
-    //Trả về
-    //Trả về có tồn tại trong mảng hay không
-    if (TonTaiHoacKhongT_ViTriF) {
-      return tonTai;
+    //Code
+    //? Có file upload
+    if (KiemTraUpload()) {
+      //* Nạp dữ liệu vào website
+      NapDuLieuChoWebTuIndexdDBVaFile();
+
+      //* Thông báo thành công
+      HienThiThongBao("Đã cập nhật dữ liệu từ tệp thành công!");
+
+      //* Reset ô nhập file
+      document.getElementById("tenTepTaiLen").innerText = "..."; //Cân nhắc
     }
 
-    //Trả về vị trí tồn tại
+    //? Không có file
     else {
-      return viTriGiaTri;
+      HienThiThongBao("Chưa có tệp được tải lên, vui lòng kiểm tra lại!");
     }
-  }
+  });
 
-  //* Tự động trả về mặc định
-  function TraVeMacDinh(id) {
+  //* TẢI XUỐNG DỮ LIỆU
+  document.getElementById("btn_TaiXuongTepDuLieu").addEventListener("click", function () {
     //Biến
-    let kieuKiemTra = id.slice(0, id.indexOf("_", 0));
+    let tenFile = document.getElementById("input_TenFileTaiXuong").value;
+    let jsonKiemTra0 = [{
+      Ten: "Xuất tệp dữ liệu | Tên tệp",
+      ID: "input_TenFileTaiXuong",
+    }, ];
+    //Chương trình con
+    function download(filename, text) {
+      //Tạo link
+      let element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      element.setAttribute("download", filename);
 
-    //Thực hiện
-    //? Input
-    if (kieuKiemTra === "input") {
-      document.getElementById(id).value = "";
+      //Ẩn hiển thị
+      element.style.display = "none";
+      document.body.appendChild(element);
+
+      //Click
+      element.click();
+
+      //Loại bỏ
+      document.body.removeChild(element);
     }
 
-    //? Select
-    else if (kieuKiemTra === "comboBox") {
-      document.getElementById(id).selectedIndex = 0;
+    //Code
+    //* Cập nhật lần cuối trước khi tải
+    TuDongCapNhatThayDoiTuUser();
+
+    //? Tiến hành tải xuống
+    if (KiemTraDieuKienThucHienLenh(jsonKiemTra0)) {
+      download(tenFile + ".json", JSON.stringify(window.jsonDataUser));
+      HienThiThongBao("Tải xuống thành công!");
+    }
+  });
+
+  //* XOÁ DỮ LIỆU
+  document.getElementById("btn_XacNhanXoaMoiDuLieuDuocLuu").addEventListener("click", function () {
+    XoaToanBoDuLieuWebsite();
+  });
+
+  //! KIỂM TRA LỖI - CẦN PHÁT TRIỂN TIẾP
+  document.getElementById("btn_KiemTraLoi").addEventListener("click", function () {
+    //Biến
+    let thongBaoLoi = window.kiemTraThongBaoBiTrung.slice(window.kiemTraThongBaoBiTrung.indexOf("@") + 1, window.kiemTraThongBaoBiTrung.length);
+
+    //? Có lỗi và chưa kết thúc tính toán
+    if (thongBaoLoi !== "" && window.kiemTraTruocKhiTinh === false) {
+      HienThiThongBao(thongBaoLoi);
     }
 
-    //? Switch
-    else if (kieuKiemTra === "switch") {
-      document.getElementById(id).checked = false;
-    }
-
-    //Lỗi
+    //? Không còn lỗi
     else {
-      console.log("ID lỗi: " + id);
-      HienThiThongBao("Lỗi trả về giá trị mặc định");
+      HienThiThongBao("Không phát hiện lỗi!");
     }
-  }
+  });
 
-  //* Kiểm tra ẩn hiện
-  function KiemTraAnHien(viTri) {
-    //Biến
-    let kiemTra = true;
+  //* THỐNG KÊ SỐ LIỆU
+  document.getElementById("btn_ThongKeDuLieuTinhToan").addEventListener("click", function () {
+    TaoBangThongKeSoLieu();
+  });
 
-    //Thực hiện
-    //* Kiểm tra ẩn hiện của section
-    let idSection = mangTaiNguyen[viTri].IDSection;
-    let idBoxSection = idSection.replace("section", "box");
-    let trangThaiSection = document.getElementById(idBoxSection).style.display;
+  //* IN DỮ LIỆU THỐNG KÊ
+  document.getElementById("btn_InDuLieuThongKe").addEventListener("click", function () {
+    window.bangThongKe.print();
+  });
 
-    //? Nếu đang ẩn
-    if (trangThaiSection === "none") {
-      kiemTra = false;
-    }
+  //* XUẤT FILE EXCEL DỮ LIỆU EXCEL
+  document.getElementById("btn_InDuLieuExcel").addEventListener("click", () => {
+    window.bangThongKe.download("xlsx", "dulieuthongke.xlsx");
+  });
 
-    //* Kiểm tra chính đối tượng
-    let idDoiTuong = mangTaiNguyen[viTri].ID;
-    let kieuDoiTuong = mangTaiNguyen[viTri].Kieu;
-    let idBoxDoiTuong = idDoiTuong.replace(kieuDoiTuong, "box");
-    let trangThaiDoiTuong = document.getElementById(idBoxDoiTuong).style.display;
+  //===================================== PHẦN TỬ ========================================
+  //* TẢI LÊN TỆP DỮ LIỆU - TỪ NGƯỜI DÙNG
+  document.getElementById("upload_TaiLenTepDuLieu").addEventListener("change", function () {
+    //Khai báo biến
+    let reader = new FileReader();
 
-    //? Nếu đang ẩn
-    if (trangThaiDoiTuong === "none") {
-      kiemTra = false;
-    }
+    //Code
+    reader.addEventListener("load", function () {
+      let result = JSON.parse(reader.result);
+      window.jsonDataUser = result;
+      HienThiThongBao("Tải lên tệp tin thành công!");
+    });
+    reader.readAsText(
+      document.getElementById("upload_TaiLenTepDuLieu").files[0]
+    );
 
-    return kiemTra;
-  }
+    //* Hiển thị tên file tải lên
+    let tenTep = document.getElementById("upload_TaiLenTepDuLieu").value;
+    tenTep = tenTep.split("\\").pop();
+    document.getElementById("tenTepTaiLen").innerText = tenTep;
+  });
+  //* XỬ LÝ TẢI FILE CÙNG TÊN
+  document.getElementById("upload_TaiLenTepDuLieu").addEventListener("click", function () {
+    //* Xoá file cũ
+    document.getElementById("upload_TaiLenTepDuLieu").value = "";
 
-  //* Kiểm tra các field đầu vào đã đủ điều kiện chưa
-  function KiemTraDieuKien(viTri) {
-    //Biến
-    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
-    let kiemTra = true;
+    //* Xoá tên file trong upload btn
+    document.getElementById("tenTepTaiLen").innerText = "...";
+  });
+}
 
-    //Thực hiện
-    //* Lặp từng đỐi tượng để kiểm tra
-    for (let i = 0; i < mangDieuKien.length; i++) {
-      let idHienTai = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
-      let giaTriHienTai = TuDongLayDuLieu(idHienTai);
-      let kieuDoiTuong, trangThaiHienTai;
+//! NHẬP TỪ JSON XOÁ BỎ EVENT NÀY
+function XuLySuKien_NuocThai() {
+  //* SỐ LIỆU TỪ CSDL
+  document.getElementById("btnInCal_xuLyNuocThai_ThongSoDauVao_CSDL").addEventListener("click", function () {
+    //Khai báo biến
+    let loaiNuocThaiXuLy = TuDongLayDuLieu("comboBox_XuLyNuocThai");
+    let xuLyGopSinhHoat = TuDongLayDuLieu("switch_xuLyNuocThai_GopSinhHoat");
 
-      //* Lặp tìm ra kiểu đối tượng
-      for (let j = 0; j < mangTaiNguyen.length; j++) {
-        //? ID trùng với id đang kiểm tra
-        if (mangTaiNguyen[j].ID === idHienTai) {
-          kieuDoiTuong = mangTaiNguyen[j].Kieu;
-          break;
+    //Chương trình con
+    //* Nhập dữ liệu phù hợp quy chuẩn được chọn
+    function NhapDuLieuPhuHopQuyChuan() {
+      //? Đối với nước thải sinh hoạt
+      if (loaiNuocThaiXuLy === 1) {
+        for (
+          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH.length; i++
+        ) {
+          TuDongNhapDuLieu(
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].ID,
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].GiaTri
+          );
         }
       }
 
-      //* Lấy trạng thái ẩn hiện
-      trangThaiHienTai = document.getElementById(idHienTai.replace(kieuDoiTuong, "box")).style.display;
-
-      //? Kiểu là comboBox
-      if (kieuDoiTuong === "comboBox" && giaTriHienTai === 0 && trangThaiHienTai === "block") {
-        kiemTra = false;
-        break;
-      }
-
-      //? Kiểu là input
-      if (kieuDoiTuong === "input" && giaTriHienTai === "" && trangThaiHienTai === "block") {
-        kiemTra = false;
-        break;
+      //Đối với nước thải thuỷ sản
+      else if (loaiNuocThaiXuLy === 2) {
+        for (
+          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS.length; i++
+        ) {
+          TuDongNhapDuLieu(
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].ID,
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTTS[i].GiaTri
+          );
+        }
       }
     }
 
-    //? Chưa đủ điều kiện tính toán
-    if (kiemTra === false) {
-      //* Reset đối tượng
-      TraVeMacDinh(mangTaiNguyen[viTri].ID);
+    //Code
+    if (loaiNuocThaiXuLy !== 0) {
+      //Đối với không gộp nước thải sinh hoạt
+      if (xuLyGopSinhHoat === false) {
+        NhapDuLieuPhuHopQuyChuan();
+      }
+
+      //Đối với nước thải gộp sinh hoạt
+      else if (xuLyGopSinhHoat === true) {
+        for (
+          let i = 0; i < window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH.length; i++
+        ) {
+          TuDongNhapDuLieu(
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].ID + "_SH",
+            window.jsonDataSources.CoSoDuLieu.NuocThai.NTSH[i].GiaTri
+          );
+        }
+        NhapDuLieuPhuHopQuyChuan();
+      }
+
+      //Tính toán tiếp tục
+      TuDongThaoTacTrenDoiTuong();
+      document.getElementById("btn_calculator").click();
+
+    } else {
+      HienThiThongBao("2.1 Chọn loại nước thải");
     }
+  });
+}
 
-    //* Trả giá trị về
-    return kiemTra;
-  }
+//!-------------------------------------------------------VI. NẠP TÀI NGUYÊN WEBSITE KHI LOADING-------------------------------------------------------------------------------------
+//Todo: KHỞI TẠO DỮ LIỆU VÀ SỰ KIỆN
+window.addEventListener("load", function () {
+  //* LẤY DỮ LIỆU TÀI NGUYÊN - SEVER
+  LayDuLieuJsonTuSourcesCode(pathDataSources, function (duLieuTraVe) {
+    window.jsonDataSources = duLieuTraVe;
 
-  //* Kiểm tra có thuộc sơ đồ công nghệ
-  function KiemTraSoDo(viTri) {
-    //Biến
-    let idSoDo = mangTaiNguyen[viTri].TinhToan.IDCongNghe;
-    let congTrinh = mangTaiNguyen[viTri].CongTrinhDonVi;
-    let kiemTra = false;
+    //* LẤY DỮ LIỆU NGƯỜI DÙNG - SEVER
+    LayDuLieuJsonTuSourcesCode(pathDataUser, function (duLieuTraVe) {
+      const mangKeyLuuTrongIndexdDB = ["duLieuTaiNguyen", "duLieuNguoiDung", "duLieuSoatLoi"];
+      window.jsonDataUser = duLieuTraVe;
 
-    //Thực hiện
-    //* Lặp tìm vị trí id công nghệ
-    for (let i = 0; i < mangTaiNguyen.length; i++) {
-      //? Tìm thấy id sơ đồ
-      if (mangTaiNguyen[i].ID === idSoDo) {
-        let _danhSachCongTrinh = mangTaiNguyen[i].TaoSoDo._DanhSachCongTrinh;
-        let danhSachCT = window[_danhSachCongTrinh];
+      //* LẤY DỮ LIỆU TÀI NGUYÊN + NGƯỜI DÙNG - CLIENT
+      LayDuLieuTuIndexdDB(mangKeyLuuTrongIndexdDB).then(function ([dataTN, dataND, dataL]) {
+        //Biến
+        let tonTaiDuLieuCu = false;
 
-        //* Lặp kiểm tra có nằm trong danh sách công trình
-        for (let j = 0; j < danhSachCT.length; j++) {
-          //? tìm thấy công trình trong danh sách
-          if (danhSachCT[j] === congTrinh) {
-            kiemTra = true;
-            break;
+        //Thực hiện
+        //? Tồn tại dữ liệu cũ
+        if (dataTN !== undefined && dataND !== undefined && dataL !== undefined) {
+          //! Gắn giá trị cho biến toàn cục từ dữ liệu cũ
+          window.jsonDataSources = dataTN;
+          window.jsonDataUser = dataND;
+          window.kiemTraThongBaoBiTrung = dataL;
+          tonTaiDuLieuCu = true;
+        }
+
+        //! Render đối tượng cho toàn website
+        TaoDoiTuongChoWebsite();
+
+        //! Xử lý sự kiện
+        TaoSuKienHienThongTinGoiY();
+        XuLySuKienChinh();
+        XuLySuKien_NuocThai();
+        XuLySuKien_ThietKe(); //! Xoá sau khi xong thiết kế
+        XuLyThoiGianThucToanWebsite();
+        ChayPopoverTrenWebsite();
+
+        //? Tồn tại dữ liệu cũ
+        if (tonTaiDuLieuCu) {
+          //! Nạp dữ liệu vào website
+          NapDuLieuChoWebTuIndexdDBVaFile();
+        }
+
+        //! Lưu dữ liệu người dùng trước khi đóng website
+        window.addEventListener("beforeunload", function () {
+          //? Chỉ lưu lại dữ liệu khi có lĩnh vực được chọn => tức có dữ liệu
+          if (TuDongLayDuLieu(window.jsonDataSources.CauTruc.LinhVuc[0].ID) !== 0) {
+            TuDongCapNhatThayDoiTuUser();
+            NhapDuLieuLuuTruWebsite();
+          }
+
+          //! Reset lại ngôn ngữ mặc định - vietnamese
+          document.cookie = "googtrans = ";
+        });
+
+        //! Mở khoá và bắt đầu sử dụng
+        setTimeout(function () {
+          document.getElementById("lock_page").style.opacity = 0;
+        }, 500);
+        setTimeout(function () {
+          document.getElementById("lock_page").remove();
+        }, 1000);
+      });
+    });
+  });
+});
+
+//!-----------------------------------------------------------------VII. THIẾT KẾ WEBSITE--------------------------------------------------------------------------------------------------------------
+//* Nhập thông tin từ tài nguyên vào form
+function NhapVaoForm() {
+  //Biến
+  let giaTriIndex = parseInt(TuDongLayDuLieu("input_ThietKe_ThuTu"));
+  let linhVuc = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
+  let mangThucHien;
+
+  //Thực hiện
+  //? Néu có lĩnh vực
+  if (linhVuc !== 0) {
+    linhVuc = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien[linhVuc - 1];
+    mangThucHien = window.jsonDataSources.CauTruc[linhVuc];
+
+    //? Nếu có index
+    if (isNaN(giaTriIndex) === false) {
+      //? Nằm trong mảng thực hiện
+      if (giaTriIndex < mangThucHien.length && giaTriIndex >= 0) {
+        //* Nhập ghi chú
+        TuDongNhapDuLieu("input_ThietKe_GhiChu", mangThucHien[giaTriIndex].GhiChu);
+
+        //* Nhập liệu cho kiểu
+        let kieuDoiTuong = mangThucHien[giaTriIndex].Kieu
+        if (kieuDoiTuong === "section") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 1);
+        } else if (kieuDoiTuong === "title") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 2);
+        } else if (kieuDoiTuong === "comboBox") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 3);
+        } else if (kieuDoiTuong === "input") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 4);
+        } else if (kieuDoiTuong === "switch") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 5);
+        } else if (kieuDoiTuong === "btnInCal") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 6);
+        } else if (kieuDoiTuong === "anchor") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 7);
+        } else if (kieuDoiTuong === "flowChart") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 8);
+        }
+        //? Không chọn gì
+        else {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 0);
+        }
+
+        //* Nhập liệu cho loại tiêu đề
+        let loaiTieuDe = mangThucHien[giaTriIndex].LoaiTieuDe;
+        if (loaiTieuDe === "loai1") {
+          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 1);
+        } else if (loaiTieuDe === "loai2") {
+          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 2);
+        } else {
+          TuDongNhapDuLieu("comboBox_ThietKe_LoaiTieuDe", 0);
+        }
+
+        //* Nhập liệU cho nhóm dưới đây
+        TuDongNhapDuLieu("input_ThietKe_Ten", mangThucHien[giaTriIndex].Ten);
+        TuDongNhapDuLieu("input_ThietKe_KyHieu", mangThucHien[giaTriIndex].KyHieu);
+        TuDongNhapDuLieu("input_ThietKe_DonVi", mangThucHien[giaTriIndex].DonVi);
+        TuDongNhapDuLieu("input_ThietKe_ID", mangThucHien[giaTriIndex].ID);
+        TuDongNhapDuLieu("input_ThietKe_IDSection", mangThucHien[giaTriIndex].IDSection);
+        TuDongNhapDuLieu("input_ThietKe_IDNeoGiun", mangThucHien[giaTriIndex].IDNeoGiu);
+        TuDongNhapDuLieu("input_ThietKe_CongTrinhDonVi", mangThucHien[giaTriIndex].CongTrinhDonVi);
+
+        //* Nhập cho danh sách giá trị - combo Box
+        TuDongNhapDuLieu("input_ThietKe_DanhSachGiaTri", mangThucHien[giaTriIndex].DanhSachGiaTri.join(";"));
+
+        //* NhậP cho hướng dẫn nhập liệu - place holder
+        TuDongNhapDuLieu("input_ThietKe_HuongDanNhap", mangThucHien[giaTriIndex].HuongDanNhap);
+
+        //* Nhập liệu cho kiểu nhập input
+        let kieuNhapVao = mangThucHien[giaTriIndex].KieuNhap;
+        if (kieuNhapVao === "number") {
+          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 1);
+        } else if (kieuNhapVao === "text") {
+          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 2);
+        } else {
+          TuDongNhapDuLieu("comboBox_ThietKe_KieuNhap", 0);
+        }
+
+        //* Nhập liệu cho nhóm dưới đây
+        TuDongNhapDuLieu("switch_ThietKe_ChoPhepSuaLai", mangThucHien[giaTriIndex].ChoPhepSuaLai);
+        TuDongNhapDuLieu("switch_ThietKe_ThuGon", mangThucHien[giaTriIndex].ThuGon);
+        TuDongNhapDuLieu("input_ThietKe_AnHien_IDPhuThuoc", mangThucHien[giaTriIndex].AnHien.IDPhuThuoc.join(";"));
+
+        //* Nhập mảng ẩn hiện
+        let giaTriAnHienPhuThuoc = mangThucHien[giaTriIndex].AnHien.GiaTriPhuThuoc;
+        let tam = "";
+        //* Lặp từng đối tượng
+        for (let i = 0; i < giaTriAnHienPhuThuoc.length; i++) {
+          //? Nằm ở cuối mảng
+          if (i === giaTriAnHienPhuThuoc.length - 1) {
+            tam = tam + giaTriAnHienPhuThuoc[i].toString();
+          }
+
+          //? Cộng vào bình thưỜNg
+          else {
+            tam = tam + giaTriAnHienPhuThuoc[i].toString() + ";";
           }
         }
-        break;
-      }
-    }
+        TuDongNhapDuLieu("input_ThietKe_AnHien_GiaTriPhuThuoc", tam);
 
-    //* Trả về giá trị kt
-    return kiemTra;
-  }
+        //* Nhập các trường dưới đây
+        TuDongNhapDuLieu("input_ThietKe_AnHien_GiaTriThucHien", mangThucHien[giaTriIndex].AnHien.GiaTriThucHien.join(";"));
+        TuDongNhapDuLieu("switch_ThietKe_AnHien_MacDinh", mangThucHien[giaTriIndex].AnHien.MacDinh);
+        TuDongNhapDuLieu("input_ThietKe_GoiY_IDGoiY", mangThucHien[giaTriIndex].GoiY.IDGoiY);
+        TuDongNhapDuLieu("input_ThietKe_GoiY_GiaTriGoiY", mangThucHien[giaTriIndex].GoiY.GiaTriGoiY);
+        TuDongNhapDuLieu("switch_ThietKe_ThongKe_TatCa", mangThucHien[giaTriIndex].ThongKe.TatCa);
+        TuDongNhapDuLieu("switch_ThietKe_ThongKe_RutGon", mangThucHien[giaTriIndex].ThongKe.RutGon);
+        TuDongNhapDuLieu("switch_ThietKe_ThongKe_TuyChon", mangThucHien[giaTriIndex].ThongKe.TuyChon);
+        TuDongNhapDuLieu("input_ThietKe_ThongKe_GhiChu", mangThucHien[giaTriIndex].ThongKe.GhiChu);
+        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.IDPhuThuoc);
+        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriPhuThuoc", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriPhuThuoc.join(";"));
+        TuDongNhapDuLieu("input_ThietKe_KhoaThaoTac_GiaTriTuyChon", mangThucHien[giaTriIndex].KhoaThaoTac.GiaTriTuyChon.join(";"));
+        TuDongNhapDuLieu("switch_ThietKe_KhoaThaoTac_MacDinh", mangThucHien[giaTriIndex].KhoaThaoTac.MacDinh);
+        TuDongNhapDuLieu("input_ThietKe_TraVeMacDinh", mangThucHien[giaTriIndex].TraVeMacDinh.join(";"));
+        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_IDPhuThuoc", mangThucHien[giaTriIndex].TuDongDienTruoc.IDPhuThuoc.join(";"));
 
-  //* Chuyển chuỗi thành công thức và tính toán trả kết quả
-  function TinhToanKetQua(viTri) {
-    //Biến
-    let bieuThuc = mangTaiNguyen[viTri].TinhToan.CongThuc;
-    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
+        //* Nhập cho mảng giá trị phụ thuộc
+        let giaTriTuDongDienPhuThuoc = mangThucHien[giaTriIndex].TuDongDienTruoc.GiaTriPhuThuoc;
+        let tam1 = "";
+        //* Duyệt từNg đối tượng
+        for (let i = 0; i < giaTriTuDongDienPhuThuoc.length; i++) {
+          //? Nằm ở cuối mảng
+          if (i === giaTriTuDongDienPhuThuoc.length - 1) {
+            tam1 = tam1 + giaTriTuDongDienPhuThuoc[i].toString();
+          }
 
-    //Thực hiện
-    //* Lặp lấy số liệu hiện tại và gán biến
-    for (let i = 0; i < mangDieuKien.length; i++) {
-      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
-      let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
-      let soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
-
-      //* Gán biến
-      eval("var " + tenBien + " = " + soLieuHienTai + ";");
-    }
-
-    //* Tính toán kết quả
-    let ketQuaTinh = eval(bieuThuc + ";");
-    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
-
-    //? Kiểu là số
-    if (kieuDoiTuong === "number") {
-      let kiemTraLamTron = mangTaiNguyen[viTri].TinhToan.LamTron;
-
-      //? Có làm tròn
-      if (kiemTraLamTron !== "") {
-        ketQuaTinh = ketQuaTinh.toFixed(kiemTraLamTron);
-      }
-
-      //? Làm tròn theo nguyên tắt
-      else {
-        ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
-      }
-    }
-
-    //* Nhập số liệu trở lại field đang chờ
-    let idDoiTuong = mangTaiNguyen[viTri].ID;
-    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
-  }
-
-  //* Tính toán nồng độ hỗn hợp cho nước thải
-  function TinhToanNongDoHonHop_NuocThai(viTri) {
-    //Biến
-    let bieuThuc = mangTaiNguyen[viTri].TinhToan.CongThuc;
-    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
-
-    //Thực hiện
-    //* Lặp lấy số liệu hiện tại và gán biến
-    for (let i = 0; i < mangDieuKien.length; i++) {
-      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
-      let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
-      let idBoxLaySo = idLaySoLieu.replace("input", "box");
-      let trangThai = document.getElementById(idBoxLaySo).style.display;
-      let soLieuHienTai;
-
-      //? Trạng thái không ẩn
-      if (trangThai !== "none") {
-        soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
-      }
-
-      //? Trạng thái ẩn
-      else {
-        soLieuHienTai = 0;
-      }
-
-      //* Gán biến
-      eval("var " + tenBien + " = " + soLieuHienTai + ";");
-    }
-
-    //* Tính toán kết quả
-    let ketQuaTinh = eval(bieuThuc + ";");
-    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
-
-    //? Kiểu là số
-    if (kieuDoiTuong === "number") {
-      ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
-    }
-
-    //* Nhập số liệu trở lại field đang chờ
-    let idDoiTuong = mangTaiNguyen[viTri].ID;
-    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
-  }
-
-  //* Tính toán nồng độ chất ô nhiễm theo hệ số k, kq, kf
-  function TinhToanNongDoTheoQuyChuan_NuocThai(viTri) {
-    //Biến
-    let mangIDPhuThuoc = mangTaiNguyen[viTri].TinhToan.DuLieu.IDPhuThuoc;
-    let mangSoSanh = mangTaiNguyen[viTri].TinhToan.DuLieu.GiaTriPhuThuoc;
-    let mangDuongDan = mangTaiNguyen[viTri].TinhToan.DuLieu.DuongDanCSDL;
-    let chuoiGiaTriHienTai = "";
-
-    //Thực hiện
-    //* Lấy giá trị phụ thuộc ghép thành chuỗi
-    for (let i = 0; i < mangIDPhuThuoc.length; i++) {
-      let giaTri = TuDongLayDuLieu(mangIDPhuThuoc[i]);
-
-      //* cộng chuỗi
-      chuoiGiaTriHienTai = chuoiGiaTriHienTai + giaTri.toString();
-    }
-
-    //* Lấy số liệu chỉ tiêu từ đường dẫn
-    let viTriKetQua = SoSanhGiaTriHienTaiVaMang(chuoiGiaTriHienTai, mangSoSanh, false);
-    let duongDan = mangDuongDan[viTriKetQua];
-    let catDuongDan = duongDan.split(".");
-    let truyCap = mangDuLieu.QCVN;
-    let idDoiTuong = mangTaiNguyen[viTri].ID;
-    let chiTieu = idDoiTuong.slice(idDoiTuong.lastIndexOf("_") + 1, idDoiTuong.length);
-
-    //* Lặp truy cập đường dẫn và trả kết quả
-    for (let i = 0; i < catDuongDan.length; i++) {
-      truyCap = truyCap[catDuongDan[i]];
-    }
-    let ketQua = truyCap[chiTieu];
-
-    //* Xử lý kết quả tính
-    //? Không phải pH và tổng coliforms
-    if (chiTieu !== "pH" && chiTieu !== "TColiforms") {
-      let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
-
-      //* Duyệt nhân hệ số quy đổi với số liệu quy chuẩn
-      for (let i = 1; i < mangDieuKien.length; i++) {
-        let idDieuKien = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
-        let idBoxDieuKien = idDieuKien.replace("input", "box");
-        let trangThaiAnHien = document.getElementById(idBoxDieuKien).style.display;
-
-        //? Có hiện
-        if (trangThaiAnHien !== "none") {
-          ketQua = ketQua * So(TuDongLayDuLieu(idDieuKien));
+          //? Cộng vào bình thưỜNg
+          else {
+            tam1 = tam1 + giaTriTuDongDienPhuThuoc[i].toString() + ";";
+          }
         }
+        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriPhuThuoc", tam1);
+        TuDongNhapDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriDien", mangThucHien[giaTriIndex].TuDongDienTruoc.GiaTriDien.join(";"));
+
+        //* Nhập cho nhóm công thức tính toán
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_DieuKien", mangThucHien[giaTriIndex].TinhToan.DieuKien.join(";"));
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_IDCongNghe", mangThucHien[giaTriIndex].TinhToan.IDCongNghe);
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_CongThuc", mangThucHien[giaTriIndex].TinhToan.CongThuc);
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_LamTron", mangThucHien[giaTriIndex].TinhToan.LamTron);
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_KieuTinh", mangThucHien[giaTriIndex].TinhToan.KieuTinh);
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_IDPhuThuoc", mangThucHien[giaTriIndex].TinhToan.DuLieu.IDPhuThuoc.join(";"));
+        //* Nhập cho mảng giá trị phụ thuộc
+        let giaTriTinhToanPhuThuoc = mangThucHien[giaTriIndex].TinhToan.DuLieu.GiaTriPhuThuoc;
+        let tam2 = "";
+        //* Duyệt từNg đối tượng
+        for (let i = 0; i < giaTriTinhToanPhuThuoc.length; i++) {
+          //? Nằm ở cuối mảng
+          if (i === giaTriTinhToanPhuThuoc.length - 1) {
+            tam2 = tam2 + giaTriTinhToanPhuThuoc[i].toString();
+          }
+
+          //? Cộng vào bình thưỜNg
+          else {
+            tam2 = tam2 + giaTriTinhToanPhuThuoc[i].toString() + ";";
+          }
+        }
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_GiaTriPhuThuoc", tam2);
+        TuDongNhapDuLieu("input_ThietKe_TinhToan_DuLieu_DuongDanCSDL", mangThucHien[giaTriIndex].TinhToan.DuLieu.DuongDanCSDL.join(";"));
       }
 
-      //* làm tròn kết qua
-      ketQua = TuDongLamTronSo(ketQua);
+      //? Nằm ngoài mảng
+      else if (giaTriIndex >= mangThucHien.length) {
+        HienThiThongBao("Index nằm ngoài mảng!");
+      }
     }
-
-    //* Trả kết quả về field đang chờ
-    TuDongNhapDuLieu(idDoiTuong, ketQua);
   }
 
-  //* Tính toán thể tích theo dạng hình học
-  function TinhToanTheTichDangHinhHoc_NuocThai(viTri) {
-    //Biến
-    let mangIDPhuThuoc = mangTaiNguyen[viTri].TinhToan.DuLieu.IDPhuThuoc;
-    let mangSoSanh = mangTaiNguyen[viTri].TinhToan.DuLieu.GiaTriPhuThuoc;
-    let mangCongThuc = mangTaiNguyen[viTri].TinhToan.DuLieu.DuongDanCSDL;
-    let mangDieuKien = mangTaiNguyen[viTri].TinhToan.DieuKien;
-    let chuoiGiaTriHienTai = "";
+  //? Nếu chưa có
+  else {
+    HienThiThongBao("Hãy chọn lĩnh vực tính toán!");
+  }
+}
 
-    //Thực hiện
-    //* Lấy giá trị phụ thuộc ghép thành chuỗi
-    for (let i = 0; i < mangIDPhuThuoc.length; i++) {
-      let giaTri = TuDongLayDuLieu(mangIDPhuThuoc[i]);
+//* Thực hiện tạo mới, di chuyển và thay đổi đối tượng
+function TaoDiChuyenLuuDoiTuong() {
+  //Biến
+  let kiemTraIndex = TuDongLayDuLieu("input_ThietKe_ThuTu");
+  //* Mẫu json đỐi tượng
+  let mauJson = {
+    "ThuTu": "",
+    "Ten": "",
+    "KyHieu": "",
+    "DonVi": "",
+    "ID": "",
+    "IDSection": "",
+    "CongTrinhDonVi": "",
+    "AnHien": {
+      "IDPhuThuoc": [],
+      "IDBox": "",
+      "GiaTriPhuThuoc": [],
+      "GiaTriThucHien": [],
+      "MacDinh": true
+    },
+    "GoiY": {
+      "IDGoiY": "",
+      "GiaTriGoiY": ""
+    },
+    "ThongKe": {
+      "TatCa": true,
+      "RutGon": true,
+      "TuyChon": false,
+      "GhiChu": ""
+    },
+    "GhiChu": "",
+    "ChoPhepSuaLai": false,
+    "KhoaThaoTac": {
+      "IDPhuThuoc": "",
+      "GiaTriPhuThuoc": [],
+      "GiaTriTuyChon": [],
+      "MacDinh": false
+    },
+    "TraVeMacDinh": [],
+    "Kieu": "",
+    "TuDongDienTruoc": {
+      "IDPhuThuoc": [],
+      "GiaTriPhuThuoc": [],
+      "GiaTriDien": []
+    },
+    "ThuGon": true,
+    "DanhSachGiaTri": [],
+    "LoaiTieuDe": "",
+    "HuongDanNhap": "",
+    "KieuNhap": "",
+    "TaoSoDo": {
+      "TaoCongTrinh_DauVao": "",
+      "_TaoCongTrinh": "",
+      "TaoDuongVe_DauVao": "",
+      "_TaoDuongVe": "",
+      "TaoCongTrinh_DauRa": "",
+      "TaoDuongVe_DauRa": "",
+      "IDHienThi": "",
+      "_DanhSachCongTrinh": "",
+      "_DuLieuSoDo": "",
+      "ChonCongTrinh": false,
+      "DeXuat": {
+        "IDPhuThuoc": [],
+        "GiaTriPhuThuoc": [],
+        "DuongDanCSDL": []
+      },
+      "DSCongTrinhDonVi": []
+    },
+    "IDNeoGiu": "",
+    "TinhToan": {
+      "DieuKien": [],
+      "IDCongNghe": "",
+      "CongThuc": "",
+      "KieuTinh": "",
+      "DuLieu": {
+        "IDPhuThuoc": [],
+        "GiaTriPhuThuoc": [],
+        "DuongDanCSDL": []
+      },
+      "LamTron": ""
+    }
+  };
+  let linhVuc = TuDongLayDuLieu("comboBox_LinhVucTinhToan");
+  let kiemTraThongBao = true;
 
-      //* cộng chuỗi
-      chuoiGiaTriHienTai = chuoiGiaTriHienTai + giaTri.toString();
+  //Chương trình con
+  function NhapLieuChoJsonMau() {
+    //* Nhập dữ liệu vào json mẫu
+    //* Nhập ghi chú đối tượng
+    mauJson.GhiChu = TuDongLayDuLieu("input_ThietKe_GhiChu");
+
+    //* Nhập kiểu
+    let kieuDoiTuong = document.getElementById("comboBox_ThietKe_Kieu");
+    //? Đang chọn mặc định
+    if (kieuDoiTuong.selectedIndex === 0) {
+      mauJson.Kieu = "";
+    }
+    //? Trường hợp còn lại
+    else {
+      mauJson.Kieu = kieuDoiTuong.options[kieuDoiTuong.selectedIndex].text;
     }
 
-    //* Lấy số liệu chỉ tiêu từ đường dẫn
-    let viTriKetQua = SoSanhGiaTriHienTaiVaMang(chuoiGiaTriHienTai, mangSoSanh, false);
-    let congThuc = mangCongThuc[viTriKetQua];
+    //* Nhập loại tiêu đề
+    let loaiTieuDe = document.getElementById("comboBox_ThietKe_LoaiTieuDe");
+    //? Đang chọn mặc định
+    if (loaiTieuDe.selectedIndex === 0) {
+      mauJson.LoaiTieuDe = "";
+    }
+    //? Trường hợp còn lại
+    else {
+      mauJson.LoaiTieuDe = loaiTieuDe.options[loaiTieuDe.selectedIndex].text;
+    }
 
-    //* Tìm các biến có trong công thức và gán giá trị
-    for (let i = 0; i < mangDieuKien.length; i++) {
-      let tenBien = mangDieuKien[i].slice(0, mangDieuKien[i].indexOf("="));
+    //* Nhập các đối tượng dưới đây
+    mauJson.Ten = TuDongLayDuLieu("input_ThietKe_Ten");
+    mauJson.KyHieu = TuDongLayDuLieu("input_ThietKe_KyHieu");
+    mauJson.DonVi = TuDongLayDuLieu("input_ThietKe_DonVi");
+    mauJson.ID = TuDongLayDuLieu("input_ThietKe_ID");
+    mauJson.IDSection = TuDongLayDuLieu("input_ThietKe_IDSection");
+    mauJson.IDNeoGiu = TuDongLayDuLieu("input_ThietKe_IDNeoGiun");
+    mauJson.CongTrinhDonVi = TuDongLayDuLieu("input_ThietKe_CongTrinhDonVi");
 
-      //? Tên biến có trong công thức
-      if (congThuc.indexOf(tenBien, 0) !== -1) {
-        let idLaySoLieu = mangDieuKien[i].slice(mangDieuKien[i].indexOf("=", 0) + 1, mangDieuKien[i].length);
-        let soLieuHienTai = So(TuDongLayDuLieu(idLaySoLieu));
+    //* Nhập danh sách giá trị
+    let danhSachGiaTri = TuDongLayDuLieu("input_ThietKe_DanhSachGiaTri");
+    //? Khác rỗng
+    if (danhSachGiaTri !== "") {
+      mauJson.DanhSachGiaTri = danhSachGiaTri.split(";");
+    }
 
-        //* Gán biến
-        eval("var " + tenBien + " = " + soLieuHienTai + ";");
+    //* Nhập place holder
+    mauJson.HuongDanNhap = TuDongLayDuLieu("input_ThietKe_HuongDanNhap");
+
+    //* Nhập kiểu nhậP vào input
+    let kieuNhapVao = document.getElementById("comboBox_ThietKe_KieuNhap");
+    //? Đang chọn mặc định
+    if (kieuNhapVao.selectedIndex === 0) {
+      mauJson.KieuNhap = "";
+    }
+    //? Trường hợp còn lại
+    else {
+      mauJson.KieuNhap = kieuNhapVao.options[kieuNhapVao.selectedIndex].text;
+    }
+
+    //* Nhập các đối tượng dưới đây
+    mauJson.ChoPhepSuaLai = TuDongLayDuLieu("switch_ThietKe_ChoPhepSuaLai");
+    mauJson.ThuGon = TuDongLayDuLieu("switch_ThietKe_ThuGon");
+
+    //* NhậP cho ẩn hiện đối tượng
+    let idAnHienPhuThuoc = TuDongLayDuLieu("input_ThietKe_AnHien_IDPhuThuoc");
+    //? Khác rỗng
+    if (idAnHienPhuThuoc !== "") {
+      mauJson.AnHien.IDPhuThuoc = idAnHienPhuThuoc.split(";");
+    }
+    let giaTriAnHienPhuThuoc = TuDongLayDuLieu("input_ThietKe_AnHien_GiaTriPhuThuoc");
+    //? Khác rỗng
+    if (giaTriAnHienPhuThuoc !== "") {
+      let mangTam = giaTriAnHienPhuThuoc.split(";");
+      let tam = [];
+
+      //* Lặp từng nhóm để tiếp tục tạo mảng
+      for (let i = 0; i < mangTam.length; i++) {
+        tam.push(mangTam[i].split(","));
       }
+      mauJson.AnHien.GiaTriPhuThuoc = tam;
+    }
+    let giaTriAnHienThucHien = TuDongLayDuLieu("input_ThietKe_AnHien_GiaTriThucHien");
+    //? Khác rỗng
+    if (giaTriAnHienThucHien !== "") {
+      mauJson.AnHien.GiaTriThucHien = giaTriAnHienThucHien.split(";");
     }
 
-    //* Tính toán kết quả
-    let ketQuaTinh = eval(congThuc + ";");
-    let kieuDoiTuong = mangTaiNguyen[viTri].KieuNhap;
+    //* Nhập cho các đốI tượng dưỚI đây
+    mauJson.AnHien.MacDinh = TuDongLayDuLieu("switch_ThietKe_AnHien_MacDinh");
+    mauJson.GoiY.IDGoiY = TuDongLayDuLieu("input_ThietKe_GoiY_IDGoiY");
+    mauJson.GoiY.GiaTriGoiY = TuDongLayDuLieu("input_ThietKe_GoiY_GiaTriGoiY");
+    mauJson.ThongKe.TatCa = TuDongLayDuLieu("switch_ThietKe_ThongKe_TatCa");
+    mauJson.ThongKe.RutGon = TuDongLayDuLieu("switch_ThietKe_ThongKe_RutGon");
+    mauJson.ThongKe.TuyChon = TuDongLayDuLieu("switch_ThietKe_ThongKe_TuyChon");
+    mauJson.ThongKe.GhiChu = TuDongLayDuLieu("input_ThietKe_ThongKe_GhiChu");
 
-    //? Kiểu là số
-    if (kieuDoiTuong === "number") {
-      ketQuaTinh = TuDongLamTronSo(ketQuaTinh);
+    //* Nhập cho khoá thao tác
+    mauJson.KhoaThaoTac.IDPhuThuoc = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_IDPhuThuoc");
+    let giaTriKhoaPhuThuoc = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_GiaTriPhuThuoc");
+    //? Khác rỗng
+    if (giaTriKhoaPhuThuoc !== "") {
+      mauJson.KhoaThaoTac.GiaTriPhuThuoc = giaTriKhoaPhuThuoc.split(";");
+    }
+    let giaTriKhoaTuyChon = TuDongLayDuLieu("input_ThietKe_KhoaThaoTac_GiaTriTuyChon");
+    //? Khác rỗng
+    if (giaTriKhoaTuyChon !== "") {
+      mauJson.KhoaThaoTac.GiaTriTuyChon = giaTriKhoaTuyChon.split(";");
+    }
+    mauJson.KhoaThaoTac.MacDinh = TuDongLayDuLieu("switch_ThietKe_KhoaThaoTac_MacDinh");
+
+    //* Nhập cho trả về mặc định
+    let traVeMacDinh = TuDongLayDuLieu("input_ThietKe_TraVeMacDinh");
+    //? Khác rỗng
+    if (traVeMacDinh !== "") {
+      mauJson.TraVeMacDinh = traVeMacDinh.split(";");
     }
 
-    //* Nhập số liệu trở lại field đang chờ
-    let idDoiTuong = mangTaiNguyen[viTri].ID;
-    TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
+    //* Nhập cho tự động điền trước
+    let idDienTruocPhuThuoc = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_IDPhuThuoc");
+    //? Khác rỗng
+    if (idDienTruocPhuThuoc !== "") {
+      mauJson.TuDongDienTruoc.IDPhuThuoc = idDienTruocPhuThuoc.split(";");
+    }
+    let giaTriDienTruocPhuThuoc = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriPhuThuoc");
+    //? Khác rỗng
+    if (giaTriDienTruocPhuThuoc !== "") {
+      let mangTam = giaTriDienTruocPhuThuoc.split(";");
+      let tam = [];
+
+      //* Lặp từng nhóm để tiếp tục tạo mảng
+      for (let i = 0; i < mangTam.length; i++) {
+        tam.push(mangTam[i].split(","));
+      }
+      mauJson.TuDongDienTruoc.GiaTriPhuThuoc = tam;
+    }
+    let giaTriDienVao = TuDongLayDuLieu("input_ThietKe_TuDongDienTruoc_GiaTriDien");
+    //? Khác rỗng
+    if (giaTriDienVao !== "") {
+      mauJson.TuDongDienTruoc.GiaTriDien = giaTriDienVao.split(";");
+    }
+
+    //* Nhập cho công thức tính toán
+    let dieuKienTinhToan = TuDongLayDuLieu("input_ThietKe_TinhToan_DieuKien");
+    //? Khác rỗng
+    if (dieuKienTinhToan !== "") {
+      mauJson.TinhToan.DieuKien = dieuKienTinhToan.split(";");
+    }
+    mauJson.TinhToan.IDCongNghe = TuDongLayDuLieu("input_ThietKe_TinhToan_IDCongNghe");
+    mauJson.TinhToan.CongThuc = TuDongLayDuLieu("input_ThietKe_TinhToan_CongThuc");
+    mauJson.TinhToan.LamTron = TuDongLayDuLieu("input_ThietKe_TinhToan_LamTron");
+    mauJson.TinhToan.KieuTinh = TuDongLayDuLieu("input_ThietKe_TinhToan_KieuTinh");
+    let duLieuIDPhuThuoc = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_IDPhuThuoc");
+    //? Khác rỗng
+    if (duLieuIDPhuThuoc !== "") {
+      mauJson.TinhToan.DuLieu.IDPhuThuoc = duLieuIDPhuThuoc.split(";");
+    }
+    let tinhToanDuLieuPhuThuoc = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_GiaTriPhuThuoc");
+    //? Khác rỗng
+    if (tinhToanDuLieuPhuThuoc !== "") {
+      let mangTam = tinhToanDuLieuPhuThuoc.split(";");
+      let tam = [];
+
+      //* Lặp từng nhóm để tiếp tục tạo mảng
+      for (let i = 0; i < mangTam.length; i++) {
+        tam.push(mangTam[i].split(","));
+      }
+      mauJson.TinhToan.DuLieu.GiaTriPhuThuoc = tam;
+    }
+    let duLieuDuongDanCSDL = TuDongLayDuLieu("input_ThietKe_TinhToan_DuLieu_DuongDanCSDL");
+    //? Khác rỗng
+    if (duLieuDuongDanCSDL !== "") {
+      mauJson.TinhToan.DuLieu.DuongDanCSDL = duLieuDuongDanCSDL.split(";");
+    }
   }
 
   //Thực hiện
-  //* Tìm lĩnh vực xử lý
-  TimLinhVucXuLy();
+  //? Néu có lĩnh vực
+  if (linhVuc !== 0) {
+    linhVuc = window.jsonDataSources.CauTruc.LinhVuc[0].AnHien.GiaTriThucHien[linhVuc - 1];
 
-  //? Nếu tồn tại lĩnh vực xử lý
-  if (linhVucXuLy !== "") {
-    mangTaiNguyen = window.jsonDataSources.CauTruc[linhVucXuLy];
-    mangDuLieu = window.jsonDataSources.CoSoDuLieu[linhVucXuLy];
+    //? Tạo mới đối tượng vào cuối mảng
+    if (kiemTraIndex.indexOf("+", 0) !== -1) {
+      NhapLieuChoJsonMau();
+      window.jsonDataSources.CauTruc[linhVuc].push(mauJson);
+    }
 
-    //* Lặp xử lý tính toán từng đối tượng
-    for (let i = 0; i < mangTaiNguyen.length; i++) {
-      let kiemTraCongTrinhDonVi = mangTaiNguyen[i].CongTrinhDonVi;
-      let kiemTraDieuKien = mangTaiNguyen[i].TinhToan.DieuKien.length;
-      let kiemTraKieuTinh = mangTaiNguyen[i].TinhToan.KieuTinh;
+    //? Xoá đối tượng
+    else if (kiemTraIndex.indexOf("-", 0) !== -1) {
+      // Biến
+      let viTri = parseInt(kiemTraIndex.replace("-", ""));
 
-      //? Có công thức tính toán
-      if (kiemTraDieuKien !== 0) {
-        //? Có hiển thị
-        if (KiemTraAnHien(i)) {
-          //? Điều kiện đầu vào
-          if (KiemTraDieuKien(i)) {
-            //? Kiểu tính bình thường
-            if (kiemTraKieuTinh === "") {
-              TinhToanKetQua(i);
-            }
+      //Thực hiện
+      //* Xoá tại vị tí đối tượng
+      window.jsonDataSources.CauTruc[linhVuc].splice(viTri, 1);
+    }
 
-            //? Kiểu tính ngoại lệ
-            else {
-              //? Tính nồng độ hỗn hợp
-              if (kiemTraKieuTinh === "nongDoHonHop") {
-                TinhToanNongDoHonHop_NuocThai(i);
-              }
+    //? Di chuyển đối tượng
+    else if (kiemTraIndex.indexOf("m", 0) !== -1) {
+      // Biến
+      let viTriHienTai = parseInt(kiemTraIndex.slice(0, kiemTraIndex.indexOf("m", 0)));
+      let viTriMoi = parseInt(kiemTraIndex.slice(kiemTraIndex.indexOf("m", 0) + 1, kiemTraIndex.length));
+      let copyDoiTuong = window.jsonDataSources.CauTruc[linhVuc][viTriHienTai];
 
-              //? Tính toán nồng độ chất ô nhiễm theo hệ số k, kq, kf
-              if (kiemTraKieuTinh === "nongDoTheoQuyChuan") {
-                TinhToanNongDoTheoQuyChuan_NuocThai(i);
-              }
+      //Thực hiện
+      //* Xoá đối tượng hiện tại
+      window.jsonDataSources.CauTruc[linhVuc].splice(viTriHienTai, 1);
 
-              //? Tính toán dạng hình học
-              if (kiemTraKieuTinh === "dangHinhHoc") {
-                TinhToanTheTichDangHinhHoc_NuocThai(i);
-              }
-            }
-          }
+      //*Di chuyển đối tượng đã copy đến vị trí mới
+      window.jsonDataSources.CauTruc[linhVuc].splice(viTriMoi, 0, copyDoiTuong);
+    }
+
+    //? Không nhập gì
+    else if (kiemTraIndex === "") {
+      HienThiThongBao("Hãy nhập vị trí đối tượng?");
+      kiemTraThongBao = false;
+    }
+
+    //? Chỉnh sửa, cập nhật thuộc tính
+    else {
+      //Biến
+      let viTriHienTai = parseInt(kiemTraIndex);
+
+      //Thực hiệN
+      //* Tạo json mẫu
+      NhapLieuChoJsonMau();
+
+      //* Đổi đối tượng mới vào vị trí đối tượng cũ
+      window.jsonDataSources.CauTruc[linhVuc].splice(viTriHienTai, 1, mauJson);
+    }
+
+    //? Không có lỗi
+    if (kiemTraThongBao) {
+      //* Lưu lại thay đổi của json datasources
+      NhapDuLieuLuuTruWebsite();
+
+      //* Nhấn nút tính toán
+      document.getElementById("btn_calculator").click();
+
+      //* Hiển thị thông báo
+      HienThiThongBao("Cập nhật thành công!");
+
+      //* Tự đỘng đóng modal
+      setTimeout(function () {
+        document.getElementById("btnFunc_DongModalThietKe").click();
+      }, 50);
+
+      //* Reload cập nhật dữ liệu
+      setTimeout(() => {
+        location.reload();
+      }, 50);
+    }
+  }
+
+  //? Nếu chưa có
+  else {
+    HienThiThongBao("Hãy chọn lĩnh vực tính toán!");
+  }
+}
+
+//* Tạo sự kiện cho thiết kế
+function XuLySuKien_ThietKe() {
+  //* Sự kiện điền dữ liệu có sẵn vào form
+  document.getElementById("input_ThietKe_ThuTu").addEventListener("input", function () {
+    NhapVaoForm();
+  });
+
+  //* Sự kiện thao tác trên modal chỉnh sửa
+  document.getElementById("btnFunc_ChapNhanCapNhatThietKe").addEventListener("click", function () {
+    TaoDiChuyenLuuDoiTuong();
+  });
+
+  //* Sự kiện click double để xoá
+  let inputDouble = document.getElementsByTagName("input");
+  //* Lặp tìm input thiết kế
+  for (let i = 0; i < inputDouble.length; i++) {
+    //? input thiết kế
+    if (inputDouble[i].id.indexOf("input_ThietKe") !== -1) {
+      inputDouble[i].addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        TuDongNhapDuLieu(this.id, "");
+      });
+    }
+  }
+
+  //* Hiển thị danh sách đỐi tượng
+  let danhSach = window.jsonDataSources.CauTruc.NuocThai;
+  for (let i = 0; i < danhSach.length; i++) {
+    console.log(i + " - " + danhSach[i].ID);
+  }
+}
+
+//* Nhập dữ liệu cho json sources bằng code
+document.getElementById("btn_NhapLieu").addEventListener("click", function () {
+  //Chương trình con
+  //Tạo data json lưu dữ liệu người dùng
+  function TaoJsonLuuDuLieuNguoiDung() {
+    //Biến
+    let mangLamLai = window.jsonDataUser.DuLieu.NuocThai;
+    let mangThucHien = window.jsonDataSources.CauTruc.NuocThai;
+
+    //Thực hiện
+    for (let i = 0; i < mangThucHien.length; i++) {
+      let mau = {
+        "ID": "",
+        "GiaTri": ""
+      };
+
+      let mauFlowchart = {
+        "ID": "",
+        "GiaTri": "",
+        "CongTrinhDonVi_Tep": "",
+        "ChuoiCongTrinh": "",
+        "ChuoiDuongVe": ""
+      };
+
+      if (mangThucHien[i].Kieu === "comboBox" || mangThucHien[i].Kieu === "switch" || mangThucHien[i].Kieu === "input" || mangThucHien[i].Kieu === "flowChart") {
+        //? Nếu là flowChart
+        if (mangThucHien[i].Kieu === "flowChart") {
+          mauFlowchart.ID = mangThucHien[i].ID;
+          mangLamLai.push(mauFlowchart);
+        }
+
+        //? Các kiểu còn lại
+        else {
+          mau.ID = mangThucHien[i].ID;
+          mangLamLai.push(mau);
         }
       }
     }
   }
-}
+
+  //* Thêm filed cho json
+  function ThemTruongMoiChoJsonData() {
+    let mangTaiNguyen = window.jsonDataSources.CauTruc.ThietKe;
+
+    for (let i = 0; i < mangTaiNguyen.length; i++) {
+      mangTaiNguyen[i].ThongKe.GhiChu = "";
+    }
+  }
+
+  //ThemTruongMoiChoJsonData();
+  //Thực hiện
+  //console.log(window.jsonDataSources);
+  //console.log(window.jsonDataUser);
+});
+
+//!-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
+
+
