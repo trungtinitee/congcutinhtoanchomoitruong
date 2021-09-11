@@ -387,3 +387,19 @@ body {
 .border-func-thongke button {
     margin-right: 5px;
 }
+
+/* Phân chia các phần tính toán cho dễ nhìn */
+.div-calculate{
+    margin: 15px auto;
+    margin-top: 20px;
+    border: 1px solid #04aa6d;
+    width: 50%;
+    position: relative;
+    text-align: center;
+} 
+
+.div-calculate > i {
+    position: absolute;
+    top: -16px;
+    color: #e25822;
+}

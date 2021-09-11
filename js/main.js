@@ -1767,6 +1767,37 @@ function TaoDoiTuongChoWebsite() {
     phanTuCha.appendChild(taoAnchor);
   }
 
+  function TaoPhanChiaTinhToan(viTriDoiTuong) {
+    //Biến
+    let idDoiTuong = mangThucHien[viTriDoiTuong].ID;
+
+    //* Tạo khung
+    let taoKhung = document.createElement("div");
+    let idKhung = idDoiTuong.replace("divCal", "box");
+    taoKhung.id = idKhung;
+    //? Ẩn mặc đỊnh
+    let kiemTraAnHienMD = mangThucHien[viTriDoiTuong].AnHien.MacDinh;
+    if (kiemTraAnHienMD === false) {
+      taoKhung.style.display = "none";
+    } else {
+      taoKhung.style.display = "block";
+    }
+
+    //* Tạo đối tượng phân chia
+    let taoDiv = document.createElement("div");
+    taoDiv.className = "div-calculate";
+    taoDiv.id = idDoiTuong;
+    taoDiv.innerHTML = "<i class=\"fas fa-fire-alt\"></i>";
+    taoKhung.appendChild(taoDiv);
+
+    //* Nối vào đỐi tượng chính
+    let idCha = mangThucHien[viTriDoiTuong].IDSection.replace("section", "body");
+    let idNutThuGon = idCha.replace("body", "btnThuGon");
+    let phanTuCha = document.getElementById(idCha);
+    let phanTuThuGon = document.getElementById(idNutThuGon);
+    phanTuCha.insertBefore(taoKhung, phanTuThuGon);
+  }
+
   //Thực hiện
   //! Render cho từng lĩnh vực
   for (let i = 0; i < 1; i++) {
@@ -1820,6 +1851,11 @@ function TaoDoiTuongChoWebsite() {
       //? Kiểu đối tượng neo giữ
       else if (kieuDoiTuong === "anchor") {
         TaoAnchor(j);
+      }
+
+      //? Kiểu đối tượng phân chia các phần tính toán
+      else if (kieuDoiTuong === "divCal") {
+        TaoPhanChiaTinhToan(j);
       }
     }
   }
@@ -2251,6 +2287,19 @@ function TuDongTinhToanTrenDoiTuong() {
     TuDongNhapDuLieu(idDoiTuong, ketQuaTinh);
   }
 
+  //* Highlight chỉ dẫn nhập
+  function HighlightDoiTuong(idDoiTuong, highlightT_boHighlightF) {
+    //? Highlight đối tượng
+    if (highlightT_boHighlightF) {
+      document.getElementById(idDoiTuong).style.borderColor = "#0d6efd";
+    }
+
+    //? Bỏ Highlight đối tượng
+    else {
+      document.getElementById(idDoiTuong).style.borderColor = "#ced4da";
+    }
+  }
+
   //Thực hiện
   //* Tìm lĩnh vực xử lý
   TimLinhVucXuLy();
@@ -2292,6 +2341,57 @@ function TuDongTinhToanTrenDoiTuong() {
               //? Tính toán dạng hình học
               if (kiemTraKieuTinh === "dangHinhHoc") {
                 TinhToanTheTichDangHinhHoc_NuocThai(i);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //* Lặp hướng dẫn nhập cho từng đối tượng
+    for (let i = 0; i < mangTaiNguyen.length; i++) {
+      let kieuDoiTuong = mangTaiNguyen[i].Kieu;
+
+      //? Kiểu là comboBox hoặc input
+      if (kieuDoiTuong === "comboBox" || kieuDoiTuong === "input") {
+        let idSection = mangTaiNguyen[i].IDSection;
+        let idBoxSection = idSection.replace("section", "box");
+        let kiemTraAnHienSection = document.getElementById(idBoxSection).style.display;
+
+        //? Section đang hiện
+        if (kiemTraAnHienSection !== "none") {
+          let idDoiTuong = mangTaiNguyen[i].ID;
+          let idBoxDoiTuong = idDoiTuong.replace(kieuDoiTuong, "box");
+          let kiemTraTrangThaiDoiTuong = document.getElementById(idBoxDoiTuong).style.display;
+          let kiemTraDisable = document.getElementById(idDoiTuong).disabled;
+
+          //? Đối tượng đang hiện
+          if (kiemTraTrangThaiDoiTuong !== "none" && kiemTraDisable === false) {
+            let giaTriDoiTuong = TuDongLayDuLieu(idDoiTuong);
+
+            //? là comboBox
+            if (kieuDoiTuong === "comboBox") {
+              //? Chưa chọn giá trị
+              if (giaTriDoiTuong === 0) {
+                HighlightDoiTuong(idDoiTuong, true);
+              }
+
+              //? Đã chọn giá trị
+              else {
+                HighlightDoiTuong(idDoiTuong, false);
+              }
+            }
+
+            //? là input
+            else if (kieuDoiTuong === "input") {
+              //? Chưa nhập giá trị
+              if (giaTriDoiTuong === "") {
+                HighlightDoiTuong(idDoiTuong, true);
+              }
+
+              //? Đã nhập giá trị
+              else {
+                HighlightDoiTuong(idDoiTuong, false);
               }
             }
           }
@@ -3271,6 +3371,8 @@ function NhapVaoForm() {
           TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 7);
         } else if (kieuDoiTuong === "flowChart") {
           TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 8);
+        } else if (kieuDoiTuong === "divCal") {
+          TuDongNhapDuLieu("comboBox_ThietKe_Kieu", 9);
         }
         //? Không chọn gì
         else {
@@ -3838,5 +3940,3 @@ document.getElementById("btn_NhapLieu").addEventListener("click", function () {
 });
 
 //!-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
-
-
