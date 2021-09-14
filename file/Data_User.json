@@ -294,9 +294,9 @@
       {
         "ID": "flowChart_XuLyNuocThai_SoDoCongNghe",
         "GiaTri": "",
-        "CongTrinhDonVi_Tep" : "",
-        "ChuoiCongTrinh" : "",
-        "ChuoiDuongVe" : ""
+        "CongTrinhDonVi_Tep": "",
+        "ChuoiCongTrinh": "",
+        "ChuoiDuongVe": ""
       },
       {
         "ID": "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong",
@@ -340,6 +340,634 @@
       },
       {
         "ID": "input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGiay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HoThu_PhuongAn",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ThoiGianLuuNuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_TheTichHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoOngThoat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoBaoVe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_DoCaoThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HoThu_DangHinhHoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_DuongKinh_HinhTron",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuDai_KichThuocThamKhao",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_ChieuRong_KichThuocThamKhao",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_TheTichThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_LuuLuongBom_LitPhut",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_LuuLuongBom_m3gio",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HoThu_CotApBom",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_ThoiGianLuu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIchLyThuyet",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_HeSoVuotTai",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoBaove",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_DoCaoThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_HinhDangBe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuDai_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_ChieuRong_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_DuongKinh_HinhTron",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_TheTichThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_TocDoKhiNenCungCap",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_SoLuongMayNen",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuuLuongMoiMayNen_M3Phut",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuuLuongMoiMayNen_M3Gio",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_DieuHoa_KhiNen_LoaiKhechTan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_LuongKhiTrenMoiOng",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_OngPhanPhoi_SoLuongOng",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_LuongKhiTrenMoiDia",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_DiaPhanPhoi_SoLuongDia",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiM3Nuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatThietBiKhuay_KW",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_SoLuongMayKhuay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiMay_KW",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CoKhi_CongSuatMoiMay_HP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_TongLuuLuongBom",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_SoLuongBomChim",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_LuuLuongMoiBom_M3Gio",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_LuuLuongMoiBom_M3Phut",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_DieuHoa_CotApMayBomChim",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_NongDoBOD5VaoBe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HieuKhi_PhuongAnTheTich",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSQuyChuan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5QuyChuan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_SSSauXuLy",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BOD5SauXuLy",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_TiLePhanHuySinhHocSS",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuVK_BODHoaTanSauXuLy",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_NhietDoKhuVuc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuViKhuan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_MLVSS",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_HeSoSanLuongBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBao20Do",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_HeSoDieuChinhKd",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_HeSoPhanHuyNoiBaoKhuVuc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuuNuoc_ThoiGianLuu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_TheTichHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianLuu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_TiLeFM",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_TaiNapChatHuuCo",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_DoTroCuaBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_LuongBunThaiMoiNgay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_NongDoBunDayBeLang",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_LuuLuongBunThaiBoMoiNgay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThoiGianVanHanhKhongThaiBoBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_LuuLuongBunHoanLuu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_DoCaoHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_DoCaoBaove",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_DoCaoThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HieuKhi_HinhDangBe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ChieuDai_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ChieuRong_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_TheTichThucTe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HieuKhi_PhuongPhapTinhOxy",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_PPTinhOxy_DMThietBiPhanPhoi",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_PPTinhOxy_CongThuc_HieuSuatChuyenOxy",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_PPTinhOxy_CongThuc_HeSoAT",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_PPTinhOxy_CongThuc_OxyNguyenChat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_LuongKhongKhiCungCap_M3Ngay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_LuongKhongKhiCungCap_M3Phut",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HieuKhi_ThietBiCapKK",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayKhuay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_HeSoHieuSuatMayKhuay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayNenKhi_TonThatDocDuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayNenKhi_TonThatCucBo",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayNenKhi_TonThatTong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayNenKhi_ApLucKK",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_MayNenKhi_HieuSuat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_CongSuatThietBi",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_SoLuongMay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_CongSuatMoiMayHP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_xuLyNuocThai_HieuKhi_ThietBiCapKK_CongSuatMoiMaykW",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_HieuKhi_ThietBiCapKK_ThietBiPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_HieuKhi_MayNen_LuongKhiMoiOng",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_HieuKhi_MayNen_SoLuongOng",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_HieuKhi_MayNen_LuongKhiMoiDia",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_HieuKhi_MayNen_SoLuongDia",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_NongDoMLSSDauVao",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongBunThaiMoiNgay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DuaTrenThoiGianLuu_ThoiGianLuuNuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapNuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichTaiNapBM",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapChatRan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichTaiNapRan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichChon",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoBunLang",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoBaoVe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoTong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TheTichChuaBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuuBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_ThoiGianLuuNuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuu_TaiNapNuocBeMat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuu_TaiNapRan",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuRong_HinhChuNhat",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuRong_HinhVuong",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DuongKinh_HinhTron",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TiLeDuongKinhOngPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DuongKinhOngPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TiLeDoSauOngPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoNgoiLenMatNuocOngPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TongDoCaoOngPP",
+        "GiaTri": ""
+      },
+      {
+        "ID": "comboBox_XuLyNuocThai_LangSinhHoc_ViTriCuaRangCuaMangTran",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_ViTriCachTam",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoRongMangThu",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_DoDaiMangThuNuoc",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TaiTrongMangTranRangCua",
+        "GiaTri": ""
+      },
+      {
+        "ID": "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TongLuuLuongBomBunMoiNgay",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_SoLuongBomBunTK",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongMoiMayBomBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_TongLuuLuongBomBunMoiNgay_M3Phut",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_CotApBomBun",
+        "GiaTri": ""
+      },
+      {
+        "ID": "switch_XuLyNuocThai_LangSinhHoc_ThietBiGatBunCoGioi",
+        "GiaTri": ""
+      },
+      {
+        "ID": "input_XuLyNuocThai_LangSinhHoc_VanTocMotorGiamToc",
         "GiaTri": ""
       }
     ],

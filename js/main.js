@@ -1787,7 +1787,7 @@ function TaoDoiTuongChoWebsite() {
     let taoDiv = document.createElement("div");
     taoDiv.className = "div-calculate";
     taoDiv.id = idDoiTuong;
-    taoDiv.innerHTML = "<i class=\"fas fa-fire-alt\"></i>";
+    taoDiv.innerHTML = "<i class=\"fas fa-equals\"></i>";
     taoKhung.appendChild(taoDiv);
 
     //* Nối vào đỐi tượng chính
@@ -3881,6 +3881,7 @@ function XuLySuKien_ThietKe() {
   let danhSach = window.jsonDataSources.CauTruc.NuocThai;
   for (let i = 0; i < danhSach.length; i++) {
     console.log(i + " - " + danhSach[i].ID);
+    //console.log(i + " - " + danhSach[i].TinhToan.DieuKien);
   }
 }
 
@@ -3933,6 +3934,7 @@ document.getElementById("btn_NhapLieu").addEventListener("click", function () {
     }
   }
 
+  //TaoJsonLuuDuLieuNguoiDung();
   //ThemTruongMoiChoJsonData();
   //Thực hiện
   //console.log(window.jsonDataSources);

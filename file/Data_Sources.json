@@ -13243,6 +13243,260 @@
             },
             {
                 "ThuTu": "",
+                "Ten": "- Số lượng máy nén khí",
+                "KyHieu": "N<sub>mayNen</sub>",
+                "DonVi": "máy",
+                "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_SoLuongMayNen",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Số lượng máy thổi khí thiết kế",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "Không bao gồm máy dự phòng",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng khí mỗi máy",
+                "KyHieu": "Q<sub>moiMay</sub>",
+                "DonVi": "m<sup>3</sup>/phút",
+                "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuuLuongMoiMayNen_M3Phut",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng không khí cần cung cấp trên mỗi máy thổi khí",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_DieuHoa_KhiNen_LuongKhiNenKhuayTron",
+                        "b=input_xuLyNuocThai_DieuHoa_KhiNen_SoLuongMayNen"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/b",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "Q<sub>moiMay</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_xuLyNuocThai_DieuHoa_KhiNen_LuuLuongMoiMayNen_M3Gio",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_DieuHoa_DangKhuayTron"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng không khí cần cung cấp trên mỗi máy thổi khí",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_DieuHoa_KhiNen_LuuLuongMoiMayNen_M3Phut"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a*60",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
                 "Ten": "",
                 "KyHieu": "",
                 "DonVi": "",
@@ -14173,6 +14427,475 @@
             },
             {
                 "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "divCal_XuLyNuocThai_DieuHoa_ThietBiKhuayTronVaBomChim",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": false,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Phân chia thiết bị khuấy trộn và máy bơm chìm",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "divCal",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng cần thiết của máy bơm nước thải",
+                "KyHieu": "Q<sub>canThiet</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_xuLyNuocThai_DieuHoa_TongLuuLuongBom",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng bơm của máy bơm chìm bể điều hoà",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Số lượng máy bơm chìm",
+                "KyHieu": "N<sub>bom</sub>",
+                "DonVi": "máy",
+                "ID": "input_xuLyNuocThai_DieuHoa_SoLuongBomChim",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Số lượng máy bơm chìm thiết kế",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "Không bao gồm bơm dự phòng",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng cần thiết mỗi máy",
+                "KyHieu": "Q<sub>moiBom</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_xuLyNuocThai_DieuHoa_LuuLuongMoiBom_M3Gio",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng mỗi máy bơm chìm cần có",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_DieuHoa_TongLuuLuongBom",
+                        "b=input_xuLyNuocThai_DieuHoa_SoLuongBomChim"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/b",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "Q<sub>moiBom</sub>",
+                "DonVi": "m<sup>3</sup>/phút",
+                "ID": "input_xuLyNuocThai_DieuHoa_LuuLuongMoiBom_M3Phut",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng mỗi máy bơm chìm cần có",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_DieuHoa_LuuLuongMoiBom_M3Gio"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/60",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Cột áp máy bơm",
+                "KyHieu": "H<sub>apBom</sub>",
+                "DonVi": "m",
+                "ID": "input_xuLyNuocThai_DieuHoa_CotApMayBomChim",
+                "IDSection": "section_XuLyNuocThai_DieuHoa",
+                "CongTrinhDonVi": "dieuHoa",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Cột áp máy bơm chìm thiết kế",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "8 - 10",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
                 "Ten": "BỂ HIẾU KHÍ",
                 "KyHieu": "",
                 "DonVi": "",
@@ -14235,6 +14958,83 @@
                     "DSCongTrinhDonVi": []
                 },
                 "IDNeoGiu": "anchor_XuLyNuocThai_CongTrinhDonVi",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Nồng độ BOD<sub>5</sub> vào bể",
+                "KyHieu": "BOD<sub>5VaoBe</sub>",
+                "DonVi": "mg/L",
+                "ID": "input_xuLyNuocThai_HieuKhi_NongDoBOD5VaoBe",
+                "IDSection": "section_XuLyNuocThai_HieuKhi",
+                "CongTrinhDonVi": "hieuKhi",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Nồng độ BOD đầu vào bể sinh học hiếu khí",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
                 "TinhToan": {
                     "DieuKien": [],
                     "IDCongNghe": "",
@@ -14375,83 +15175,6 @@
                 "LoaiTieuDe": "loai2",
                 "HuongDanNhap": "",
                 "KieuNhap": "",
-                "TaoSoDo": {
-                    "TaoCongTrinh_DauVao": "",
-                    "_TaoCongTrinh": "",
-                    "TaoDuongVe_DauVao": "",
-                    "_TaoDuongVe": "",
-                    "TaoCongTrinh_DauRa": "",
-                    "TaoDuongVe_DauRa": "",
-                    "IDHienThi": "",
-                    "_DanhSachCongTrinh": "",
-                    "_DuLieuSoDo": "",
-                    "ChonCongTrinh": false,
-                    "DeXuat": {
-                        "IDPhuThuoc": [],
-                        "GiaTriPhuThuoc": [],
-                        "DuongDanCSDL": []
-                    },
-                    "DSCongTrinhDonVi": []
-                },
-                "IDNeoGiu": "",
-                "TinhToan": {
-                    "DieuKien": [],
-                    "IDCongNghe": "",
-                    "CongThuc": "",
-                    "KieuTinh": "",
-                    "DuLieu": {
-                        "IDPhuThuoc": [],
-                        "GiaTriPhuThuoc": [],
-                        "DuongDanCSDL": []
-                    },
-                    "LamTron": ""
-                }
-            },
-            {
-                "ThuTu": "",
-                "Ten": "- Nồng độ BOD<sub>5</sub> vào bể",
-                "KyHieu": "BOD<sub>5VaoBe</sub>",
-                "DonVi": "mg/L",
-                "ID": "input_xuLyNuocThai_HieuKhi_NongDoBOD5VaoBe",
-                "IDSection": "section_XuLyNuocThai_HieuKhi",
-                "CongTrinhDonVi": "hieuKhi",
-                "AnHien": {
-                    "IDPhuThuoc": [],
-                    "IDBox": "",
-                    "GiaTriPhuThuoc": [],
-                    "GiaTriThucHien": [],
-                    "MacDinh": true
-                },
-                "GoiY": {
-                    "IDGoiY": "",
-                    "GiaTriGoiY": ""
-                },
-                "ThongKe": {
-                    "TatCa": true,
-                    "RutGon": true,
-                    "TuyChon": false,
-                    "GhiChu": ""
-                },
-                "GhiChu": "Nồng độ BOD đầu vào bể sinh học hiếu khí",
-                "ChoPhepSuaLai": false,
-                "KhoaThaoTac": {
-                    "IDPhuThuoc": "",
-                    "GiaTriPhuThuoc": [],
-                    "GiaTriTuyChon": [],
-                    "MacDinh": false
-                },
-                "TraVeMacDinh": [],
-                "Kieu": "input",
-                "TuDongDienTruoc": {
-                    "IDPhuThuoc": [],
-                    "GiaTriPhuThuoc": [],
-                    "GiaTriDien": []
-                },
-                "ThuGon": false,
-                "DanhSachGiaTri": [],
-                "LoaiTieuDe": "loai2",
-                "HuongDanNhap": "",
-                "KieuNhap": "number",
                 "TaoSoDo": {
                     "TaoCongTrinh_DauVao": "",
                     "_TaoCongTrinh": "",
@@ -16336,7 +17059,7 @@
                         "GiaTriPhuThuoc": [],
                         "DuongDanCSDL": []
                     },
-                    "LamTron": ""
+                    "LamTron": "0"
                 }
             },
             {
@@ -17910,10 +18633,11 @@
                 "IDNeoGiu": "",
                 "TinhToan": {
                     "DieuKien": [
-                        "a=input_xuLyNuocThai_HieuKhi_LuongKhongKhiCungCap_M3Ngay"
+                        "a=input_xuLyNuocThai_HieuKhi_LuongKhongKhiCungCap_M3Ngay",
+                        "b=input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong"
                     ],
                     "IDCongNghe": "",
-                    "CongThuc": "a/(24*60)",
+                    "CongThuc": "a/(b*60)",
                     "KieuTinh": "",
                     "DuLieu": {
                         "IDPhuThuoc": [],
@@ -18919,7 +19643,7 @@
                         "GiaTriPhuThuoc": [],
                         "DuongDanCSDL": []
                     },
-                    "LamTron": "0"
+                    "LamTron": ""
                 }
             },
             {
@@ -20550,7 +21274,7 @@
                     "GiaTriPhuThuoc": [],
                     "GiaTriDien": []
                 },
-                "ThuGon": false,
+                "ThuGon": true,
                 "DanhSachGiaTri": [],
                 "LoaiTieuDe": "",
                 "HuongDanNhap": "",
@@ -20574,6 +21298,4045 @@
                     "DSCongTrinhDonVi": []
                 },
                 "IDNeoGiu": "anchor_XuLyNuocThai_CongTrinhDonVi",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng bùn hoàn lưu (nếu có)",
+                "KyHieu": "Q<sub>bunHoanLuu</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng bùn hoàn lưu từ bể lắng về sinh học (nếu có)",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Nồng độ MLSS trong nước thải chảy vào bể lắng",
+                "KyHieu": "C<sub>MLSS</sub>",
+                "DonVi": "mg/L",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_NongDoMLSSDauVao",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Nồng độ MLSS trong nước thải chảy vào bể lắng",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng bùn thải bỏ hằng ngày",
+                "KyHieu": "Q<sub>bunThai</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongBunThaiMoiNgay",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng bùn thải bỏ mỗi ngày cần xử lý",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "A. Thông số, kích thước",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "title_XuLyNuocThai_LangSinhHoc_ThongSoKichThuoc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": "Bể sinh học hiếu khí"
+                },
+                "GhiChu": "Thông số, kích thước cho bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "title",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai1",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Phương án tính toán",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Phương pháp tính toán",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "comboBox",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [
+                    "Dựa vào thời gian lưu",
+                    "Dựa trên thông số tham khảo"
+                ],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Thời gian lưu nước trong bể",
+                "KyHieu": "T<sub>luuLang</sub>",
+                "DonVi": "giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DuaTrenThoiGianLuu_ThoiGianLuuNuoc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "1"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thời gian lưu nước - nhập vào",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "2 - 4",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tải nạp nước bề mặt",
+                "KyHieu": "L<sub>taiNap</sub>",
+                "DonVi": "m<sup>3</sup>/m<sup>2</sup>*giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapNuoc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tải nạp nước bề mặt",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.68 - 2.72",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Diện tích bể lắng theo tải nạp bề mặt",
+                "KyHieu": "A<sub>taiNapBeMat</sub>",
+                "DonVi": "m<sup>2</sup>",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichTaiNapBM",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Diện tích theo tải nạp bề mặt",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongTong",
+                        "b=input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapNuoc",
+                        "c=input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/(b*c)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tải nạp chất rắn",
+                "KyHieu": "L<sub>taiNap</sub>",
+                "DonVi": "kg/m<sup>2</sup>*giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapChatRan",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tải nạp chất rắn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "4.17 - 6.25",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Diện tích bể lắng theo tải nạp chất rắn",
+                "KyHieu": "A<sub>taiNapRan</sub>",
+                "DonVi": "m<sup>2</sup>",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichTaiNapRan",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Diện tích theo tải nạp chất rắn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "c=input_XuLyNuocThai_LangSinhHoc_NongDoMLSSDauVao",
+                        "d=input_XuLyNuocThai_LangSinhHoc_ThongSo_TaiNapChatRan"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "((a+b)*c)/(d*1000)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Diện tích bề mặt lựa chọn",
+                "KyHieu": "A<sub>vungLang</sub>",
+                "DonVi": "m<sup>2</sup>",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichChon",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Diện tích bể lắng lựa chọn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "Chọn diện tích bề mặt vùng lắng bên trên (ưu tiên diện tích lớn nhất)",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ cao hữu ích",
+                "KyHieu": "H<sub>huuIch</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều cao hữu ích bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "2.4 - 4.6",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ cao lớp bùn lắng",
+                "KyHieu": "H<sub>bunLang</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoBunLang",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Độ cao lớp bùn lắng trong bể",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.5 - 1.5",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ cao bảo vệ",
+                "KyHieu": "H<sub>baoVe</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoBaoVe",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều cao bảo vệ chống tràn bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.3 - 0.6",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tổng độ cao",
+                "KyHieu": "H<sub>tong</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoTong",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Độ cao thực tế bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch",
+                        "b=input_XuLyNuocThai_LangSinhHoc_DoCaoBunLang",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DoCaoBaoVe"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a+b+c",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Thể tích hữu ích (phần lắng)",
+                "KyHieu": "V<sub>huuIch</sub>",
+                "DonVi": "m<sup>3</sup>",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thể tích hữu ích bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh",
+                        "b=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DuaTrenThoiGianLuu_ThoiGianLuuNuoc",
+                        "d=input_XuLyNuocThai_LangSinhHoc_ThongSo_DienTichChon",
+                        "e=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "dangHinhHoc",
+                    "DuLieu": {
+                        "IDPhuThuoc": [
+                            "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                        ],
+                        "GiaTriPhuThuoc": [
+                            [
+                                "1"
+                            ],
+                            [
+                                "2"
+                            ]
+                        ],
+                        "DuongDanCSDL": [
+                            "b*c",
+                            "d*e"
+                        ]
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Thể tích phần chứa bùn",
+                "KyHieu": "V<sub>chuaBun</sub>",
+                "DonVi": "m<sup>3</sup>",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TheTichChuaBun",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thể tích phần chứa bùn trong bể lắng",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_DoCaoBunLang",
+                        "b=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "(b/c)*a",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Thời gian lưu bùn (cô bùn)",
+                "KyHieu": "T<sub>luuBun</sub>",
+                "DonVi": "giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuuBun",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thời gian cô bùn cho bể lắng",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TheTichChuaBun",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "c=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunThaiMoiNgay"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/(b+c)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Thời gian lưu nước trong bể",
+                "KyHieu": "T<sub>luuLang</sub>",
+                "DonVi": "giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThongSo_ThoiGianLuuNuoc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thời gian lưu nước - kiểm tra đối với phương án tính trên số liệu tham khảo",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "b=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "c=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/(b+c)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tải nạp nước bề mặt",
+                "KyHieu": "L<sub>napNuoc</sub>",
+                "DonVi": "m<sup>3</sup>/m<sup>2</sup>*giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuu_TaiNapNuocBeMat",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "1"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Kiểm tra lại tải nạp nước cho bể với thời gian lưu đã chọn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "c=input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong",
+                        "d=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "e=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "((a*c+b*c)/(d/e))/c",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tải nạp chất rắn",
+                "KyHieu": "L<sub>napRan</sub>",
+                "DonVi": "kg/m<sup>2</sup>*giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ThoiGianLuu_TaiNapRan",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_PhuongAnTinh"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "1"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Kiểm tra tải nạp chất rắn ứng với thời gian lưu nước đã chọn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "c=input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong",
+                        "d=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "e=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch",
+                        "f=input_XuLyNuocThai_LangSinhHoc_NongDoMLSSDauVao"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "(((a*c+b*c)*f*0.001)/(d/e))/c",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "divCal_XuLyNuocThai_LangSinhHoc_TheTichVaHinhDanBe",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": false,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Phân chia thể tích và hình dạng bể lắng thứ cấp",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "divCal",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Dạng hình học",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Kiểu hình học mặc bằng",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "comboBox",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [
+                    "Hình chữ nhật",
+                    "Hình vuông",
+                    "Hình tròn"
+                ],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Chiều dài",
+                "KyHieu": "L<sub>langSH</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhChuNhat",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "1"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều dài - dạng chữ nhật - lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Chiều rộng",
+                "KyHieu": "W<sub>langSH</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuRong_HinhChuNhat",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "1"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều rộng - dạng chữ nhật - lắng sinh học",
+                "ChoPhepSuaLai": true,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "L : W = 4 : 1",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhChuNhat",
+                        "b=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "b/(c*a)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Chiều dài",
+                "KyHieu": "L<sub>langSH</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhVuong",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều dài - dạng hình vuông - lắng sinh học",
+                "ChoPhepSuaLai": true,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "b=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "Math.sqrt(a/b)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Chiều rộng",
+                "KyHieu": "W<sub>langSH</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ChieuRong_HinhVuong",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Chiều rộng - dạng hình vuông - lắng sinh học",
+                "ChoPhepSuaLai": true,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "b=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "Math.sqrt(a/b)",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Đường kính",
+                "KyHieu": "D<sub>langSH</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DuongKinh_HinhTron",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Đường kính - dạng hình tròn - lắng sinh học",
+                "ChoPhepSuaLai": true,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TheTichHuuIch",
+                        "b=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "Math.sqrt((4/Math.PI)*(a/b))",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tỉ lệ đường kính ống phân phối nước và đường kính (hay độ dài cạnh) của bể",
+                "KyHieu": "r<sub>ongPP</sub>",
+                "DonVi": "%",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TiLeDuongKinhOngPP",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ],
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tỉ lệ % giữa đường kính (độ dài cạnh đối với hình vuông) với đường kính ống phân phối nước trung tâm",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "15 - 20",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Đường kính ống phân phối nước",
+                "KyHieu": "D<sub>ongPP</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DuongKinhOngPP",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ],
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Đường kính ống phân phối nước trung tâm",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe",
+                        "b=input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhVuong",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DuongKinh_HinhTron",
+                        "d=input_XuLyNuocThai_LangSinhHoc_TiLeDuongKinhOngPP"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "dangHinhHoc",
+                    "DuLieu": {
+                        "IDPhuThuoc": [
+                            "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                        ],
+                        "GiaTriPhuThuoc": [
+                            [
+                                "2"
+                            ],
+                            [
+                                "3"
+                            ]
+                        ],
+                        "DuongDanCSDL": [
+                            "b*d*0.01",
+                            "c*d*0.01"
+                        ]
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tỉ lệ độ sâu ngập nước của ống phân phối nước và độ cao hữu ích",
+                "KyHieu": "r<sub>caoOngPP</sub>",
+                "DonVi": "%",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TiLeDoSauOngPP",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ],
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tỉ lệ độ cao hữu ích và độ sâu ngập nước ống phân phối nước",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "55 - 65",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ cao phần ngôi lên mặt nước của ống phân phối",
+                "KyHieu": "h<sub>ngoiMatNuoc</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoCaoNgoiLenMatNuocOngPP",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ],
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Độ cao phân ngôi lên mặt nước của ống phân phối nước trung tâm",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.3 - 0.6",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tổng độ cao ống phân phối nước",
+                "KyHieu": "H<sub>caoOngPP</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TongDoCaoOngPP",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "2"
+                        ],
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tổng độ cao của ống phân phối nước trung tâm",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_DoCaoHuuIch",
+                        "b=input_XuLyNuocThai_LangSinhHoc_TiLeDoSauOngPP",
+                        "c=input_XuLyNuocThai_LangSinhHoc_DoCaoNgoiLenMatNuocOngPP"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "(a*b*0.01)+c",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "divCal_XuLyNuocThai_LangSinhHoc_KichThuocVaTaiNapDapTran",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": false,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Phân chia kích thước và tải nạp nước qua đập tràn răng cưa",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "divCal",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Vị trí của răng cưa (máng tràn)",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "comboBox_XuLyNuocThai_LangSinhHoc_ViTriCuaRangCuaMangTran",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Vị trí của răng cưa của máng tràn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "comboBox",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [
+                    "Máng bên ngoài - răng trên thành bể",
+                    "Máng bên trong - răng cách thành một khoảng độ rộng",
+                    "Máng bên trong - răng về hai phía máng tràn"
+                ],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Răng phía trong cách tâm bể một khoảng với tỉ lệ",
+                "KyHieu": "r<sub>datMang</sub>",
+                "DonVi": "%",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_ViTriCachTam",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "comboBox_XuLyNuocThai_LangSinhHoc_ViTriCuaRangCuaMangTran"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "3"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Vị trí đặt máng tràn răng cưa so với tâm bể - máng tràn tính từ răng phía trong cùng",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "60 - 80",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ rộng máng thu nước",
+                "KyHieu": "W<sub>mangThu</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoRongMangThu",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Độ rộng máng thu nước răng cưa cần có",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.3 - 0.5",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Độ dài máng thu nước răng cưa",
+                "KyHieu": "L<sub>mangThu</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_DoDaiMangThuNuoc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Độ dài máng thu nước răng cưa",
+                "ChoPhepSuaLai": true,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe",
+                        "b=comboBox_XuLyNuocThai_LangSinhHoc_ViTriCuaRangCuaMangTran",
+                        "c=input_XuLyNuocThai_LangSinhHoc_ChieuRong_HinhChuNhat",
+                        "d=input_XuLyNuocThai_LangSinhHoc_ChieuDai_HinhVuong",
+                        "e=input_XuLyNuocThai_LangSinhHoc_DoRongMangThu",
+                        "f=input_XuLyNuocThai_LangSinhHoc_ViTriCachTam",
+                        "g=input_XuLyNuocThai_LangSinhHoc_DuongKinh_HinhTron"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "dangHinhHoc",
+                    "DuLieu": {
+                        "IDPhuThuoc": [
+                            "comboBox_XuLyNuocThai_LangSinhHoc_HinhDangBe",
+                            "comboBox_XuLyNuocThai_LangSinhHoc_ViTriCuaRangCuaMangTran"
+                        ],
+                        "GiaTriPhuThuoc": [
+                            [
+                                "1",
+                                "1"
+                            ],
+                            [
+                                "1",
+                                "2"
+                            ],
+                            [
+                                "1",
+                                "3"
+                            ],
+                            [
+                                "2",
+                                "1"
+                            ],
+                            [
+                                "2",
+                                "2"
+                            ],
+                            [
+                                "2",
+                                "3"
+                            ],
+                            [
+                                "3",
+                                "1"
+                            ],
+                            [
+                                "3",
+                                "2"
+                            ],
+                            [
+                                "3",
+                                "3"
+                            ]
+                        ],
+                        "DuongDanCSDL": [
+                            "c",
+                            "c",
+                            "c*2",
+                            "d*4",
+                            "4*(d-(2*e))",
+                            "(f*0.01*d*4)+(((f*0.01*d)+(2*e))*4)",
+                            "Math.PI*g",
+                            "Math.PI*(g-(2*e))",
+                            "(f*0.01*g*Math.PI)+(((f*0.01*g)+(2*e))*Math.PI)"
+                        ]
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Tải trọng máng tràn",
+                "KyHieu": "L<sub>mangTran</sub>",
+                "DonVi": "m<sup>3</sup>/m*ngày",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TaiTrongMangTranRangCua",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Tải trọng thuỷ lực qua máng tràn răng cưa",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_xuLyNuocThai_ThongSoTinhToan_LuuLuongXuLyGio",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "c=input_xuLyNuocThai_ThongSoTinhToan_ThoiGianHoatDongHeThong",
+                        "d=input_XuLyNuocThai_LangSinhHoc_DoDaiMangThuNuoc"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "(c*(a+b))/d",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "B. Máy móc, thiết bị",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "title_XuLyNuocThai_LangSinhHoc_MayMocThietBi",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": false,
+                    "TuyChon": false,
+                    "GhiChu": "Bể sinh học hiếu khí"
+                },
+                "GhiChu": "Tính toán máy móc, thiết bị cho bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "title",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai1",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "Bơm bùn hoàn lưu và thải bỏ",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Sử dụng bơm bùn hoàn lưu và thải bỏ bùn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "switch",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng bùn cần bơm mỗi ngày (hoàn lưu và thải bỏ)",
+                "KyHieu": "Q<sub>bun</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TongLuuLuongBomBunMoiNgay",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng bùn cần bơm mỗi ngày của thiết bị",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunHoanLuu",
+                        "b=input_XuLyNuocThai_LangSinhHoc_LuuLuongBunThaiMoiNgay"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a+b",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Số lượng bơm bùn thiết kế",
+                "KyHieu": "N<sub>bom</sub>",
+                "DonVi": "máy",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_SoLuongBomBunTK",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Số lượng bơm bùn thiết kế ứng với lưu lượng tính toán",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "Không bao gồm bơm bùn dự phòng",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Lưu lượng mỗi máy bơm bùn",
+                "KyHieu": "Q<sub>bomBun</sub>",
+                "DonVi": "m<sup>3</sup>/giờ",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_LuuLuongMoiMayBomBun",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng mỗi máy bơm bùn cần có thiết kế",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_TongLuuLuongBomBunMoiNgay",
+                        "b=input_XuLyNuocThai_LangSinhHoc_SoLuongBomBunTK"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/b",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "",
+                "KyHieu": "Q<sub>bomBun</sub>",
+                "DonVi": "m<sup>3</sup>/phút",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_TongLuuLuongBomBunMoiNgay_M3Phut",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Lưu lượng bùn cần bơm mỗi ngày của thiết bị - mét khối trên phút",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": true
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [
+                        "a=input_XuLyNuocThai_LangSinhHoc_LuuLuongMoiMayBomBun"
+                    ],
+                    "IDCongNghe": "",
+                    "CongThuc": "a/60",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Cột áp bơm bùn",
+                "KyHieu": "H<sub>apBom</sub>",
+                "DonVi": "m",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_CotApBomBun",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_BomBunHoanLuuVaThai"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Cột áp bơm bùn của bể lắng sinh học",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "8 - 10",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "Thiết bị gạt bùn cơ giới",
+                "KyHieu": "",
+                "DonVi": "",
+                "ID": "switch_XuLyNuocThai_LangSinhHoc_ThietBiGatBunCoGioi",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "",
+                "AnHien": {
+                    "IDPhuThuoc": [],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriThucHien": [],
+                    "MacDinh": true
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Thiết bị gạt bùn cơ giới cào bùn vào hố thu",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "switch",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "",
+                "HuongDanNhap": "",
+                "KieuNhap": "",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
+                "TinhToan": {
+                    "DieuKien": [],
+                    "IDCongNghe": "",
+                    "CongThuc": "",
+                    "KieuTinh": "",
+                    "DuLieu": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "LamTron": ""
+                }
+            },
+            {
+                "ThuTu": "",
+                "Ten": "- Vận tốc motor giảm tốc cào bùn",
+                "KyHieu": "v<sub>motorGiamToc</sub>",
+                "DonVi": "vòng/phút",
+                "ID": "input_XuLyNuocThai_LangSinhHoc_VanTocMotorGiamToc",
+                "IDSection": "section_XuLyNuocThai_LangSinhHoc",
+                "CongTrinhDonVi": "langSinhHoc",
+                "AnHien": {
+                    "IDPhuThuoc": [
+                        "switch_XuLyNuocThai_LangSinhHoc_ThietBiGatBunCoGioi"
+                    ],
+                    "IDBox": "",
+                    "GiaTriPhuThuoc": [
+                        [
+                            "true"
+                        ]
+                    ],
+                    "GiaTriThucHien": [],
+                    "MacDinh": false
+                },
+                "GoiY": {
+                    "IDGoiY": "",
+                    "GiaTriGoiY": ""
+                },
+                "ThongKe": {
+                    "TatCa": true,
+                    "RutGon": true,
+                    "TuyChon": false,
+                    "GhiChu": ""
+                },
+                "GhiChu": "Vận tốc thiết bị cào bùn",
+                "ChoPhepSuaLai": false,
+                "KhoaThaoTac": {
+                    "IDPhuThuoc": "",
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriTuyChon": [],
+                    "MacDinh": false
+                },
+                "TraVeMacDinh": [],
+                "Kieu": "input",
+                "TuDongDienTruoc": {
+                    "IDPhuThuoc": [],
+                    "GiaTriPhuThuoc": [],
+                    "GiaTriDien": []
+                },
+                "ThuGon": false,
+                "DanhSachGiaTri": [],
+                "LoaiTieuDe": "loai2",
+                "HuongDanNhap": "0.02 - 0.05",
+                "KieuNhap": "number",
+                "TaoSoDo": {
+                    "TaoCongTrinh_DauVao": "",
+                    "_TaoCongTrinh": "",
+                    "TaoDuongVe_DauVao": "",
+                    "_TaoDuongVe": "",
+                    "TaoCongTrinh_DauRa": "",
+                    "TaoDuongVe_DauRa": "",
+                    "IDHienThi": "",
+                    "_DanhSachCongTrinh": "",
+                    "_DuLieuSoDo": "",
+                    "ChonCongTrinh": false,
+                    "DeXuat": {
+                        "IDPhuThuoc": [],
+                        "GiaTriPhuThuoc": [],
+                        "DuongDanCSDL": []
+                    },
+                    "DSCongTrinhDonVi": []
+                },
+                "IDNeoGiu": "",
                 "TinhToan": {
                     "DieuKien": [],
                     "IDCongNghe": "",
