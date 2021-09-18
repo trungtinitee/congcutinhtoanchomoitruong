@@ -1787,7 +1787,7 @@ function TaoDoiTuongChoWebsite() {
     let taoDiv = document.createElement("div");
     taoDiv.className = "div-calculate";
     taoDiv.id = idDoiTuong;
-    taoDiv.innerHTML = "<i class=\"fas fa-equals\"></i>";
+    taoDiv.innerHTML = "<i class=\"fas fa-bolt\"></i>";
     taoKhung.appendChild(taoDiv);
 
     //* Nối vào đỐi tượng chính
@@ -2043,13 +2043,13 @@ function TuDongTinhToanTrenDoiTuong() {
       //* Lấy trạng thái ẩn hiện
       trangThaiHienTai = document.getElementById(idHienTai.replace(kieuDoiTuong, "box")).style.display;
 
-      //? Kiểu là comboBox
+      //? Kiểu là comboBox + chưa seclect + đang hiện
       if (kieuDoiTuong === "comboBox" && giaTriHienTai === 0 && trangThaiHienTai === "block") {
         kiemTra = false;
         break;
       }
 
-      //? Kiểu là input
+      //? Kiểu là input + giá trị rỗng + đang hiển thị
       if (kieuDoiTuong === "input" && giaTriHienTai === "" && trangThaiHienTai === "block") {
         kiemTra = false;
         break;
@@ -3942,3 +3942,5 @@ document.getElementById("btn_NhapLieu").addEventListener("click", function () {
 });
 
 //!-----------------------------------------------------------------VI. TEST CODE--------------------------------------------------------------------------------------------------------------
+
+

@@ -400,7 +400,7 @@ body {
 
 .div-calculate > i {
     position: absolute;
-    top: -10px;
+    top: 0px;
     color: #0d6efd;
     font-size: 1.2rem;
 }
